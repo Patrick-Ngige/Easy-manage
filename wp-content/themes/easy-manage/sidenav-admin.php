@@ -18,12 +18,12 @@
                     style="width:2.5rem;height:2.5rem;" /> Trainees</a>
         </div>
         <div class="side-menu">
-            <a href="#customers" style=" display: block; padding: 16px; text-decoration: none; color:#FAFAFA;"><img
+            <a href="http://localhost/easy-manage/create-program-manager/" style=" display: block; padding: 16px; text-decoration: none; color:#FAFAFA;"><img
                     src='http://localhost/easy-manage/wp-content/uploads/2023/06/create.png'
                     style="width:2.5rem;height:2.5rem;" /> Create PM</a>
         </div>
         <div class="side-menu">
-            <a href="#products" style=" display: block; padding: 16px; text-decoration: none; color:#FAFAFA"><img
+            <a href="http://localhost/easy-manage/admin-deactivate-table/" style=" display: block; padding: 16px; text-decoration: none; color:#FAFAFA"><img
                     src='http://localhost/easy-manage/wp-content/uploads/2023/06/turn-off.png'
                     style="width:2.5rem;height:2.5rem;" /> Deactivated</a>
         </div>
