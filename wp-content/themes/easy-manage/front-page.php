@@ -39,13 +39,14 @@ $error_message = '';
             <?php
             $currentTime = date('H:i:s');
             $hour = (int) date('H');
+            $message = "Welcome to Easy-Manage!";
 
             if ($hour < 12) {
-                $salutation = 'Good morning!';
+                $salutation = 'Good morning! <br>' . $message;
             } elseif ($hour < 18) {
-                $salutation = 'Good afternoon! <br> Welcome to Easy-Manage!';
+                $salutation = 'Good afternoon! <br>' . $message;
             } else {
-                $salutation = 'Good evening! <br> Welcome to Easy-Manage!';
+                $salutation = 'Good evening! <br>' . $message;
             }
 
             echo $salutation;
@@ -79,5 +80,3 @@ $error_message = '';
         </div>
     </div>
 </div>
-
-<?php get_footer(); ?>
