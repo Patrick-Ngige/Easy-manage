@@ -9,7 +9,7 @@ class Init{
     public static function get_services(){
         return [
           
-            Pages\ShortCodes::class,
+            // Pages\ShortCodes::class,
             // Pages\CreateTable::class,
             // Pages\UserRoles::class
         ];

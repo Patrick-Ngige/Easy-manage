@@ -14,26 +14,10 @@
 
 </head>
 
-<body style="background-color:#E3E3EE;height:80vh;overflow-y:hidden">
+<body style="background-color:#E3E3EE;height:80vh;overflow-y:hidden;display:flex;margin-top:0rem">
 
-    <div style="display:flex;margin-top:-1.99rem">
-        <?php
-        if (is_user_logged_in()) {
-            if (current_user_can('administrator')) {
-                get_template_part('sidenav-admin');
-            } elseif (current_user_can('editor')) {
-                get_template_part('sidenav-pm');
-            } elseif (current_user_can('subscriber')) {
-                get_template_part('sidenav-trainer');
-            } elseif (current_user_can('subscriber')) {
-                get_template_part('sidenav-trainee');
-            }
-        }
-        ?>
-
-        <div style="display:flex;flex-direction:column;width:100%;" >
-            <div class=" "
-                style="width:100%;height:10vh;display: flex; justify-content: space-between; align-items: center; background-color: #FAFAFA; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; border-radius: 5px; padding: 0px 20px 0px 20px; ">
+        <div style="display:flex;flex-direction:column;width:80vw;">
+            <div style="width:100%;height:10vh;margin-left:20vw;display: flex; justify-content: space-between; align-items: center; background-color: #FAFAFA; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; border-radius: 5px; padding: 0px 20px 0px 20px; ">
                 <div>
                     <h5>Dashboard</h5>
                 </div>
@@ -52,15 +36,10 @@
                     ?>
                 </div>
                 <div>
-                    <h6 style="color:red"> <img src='http://localhost/easy-manage/wp-content/uploads/2023/06/logout.png'
-                            style="width:1rem;height:1rem;" /> Logout</h6>
+                    <a href="<?php echo wp_logout_url(home_url()); ?>" style="color:red;text-decoration:none;font-weight:600"> <img
+                            src='http://localhost/easy-manage/wp-content/uploads/2023/06/logout.png'
+                            style="width:1rem;height:1rem;" /> Logout</a>
+
                 </div>
 
             </div> <br>
-
-            <!-- accessing the specific theme  -->
-
-            
-        </div>
-
-    </div>

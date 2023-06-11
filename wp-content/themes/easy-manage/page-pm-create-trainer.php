@@ -1,52 +1,108 @@
-<?php get_header(); 
+<?php
+get_header();
 
 /**
  * Template Name: PM Create Trainer
  * 
  */
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $errors = array();
+
+    // Validate fields
+    if (empty($_POST['pm-name'])) {
+        $errors[] = 'Username is required';
+    }
+
+    if (empty($_POST['pm-email'])) {
+        $errors[] = 'Email is required';
+    }
+
+    // If there are no errors, process the form
+    if (empty($errors)) {
+        // Process the form data here
+        // ...
+
+        // Redirect to another page after processing the form
+        header('Location: /success-page');
+        exit;
+    }
+}
 ?>
 
-<div class="admin-dashboard" style="width:80vw;height:85vh;">
-    <div style="padding:1rem;">
-        <table class="table align-middle mb-0 bg-white table-hover"
-            style="width:90%;margin-left:5%;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;margin-top:3%;">
-            <thead class="bg-light">
-                <tr style="font-size:large">
-                    <th>Program Managers</th>
-                    <th>Role</th>
-                    <th>Status</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <div class="d-flex align-items-center">
-                            <div class="ms-3">
-                                <p class="fw-bold mb-1">Jon Doe
-                                </p>
+<div style="width:100vw;height:90vh;display:flex;flex-direction:row;margin-top:-2.45rem">
+
+    <div class="page-trainee-dashboard" style="margin-top:-1.99rem;width:20vw">
+        <?php get_template_part('sidenav-pm'); ?>
+    </div>
+
+    <div style="height:80vh;margin-left:15rem ">
+        <div class="container py-5 ">
+            <div class="row d-flex justify-content-center align-items-center ">
+                <div class="col col-xl-10" style="width:40vw;">
+                    <div class="card" style="border-radius: 1rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);">
+                        <div class="row g-0 w-100 d-flex justify-content-center align-items-center w-50 "
+                            style="width:40vw;">
+                            <div class="row g-0 w-100 d-flex justify-content-center align-items-center w-50 "
+                                style="width:40vw;">
+                                <div class="col-md-6 col-lg-7 d-flex justify-content-center align-items-center  ms-8"
+                                    style="height:80vh; width:40vw; ">
+                                    <div class="card-body p-4 p-lg-5 text-black">
+
+                                        <form action="" method="POST" style="font-size:16px">
+
+                                            <h2 class="fw-bold d-flex align-items-end d-flex justify-content-center align-items-center"
+                                                style="color:#315B87">
+                                                Create Trainer</h2>
+
+                                            <div class="form-outline mb-3">
+                                                <label class="form-label" for="form2Example27" style="font-weight:600;">Username:</label>
+                                                <input type="text" id="form2Example27" class="form-control form-control-md"
+                                                    placeholder="Enter project task" name="pm-name"
+                                                    value="<?php echo isset($_POST['pm-name']) ? $_POST['pm-name'] : ''; ?>" />
+                                                <?php if (isset($errors) && in_array('Username is required', $errors)) {
+                                                    echo '<p class="text-danger">Username is required</p>';
+                                                } ?>
+                                            </div>
+
+                                            <div class="form-outline mb-3">
+                                                <label class="form-label" for="form2Example27" style="font-weight:600;">Email:</label>
+                                                <input type="email" id="form2Example27" class="form-control form-control-md"
+                                                    placeholder="Enter project task" name="pm-email"
+                                                    value="<?php echo isset($_POST['pm-email']) ? $_POST['pm-email'] : ''; ?>" />
+                                                <?php if (isset($errors) && in_array('Email is required', $errors)) {
+                                                    echo '<p class="text-danger">Email is required</p>';
+                                                } ?>
+                                            </div>
+
+                                            <div>
+                                                <label>Role:</label><br>
+
+                                                <select class="form-select" aria-label="Default select example"
+                                                    name="trainee-role" style="font-weight:600;">
+                                                    <option value="">Select a role</option>
+                                                    <option value="Jon Doe" <?php echo isset($_POST['trainee-role']) && $_POST['trainee-role'] === 'Jon Doe' ? 'selected' : ''; ?>>Jon Doe</option>
+                                                    <option value="Jon Doe" <?php echo isset($_POST['trainee-role']) && $_POST['trainee-role'] === 'Jon Doe' ? 'selected' : ''; ?>>Jon Doe</option>
+                                                    <option value="Jon Doe" <?php echo isset($_POST['trainee-role']) && $_POST['trainee-role'] === 'Jon Doe' ? 'selected' : ''; ?>>Jon Doe</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="pt-1 w-100 d-flex justify-content-center align-items-center">
+                                                <button class="btn btn-lg btn-block w-50 "
+                                                    style="background-color:#315B87 ;color:#FAFAFA" type="submit"
+                                                    name="createbtn">Create</button>
+                                            </div>
+                                        </form>
+
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </td>
-                    <td>
-                        <p class="fw-normal mb-1">Program Manager</p>
-                    </td>
-                    <td>
-                        <p class="fw-normal mb-1">Active</p>
-                    </td>
-                    <td>
-                        <form method="POST">
-                            <a href="#"
-                                style="background-color: #006b0c;color:white; border-radius:3px;text-decoration:none;padding:6px;border: #006b0c;border-radius:3px;">Update</a>
-                            <input type="hidden" name="employee_id" value="" />
-                            <button type="submit" name="delete" value=""
-                                style="background-color: #fd434c;color:white; border-radius:3px;padding:5px;border:none;"
-                                onclick="">Delete</button>
-                        </form>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+
+<?php get_footer(); ?>

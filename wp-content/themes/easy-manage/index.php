@@ -10,3 +10,5 @@ if ( have_posts() ):
 endwhile;
 endif;
 ?> 
+
+<?php get_footer(); ?>
