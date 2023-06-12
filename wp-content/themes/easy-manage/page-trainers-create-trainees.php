@@ -79,7 +79,17 @@
 
                                             <div class="form-outline mb-3">
                                                 <label class="form-label" for="form2Example27"
-                                                    style="font-weight:600;">Email</label>
+                                                    style="font-weight:600;">Email:</label>
+                                                <input type="email" id="form2Example27"
+                                                    class="form-control form-control-md"
+                                                    placeholder="Enter project task" name="pm-email"
+                                                    value="<?php echo isset($_POST['pm-email']) ? $_POST['pm-email'] : ''; ?>"
+                                                    required />
+                                            </div>
+
+                                            <div class="form-outline mb-3">
+                                                <label class="form-label" for="form2Example27"
+                                                    style="font-weight:600;">Project:</label>
                                                 <input type="email" id="form2Example27"
                                                     class="form-control form-control-md"
                                                     placeholder="Enter project task" name="pm-email"
@@ -88,14 +98,14 @@
                                             </div>
 
                                             <div>
-                                                <label>Role: </label><br>
-
+                                            <label class="form-label" for="form2Example27"
+                                                    style="font-weight:600;">Role:</label>
                                                 <select class="form-select" aria-label="Default select example"
                                                     name="pm-role" style="font-weight:600;">
-                                                    <option selected>Jon Doe</option>
-                                                    <option selected>Jon Doe</option>
-                                                    <option selected>Jon Doe</option>
-                                                    <option selected>Jon Doe</option>
+                                                    <option selected></option>
+                                                    <option >Trainee</option>
+                                                    <option >Trainee</option>
+                                                    <option >Trainee</option>
 
 
                                                 </select>

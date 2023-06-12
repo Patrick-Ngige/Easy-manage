@@ -42,8 +42,8 @@
                 style="width:90%;margin-left:5%;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;margin-top:3%;">
                 <thead class="bg-light">
                     <tr style="font-size:large;color:#315B87;padding-left:2rem">
-                        <th>Program Managers</th>
-                        <th>Email</th>
+                        <th>Trainee</th>
+                        <th>Project</th>
                         <th>Status</th>
                         <th>Actions</th>
                     </tr>
@@ -53,7 +53,7 @@
                         <td>
                             <div class="d-flex align-items-center">
                                 <div class="ms-3">
-                                    <p class="fw-bold mb-1">Jon Doe
+                                    <p class="fw-normal mb-1">Jon Doe
                                     </p>
                                 </div>
                             </div>
@@ -66,7 +66,7 @@
                         </td>
                         <td>
                             <form method="POST">
-                                <a href="#" style="padding:6px"><img
+                                <a href="http://localhost/easy-manage/update-trainee/" style="padding:6px"><img
                                         src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png"
                                         style="width:25px;" alt=""></a> &nbsp;&nbsp;
                                 <input type="hidden" name="employee_id" value="">
@@ -94,7 +94,7 @@
                         </td>
                         <td>
                             <form method="POST">
-                                <a href="#" style="padding:6px"><img
+                                <a href="http://localhost/easy-manage/update-trainee/" style="padding:6px"><img
                                         src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png"
                                         style="width:25px;" alt=""></a> &nbsp;&nbsp;
                                 <input type="hidden" name="employee_id" value="">
@@ -122,7 +122,7 @@
                         </td>
                         <td>
                             <form method="POST">
-                                <a href="#" style="padding:6px"><img
+                                <a href="http://localhost/easy-manage/update-trainee/" style="padding:6px"><img
                                         src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png"
                                         style="width:25px;" alt=""></a> &nbsp;&nbsp;
                                 <input type="hidden" name="employee_id" value="">
@@ -150,7 +150,7 @@
                         </td>
                         <td>
                             <form method="POST">
-                                <a href="#" style="padding:6px"><img
+                                <a href="http://localhost/easy-manage/update-trainee/" style="padding:6px"><img
                                         src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png"
                                         style="width:25px;" alt=""></a> &nbsp;&nbsp;
                                 <input type="hidden" name="employee_id" value="">
@@ -178,7 +178,7 @@
                         </td>
                         <td>
                             <form method="POST">
-                                <a href="#" style="padding:6px"><img
+                                <a href="http://localhost/easy-manage/update-trainee/" style="padding:6px"><img
                                         src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png"
                                         style="width:25px;" alt=""></a> &nbsp;&nbsp;
                                 <input type="hidden" name="employee_id" value="">

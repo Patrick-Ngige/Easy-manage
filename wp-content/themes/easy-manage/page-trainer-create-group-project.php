@@ -65,22 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
                 <label class="form-check-label" for="flexCheckDefault">Jon Doe</label>
             </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                <label class="form-check-label" for="flexCheckDefault">Jon Doe</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                <label class="form-check-label" for="flexCheckDefault">Jon Doe</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                <label class="form-check-label" for="flexCheckDefault">Jon Doe</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                <label class="form-check-label" for="flexCheckDefault">Jon Doe</label>
-            </div>
+    
             <div style="position:relative;background-color:#FAFAFA">
                 <input type="checkbox" class="btn-check" id="btn-check" autocomplete="off" />
                 <label class="btn " style="background-color:#315B87;color:#FAFAFA" for="btn-check">Select</label>
@@ -119,16 +104,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                                                 <div class="form-outline mb-3">
                                                     <label class="form-label" for="form2Example27"
-                                                        style="font-weight:600;">Username:</label>
-                                                    <input type="text" id="form2Example27"
+                                                        style="font-weight:600;">Group Members:</label>
+                                                    <input type="text" id="form2Example27" readonly
                                                         class="form-control form-control-md"
-                                                        placeholder="Enter project task" name="pm-name" required
+                                                        placeholder="group names" name="pm-name" required
                                                         value="<?php echo isset($_POST['pm-name']) ? $_POST['pm-name'] : ''; ?>" />
                                                 </div>
 
                                                 <div class="form-outline mb-3">
                                                     <label class="form-label" for="form2Example27"
-                                                        style="font-weight:600;">Email</label>
+                                                        style="font-weight:600;">Project:</label>
                                                     <input type="email" id="form2Example27"
                                                         class="form-control form-control-md"
                                                         placeholder="Enter project task" name="pm-email" required
@@ -136,15 +121,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                 </div>
 
                                                 <div>
-                                                    <label>Role: </label><br>
+                                                <label class="form-label" for="form2Example27"
+                                                        style="font-weight:600;">Due Date:</label>
 
-                                                    <select class="form-select" aria-label="Default select example"
-                                                        name="pm-role" style="font-weight:600;">
-                                                        <option ></option>
-                                                        <option >Jon Doe</option>
-                                                        <option >Jon Doe</option>
-                                                        <option >Jon Doe</option>
-                                                    </select>
 
                                                 </div>
 

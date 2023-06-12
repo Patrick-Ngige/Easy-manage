@@ -18,10 +18,10 @@
             style="width:90%;margin-left:5%;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;margin-top:3%;">
             <thead class="bg-light">
             <tr style="font-size:large;color:#315B87;padding-left:2rem">
-                    <th>Trainees</th>
-                    <th>Emails</th>
+                    <th>Trainee</th>
                     <th>Project</th>
-                    <th>Actions</th>
+                    <th>Status</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -35,19 +35,15 @@
                         </div>
                     </td>
                     <td>
-                        <p class="fw-normal mb-1">jon@yahoo.org</p>
+                        <p class="fw-normal mb-1">Easy Manage website</p>
                     </td>
                     <td>
-                        <p class="fw-normal mb-1">Active</p>
+                        <p class="fw-normal mb-1">inactive</p>
                     </td>
                     <td>
                     <form method="POST" >
                             <a href="#"
-                                style="padding:6px"><img src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png" style="width:25px;" alt=""></a> &nbsp;&nbsp;
-                            <input type="hidden" name="employee_id" value=""  >
-                            <button type="submit" name="delete" value=""
-                                style="padding:5px;border:none;background-color:#FAFAFA"
-                                onclick=""> <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/delete.png" style="width:25px" alt=""></button>
+                                style="padding:6px"><img src="http://localhost/easy-manage/wp-content/uploads/2023/06/reuse.png" style="width:40px;" alt=""></a>                            
                         </form>
                     </td>
                 </tr>
@@ -61,19 +57,15 @@
                         </div>
                     </td>
                     <td>
-                        <p class="fw-normal mb-1">jon@yahoo.org</p>
+                        <p class="fw-normal mb-1">Easy Manage website</p>
                     </td>
                     <td>
-                        <p class="fw-normal mb-1">Active</p>
+                        <p class="fw-normal mb-1">inactive</p>
                     </td>
                     <td>
                     <form method="POST" >
                             <a href="#"
-                                style="padding:6px"><img src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png" style="width:25px;" alt=""></a> &nbsp;&nbsp;
-                            <input type="hidden" name="employee_id" value=""  >
-                            <button type="submit" name="delete" value=""
-                                style="padding:5px;border:none;background-color:#FAFAFA"
-                                onclick=""> <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/delete.png" style="width:25px" alt=""></button>
+                                style="padding:6px"><img src="http://localhost/easy-manage/wp-content/uploads/2023/06/reuse.png" style="width:40px;" alt=""></a>                            
                         </form>
                     </td>
                 </tr>
@@ -87,19 +79,15 @@
                         </div>
                     </td>
                     <td>
-                        <p class="fw-normal mb-1">jon@yahoo.org</p>
+                        <p class="fw-normal mb-1">Easy Manage website</p>
                     </td>
                     <td>
-                        <p class="fw-normal mb-1">Active</p>
+                        <p class="fw-normal mb-1">inactive</p>
                     </td>
                     <td>
                     <form method="POST" >
                             <a href="#"
-                                style="padding:6px"><img src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png" style="width:25px;" alt=""></a> &nbsp;&nbsp;
-                            <input type="hidden" name="employee_id" value=""  >
-                            <button type="submit" name="delete" value=""
-                                style="padding:5px;border:none;background-color:#FAFAFA"
-                                onclick=""> <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/delete.png" style="width:25px" alt=""></button>
+                                style="padding:6px"><img src="http://localhost/easy-manage/wp-content/uploads/2023/06/reuse.png" style="width:40px;" alt=""></a>                            
                         </form>
                     </td>
                 </tr>
@@ -113,19 +101,15 @@
                         </div>
                     </td>
                     <td>
-                        <p class="fw-normal mb-1">jon@yahoo.org</p>
+                        <p class="fw-normal mb-1">Easy Manage website</p>
                     </td>
                     <td>
-                        <p class="fw-normal mb-1">Active</p>
+                        <p class="fw-normal mb-1">inactive</p>
                     </td>
                     <td>
                     <form method="POST" >
                             <a href="#"
-                                style="padding:6px"><img src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png" style="width:25px;" alt=""></a> &nbsp;&nbsp;
-                            <input type="hidden" name="employee_id" value=""  >
-                            <button type="submit" name="delete" value=""
-                                style="padding:5px;border:none;background-color:#FAFAFA"
-                                onclick=""> <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/delete.png" style="width:25px" alt=""></button>
+                                style="padding:6px"><img src="http://localhost/easy-manage/wp-content/uploads/2023/06/reuse.png" style="width:40px;" alt=""></a>                            
                         </form>
                     </td>
                 </tr>
@@ -139,19 +123,15 @@
                         </div>
                     </td>
                     <td>
-                        <p class="fw-normal mb-1">jon@yahoo.org</p>
+                        <p class="fw-normal mb-1">Easy Manage website</p>
                     </td>
                     <td>
-                        <p class="fw-normal mb-1">Active</p>
+                        <p class="fw-normal mb-1">inactive</p>
                     </td>
                     <td>
                     <form method="POST" >
                             <a href="#"
-                                style="padding:6px"><img src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png" style="width:25px;" alt=""></a> &nbsp;&nbsp;
-                            <input type="hidden" name="employee_id" value=""  >
-                            <button type="submit" name="delete" value=""
-                                style="padding:5px;border:none;background-color:#FAFAFA"
-                                onclick=""> <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/delete.png" style="width:25px" alt=""></button>
+                                style="padding:6px"><img src="http://localhost/easy-manage/wp-content/uploads/2023/06/reuse.png" style="width:40px;" alt=""></a>                            
                         </form>
                     </td>
                 </tr>
