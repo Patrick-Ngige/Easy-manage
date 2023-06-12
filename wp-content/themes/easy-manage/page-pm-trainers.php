@@ -14,10 +14,13 @@ $current_user = wp_get_current_user();
         <?php get_template_part('sidenav-pm'); ?>
     </div>
 
-    
+    <div style="padding:1rem;width:80vw;margin-left:0rem">
+        <div style="padding:1rem;">
+          
+            <?php echo do_shortcode('[search_bar]'); ?>
 
     <table class="table align-middle  bg-white table-hover"
-        style="width:70%;margin-left:5%;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;margin-top:3%;height:fit-content">
+        style="width:80%;margin-left:5%;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;margin-top:3%;height:fit-content">
         <thead class="bg-light">
             <tr style="font-size:large;color:#315B87;padding-left:2rem;">
                 <th class="ms-3">Trainer</th>

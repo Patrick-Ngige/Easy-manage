@@ -11,8 +11,11 @@
     <?php get_template_part('sidenav-admin'); ?>
 </div>
 
+
 <div style="padding:1rem;width:80vw;margin-left:0rem">
+
     <div style="padding:1rem;">
+    <?php echo do_shortcode('[search_bar]'); ?>
         <table class="table align-middle mb-0 bg-white table-hover"
             style="width:90%;margin-left:5%;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;margin-top:3%;">
             <thead class="bg-light">

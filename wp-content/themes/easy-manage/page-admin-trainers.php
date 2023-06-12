@@ -14,7 +14,7 @@
 
 <div style="padding:1rem;width:80vw;margin-left:0rem">
     <div style="padding:1rem;">
-
+  
     <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
                 <button style="padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
                     Create Trainee
@@ -25,7 +25,7 @@
                 <button style="padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
                     Update Trainee
                 </button>
-                <input type="text" placeholder="Search" style="padding: 0.5rem; border-radius: 10px; border: 1px solid #315B87;">
+                <?php echo do_shortcode('[search_bar]'); ?>
             </div>
 
         <table class="table align-middle mb-0 bg-white table-hover"

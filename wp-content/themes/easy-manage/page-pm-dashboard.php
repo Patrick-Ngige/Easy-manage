@@ -13,7 +13,7 @@
     </div>
 
 
-    <div style="padding:1rem;width:70vw;margin-left:5rem;overflow-y:auto;z-index:100;height:fit-content;margin-top:3rem">
+    <div style="padding:1rem;width:70vw;margin-left:5rem;overflow-y:auto;z-index:100;height:fit-content;margin-top:1rem">
 
 
             <style>
@@ -36,6 +36,7 @@
                 }
             </style>
 
+<?php echo do_shortcode('[search_bar]'); ?>
             <div style=" display: flex; justify-content: space-between; align-items: flex-start;">
 
 

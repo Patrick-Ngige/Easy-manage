@@ -31,3 +31,4 @@ if ( ! file_exists( get_template_directory() . '/class-wp-bootstrap-navwalker.ph
 } else {
     require_once get_template_directory() . '/class-wp-bootstrap-navwalker.php';
 }
+

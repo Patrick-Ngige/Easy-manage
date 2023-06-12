@@ -47,7 +47,7 @@ if(class_exists('Inc\\Init')){
 
 // add_action( 'rest_api_init', 'easy_manage_register_custom_endpoints' );
 
-// function pms_register_custom_endpoints(){
+// function easy_manage_register_custom_endpoints(){
 
 //     $endpoints = new CustomEndpoints();
 //     $endpoints->pms_register_custom_endpoints();

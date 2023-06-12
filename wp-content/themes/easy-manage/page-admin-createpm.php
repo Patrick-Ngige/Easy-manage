@@ -40,6 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php get_template_part('sidenav-admin'); ?>
     </div>
 
+   
     <div style="height:88vh;margin-left:15rem">
         <div class="container py-5 ">
             <div class="row d-flex justify-content-center align-items-center ">
@@ -69,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                             </div>
 
                                             <div class="form-outline mb-3">
-                                                <label class="form-label" for="form2Example27" style="font-weight:600;">Email</label>
+                                                <label class="form-label" for="form2Example27" style="font-weight:600;">Email:</label>
                                                 <input type="email" id="form2Example27" class="form-control form-control-md"
                                                     placeholder="Enter project task" name="pm-email" value="<?php echo isset($_POST['pm-email']) ? $_POST['pm-email'] : ''; ?>" />
                                                 <?php if (isset($errors) && in_array('Email is required', $errors)) {
@@ -78,7 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                             </div>
 
                                             <div>
-                                                <label>Role: </label><br>
+                                            <label class="form-label" for="form2Example27" style="font-weight:600;">Role:</label>
 
                                                 <select class="form-select" aria-label="Default select example"
                                                     name="pm-role" style="font-weight:600;">
@@ -92,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                 } ?>
                                             </div>
 
-                                            <div class="pt-1 w-100 d-flex justify-content-center align-items-center">
+                                            <div class="pt-1 w-100 mt-3 d-flex justify-content-center align-items-center">
                                                 <button class="btn btn-lg btn-block w-50 " style="background-color:#315B87 ;color:#FAFAFA"
                                                     type="submit" name="createbtn">Create</button>
                                             </div>

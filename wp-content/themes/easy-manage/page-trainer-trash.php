@@ -12,8 +12,8 @@
     <div class="page-trainee-dashboard" style="margin-top:-1.99rem;width:20vw">
         <?php get_template_part('sidenav-trainer'); ?>
     </div>
-
-    <div style="padding:1rem;width:80vw;margin-left:0rem">
+    <div style="padding:1rem;width:80vw;margin-left:0rem;margin-top:1rem">
+        <?php echo do_shortcode('[search_bar]'); ?>
         <table class="table align-middle mb-0 bg-white table-hover"
             style="width:90%;margin-left:5%;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;margin-top:3%;">
             <thead class="bg-light">

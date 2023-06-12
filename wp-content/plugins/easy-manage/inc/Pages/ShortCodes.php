@@ -3,48 +3,56 @@
  * @package easy_manage
  */
 
-// namespace Inc\Pages;
+namespace Inc\Pages;
 
-// class ShortCodes
-// {
-//     public function register()
-//     {
-//         add_shortcode('easymanage', [$this, 'custom_table_shortcode']);
-//     }
+class ShortCodes
+{
+    public function register()
+    {
+        add_shortcode('search_bar', array($this, 'search_bar_shortcode'));
+    }
 
-//     public function custom_table_shortcode($atts)
-//     {
-//         $attributes = shortcode_atts(
-//             array(
-//                 'type' => 'default',
-//             ),
-//             $atts
-//         );
+    public function search_bar_shortcode()
+    {
+        ob_start();
+        ?>
+        <style>
+            .search-form {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                margin-bottom: 10px;
+            }
 
-//         ob_start();
-//         switch ($attributes['type']) {
-//             case 'admin-trainers':
-//                 $template = 'page-admin-trainers.php';
-//                 break;
+            .search-field {
+                padding: 6px 10px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                margin-right: 10px;
+            }
 
-//             case 'admin-trainees':
-//                 $template = 'page-admin-trainees.php';
-//                 break;
+            .search-submit {
+                padding: 6px 12px;
+                background-color: #315B87;
+                color: #fff;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+        </style>
 
-//             case 'admin-deactivated':
-//                 $template = 'page-deactivated.php';
-//                 break;
+        <form role="search" method="get" class="search-form" action="<?php echo esc_url(home_url('/')); ?>">
+            <label>
+                <span class="screen-reader-text"><?php echo _x('Search for:', 'label', 'your-theme-domain'); ?></span>
+                <input type="search" class="search-field" placeholder="<?php echo esc_attr_x('Search...', 'placeholder', 'your-theme-domain'); ?>" value="<?php echo get_search_query(); ?>" name="s" />
+            </label>
+            <button type="submit" class="search-submit"><?php echo esc_html_x('Search', 'submit button', 'your-theme-domain'); ?></button>
+        </form>
+        <?php
+        return ob_get_clean();
+    }
+}
 
-//             default:
-//                 $template = 'page-admin-dashboard.php';
-//                 break;
-//         }
+$shortcodes = new ShortCodes();
+$shortcodes->register();
 
-//         $template_path = locate_template('shortcode-templates/' . $template);
-//         if ($template_path) {
-//             include $template_path;
-//         }
-
-//         return ob_get_clean();
-//     }
-// }
