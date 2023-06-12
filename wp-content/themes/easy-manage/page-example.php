@@ -13,9 +13,8 @@
     </div>
 
 
-    <div style="padding:1rem;width:80vw;margin-left:2rem;overflow-y:auto;z-index:100;height:88vh;margin-top:1rem">
+    <div style="padding:1rem;width:70vw;margin-left:2rem;overflow-y:auto;z-index:100;height:fit-content;margin-top:1rem">
 
-        <head>
 
             <style>
 
@@ -36,9 +35,7 @@
                     border-bottom: 1px solid #ddd;
                 }
             </style>
-        </head>
 
-        <body>
             <div style=" display: flex; justify-content: space-between; align-items: flex-start;">
                 <!-- Card: Users Analytics -->
                 <div style="flex: 1;margin-right: 10px; padding: 10px; background-color: #FAFAFA; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; border-radius: 5px;">
@@ -83,15 +80,16 @@
                 </div>
             </div>
 
+            <div style="width:67vw;display:flex; flex-direction:row;gap:10px">
             <!-- Individual Projects -->
-            <div class="table" style="margin-top: 20px; background-color: #FAFAFA; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; border-radius: 5px; padding: 20px;" >
+            <div class="table" style="width:32.5vw;margin-top: 20px; background-color: #FAFAFA; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; border-radius: 5px; padding: 10px;" >
                 <h2 style="  font-size: 20px; margin-bottom: 10px;color:#315B87" >Recently Assigned Individual Projects</h2>
                 <table style="width: 100%; border-collapse: collapse;">
                     <thead>
                         <tr>
                             <th>Project</th>
-                            <th>Individual Assigned </th>
-                            <th>Date Assigned</th>
+                            <th>Assignee </th>
+                            <th>Due Date</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -110,7 +108,7 @@
             </div>
 
             <!--  Group Projects -->
-            <div class="table" style="margin-top: 20px; background-color: #FAFAFA; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; border-radius: 5px; padding: 10px;" >
+            <div class="table" style="width:32.5vw;margin-top: 20px; background-color: #FAFAFA; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; border-radius: 5px; padding: 10px;" >
             <h2 style="  font-size: 20px; margin-bottom: 10px;color:#315B87" >Recently Assigned Group Projects</h2>
                 <table style="width: 100%; border-collapse: collapse;">
                     <thead>
@@ -134,8 +132,7 @@
                     </tbody>
                 </table>
             </div>
-        </body>
+            </div>
 
-        </html>
     </div>
 </div>

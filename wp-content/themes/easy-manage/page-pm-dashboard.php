@@ -1,10 +1,8 @@
 <?php get_header();
 
 /**
- * Template Name: PM Dashboard
- * 
+ * Template Name: Analtics Dashboard
  */
-$current_user = wp_get_current_user();
 
 ?>
 
@@ -14,135 +12,124 @@ $current_user = wp_get_current_user();
         <?php get_template_part('sidenav-pm'); ?>
     </div>
 
-    <div style="padding:1rem;width:80vw;margin-left:0rem">
-        <div style="padding:1rem;">
-            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
-                <a href="http://localhost/easy-manage/create-trainer/" class="floating-btn" style="text-decoration:none;padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
-                    Create Trainer
-                </a>
+
+    <div style="padding:1rem;width:70vw;margin-left:5rem;overflow-y:auto;z-index:100;height:fit-content;margin-top:3rem">
+
+
+            <style>
+
+                .stat-item {
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 10px;
+                }
+
+                .stat-item p {
+                    font-size: 16px;
+                }
+
+                .table th,
+                .table td {
+                    padding: 8px;
+                    text-align: left;
+                    border-bottom: 1px solid #ddd;
+                }
+            </style>
+
+            <div style=" display: flex; justify-content: space-between; align-items: flex-start;">
+
+
+              <!-- Projects Analytics-->
+              <div style="flex: 1;margin-right: 20px; padding: 10px; background-color: #FAFAFA; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; border-radius: 5px;">
+                    <h2 style=" font-size: 20px; margin-bottom: 1rem;color:#315B87">Projects</h2>
+                    <div class="stat-item">
+                        <p>Total Individual Projects</p>
+                        <p>150</p>
+                    </div>
+                    <div class="stat-item">
+                        <p>Total Group Projects</p>
+                        <p>100</p>
+                    </div>
+                    <div class="stat-item">
+                        <p>Ongoing Projects</p>
+                        <p>200</p>
+                    </div>
+                    <div class="stat-item">
+                        <p>Completed Projects</p>
+                        <p>50</p>
+                    </div>
+                </div>
+
+                <!-- Card: Users Analytics -->
+                <div style="flex: 1;margin-right: 10px; padding: 10px; background-color: #FAFAFA; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; border-radius: 5px;">
+                <h2 style=" font-size: 20px; margin-bottom: 1rem;color:#315B87">Trainers and Trainees</h2>
+                
+                    <div class="stat-item">
+                        <p>Total Trainers</p>
+                        <p>50</p>
+                    </div>
+                    <div class="stat-item">
+                        <p>Total Trainees</p>
+                        <p>200</p>
+                    </div>
+                </div>
+
               
-                <input type="text" placeholder="Search" style="padding: 0.5rem; border-radius: 10px; border: 1px solid #315B87;">
             </div>
 
-        <table class="table align-middle mb-0 bg-white table-hover"
-            style="width:90%;margin-left:5%;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;margin-top:3%;">
-            <thead class="bg-light">
-            <tr style="font-size:large;color:#315B87;padding-left:2rem">
-                    <th>Trainer</th>
-                    <th>Email</th>
-                    <th>Status</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <div class="d-flex align-items-center">
-                            <div class="ms-3">
-                                <p class="fw-bold mb-1">Jon Doe
-                                </p>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <p class="fw-normal mb-1">jon@yahoo.org</p>
-                    </td>
-                    <td>
-                        <p class="fw-normal mb-1">Active</p>
-                    </td>
-                    <td>
-                    <form method="POST" >
-                            <a href="#"
-                                style="padding:6px"><img src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png" style="width:25px;" alt=""></a> &nbsp;&nbsp;
-                            <input type="hidden" name="employee_id" value=""  >
-                            <button type="submit" name="delete" value=""
-                                style="padding:5px;border:none;background-color:#FAFAFA"
-                                onclick=""> <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/delete.png" style="width:25px" alt=""></button>
-                        </form>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="d-flex align-items-center">
-                            <div class="ms-3">
-                                <p class="fw-bold mb-1">Jon Doe
-                                </p>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <p class="fw-normal mb-1">jon@yahoo.org</p>
-                    </td>
-                    <td>
-                        <p class="fw-normal mb-1">Active</p>
-                    </td>
-                    <td>
-                    <form method="POST" >
-                            <a href="#"
-                                style="padding:6px"><img src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png" style="width:25px;" alt=""></a> &nbsp;&nbsp;
-                            <input type="hidden" name="employee_id" value=""  >
-                            <button type="submit" name="delete" value=""
-                                style="padding:5px;border:none;background-color:#FAFAFA"
-                                onclick=""> <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/delete.png" style="width:25px" alt=""></button>
-                        </form>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="d-flex align-items-center">
-                            <div class="ms-3">
-                                <p class="fw-bold mb-1">Jon Doe
-                                </p>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <p class="fw-normal mb-1">jon@yahoo.org</p>
-                    </td>
-                    <td>
-                        <p class="fw-normal mb-1">Active</p>
-                    </td>
-                    <td>
-                    <form method="POST" >
-                            <a href="#"
-                                style="padding:6px"><img src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png" style="width:25px;" alt=""></a> &nbsp;&nbsp;
-                            <input type="hidden" name="employee_id" value=""  >
-                            <button type="submit" name="delete" value=""
-                                style="padding:5px;border:none;background-color:#FAFAFA"
-                                onclick=""> <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/delete.png" style="width:25px" alt=""></button>
-                        </form>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="d-flex align-items-center">
-                            <div class="ms-3">
-                                <p class="fw-bold mb-1">Jon Doe
-                                </p>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <p class="fw-normal mb-1">jon@yahoo.org</p>
-                    </td>
-                    <td>
-                        <p class="fw-normal mb-1">Active</p>
-                    </td>
-                    <td>
-                    <form method="POST" >
-                            <a href="#"
-                                style="padding:6px"><img src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png" style="width:25px;" alt=""></a> &nbsp;&nbsp;
-                            <input type="hidden" name="employee_id" value=""  >
-                            <button type="submit" name="delete" value=""
-                                style="padding:5px;border:none;background:none"
-                                onclick=""> <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/delete.png" style="width:25px" alt=""></button>
-                        </form>
-                    </td>
-                </tr>
+            <div style="width:67vw;display:flex; flex-direction:row;gap:10px">
+            <!-- Individual Projects -->
+            <div class="table" style="width:32.5vw;margin-top: 20px; background-color: #FAFAFA; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; border-radius: 5px; padding: 10px;" >
+                <h2 style="  font-size: 20px; margin-bottom: 10px;color:#315B87" >Recently Assigned Individual Projects</h2>
+                <table style="width: 100%; border-collapse: collapse;">
+                    <thead>
+                        <tr>
+                            <th>Project</th>
+                            <th>Assignee </th>
+                            <th>Due Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Project A</td>
+                            <td>User A</td>
+                            <td>2023-06-01</td>
+                        </tr>
+                        <tr>
+                            <td>Project B</td>
+                            <td>User B</td>
+                            <td>2023-06-02</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-            </tbody>
-        </table>
+            <!--  Group Projects -->
+            <div class="table" style="width:32.5vw;margin-top: 20px; background-color: #FAFAFA; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; border-radius: 5px; padding: 10px;" >
+            <h2 style="  font-size: 20px; margin-bottom: 10px;color:#315B87" >Recently Assigned Group Projects</h2>
+                <table style="width: 100%; border-collapse: collapse;">
+                    <thead>
+                        <tr>
+                            <th>Project </th>
+                            <th>Group Assigned</th>
+                            <th>Date Assigned</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Project C</td>
+                            <td>Group X</td>
+                            <td>2023-06-03</td>
+                        </tr>
+                        <tr>
+                            <td>Project D</td>
+                            <td>Group Y</td>
+                            <td>2023-06-04</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            </div>
+
     </div>
 </div>
-
-<?php get_footer(); ?>

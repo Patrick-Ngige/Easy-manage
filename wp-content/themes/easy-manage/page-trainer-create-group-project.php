@@ -36,6 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php get_template_part('sidenav-trainer'); ?>
     </div>
     <div style="display:flex;flex-direction:row">
+    
         <div
             style="background-color:#FAFAFA;width:20vw;height:13rem;overflow:auto; border-radius: .5rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);padding:2rem;margin:2rem 0 0rem 2rem  ">
             <!-- Default checkbox -->
@@ -107,8 +108,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                         style="font-weight:600;">Group Members:</label>
                                                     <input type="text" id="form2Example27" readonly
                                                         class="form-control form-control-md"
-                                                        placeholder="group names" name="pm-name" required
-                                                        value="<?php echo isset($_POST['pm-name']) ? $_POST['pm-name'] : ''; ?>" />
+                                                        placeholder="group names" name="group-members" required
+                                                        value="<?php echo isset($_POST['group-members']) ? $_POST['group-members'] : ''; ?>" />
                                                 </div>
 
                                                 <div class="form-outline mb-3">
@@ -116,22 +117,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                         style="font-weight:600;">Project:</label>
                                                     <input type="email" id="form2Example27"
                                                         class="form-control form-control-md"
-                                                        placeholder="Enter project task" name="pm-email" required
-                                                        value="<?php echo isset($_POST['pm-email']) ? $_POST['pm-email'] : ''; ?>" />
+                                                        placeholder="Enter project task" name="group-project" required
+                                                        value="<?php echo isset($_POST['group-project']) ? $_POST['group-project'] : ''; ?>" />
                                                 </div>
 
                                                 <div>
-                                                <label class="form-label" for="form2Example27"
+                                                <label class="form-label mb-3" for="form2Example27"
                                                         style="font-weight:600;">Due Date:</label>
-
+                                                        <input type="date" id="form2Example27" class="form-control form-control-md"
+                                                name="group-due-date" required min="<?php echo date('Y-m-d'); ?>" />
 
                                                 </div>
 
                                                 <div
-                                                    class="pt-1 mb-4 w-100 d-flex justify-content-center align-items-center">
+                                                    class="pt-1 mt-3 w-100 d-flex justify-content-center align-items-center">
                                                     <button class="btn btn-lg btn-block w-50 "
                                                         style="background-color:#315B87 ;color:#FAFAFA" type="submit"
-                                                        name="createbtn">Create</button>
+                                                        name="creategrp">Create</button>
                                                 </div>
                                             </form>
 

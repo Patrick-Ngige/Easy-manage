@@ -14,8 +14,27 @@ style="background-color:#315B87;height:100vh;display:flex;flex-direction:column;
         </div>
         <div class="side-menu">
             <a href="http://localhost/easy-manage/create-trainer/" style=" display: block; padding: 16px; text-decoration: none; color:#FAFAFA;"><img
+                    src='http://localhost/easy-manage/wp-content/uploads/2023/06/teacher.png'
+                    style="width:2.5rem;height:2.5rem;" />Create Trainer</a>
+        </div>
+
+        <div class="side-menu">
+            <a href="http://localhost/easy-manage/create-cohort/" style=" display: block; padding: 16px; text-decoration: none; color:#FAFAFA;"><img
                     src='http://localhost/easy-manage/wp-content/uploads/2023/06/create.png'
-                    style="width:2.5rem;height:2.5rem;" />Create Trainers</a>
+                    style="width:2.5rem;height:2.5rem;" />Create Cohort</a>
+        </div>
+
+        <div class="side-menu">
+            <a href="http://localhost/easy-manage/cohorts/" style=" display: block; padding: 16px; text-decoration: none; color:#FAFAFA;"><img
+                    src='http://localhost/easy-manage/wp-content/uploads/2023/06/create.png'
+                    style="width:2.5rem;height:2.5rem;" />Cohorts</a>
+        </div>
+
+        
+        <div class="side-menu">
+            <a href="http://localhost/easy-manage/pm-trainers-list/" style=" display: block; padding: 16px; text-decoration: none; color:#FAFAFA;"><img
+                    src='http://localhost/easy-manage/wp-content/uploads/2023/06/customer.png'
+                    style="width:2.5rem;height:2.5rem;" />Trainers</a>
         </div>
       
     </div>
