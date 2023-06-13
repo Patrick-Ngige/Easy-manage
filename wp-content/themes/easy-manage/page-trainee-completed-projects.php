@@ -13,7 +13,8 @@
         <?php get_template_part('sidenav-trainee'); ?>
     </div>
 
-    <div style="padding:1rem;width:80vw;margin-left:0rem;">
+    <div style="padding:1rem;width:80vw;margin-top:3rem;">
+    <?php echo do_shortcode('[search_bar]'); ?>
     <table class="table align-middle mb-0 bg-white table-hover"
             style="width:90%;margin-left:5%;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;margin-top:6%;">
             <thead class="bg-light">
@@ -42,9 +43,6 @@
                     </td>
                     <td>
                         <form method="POST">
-                            <!-- <a href="#" style="padding:6px"><img
-                                    src="http://localhost/easy-manage/wp-content/uploads/2023/06/check.png"
-                                    style="width:25px;" alt=""></a> &nbsp;&nbsp; -->
                             <input type="hidden" name="employee_id" value="">
                             <button type="submit" name="delete" value=""
                                 style="padding:5px;border:none;background-color:#FAFAFA" onclick=""> <img
@@ -70,9 +68,7 @@
                     </td>
                     <td>
                     <form method="POST">
-                            <!-- <a href="#" style="padding:6px"><img
-                                    src="http://localhost/easy-manage/wp-content/uploads/2023/06/check.png"
-                                    style="width:25px;" alt=""></a> &nbsp;&nbsp; -->
+
                             <input type="hidden" name="employee_id" value="">
                             <button type="submit" name="delete" value=""
                                 style="padding:5px;border:none;background-color:#FAFAFA" onclick=""> <img
@@ -98,9 +94,6 @@
                     </td>
                     <td>
                     <form method="POST">
-                            <!-- <a href="#" style="padding:6px"><img
-                                    src="http://localhost/easy-manage/wp-content/uploads/2023/06/check.png"
-                                    style="width:25px;" alt=""></a> &nbsp;&nbsp; -->
                             <input type="hidden" name="employee_id" value="">
                             <button type="submit" name="delete" value=""
                                 style="padding:5px;border:none;background-color:#FAFAFA" onclick=""> <img
@@ -127,9 +120,6 @@
                     </td>
                     <td>
                     <form method="POST">
-                            <!-- <a href="#" style="padding:6px"><img
-                                    src="http://localhost/easy-manage/wp-content/uploads/2023/06/check.png"
-                                    style="width:25px;" alt=""></a> &nbsp;&nbsp; -->
                             <input type="hidden" name="employee_id" value="">
                             <button type="submit" name="delete" value=""
                                 style="padding:5px;border:none;background-color:#FAFAFA" onclick=""> <img
@@ -155,9 +145,6 @@
                     </td>
                     <td>
                     <form method="POST">
-                            <!-- <a href="#" style="padding:6px"><img
-                                    src="http://localhost/easy-manage/wp-content/uploads/2023/06/check.png"
-                                    style="width:25px;" alt=""></a> &nbsp;&nbsp; -->
                             <input type="hidden" name="employee_id" value="">
                             <button type="submit" name="delete" value=""
                                 style="padding:5px;border:none;background-color:#FAFAFA" onclick=""> <img

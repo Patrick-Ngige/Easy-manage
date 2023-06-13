@@ -8,7 +8,7 @@ style="background-color:#315B87;height:100vh;display:flex;flex-direction:column;
     </div>
     <div >
         <div class="side-menu ">
-            <a href="http://localhost/easy-manage/admin-dashboard/" style=" display: block; padding: 16px ; text-decoration: none;color:#FAFAFA "> <img
+            <a href="http://localhost/easy-manage/wp-admin/" style=" display: block; padding: 16px ; text-decoration: none;color:#FAFAFA "> <img
                     src='http://localhost/easy-manage/wp-content/uploads/2023/06/dashboard.png'
                     style="width:2.5rem;height:2.5rem;" /> Dashboard</a>
         </div>

@@ -15,24 +15,15 @@
 <div style="padding:1rem;width:80vw;margin-left:0rem">
     <div style="padding:1rem;">
   
+    <?php echo do_shortcode('[search_bar]'); ?>
     <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
-                <button style="padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
-                    Create Trainee
-                </button>
-                <button style="padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
-                    Create Project
-                </button>
-                <button style="padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
-                    Update Trainee
-                </button>
-                <?php echo do_shortcode('[search_bar]'); ?>
             </div>
 
         <table class="table align-middle mb-0 bg-white table-hover"
             style="width:90%;margin-left:5%;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;margin-top:3%;">
             <thead class="bg-light">
             <tr style="font-size:large;color:#315B87;padding-left:2rem">
-                    <th>Program Managers</th>
+                    <th>Trainers</th>
                     <th>Email</th>
                     <th>Status</th>
                     <th>Actions</th>

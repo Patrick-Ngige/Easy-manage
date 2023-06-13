@@ -26,7 +26,7 @@
                 <a href="http://localhost/easy-manage/admin-trainees-table/"  class="floating-btn" style="text-decoration:none; padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
                     Trainees
                 </a>
-                <input type="text" placeholder="Search" style="padding: 0.5rem; border-radius: 10px; border: 1px solid #315B87;">
+                <?php echo do_shortcode('[search_bar]'); ?>
             </div>
             
             <table class="table align-middle mb-0 bg-white table-hover"
