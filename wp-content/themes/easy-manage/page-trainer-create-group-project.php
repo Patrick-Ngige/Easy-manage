@@ -9,7 +9,6 @@ get_header();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $errors = array();
 
-    // Validate fields
     if (empty($_POST['pm-name'])) {
         $errors[] = 'Username is required';
     }
@@ -18,12 +17,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errors[] = 'Email is required';
     }
 
-    // If there are no errors, process the form
     if (empty($errors)) {
-        // Process the form data here
-        // ...
+        // Process the form 
 
-        // Redirect to another page after processing the form
+    
         header('Location: /success-page');
         exit;
     }
@@ -39,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
         <div
             style="background-color:#FAFAFA;width:20vw;height:13rem;overflow:auto; border-radius: .5rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);padding:2rem;margin:2rem 0 0rem 2rem  ">
-            <!-- Default checkbox -->
+
             <h6 style="color:#315B87;position:fixed;background-color:#FAFAFA;margin-top:-2rem;padding:5px">Select Group
                 Members</h6>
             <div class="form-check">
@@ -47,7 +44,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <label class="form-check-label" for="flexCheckDefault">Jon Doe</label>
             </div>
 
-            <!-- Checked checkbox -->
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
                 <label class="form-check-label" for="flexCheckDefault">Jon Doe</label>

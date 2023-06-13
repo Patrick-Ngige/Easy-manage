@@ -7,22 +7,22 @@ style="background-color:#315B87;height:100vh;display:flex;flex-direction:column;
         <h6>Trainer</h6>
     </div>
     <div >
-        <div class="side-menu ">
+        <div class="side-menu <?php echo (strpos($_SERVER['REQUEST_URI'], 'trainer-dashboard') !== false) ? 'active' : ''; ?>">
             <a href="http://localhost/easy-manage/trainer-dashboard/" style=" display: block; padding: 16px ; text-decoration: none;color:#FAFAFA "> <img
                     src='http://localhost/easy-manage/wp-content/uploads/2023/06/dashboard.png'
                     style="width:2.5rem;height:2.5rem;" /> Dashboard</a>
         </div>
-        <div class="side-menu">
+        <div class="side-menu <?php echo (strpos($_SERVER['REQUEST_URI'], 'trainer-projects') !== false) ? 'active' : ''; ?>">
             <a href="http://localhost/easy-manage/trainer-projects/" style=" display: block; padding: 16px; text-decoration: none; color:#FAFAFA;"><img
                     src='http://localhost/easy-manage/wp-content/uploads/2023/06/project.png'
                     style="width:2.5rem;height:2.5rem;" /> Projects</a>
         </div>
-        <div class="side-menu">
+        <div class="side-menu <?php echo (strpos($_SERVER['REQUEST_URI'], 'trainer-cohort') !== false) ? 'active' : ''; ?>">
             <a href="http://localhost/easy-manage/trainer-cohort/" style=" display: block; padding: 16px; text-decoration: none; color:#FAFAFA"><img
                     src='http://localhost/easy-manage/wp-content/uploads/2023/06/cohort.png'
                     style="width:2.5rem;height:2.5rem;" /> Cohort</a>
         </div>
-        <div class="side-menu">
+        <div class="side-menu <?php echo (strpos($_SERVER['REQUEST_URI'], 'trash') !== false) ? 'active' : ''; ?>">
             <a href="http://localhost/easy-manage/trash/" style=" display: block; padding: 16px; text-decoration: none; color:#FAFAFA;"><img
                     src='http://localhost/easy-manage/wp-content/uploads/2023/06/dustbin.png'
                     style="width:2.5rem;height:2.5rem;" /> Trash</a>
@@ -31,3 +31,9 @@ style="background-color:#315B87;height:100vh;display:flex;flex-direction:column;
     </div>
 
 </div>
+
+<style>
+    .side-menu.active {
+    background-color: #40a7f1;
+}
+</style>
