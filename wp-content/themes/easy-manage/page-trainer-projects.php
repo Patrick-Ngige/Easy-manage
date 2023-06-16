@@ -36,6 +36,7 @@
                         <th>Trainee</th>
                         <th>Project</th>
                         <th>Status</th>
+                        <th>Due Date</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -56,32 +57,7 @@
                             <p class="fw-normal mb-1">Ongoing</p>
                         </td>
                         <td>
-                            <form method="POST">
-                                <a href="http://localhost/easy-manage/update-trainee/" style="padding:6px"><img
-                                        src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png"
-                                        style="width:25px;" alt=""></a> &nbsp;&nbsp;
-                                <input type="hidden" name="employee_id" value="">
-                                <button type="submit" name="delete" value=""
-                                    style="padding:5px;border:none;background-color:#FAFAFA" onclick=""> <img
-                                        src="http://localhost/easy-manage/wp-content/uploads/2023/06/delete.png"
-                                        style="width:25px" alt=""></button>
-                            </form>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <div class="ms-3">
-                                    <p class="fw-bold mb-1">Jon Doe
-                                    </p>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <p class="fw-normal mb-1">Custom Plugin</p>
-                        </td>
-                        <td>
-                            <p class="fw-normal mb-1">Ongoing</p>
+                            <p class="fw-normal mb-1">30/09/2023</p>
                         </td>
                         <td>
                             <form method="POST">
@@ -100,7 +76,7 @@
                         <td>
                             <div class="d-flex align-items-center">
                                 <div class="ms-3">
-                                    <p class="fw-bold mb-1">Jon Doe
+                                    <p class="fw-normal mb-1">Jon Doe
                                     </p>
                                 </div>
                             </div>
@@ -110,6 +86,9 @@
                         </td>
                         <td>
                             <p class="fw-normal mb-1">Ongoing</p>
+                        </td>
+                        <td>
+                            <p class="fw-normal mb-1">30/09/2023</p>
                         </td>
                         <td>
                             <form method="POST">
@@ -128,7 +107,7 @@
                         <td>
                             <div class="d-flex align-items-center">
                                 <div class="ms-3">
-                                    <p class="fw-bold mb-1">Jon Doe
+                                    <p class="fw-normal mb-1">Jon Doe
                                     </p>
                                 </div>
                             </div>
@@ -138,6 +117,9 @@
                         </td>
                         <td>
                             <p class="fw-normal mb-1">Ongoing</p>
+                        </td>
+                        <td>
+                            <p class="fw-normal mb-1">30/09/2023</p>
                         </td>
                         <td>
                             <form method="POST">
@@ -156,7 +138,7 @@
                         <td>
                             <div class="d-flex align-items-center">
                                 <div class="ms-3">
-                                    <p class="fw-bold mb-1">Jon Doe
+                                    <p class="fw-normal mb-1">Jon Doe
                                     </p>
                                 </div>
                             </div>
@@ -166,6 +148,40 @@
                         </td>
                         <td>
                             <p class="fw-normal mb-1">Ongoing</p>
+                        </td>
+                        <td>
+                            <p class="fw-normal mb-1">30/09/2023</p>
+                        </td>
+                        <td>
+                            <form method="POST">
+                                <a href="http://localhost/easy-manage/update-trainee/" style="padding:6px"><img
+                                        src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png"
+                                        style="width:25px;" alt=""></a> &nbsp;&nbsp;
+                                <input type="hidden" name="employee_id" value="">
+                                <button type="submit" name="delete" value=""
+                                    style="padding:5px;border:none;background-color:#FAFAFA" onclick=""> <img
+                                        src="http://localhost/easy-manage/wp-content/uploads/2023/06/delete.png"
+                                        style="width:25px" alt=""></button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div class="ms-3">
+                                    <p class="fw-normal mb-1">Jon Doe
+                                    </p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <p class="fw-normal mb-1">Custom Plugin</p>
+                        </td>
+                        <td>
+                            <p class="fw-normal mb-1">Ongoing</p>
+                        </td>
+                        <td>
+                            <p class="fw-normal mb-1">30/09/2023</p>
                         </td>
                         <td>
                             <form method="POST">

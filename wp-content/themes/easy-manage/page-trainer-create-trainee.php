@@ -1,7 +1,7 @@
 <?php get_header();
 
 /**
- * Template Name: PM Create Trainer
+ * Template Name: Trainer Create trainee
  * 
  */
 
@@ -9,42 +9,42 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $errors = array();
 
 
-    if (empty($_POST['trainer-name'])) {
-        $errors[] = 'Trainer name is required';
+    if (empty($_POST['trainee-name'])) {
+        $errors[] = 'Trainee name is required';
     }
 
-    if (empty($_POST['trainer-email'])) {
+    if (empty($_POST['trainee-email'])) {
         $errors[] = 'Email is required';
     }
 
-    if (empty($_POST['trainer-role'])) {
+    if (empty($_POST['trainee-role'])) {
         $errors[] = 'Role is required';
     }
 
 
     if (empty($errors)) {
-        $trainer_name = $_POST['trainer-name'];
-        $trainer_email = $_POST['trainer-email'];
-        $trainer_role = $_POST['trainer-role'];
+        $trainee_name = $_POST['trainee-name'];
+        $trainee_email = $_POST['trainee-email'];
+        $trainee_role = $_POST['trainee-role'];
 
 
         $response = wp_remote_post(
-            '/wp-json/em/v1/create-trainer',
+            '/wp-json/em/v1/create-trainee',
             array(
                 'body' => array(
-                    'trainer' => $trainer_name,
-                    'email' => $trainer_email,
-                    'role' => $trainer_role,
+                    'trainee' => $trainee_name,
+                    'email' => $trainee_email,
+                    'role' => $trainee_role,
                 ),
             )
         );
 
 
         if (!is_wp_error($response) && $response['response']['code'] === 200) {
-            wp_redirect('/trainers-dashboard');
+            wp_redirect('/trainees-dashboard');
             exit;
         } else {
-            $errors[] = 'Trainer creation failed. Please try again.';
+            $errors[] = 'trainee creation failed. Please try again.';
         }
     }
 }
@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <div style="width: 100vw; height: 90vh; display: flex; flex-direction: row; margin-top: -2.45rem;">
 
     <div class="page-trainee-dashboard" style="margin-top: -1.99rem; width: 20vw;">
-        <?php get_template_part('sidenav-pm'); ?>
+        <?php get_template_part('sidenav-trainer'); ?>
     </div>
 
     <div style="height: 80vh; margin-left: 15rem;">
@@ -73,18 +73,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                                             <h2 class="fw-bold d-flex align-items-end d-flex justify-content-center align-items-center"
                                                 style="color: #315B87">
-                                                Create Trainer
+                                                Create trainee
                                             </h2>
 
                                             <div class="form-outline mb-3">
                                                 <label class="form-label" for="form2Example27"
-                                                    style="font-weight: 600;">Trainer:</label>
+                                                    style="font-weight: 600;">Trainee:</label>
                                                 <input type="text" id="form2Example27"
                                                     class="form-control form-control-md"
-                                                    placeholder="Enter trainer name" name="trainer-name"
-                                                    value="<?php echo isset($_POST['trainer-name']) ? $_POST['trainer-name'] : ''; ?>" />
-                                                <?php if (isset($errors) && in_array('Trainer name is required', $errors)) {
-                                                    echo '<p class="text-danger">Trainer name is required</p>';
+                                                    placeholder="Enter trainee name" name="trainee-name"
+                                                    value="<?php echo isset($_POST['trainee-name']) ? $_POST['trainee-name'] : ''; ?>" />
+                                                <?php if (isset($errors) && in_array('trainee name is required', $errors)) {
+                                                    echo '<p class="text-danger">trainee name is required</p>';
                                                 } ?>
                                             </div>
 
@@ -93,8 +93,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                     style="font-weight: 600;">Email:</label>
                                                 <input type="email" id="form2Example27"
                                                     class="form-control form-control-md"
-                                                    placeholder="Enter trainer email" name="trainer-email"
-                                                    value="<?php echo isset($_POST['trainer-email']) ? $_POST['trainer-email'] : ''; ?>" />
+                                                    placeholder="Enter trainee email" name="trainee-email"
+                                                    value="<?php echo isset($_POST['trainee-email']) ? $_POST['trainee-email'] : ''; ?>" />
                                                 <?php if (isset($errors) && in_array('Email is required', $errors)) {
                                                     echo '<p class="text-danger">Email is required</p>';
                                                 } ?>
@@ -105,10 +105,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                     style="font-weight: 600;">Role:</label>
                                                 <input type="text" id="form2Example27"
                                                     class="form-control form-control-md"
-                                                    placeholder="Enter trainer role" name="trainer-role"
-                                                    value="<?php echo isset($_POST['trainer-role']) ? $_POST['trainer-role'] : ''; ?>" />
-                                                <?php if (isset($errors) && in_array('Trainer role is required', $errors)) {
-                                                    echo '<p class="text-danger">Trainer role is required</p>';
+                                                    placeholder="Enter trainee role" name="trainee-role"
+                                                    value="<?php echo isset($_POST['trainee-role']) ? $_POST['trainee-role'] : ''; ?>" />
+                                                <?php if (isset($errors) && in_array('trainee role is required', $errors)) {
+                                                    echo '<p class="text-danger">trainee role is required</p>';
                                                 } ?>
                                             </div>
 

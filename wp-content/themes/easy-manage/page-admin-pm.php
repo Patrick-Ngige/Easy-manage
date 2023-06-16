@@ -21,10 +21,10 @@
             <!-- Add buttons and search bar here -->
             <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
                 <a href="http://localhost/easy-manage/admin-trainers-table/"  class="floating-btn" style="text-decoration:none; padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
-                    Trainers
+                    View Trainers
                 </a>
                 <a href="http://localhost/easy-manage/admin-trainees-table/"  class="floating-btn" style="text-decoration:none; padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
-                    Trainees
+                    View Trainees
                 </a>
                 <?php echo do_shortcode('[search_bar]'); ?>
             </div>

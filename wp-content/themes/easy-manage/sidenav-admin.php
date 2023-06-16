@@ -7,14 +7,14 @@
         <h6>Administrator</h6>
     </div>
     <div>
-        <?php //if //(current_user_can('manage_options')){ ?>
+        <?php if (current_user_can('manage_options')){ ?>
         <div class="side-menu <?php echo (strpos($_SERVER['REQUEST_URI'], 'wp-admin') !== false) ? 'active' : ''; ?>">
             <a href="http://localhost/easy-manage/wp-admin/" style="display: block; padding: 16px; text-decoration: none; color: #FAFAFA;">
                 <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/dashboard.png" style="width: 2.5rem; height: 2.5rem;" />
                 Dashboard
             </a>
         </div>
-        <?php //} ?>
+        <?php } ?>
         <div class="side-menu <?php echo (strpos($_SERVER['REQUEST_URI'], 'admin-pm-list') !== false) ? 'active' : ''; ?>">
             <a href="http://localhost/easy-manage/admin-pm-list/" style="display: block; padding: 16px; text-decoration: none; color: #FAFAFA;">
                 <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/team.png" style="width: 2.5rem; height: 2.5rem;" />

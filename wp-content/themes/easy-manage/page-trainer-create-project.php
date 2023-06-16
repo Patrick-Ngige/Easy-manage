@@ -39,16 +39,12 @@ get_header();
                                             
                                             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                 // Validate form fields
-                                                if (empty($_POST['trainee-name'])) {
+                                                if (empty($_POST['project-name'])) {
                                                     $errors[] = 'Username is required.';
                                                 }
 
                                                 if (empty($_POST['trainee-email'])) {
                                                     $errors[] = 'Email is required.';
-                                                }
-
-                                                if (empty($_POST['trainee-role'])) {
-                                                    $errors[] = 'Role is required.';
                                                 }
 
                                                 if (empty($_POST['trainee-password'])) {
@@ -58,7 +54,7 @@ get_header();
                                                 // Process the form data here
                                                 if (empty($errors)) {
                                                     // Retrieve the form data
-                                                    $traineeName = $_POST['trainee-name'];
+                                                    $trainee_name = $_POST['traineename'];
                                                     $traineeEmail = $_POST['trainee-email'];
                                                     $traineeRole = $_POST['trainee-role'];
 
@@ -78,56 +74,55 @@ get_header();
                                                     Create Project
                                                 </h2>
 
-                                                <div>
-                                                    <label class="form-label" for="form2Example27"
-                                                        style="font-weight:600;">Trainee:</label>
-                                                    <select class="form-select" aria-label="Default select example"
-                                                        name="trainee-name" style="font-weight:600;">
-                                                        <option selected></option>
-                                                        <option>Jon Doe</option>
-                                                        <option>Jon Doe</option>
-                                                        <option>Jon Doe</option>
-                                                    </select>
-                                                    <?php if (in_array('Username is required.', $errors)) { ?>
-                                                        <p class="text-danger">Username is required.</p>
-                                                    <?php } ?>
-                                                </div>
-
                                                 <div class="form-outline mb-2">
                                                     <label class="form-label" for="form2Example27"
-                                                        style="font-weight:600;">Email:</label>
+                                                        style="font-weight:600;">Project Name:</label>
                                                     <input type="text" id="form2Example27"
                                                         class="form-control form-control-md"
-                                                        placeholder="Enter project task" name="trainee-email"
-                                                        value="<?php echo isset($_POST['trainee-email']) ? $_POST['trainee-email'] : ''; ?>" />
-                                                    <?php if (in_array('Email is required.', $errors)) { ?>
-                                                        <p class="text-danger">Email is required.</p>
+                                                        placeholder="Enter project name" name="project-name"
+                                                        value="<?php echo isset($_POST['project-name']) ? $_POST['project-name'] : ''; ?>" />
+                                                    <?php if (in_array('project-name is required.', $errors)) { ?>
+                                                        <p class="text-danger">Project name is required.</p>
                                                     <?php } ?>
                                                 </div>
 
                                                 <div class="form-outline mb-2">
                                                     <label class="form-label" for="form2Example27"
-                                                        style="font-weight:600;">Role:</label>
+                                                        style="font-weight:600;">Project Task:</label>
                                                     <input type="text" id="form2Example27"
                                                         class="form-control form-control-md"
-                                                        placeholder="Enter project task" name="trainee-role"
-                                                        value="<?php echo isset($_POST['trainee-role']) ? $_POST['trainee-role'] : ''; ?>" />
-                                                    <?php if (in_array('Role is required.', $errors)) { ?>
-                                                        <p class="text-danger">Role is required.</p>
+                                                        placeholder="Enter project task" name="project-task"
+                                                        value="<?php echo isset($_POST['project-task']) ? $_POST['project-task'] : ''; ?>" />
+                                                    <?php if (in_array('project-task is required.', $errors)) { ?>
+                                                        <p class="text-danger">Project task is required.</p>
                                                     <?php } ?>
                                                 </div>
 
                                                 <div class="form-outline mb-2">
                                                     <label class="form-label" for="form2Example27"
-                                                        style="font-weight:600;">Password:</label>
-                                                    <input type="password" id="form2Example27"
-                                                        class="form-control form-control-md" placeholder="**********"
-                                                        name="trainee-password"
-                                                        value="<?php echo isset($_POST['trainee-password']) ? $_POST['trainee-password'] : ''; ?>" />
-                                                    <?php if (in_array('Password is required.', $errors)) { ?>
-                                                        <p class="text-danger">Password is required.</p>
+                                                        style="font-weight:600;">Assignee:</label>
+                                                    <input type="text" id="form2Example27"
+                                                        class="form-control form-control-md" placeholder="assignee"
+                                                        name="assignee"
+                                                        value="<?php echo isset($_POST['assignee']) ? $_POST['assignee'] : ''; ?>" />
+                                                    <?php if (in_array('assignee is required.', $errors)) { ?>
+                                                        <p class="text-danger">Assignee is required.</p>
                                                     <?php } ?>
                                                 </div>
+
+                                                <div class="form-outline mb-2">
+                                                    <label class="form-label" for="form2Example27"
+                                                        style="font-weight:600;">Due Date:</label>
+                                                    <input type="date" id="form2Example27"
+                                                        class="form-control form-control-md" placeholder="Due date"
+                                                        name="due-date"
+                                                        value="<?php echo isset($_POST['due-date']) ? $_POST['due-date'] : ''; ?>" />
+                                                    <?php if (in_array('due-date is required.', $errors)) { ?>
+                                                        <p class="text-danger">Due date is required.</p>
+                                                    <?php } ?>
+                                                </div>
+
+                                             
 
 
                                                 <div

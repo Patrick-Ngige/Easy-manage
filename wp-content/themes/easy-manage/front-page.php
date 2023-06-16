@@ -5,8 +5,14 @@ Template Name: Login Page
 
 session_start();
 
+if (!is_user_logged_in()) {
+    wp_redirect(home_url('/'));
+    exit;
+}
+
 $error_message = '';
 $show_attempts = false;
+$remaining_attempts = 3 - (int) $_SESSION['login_attempts'];
 
 if (!isset($_SESSION['login_attempts'])) {
     $_SESSION['login_attempts'] = 0;
@@ -90,7 +96,8 @@ if ($login_attempts >= count($wait_times)) {
     </div>
     <div
         style="z-index: 9999; box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px; display: flex; justify-content: center; align-items: center; width: 75%; border-radius: 20px;">
-        <div style="width: 30%; height: 70vh; background-color: #315B87; color: #FAFAFA; font-size: large; display: flex; align-items: center; justify-content: center; border-bottom-left-radius: 10px; border-top-left-radius: 10px;">
+        <div
+            style="width: 30%; height: 70vh; background-color: #315B87; color: #FAFAFA; font-size: large; display: flex; align-items: center; justify-content: center; border-bottom-left-radius: 10px; border-top-left-radius: 10px;">
             <?php
             $currentTime = date('H:i:s');
             $hour = (int) date('H');
@@ -110,7 +117,8 @@ if ($login_attempts >= count($wait_times)) {
         <div
             style="width: 70%; display: flex; flex-direction: column; background-color: #FAFAFA; border-radius: 10px; height: 70vh; justify-content: center; align-items: center;">
             <form action="" method="POST" style="width: 70%; display: flex; flex-direction: column;">
-                <h2 style="color: #315B87; font-weight: 600; font-size: 2rem; text-align: center;margin-bottom:5%">Login</h2>
+                <h2 style="color: #315B87; font-weight: 600; font-size: 2rem; text-align: center;margin-bottom:5%">Login
+                </h2>
                 <?php if ($error_message): ?>
                     <div class="error-message" style="color: #ff5252; opacity: 1; text-align: center;">
                         <?php echo $error_message; ?>
@@ -127,19 +135,40 @@ if ($login_attempts >= count($wait_times)) {
                 <?php if ($show_attempts): ?>
                     <div class="attempts" style="text-align: center; color: #ff5252; margin-bottom: 1rem;">
                         <?php if ($remaining_time > 0): ?>
-                            Please wait <?php echo $remaining_time; ?> seconds before trying again.
+                            Please wait <span id="remaining-time">
+                                <?php echo $remaining_time; ?>
+                            </span> seconds before trying again.
                         <?php else: ?>
                             You have exceeded the maximum number of login attempts. Please try again later.
                         <?php endif; ?>
                     </div>
                 <?php endif; ?>
-                <button type="submit" class="btnlog" name="login"
-                    style="width: 50%; padding: 0.5rem; border-radius: 10px; background-color: #315B87; border: none; color: #FAFAFA; font-size: 1.1em; font-weight: 600; margin-left: auto; margin-right: auto;"
-                    onmouseover="this.style.backgroundColor='#144770';"
-                    onmouseout="this.style.backgroundColor='#315B87';">
-                    Login
-                </button>
+                <div>
+                    <input type="submit" name="login" value="Login"
+                        style="background-color: #315B87; color: #FAFAFA; border-radius: 10px; padding: 0.5rem; border: none; cursor: pointer;">
+                </div>
             </form>
         </div>
     </div>
 </div>
+
+<?php wp_footer(); ?>
+<script>
+    const remainingTimeElement = document.getElementById('remaining-time');
+    let remainingTime = parseInt(remainingTimeElement.innerHTML);
+
+    function countdown() {
+        remainingTime--;
+        remainingTimeElement.innerHTML = remainingTime;
+
+        if (remainingTime === 0) {
+            window.location.reload();
+        } else {
+            setTimeout(countdown, 1000);
+        }
+    }
+
+    if (remainingTime > 0) {
+        countdown();
+    }
+</script>

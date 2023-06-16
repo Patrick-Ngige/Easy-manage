@@ -101,20 +101,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                                                 <div class="form-outline mb-3">
                                                     <label class="form-label" for="form2Example27"
-                                                        style="font-weight:600;">Group Members:</label>
+                                                        style="font-weight:600;">Assigned Members:</label>
                                                     <input type="text" id="form2Example27" readonly
                                                         class="form-control form-control-md"
-                                                        placeholder="group names" name="group-members" required
-                                                        value="<?php echo isset($_POST['group-members']) ? $_POST['group-members'] : ''; ?>" />
+                                                        placeholder="assigned names" name="assigned-members" required
+                                                        value="<?php echo isset($_POST['assigned-members']) ? $_POST['assigned-members'] : ''; ?>" />
                                                 </div>
 
                                                 <div class="form-outline mb-3">
                                                     <label class="form-label" for="form2Example27"
-                                                        style="font-weight:600;">Project:</label>
-                                                    <input type="email" id="form2Example27"
+                                                        style="font-weight:600;">Project Name:</label>
+                                                    <input type="text" id="form2Example27"
                                                         class="form-control form-control-md"
                                                         placeholder="Enter project task" name="group-project" required
                                                         value="<?php echo isset($_POST['group-project']) ? $_POST['group-project'] : ''; ?>" />
+                                                </div>
+
+                                                <div class="form-outline mb-3">
+                                                    <label class="form-label" for="form2Example27"
+                                                        style="font-weight:600;">Project Task:</label>
+                                                    <input type="text" id="form2Example27"
+                                                        class="form-control form-control-md"
+                                                        placeholder="Enter project task" name="project-task" required
+                                                        value="<?php echo isset($_POST['project-task']) ? $_POST['project-task'] : ''; ?>" />
                                                 </div>
 
                                                 <div>
