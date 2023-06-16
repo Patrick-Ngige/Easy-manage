@@ -7,7 +7,11 @@ namespace Inc\Pages;
 
 class AdminEndpoints
 {
-    function create_trainer_endpoint()
+    public function register()
+    {
+        add_action("rest_api_init", array($this,"create_trainer_endpoint" ));
+    }
+    public function create_trainer_endpoint()
     {
         register_rest_route(
             'em/v1',
@@ -46,7 +50,7 @@ class AdminEndpoints
         );
     }
 
-    function create_pm_callback($request)
+    public function create_pm_callback($request)
     {
         $parameters = $request->get_params();
 
@@ -86,7 +90,7 @@ class AdminEndpoints
 
     }
 
-    function retrieve_pm_callback($request)
+    public function retrieve_pm_callback($request)
     {
         global $wpdb;
         $table_name = $wpdb->prefix . 'pm';
@@ -99,7 +103,7 @@ class AdminEndpoints
     }
 
     
-    function retrieve_trainer_callback($request)
+    public function retrieve_trainer_callback($request)
     {
         global $wpdb;
         $table_name = $wpdb->prefix . 'trainers';
@@ -111,7 +115,7 @@ class AdminEndpoints
         return $data;
     }
 
-    function retrieve_trainee_callback($request)
+    public function retrieve_trainee_callback($request)
     {
         global $wpdb;
         $table_name = $wpdb->prefix . 'trainees';

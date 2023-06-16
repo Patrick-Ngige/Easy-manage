@@ -3,7 +3,7 @@
 Template Name: Login Page
 */
 
-session_start();
+
 
 if (!is_user_logged_in()) {
     wp_redirect(home_url('/'));

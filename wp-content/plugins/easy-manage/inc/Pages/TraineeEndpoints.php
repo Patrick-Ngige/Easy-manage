@@ -7,7 +7,11 @@ namespace Inc\Pages;
 
 class TraineeEndpoints
 {
-    function trainee_endpoint()
+    public function register()
+    {
+        add_action("rest_api_init", array($this,"trainee_endpoint" ));
+    }
+    public function trainee_endpoint()
     {
         register_rest_route(
             'em/v1',
@@ -36,7 +40,7 @@ class TraineeEndpoints
             )
         );
     }
-    function retrieve_individual_projects($request)
+    public function retrieve_individual_projects($request)
     {
         global $wpdb;
         $table_name = $wpdb->prefix . 'individual_projects';
@@ -54,7 +58,7 @@ class TraineeEndpoints
         return $projects;
     }
 
-    function retrieve_group_projects($request)
+    public function retrieve_group_projects($request)
     {
         global $wpdb;
         $table_name = $wpdb->prefix . 'individual_projects';
@@ -72,7 +76,7 @@ class TraineeEndpoints
         return $projects;
     }
 
-    function retrieve_individual_completed_projects($request)
+    public function retrieve_individual_completed_projects($request)
     {
         global $wpdb;
         $table_name = $wpdb->prefix . 'individual_projects';
@@ -90,7 +94,7 @@ class TraineeEndpoints
         return $projects;
     }
 
-    function retrieve_group_completed_projects($request)
+    public function retrieve_group_completed_projects($request)
     {
         global $wpdb;
         $table_name = $wpdb->prefix . 'group_projects';

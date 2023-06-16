@@ -7,7 +7,11 @@ namespace Inc\Pages;
 
 class PMEndpoints
 {
-    function create_cohort_endpoint()
+    public function register()
+    {
+        add_action("rest_api_init", array($this,"create_cohort_endpoint" ));
+    }
+    public function create_cohort_endpoint()
     {
        
         register_rest_route(
@@ -38,7 +42,7 @@ class PMEndpoints
         );
     }
 
-    function create_trainer_cohort($request)
+   public  function create_trainer_cohort($request)
     {
         global $wpdb;
         $table_name = $wpdb->prefix . 'trainers';
@@ -51,7 +55,7 @@ class PMEndpoints
 
     }
 
-    function retrieve_trainer_cohort($request)
+    public function retrieve_trainer_cohort($request)
     {
         global $wpdb;
         $table_name = $wpdb->prefix . 'cohorts';
@@ -69,7 +73,7 @@ class PMEndpoints
         return $cohorts;
     }
 
-    function retrieve_trainer_callback($request)
+    public function retrieve_trainer_callback($request)
     {
         global $wpdb;
         $table_name = $wpdb->prefix . 'trainers';
