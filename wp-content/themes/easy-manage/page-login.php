@@ -3,7 +3,7 @@
 Template Name: Login Page
 */
 
-
+session_start(); // Start the session
 
 if (!is_user_logged_in()) {
     wp_redirect(home_url('/'));
@@ -65,13 +65,13 @@ if ($login_attempts >= count($wait_times)) {
                 $user_info = get_userdata($user_id);
                 $user_roles = $user_info->roles;
 
-                if (in_array('administrator', $user_roles)) {
+                if (in_array('Admin', $user_roles)) {
                     wp_redirect('http://localhost/easy-manage/admin-pm-list/');
                     exit;
-                } elseif (in_array('editor', $user_roles)) {
+                } elseif (in_array('Program Manager', $user_roles)) {
                     wp_redirect('http://localhost/easy-manage/pm-dashboard/');
                     exit;
-                } elseif (in_array('author', $user_roles)) {
+                } elseif (in_array('Trainer', $user_roles)) {
                     wp_redirect('http://localhost/easy-manage/trainer-dashboard/');
                     exit;
                 } else {
@@ -135,17 +135,19 @@ if ($login_attempts >= count($wait_times)) {
                 <?php if ($show_attempts): ?>
                     <div class="attempts" style="text-align: center; color: #ff5252; margin-bottom: 1rem;">
                         <?php if ($remaining_time > 0): ?>
-                            Please wait <span id="remaining-time">
-                                <?php echo $remaining_time; ?>
-                            </span> seconds before trying again.
+                            Please wait
+                            <span id="countdown" style="font-weight: bold;"><?php echo $remaining_time; ?></span>
+                            seconds before trying again.
                         <?php else: ?>
-                            You have exceeded the maximum number of login attempts. Please try again later.
+                            You have <?php echo $remaining_attempts; ?> attempt(s) remaining.
                         <?php endif; ?>
                     </div>
                 <?php endif; ?>
                 <div>
-                    <input type="submit" name="login" value="Login"
-                        style="background-color: #315B87; color: #FAFAFA; border-radius: 10px; padding: 0.5rem; border: none; cursor: pointer;">
+                    <button type="submit" name="login"
+                        style="width: 100%; padding: 0.5rem; background-color: #315B87; color: #FAFAFA; border-radius: 10px; border: none;">
+                        Log in
+                    </button>
                 </div>
             </form>
         </div>
@@ -153,22 +155,3 @@ if ($login_attempts >= count($wait_times)) {
 </div>
 
 <?php wp_footer(); ?>
-<script>
-    const remainingTimeElement = document.getElementById('remaining-time');
-    let remainingTime = parseInt(remainingTimeElement.innerHTML);
-
-    function countdown() {
-        remainingTime--;
-        remainingTimeElement.innerHTML = remainingTime;
-
-        if (remainingTime === 0) {
-            window.location.reload();
-        } else {
-            setTimeout(countdown, 1000);
-        }
-    }
-
-    if (remainingTime > 0) {
-        countdown();
-    }
-</script>

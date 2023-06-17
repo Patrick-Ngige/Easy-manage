@@ -4,7 +4,95 @@
  */
 
 get_header();
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+$errors = array(); // Store validation errors
+$success_message = ''; // Success message
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Validate form fields
+    if (empty($_POST['project_name'])) {
+        $errors[] = 'Project name is required.';
+    }
+
+    if (empty($_POST['project_task'])) {
+        $errors[] = 'Project task is required.';
+    }
+
+    if (empty($_POST['assignee'])) {
+        $errors[] = 'Assignee is required.';
+    }
+
+    if (empty($_POST['due_date'])) {
+        $errors[] = 'Due date is required.';
+    }
+
+    // Process the form data here
+    if (empty($errors)) {
+        // Retrieve the form data
+        $project_name = $_POST['project_name'];
+        $project_task = $_POST['project_task'];
+        $assignee = $_POST['assignee'];
+        $due_date = $_POST['due_date'];
+
+        
+
+        // TODO: Perform authentication and authorization checks here
+        // Example code: Check if the current user is a trainer
+
+        if (current_user_can('trainer_capability')) {
+            // TODO: Process the form data and create the project
+
+            // Set success message
+            $success_message = 'Project created successfully.';
+
+            // Prepare the project data to be sent to the endpoint
+            $created_project = array(
+                'project_name' => $project_name,
+                'project_task' => $project_task,
+                'assignee' => $assignee,
+                'due_date' => $due_date,
+            );
+
+            var_dump($created_project);
+
+            // Send the project data to the endpoint using wp_remote_post()
+            $response = wp_remote_post(
+                'http://localhost/easy-manage/wp-json/em/v1/projects/individual',
+                array(
+                    'method' => 'POST',
+                    'headers' => array('Content-Type' => 'application/json'),
+                    'body' => wp_json_encode($created_project),
+                )
+            );
+
+            // Check the response status
+            if (is_wp_error($response)) {
+                $errors[] = 'An error occurred while creating the project.';
+            } else {
+                $response_code = wp_remote_retrieve_response_code($response);
+                if ($response_code === 200) {
+                    // Successful response
+                    $success_message = 'Project created successfully.';
+                } else {
+                    // Error response
+                    $errors[] = 'An error occurred while creating the project.';
+                }
+            }
+
+            // Redirect to the desired page
+            wp_redirect('http://localhost/easy-manage/trainer-projects/');
+            exit();
+        } else {
+            $errors[] = 'You are not authorized to create a project.';
+        }
+    }
+}
 ?>
+
 
 <div style="width:100vw;height:90vh;display:flex;flex-direction:row;margin-top:-2.45rem">
     <div class="page-trainee-dashboard" style="margin-top:-1.99rem;width:20vw">
@@ -34,105 +122,76 @@ get_header();
                                     <div class="col-md-6 col-lg-7 d-flex justify-content-center align-items-center  ms-8"
                                         style="height:fit-content; width:40vw;">
                                         <div class="card-body p-2 p-lg-5 text-black">
-                                            <?php
-                                            $errors = array(); // Store validation errors
-                                            
-                                            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                                                // Validate form fields
-                                                if (empty($_POST['project-name'])) {
-                                                    $errors[] = 'Username is required.';
-                                                }
-
-                                                if (empty($_POST['trainee-email'])) {
-                                                    $errors[] = 'Email is required.';
-                                                }
-
-                                                if (empty($_POST['trainee-password'])) {
-                                                    $errors[] = 'Password is required.';
-                                                }
-
-                                                // Process the form data here
-                                                if (empty($errors)) {
-                                                    // Retrieve the form data
-                                                    $trainee_name = $_POST['traineename'];
-                                                    $traineeEmail = $_POST['trainee-email'];
-                                                    $traineeRole = $_POST['trainee-role'];
-
-                                                    // TODO: Process the form data as needed
-                                            
-                                                    // Redirect to a success page
-                                                    header('Location: /success-page');
-                                                    exit();
-                                                }
-                                            }
-                                            ?>
-
                                             <form action="" method="POST" style="font-size:16px">
-
                                                 <h2 class="fw-bold d-flex align-items-end d-flex justify-content-center align-items-center"
                                                     style="color:#315B87">
                                                     Create Project
                                                 </h2>
 
+                                                <!-- Display success message if it exists -->
+                                                <?php if ($success_message) { ?>
+                                                    <div class="alert alert-success" role="alert">
+                                                        <?php echo $success_message; ?>
+                                                    </div>
+                                                <?php } ?>
+
+
                                                 <div class="form-outline mb-2">
-                                                    <label class="form-label" for="form2Example27"
+                                                    <label class="form-label" for="project_name"
                                                         style="font-weight:600;">Project Name:</label>
-                                                    <input type="text" id="form2Example27"
+                                                    <input type="text" id="project_name"
                                                         class="form-control form-control-md"
-                                                        placeholder="Enter project name" name="project-name"
-                                                        value="<?php echo isset($_POST['project-name']) ? $_POST['project-name'] : ''; ?>" />
-                                                    <?php if (in_array('project-name is required.', $errors)) { ?>
+                                                        placeholder="Enter project name" name="project_name"
+                                                        value="<?php echo isset($_POST['project_name']) ? $_POST['project_name'] : ''; ?>" />
+                                                    <?php if (in_array('Project name is required.', $errors)) { ?>
                                                         <p class="text-danger">Project name is required.</p>
                                                     <?php } ?>
                                                 </div>
 
                                                 <div class="form-outline mb-2">
-                                                    <label class="form-label" for="form2Example27"
+                                                    <label class="form-label" for="project_task"
                                                         style="font-weight:600;">Project Task:</label>
-                                                    <input type="text" id="form2Example27"
+                                                    <input type="text" id="project_task"
                                                         class="form-control form-control-md"
-                                                        placeholder="Enter project task" name="project-task"
-                                                        value="<?php echo isset($_POST['project-task']) ? $_POST['project-task'] : ''; ?>" />
-                                                    <?php if (in_array('project-task is required.', $errors)) { ?>
+                                                        placeholder="Enter project task" name="project_task"
+                                                        value="<?php echo isset($_POST['project_task']) ? $_POST['project_task'] : ''; ?>" />
+                                                    <?php if (in_array('Project task is required.', $errors)) { ?>
                                                         <p class="text-danger">Project task is required.</p>
                                                     <?php } ?>
                                                 </div>
 
                                                 <div class="form-outline mb-2">
-                                                    <label class="form-label" for="form2Example27"
+                                                    <label class="form-label" for="assignee"
                                                         style="font-weight:600;">Assignee:</label>
-                                                    <input type="text" id="form2Example27"
-                                                        class="form-control form-control-md" placeholder="assignee"
+                                                    <input type="text" id="assignee"
+                                                        class="form-control form-control-md" placeholder="Assignee"
                                                         name="assignee"
                                                         value="<?php echo isset($_POST['assignee']) ? $_POST['assignee'] : ''; ?>" />
-                                                    <?php if (in_array('assignee is required.', $errors)) { ?>
+                                                    <?php if (in_array('Assignee is required.', $errors)) { ?>
                                                         <p class="text-danger">Assignee is required.</p>
                                                     <?php } ?>
                                                 </div>
 
                                                 <div class="form-outline mb-2">
-                                                    <label class="form-label" for="form2Example27"
+                                                    <label class="form-label" for="due_date"
                                                         style="font-weight:600;">Due Date:</label>
-                                                    <input type="date" id="form2Example27"
+                                                    <input type="date" id="due_date"
                                                         class="form-control form-control-md" placeholder="Due date"
-                                                        name="due-date"
-                                                        value="<?php echo isset($_POST['due-date']) ? $_POST['due-date'] : ''; ?>" />
-                                                    <?php if (in_array('due-date is required.', $errors)) { ?>
+                                                        name="due_date"
+                                                        min="<?php echo date('Y-m-d'); ?>"
+                                                        value="<?php echo isset($_POST['due_date']) ? $_POST['due_date'] : ''; ?>" />
+                                                    <?php if (in_array('Due date is required.', $errors)) { ?>
                                                         <p class="text-danger">Due date is required.</p>
                                                     <?php } ?>
                                                 </div>
 
-                                             
-
-
-                                                <div
-                                                    class="pt-1 mb-2 w-100 d-flex justify-content-center align-items-center" style="padding-top:0;">
+                                                <div class="pt-1 mb-2 w-100 d-flex justify-content-center align-items-center"
+                                                    style="padding-top:0;">
                                                     <button class="btn btn-lg btn-block w-50"
                                                         style="background-color:#315B87 ;color:#FAFAFA" type="submit"
                                                         name="createbtn">Create</button>
                                                 </div>
                                             </form>
-
                                         </div>
                                     </div>
                                 </div>

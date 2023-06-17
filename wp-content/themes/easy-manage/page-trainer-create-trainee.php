@@ -21,11 +21,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errors[] = 'Role is required';
     }
 
+    if (empty($_POST['trainee-password'])) {
+        $errors[] = 'Password is required';
+    }
+
 
     if (empty($errors)) {
         $trainee_name = $_POST['trainee-name'];
         $trainee_email = $_POST['trainee-email'];
         $trainee_role = $_POST['trainee-role'];
+        $trainee_password = $_POST['trainee-password'];
 
 
         $response = wp_remote_post(
@@ -35,6 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     'trainee' => $trainee_name,
                     'email' => $trainee_email,
                     'role' => $trainee_role,
+                    'password' => $trainee_password,
                 ),
             )
         );
@@ -81,8 +87,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                     style="font-weight: 600;">Trainee:</label>
                                                 <input type="text" id="form2Example27"
                                                     class="form-control form-control-md"
-                                                    placeholder="Enter trainee name" name="trainee-name"
-                                                    value="<?php echo isset($_POST['trainee-name']) ? $_POST['trainee-name'] : ''; ?>" />
+                                                    placeholder="Enter trainee name" name="trainee_name"
+                                                    value="<?php echo isset($_POST['trainee_name']) ? $_POST['trainee_name'] : ''; ?>" />
                                                 <?php if (isset($errors) && in_array('trainee name is required', $errors)) {
                                                     echo '<p class="text-danger">trainee name is required</p>';
                                                 } ?>
@@ -109,6 +115,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                     value="<?php echo isset($_POST['trainee-role']) ? $_POST['trainee-role'] : ''; ?>" />
                                                 <?php if (isset($errors) && in_array('trainee role is required', $errors)) {
                                                     echo '<p class="text-danger">trainee role is required</p>';
+                                                } ?>
+                                            </div>
+
+                                            <div class="form-outline mb-3">
+                                                <label class="form-label" for="form2Example27"
+                                                    style="font-weight: 600;">Password:</label>
+                                                <input type="password" id="form2Example27"
+                                                    class="form-control form-control-md"
+                                                    placeholder="Enter trainee role" name="trainee-password"
+                                                    value="<?php echo isset($_POST['trainee-password']) ? $_POST['trainee-password'] : ''; ?>" />
+                                                <?php if (isset($errors) && in_array('trainee password is required', $errors)) {
+                                                    echo '<p class="text-danger">trainee passsword is required</p>';
                                                 } ?>
                                             </div>
 
