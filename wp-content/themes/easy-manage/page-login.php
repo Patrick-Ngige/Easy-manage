@@ -12,11 +12,12 @@ if (!is_user_logged_in()) {
 
 $error_message = '';
 $show_attempts = false;
-$remaining_attempts = 3 - (int) $_SESSION['login_attempts'];
 
 if (!isset($_SESSION['login_attempts'])) {
     $_SESSION['login_attempts'] = 0;
 }
+
+$remaining_attempts = 3 - (int) $_SESSION['login_attempts'];
 
 $login_attempts = $_SESSION['login_attempts'];
 
@@ -99,6 +100,7 @@ if ($login_attempts >= count($wait_times)) {
         <div
             style="width: 30%; height: 70vh; background-color: #315B87; color: #FAFAFA; font-size: large; display: flex; align-items: center; justify-content: center; border-bottom-left-radius: 10px; border-top-left-radius: 10px;">
             <?php
+            date_default_timezone_set('Africa/Nairobi');
             $currentTime = date('H:i:s');
             $hour = (int) date('H');
             $message = "Welcome to Easy-Manage!";
@@ -111,13 +113,14 @@ if ($login_attempts >= count($wait_times)) {
                 $salutation = 'Good evening! <br>' . $message;
             }
 
-            echo nl2br($salutation);
+            echo ($salutation);
             ?>
         </div>
+
         <div
             style="width: 70%; display: flex; flex-direction: column; background-color: #FAFAFA; border-radius: 10px; height: 70vh; justify-content: center; align-items: center;">
             <form action="" method="POST" style="width: 70%; display: flex; flex-direction: column;">
-                <h2 style="color: #315B87; font-weight: 600; font-size: 2rem; text-align: center;margin-bottom:5%">Login
+                <h2 style="color: #315B87; font-weight: 600; font-size: 2rem; text-align: center;margin-bottom:5%;margin-left:-10%">Login
                 </h2>
                 <?php if ($error_message): ?>
                     <div class="error-message" style="color: #ff5252; opacity: 1; text-align: center;">
@@ -145,8 +148,8 @@ if ($login_attempts >= count($wait_times)) {
                 <?php endif; ?>
                 <div>
                     <button type="submit" name="login"
-                        style="width: 100%; padding: 0.5rem; background-color: #315B87; color: #FAFAFA; border-radius: 10px; border: none;">
-                        Log in
+                        style="width: 90%; padding: 0.5rem; background-color: #315B87; color: #FAFAFA; border-radius: 10px; border: none;font-weight:600">
+                        login
                     </button>
                 </div>
             </form>
