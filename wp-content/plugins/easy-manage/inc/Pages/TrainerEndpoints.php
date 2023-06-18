@@ -29,8 +29,8 @@ class TrainerEndpoints
             'em/v1',
             '/projects/individual',
             array(
-                'methods' => array('POST', 'GET'),
-                'callback' => array($this, 'projects_individual_callback'),
+                'methods' => array('POST'),
+                'callback' => array($this, 'create_individual_project'),
             )
         );
 
@@ -38,8 +38,8 @@ class TrainerEndpoints
             'em/v1',
             '/projects/group',
             array(
-                'methods' => array('POST', 'GET'),
-                'callback' => array($this, 'projects_group_callback'),
+                'methods' => array('POST'),
+                'callback' => array($this, 'create_group_project'),
             )
         );
     }
@@ -52,24 +52,6 @@ class TrainerEndpoints
             return $this->create_trainee_callback($request);
         } elseif ($request->get_method() === 'GET') {
             return $this->retrieve_trainee_callback($request);
-        }
-    }
-
-    public function projects_individual_callback($request)
-    {
-        if ($request->get_method() === 'POST') {
-            return $this->create_individual_project($request);
-        } elseif ($request->get_method() === 'GET') {
-            return $this->retrieve_individual_projects($request);
-        }
-    }
-
-    public function projects_group_callback($request)
-    {
-        if ($request->get_method() === 'POST') {
-            return $this->create_group_project($request);
-        } elseif ($request->get_method() === 'GET') {
-            return $this->retrieve_group_projects($request);
         }
     }
 
@@ -224,27 +206,7 @@ class TrainerEndpoints
     // }
 
 
-    public function retrieve_individual_projects($request)
-    {
-        global $wpdb;
-        $table_name = $wpdb->prefix . 'individual_projects';
-
-        $project_id = $request->get_param('project_id');
-
-        $projects = $wpdb->get_results(
-            $wpdb->prepare(
-                "SELECT project_name, project_task, assignee, due_date, project_status  FROM $table_name WHERE project_status = 0 
-        "
-            )
-        );
-
-        if (empty($projects)) {
-            return new WP_Error('no_projects', 'No projects found.', array('status' => 404));
-        }
-
-        return $projects;
-    }
-
+    
     public function create_group_project($request)
     {
         $data = $request->get_json_params();
@@ -310,25 +272,4 @@ class TrainerEndpoints
     //     $wpdb->update($table_name, $data, $condition);
     // }
 
-
-    public function retrieve_group_projects($request)
-    {
-        global $wpdb;
-        $table_name = $wpdb->prefix . 'group_projects';
-
-        $project_id = $request->get_param('project_id');
-
-        $projects = $wpdb->get_results(
-            $wpdb->prepare(
-                "SELECT assigned_trainees project_name, project_task, due_date, project_status  FROM $table_name WHERE project_status = 0 
-        "
-            )
-        );
-
-        if (empty($projects)) {
-            return new WP_Error('no_projects', 'No projects found.', array('status' => 404));
-        }
-
-        return $projects;
-    }
 }

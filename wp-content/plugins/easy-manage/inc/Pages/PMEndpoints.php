@@ -167,8 +167,6 @@ class PMEndpoints
 
     //     $wpdb->update($table_name, $data, $condition);
     // }
-
-
     
 }
 

@@ -19,33 +19,12 @@ class AdminEndpoints
             'em/v1',
             '/pm',
             array(
-                'methods' => array('POST', 'GET'),
-                'callback' => array($this, 'pm_callback'),
+                'methods' => array('POST',),
+                'callback' => array($this, 'create_pm_callback'),
             )
         );
 
     }
-
-    // Callback methods
-
-    public function pm_callback($request)
-    {
-        if ($request->get_method() === 'POST') {
-            return $this->create_pm_callback($request);
-        } elseif ($request->get_method() === 'GET') {
-            return $this->retrieve_pm_callback($request);
-        }
-    }
-
-    public function cohort_callback($request)
-    {
-        if ($request->get_method() === 'POST') {
-            return $this->create_pm_callback($request);
-        } elseif ($request->get_method() === 'GET') {
-            return $this->retrieve_pm_callback($request);
-        }
-    }
-
 
     // Permission callback methods
 
@@ -103,25 +82,6 @@ class AdminEndpoints
 
             return rest_ensure_response($response)->set_status(400);
         }
-    }
-
-    public function retrieve_pm_callback($request)
-    {
-        $users = get_users();
-
-        $pms = array();
-
-        foreach ($users as $user) {
-            if (in_array('pm', $user->roles)) {
-                $pms[] = array(
-                    'pm_name' => $user->display_name,
-                    'pm_email' => $user->user_email,
-                    'pm_role' => $user->roles[0],
-                );
-            }
-        }
-
-        return $pms;
     }
 }
 
