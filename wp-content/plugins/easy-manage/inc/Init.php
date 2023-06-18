@@ -15,7 +15,9 @@ class Init{
             Pages\PMEndpoints::class,
             Pages\TrainerEndpoints::class,
             Pages\TraineeEndpoints::class,
-            Pages\UserRoles::class
+            Pages\UserRoles::class,
+            Pages\AllProjects::class,
+            Pages\AllUsers::class
         ];
     }
 

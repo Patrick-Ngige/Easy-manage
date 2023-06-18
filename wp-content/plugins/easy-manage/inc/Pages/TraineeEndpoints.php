@@ -5,6 +5,8 @@
 
 namespace Inc\Pages;
 
+use WP_Error;
+
 class TraineeEndpoints
 {
     public function register()
@@ -15,7 +17,7 @@ class TraineeEndpoints
     {
         register_rest_route(
             'em/v1',
-            '/trainee',
+            '/trainee/individual-projects',
             array(
                 'methods' => 'GET',
                 'callback' => array($this, 'retrieve_individual_projects'),
@@ -24,7 +26,7 @@ class TraineeEndpoints
 
         register_rest_route(
             'em/v1',
-            '/trainee',
+            '/trainee/group-projects',
             array(
                 'methods' => 'GET',
                 'callback' => array($this, 'retrieve_group_projects'),
@@ -33,7 +35,7 @@ class TraineeEndpoints
 
         register_rest_route(
             'em/v1',
-            '/trainee',
+            '/completed-projects',
             array(
                 'methods' => 'GET',
                 'callback' => array($this, 'retrieve_completed_projects'),
@@ -51,9 +53,9 @@ class TraineeEndpoints
             "SELECT project_name, project_task, assignee, due_date, project_status  FROM $table_name WHERE project_status = 0 
         "));
     
-        // if (empty($projects)) {
-        //     return new WP_Error('no_projects', 'No projects found.', array('status' => 404));
-        // }
+        if (empty($projects)) {
+            return new WP_Error('no_projects', 'No projects found.', array('status' => 404));
+        }
     
         return $projects;
     }
