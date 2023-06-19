@@ -47,10 +47,10 @@ class AdminEndpoints
     {
         $parameters = $request->get_params();
 
-        $pm_name = sanitize_text_field($parameters['pm_name']);
-        $pm_email = sanitize_email($parameters['pm_email']);
-        $pm_role = sanitize_text_field($parameters['pm_role']);
-        $pm_password = sanitize_text_field($parameters['pm_password']);
+        $pm_name = sanitize_text_field($request->get_param('pm_name'));
+        $pm_email = sanitize_email($request->get_param('pm_email'));
+        $pm_role = sanitize_text_field($request->get_param('pm_role'));
+        $pm_password = sanitize_text_field($request->get_param('pm_password'));
 
 
         $user_id = wp_create_user($pm_name, $pm_password, $pm_email);

@@ -10,16 +10,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $errors = array();
 
     // Validate fields
-    if (empty($_POST['pm-name'])) {
-        $errors[] = 'Username is required';
+    if (empty($_POST['cohort'])) {
+        $errors[] = 'Cohort name is required';
     }
 
-    if (empty($_POST['pm-email'])) {
-        $errors[] = 'Email is required';
+    if (empty($_POST['cohort_info'])) {
+        $errors[] = 'Cohort information is required';
     }
 
-    if (empty($_POST['pm-email'])) {
-        $errors[] = 'Email is required';
+    if (empty($_POST['trainer'])) {
+        $errors[] = 'Trainer is required';
+    }
+
+    if (empty($_POST['starting_date'])) {
+        $errors[] = 'Starting adte  is required';
+    }
+
+    if (empty($_POST['ending_date'])) {
+        $errors[] = 'Ending date is required';
     }
 
     // If there are no errors, process the form
@@ -72,41 +80,41 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                             <div class="form-outline mb-1">
                                                 <label class="form-label" for="form2Example27" style="font-weight:600;">Cohort info:</label>
                                                 <input type="text" id="form2Example27" class="form-control form-control-md"
-                                                    placeholder="Enter Cohort information" name="cohort-info"
-                                                    value="<?php echo isset($_POST['cohort']) ? $_POST['cohort-info'] : ''; ?>" />
+                                                    placeholder="Enter Cohort information" name="cohort_info"
+                                                    value="<?php echo isset($_POST['cohort_info']) ? $_POST['cohort_info'] : ''; ?>" />
                                                 <?php if (isset($errors) && in_array('cohort information is required', $errors)) {
-                                                    echo '<p class="text-danger">cohort information is required</p>';
+                                                    echo '<p class="text-danger">Cohort information is required</p>';
                                                 } ?>
                                             </div>
 
                                                 <div>
                                             <label class="form-label" for="form2Example27" style="font-weight:600;">Trainer</label>
                                                 <select class="form-select" aria-label="Default select example"
-                                                    name="trainer-role" style="font-weight:600;" value="<?php echo isset($_POST['trainer-name']) ? $_POST['trainer-name'] : ''; ?>">
-                                                    <option value="">Select a role</option>
-                                                    <option value="Jon Doe" <?php echo isset($_POST['trainer-role']) && $_POST['trainer-role'] === 'Jon Doe' ? 'selected' : ''; ?>>Jon Doe</option>
-                                                    <option value="Jon Doe" <?php echo isset($_POST['trainer-role']) && $_POST['trainer-role'] === 'Jon Doe' ? 'selected' : ''; ?>>Jon Doe</option>
-                                                    <option value="Jon Doe" <?php echo isset($_POST['trainer-role']) && $_POST['trainer-role'] === 'Jon Doe' ? 'selected' : ''; ?>>Jon Doe</option>
+                                                    name="trainer" style="font-weight:600;" value="<?php echo isset($_POST['trainer']) ? $_POST['trainer'] : ''; ?>">
+                                                    <option value="">Select a trainer</option>
+                                                    <option value="Jon Doe" <?php echo isset($_POST['trainer']) && $_POST['trainer'] === 'Jon Doe' ? 'selected' : ''; ?>></option>
+                                                    <option value="Jon Doe" <?php echo isset($_POST['trainer']) && $_POST['trainer'] === 'Jon Doe' ? 'selected' : ''; ?>>Jon Doe</option>
+                                                    <option value="Jon Doe" <?php echo isset($_POST['trainer']) && $_POST['trainer'] === 'Jon Doe' ? 'selected' : ''; ?>>Jon Doe</option>
                                                 </select>
                                             </div>
 
                                             <div class="form-outline mb-1">
                                                 <label class="form-label" for="form2Example27" style="font-weight:600;">Starting Date:</label>
                                                 <input type="date" id="form2Example27" class="form-control form-control-md"
-                                                     name="starting-date" required min="<?php echo date('Y-m-d'); ?>"
-                                                    value="<?php echo isset($_POST['starting-date']) ? $_POST['starting-date'] : ''; ?>" />
-                                                <?php if (isset($errors) && in_array('starting-date is required', $errors)) {
-                                                    echo '<p class="text-danger">starting-date is required</p>';
+                                                     name="starting_date" required min="<?php echo date('Y-m-d'); ?>"
+                                                    value="<?php echo isset($_POST['starting_date']) ? $_POST['starting_date'] : ''; ?>" />
+                                                <?php if (isset($errors) && in_array('starting_date is required', $errors)) {
+                                                    echo '<p class="text-danger">Starting date is required</p>';
                                                 } ?>
                                             </div>
 
                                             <div class="form-outline mb-1">
                                                 <label class="form-label" for="form2Example27" style="font-weight:600;">Ending Date:</label>
                                                 <input type="date" id="form2Example27" class="form-control form-control-md"
-                                                     name="ending-date" required min="<?php echo date('Y-m-d'); ?>"
-                                                    value="<?php echo isset($_POST['ending-date']) ? $_POST['ending-date'] : ''; ?>" />
-                                                <?php if (isset($errors) && in_array('ending-date is required', $errors)) {
-                                                    echo '<p class="text-danger">ending-date is required</p>';
+                                                     name="ending_date" required min="<?php echo date('Y-m-d'); ?>"
+                                                    value="<?php echo isset($_POST['ending_date']) ? $_POST['ending_date'] : ''; ?>" />
+                                                <?php if (isset($errors) && in_array('ending_date is required', $errors)) {
+                                                    echo '<p class="text-danger">Ending date is required</p>';
                                                 } ?>
                                             </div>
 

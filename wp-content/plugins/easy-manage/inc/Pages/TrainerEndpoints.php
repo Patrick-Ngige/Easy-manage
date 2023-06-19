@@ -20,8 +20,8 @@ class TrainerEndpoints
             'em/v1',
             '/trainee',
             array(
-                'methods' => array('POST', 'GET'),
-                'callback' => array($this, 'trainee_callback'),
+                'methods' => array('POST', 'PATCH'),
+                'callback' => array($this, 'trainee_callbacks'),
             )
         );
 
@@ -29,8 +29,8 @@ class TrainerEndpoints
             'em/v1',
             '/projects/individual',
             array(
-                'methods' => array('POST'),
-                'callback' => array($this, 'create_individual_project'),
+                'methods' => array('POST', 'PATCH'),
+                'callback' => array($this, 'individual_projects_callbacks'),
             )
         );
 
@@ -38,49 +38,49 @@ class TrainerEndpoints
             'em/v1',
             '/projects/group',
             array(
-                'methods' => array('POST'),
-                'callback' => array($this, 'create_group_project'),
+                'methods' => array('POST', 'PATCH'),
+                'callback' => array($this, 'group_projects_callbacks'),
             )
         );
+
+     
     }
 
-    // Callback methods
-
-    public function trainee_callback($request)
+    public function trainee_callbacks($request)
     {
         if ($request->get_method() === 'POST') {
             return $this->create_trainee_callback($request);
-        } elseif ($request->get_method() === 'GET') {
-            return $this->retrieve_trainee_callback($request);
+        } elseif ($request->get_method() === 'PATCH') {
+            return $this->update_trainee_callback($request);
         }
     }
 
+    public function individual_projects_callbacks($request)
+    {
+        if ($request->get_method() === 'POST') {
+            return $this->create_individual_project($request);
+        } elseif ($request->get_method() === 'PATCH') {
+            return $this->update_individual_project($request);
+        }
+    }
 
-    // Permission callback methods
-
-    // public function manage_trainees_permission($request)
-    // {
-    //     if (!current_user_can('manage_options')) {
-    //         return new WP_Error(
-    //             'rest_forbidden',
-    //             __('You do not have permissions to manage trainees.', 'text-domain'),
-    //             array('status' => 403)
-    //         );
-    //     }
-
-    //     return true;
-    // }
-
-    // Callback methods for trainee endpoints
+    public function group_projects_callbacks($request)
+    {
+        if ($request->get_method() === 'POST') {
+            return $this->create_group_project($request);
+        } elseif ($request->get_method() === 'PATCH') {
+            return $this->update_group_project($request);
+        }
+    }
 
     public function create_trainee_callback($request)
     {
         $parameters = $request->get_params();
 
-        $trainee_name = sanitize_text_field($parameters['trainee_name']);
-        $trainee_email = sanitize_email($parameters['trainee_email']);
-        $trainee_role = sanitize_text_field($parameters['trainee_role']);
-        $trainee_password = sanitize_text_field($parameters['trainee_password']);
+        $trainee_name = sanitize_text_field($request->get_param('trainee_name'));
+        $trainee_email = sanitize_email($request->get_param('trainee_email'));
+        $trainee_role = sanitize_text_field($request->get_param('trainee_role'));
+        $trainee_password = sanitize_text_field($request->get_param('trainee_password'));
 
 
         $user_id = wp_create_user($trainee_name, $trainee_password, $trainee_email);
@@ -97,11 +97,11 @@ class TrainerEndpoints
             );
 
             // Send email to trainee with login information
-            $email_subject = 'Your Trainee Account Details';
-            $email_body = 'Your username: ' . $user->user_login . "\r\n";
-            $email_body .= 'Your password: ' . $trainee_password . "\r\n";
-            $email_body .= 'Please login to the website using this information.';
-            wp_mail($trainee_email, $email_subject, $email_body);
+            // $email_subject = 'Your Trainee Account Details';
+            // $email_body = 'Your username: ' . $user->user_login . "\r\n";
+            // $email_body .= 'Your password: ' . $trainee_password . "\r\n";
+            // $email_body .= 'Please login to the website using this information.';
+            // wp_mail($trainee_email, $email_subject, $email_body);
 
             return rest_ensure_response($response);
         } else {
@@ -114,39 +114,57 @@ class TrainerEndpoints
         }
     }
 
-    public function retrieve_trainee_callback($request)
+    public function update_trainee_callback($request)
     {
-        $users = get_users();
+        $parameters = $request->get_params();
 
-        $trainees = array();
+        $trainee_id = sanitize_text_field($request->get_param('trainee_id'));
+        $trainee_name = sanitize_text_field($request->get_param('trainee_name'));
+        $trainee_email = sanitize_email($request->get_param('trainee_email'));
+        $trainee_role = sanitize_text_field($request->get_param('trainee_role'));
+        $trainee_password = sanitize_text_field($request->get_param('trainee_password'));
 
-        foreach ($users as $user) {
-            if (in_array('trainee', $user->roles)) {
-                $trainees[] = array(
-                    'trainee_name' => $user->display_name,
-                    'trainee_email' => $user->user_email,
-                    'trainee_role' => $user->roles[0],
-                );
+        $user = get_user_by('id', $trainee_id);
+
+        if ($user) {
+            $user->user_login = $trainee_name;
+            $user->user_email = $trainee_email;
+
+            if ($trainee_password) {
+                wp_set_password($trainee_password, $trainee_id);
             }
-        }
 
-        return $trainees;
+            $user->set_role($trainee_role);
+            wp_update_user($user);
+
+            $response = array(
+                'success' => true,
+                'message' => 'Trainee updated successfully',
+                'user_id' => $trainee_id,
+            );
+
+            return rest_ensure_response($response);
+
+        } else {
+            $response = array(
+                'success' => false,
+                'errors' => new WP_Error('400', 'Trainee not found'),
+            );
+
+            return new WP_Error('trainee_updating_failed', 'Failed to update trainee.', array('status' => 500));
+        }
     }
 
 
     public function create_individual_project($request)
     {
+
         $parameters = $request->get_json_params();
 
-
-        if (empty($parameters) || !isset($parameters['project_name']) || !isset($parameters['project_task']) || !isset($parameters['assignee']) || !isset($parameters['due_date'])) {
-            return new WP_Error('invalid_parameters', 'Invalid parameters.', array('status' => 400));
-        }
-    
-        $project_name = $parameters['project_name'];
-        $project_task = $parameters['project_task'];
-        $assignee = $parameters['assignee'];
-        $due_date = $parameters['due_date'];
+        $project_name = $request->get_param('project_name');
+        $project_task = $request->get_param('project_task');
+        $assignee = $request->get_param('assignee');
+        $due_date = $request->get_param('due_date');
 
         global $wpdb;
         $table_name = $wpdb->prefix . 'individual_projects';
@@ -161,60 +179,67 @@ class TrainerEndpoints
             )
         );
 
-        // If project creation is successful, return a success response
         if ($result) {
-            $project_id = $wpdb->insert_id; // Retrieve the inserted project ID
-
+            $project_id = $wpdb->insert_id;
             $response = array(
                 'success' => true,
                 'message' => 'Individual project created successfully',
                 'project_id' => $project_id,
             );
-
             return rest_ensure_response($response);
         }
 
-        // If project creation fails, return an error response
         return new WP_Error('project_creation_failed', 'Failed to create individual project.', array('status' => 500));
     }
 
 
-    // public function update_individual_project($request)
-    // {
-    //     global $wpdb;
-    //     $table_name = $wpdb->prefix . 'individual_projects';
-    //     $project_id = $request['project_id'];
+    public function update_individual_project($request)
+    {
+        global $wpdb;
+        $table_name = $wpdb->prefix . 'individual_projects';
+        $project_id = $request['project_id'];
 
-    //     $data = $request->get_json_params();
+        $data = $request->get_json_params();
 
-    //     $project_name = $data['project_name'];
-    //     $project_task = $data['project_task'];
-    //     $assignee = $data['assignee'];
-    //     $due_date = $data['due_date'];
-
-
-    //     $data = array(
-
-    //         'project_name' => $project_name,
-    //         'project_task' => $project_task,
-    //         'assignee' => $assignee,
-    //         'due_date' => $due_date,
-    //     );
-    //     $condition = array('project_id' => $project_id);
-
-    //     $wpdb->update($table_name, $data, $condition);
-    // }
+        $project_name = $request->get_param('project_name');
+        $project_task = $request->get_param('project_task');
+        $assignee = $request->get_param('assignee');
+        $due_date = $request->get_param('due_date');
 
 
-    
+        $data = array(
+
+            'project_name' => $project_name,
+            'project_task' => $project_task,
+            'assignee' => $assignee,
+            'due_date' => $due_date,
+        );
+        $condition = array('project_id' => $project_id);
+
+        $updated = $wpdb->update($table_name, $data, $condition);
+
+        if ($updated) {
+            $response = array(
+                'success' => true,
+                'message' => 'Individual project created successfully',
+                'project_id' => $updated,
+            );
+            return rest_ensure_response($response);
+        }
+        return new WP_Error('project_updating_failed', 'Failed to update individual project.', array('status' => 500));
+
+    }
+
+
+
     public function create_group_project($request)
     {
         $data = $request->get_json_params();
 
-        $assigned_trainees = $data['assigned_trainees'];
-        $project_name = $data['project_name'];
-        $project_task = $data['project_task'];
-        $due_date = $data['due_date'];
+        $assigned_trainees = $request->get_param('assigned_trainees');
+        $project_name = $request->get_param('project_name');
+        $project_task = $request->get_param('project_task');
+        $due_date = $request->get_param('due_date');
 
 
         global $wpdb;
@@ -230,46 +255,52 @@ class TrainerEndpoints
             )
         );
 
-        // If project creation is successful, return a success response
         if ($result) {
             $response = array(
                 'success' => true,
                 'message' => 'Group project created successfully',
-                'project_id' => $result, // Example: The inserted project ID
+                'project_id' => $result,
             );
-
             return rest_ensure_response($response);
         }
-
-        // If project creation fails, return an error response
         return new WP_Error('project_creation_failed', 'Failed to create group project.', array('status' => 500));
 
     }
 
-    // public function update_group_project($request)
-    // {
-    //     global $wpdb;
-    //     $table_name = $wpdb->prefix . 'group_projects';
-    //     $project_id = $request['project_id'];
+    public function update_group_project($request)
+    {
+        global $wpdb;
+        $table_name = $wpdb->prefix . 'group_projects';
+        $project_id = $request['project_id'];
 
-    //     $data = $request->get_json_params();
+        $data = $request->get_json_params();
 
-    //     $assigned_trainees = $data['assigned_trainees'];
-    //     $project_name = $data['project_name'];
-    //     $project_task = $data['project_task'];
-    //     $due_date = $data['due_date'];
+        $assigned_trainees = $request->get_param('assigned_trainees');
+        $project_name = $request->get_param('project_name');
+        $project_task = $request->get_param('project_task');
+        $due_date = $request->get_param('due_date');
 
 
-    //     $data = array(
+        $data = array(
 
-    //         'assigned_trainees' => $assigned_trainees,
-    //         'project_name' => $project_name,
-    //         'project_task' => $project_task,
-    //         'due_date' => $due_date,
-    //     );
-    //     $condition = array('project_id' => $project_id);
+            'assigned_trainees' => $assigned_trainees,
+            'project_name' => $project_name,
+            'project_task' => $project_task,
+            'due_date' => $due_date,
+        );
+        $condition = array('project_id' => $project_id);
 
-    //     $wpdb->update($table_name, $data, $condition);
-    // }
+        $update = $wpdb->update($table_name, $data, $condition);
+
+        if ($update) {
+            $response = array(
+                'success' => true,
+                'message' => 'Group project updated successfully',
+                'project_id' => $update,
+            );
+            return rest_ensure_response($response);
+        }
+        return new WP_Error('project_update_failed', 'Failed to update group project.', array('status' => 500));
+    }
 
 }

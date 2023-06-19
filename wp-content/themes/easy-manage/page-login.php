@@ -3,19 +3,16 @@
 Template Name: Login Page
 */
 
-session_start(); // Start the session
+ session_start(); // Start the session
 
-if (!is_user_logged_in()) {
-    wp_redirect(home_url('/'));
-    exit;
-}
+// if (!is_user_logged_in()) {
+//     wp_redirect(home_url('/'));
+//     exit;
+// }
 
 $error_message = '';
 $show_attempts = false;
 
-if (!isset($_SESSION['login_attempts'])) {
-    $_SESSION['login_attempts'] = 0;
-}
 
 $remaining_attempts = 3 - (int) $_SESSION['login_attempts'];
 
@@ -66,7 +63,7 @@ if ($login_attempts >= count($wait_times)) {
                 $user_info = get_userdata($user_id);
                 $user_roles = $user_info->roles;
 
-                if (in_array('Admin', $user_roles)) {
+                if (in_array('Administrator', $user_roles)) {
                     wp_redirect('http://localhost/easy-manage/admin-pm-list/');
                     exit;
                 } elseif (in_array('Program Manager', $user_roles)) {

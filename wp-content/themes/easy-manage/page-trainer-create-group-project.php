@@ -17,6 +17,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errors[] = 'Email is required';
     }
 
+    if (isset($_POST['creategrp'])) {
+        $assigned_members = $_POST['assigned_members'];
+        $group_project = $_POST['group_project'];
+        $project_task = $_POST['project_task'];
+        $group_due_date = $_POST['group_due_date'];
+    
+        $created_group_project = array(
+            'assigned_members' => $assigned_members,
+            'group_project' => $group_project,
+            'project_task' => $project_task,
+            'group_due_date' => $group_due_date,
+        );
+    
+        $response = wp_remote_post(
+            'http://localhost/easy-manage/wp-json/em/v1/projects/individual',
+            array(
+                'method' => 'POST',
+                'headers' => array('Content-Type' => 'application/json'),
+                'body' => wp_json_encode($created_group_project),
+            )
+        );
+    
+    }
+
     if (empty($errors)) {
         // Process the form 
 
@@ -104,8 +128,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                         style="font-weight:600;">Assigned Members:</label>
                                                     <input type="text" id="form2Example27" readonly
                                                         class="form-control form-control-md"
-                                                        placeholder="assigned names" name="assigned-members" required
-                                                        value="<?php echo isset($_POST['assigned-members']) ? $_POST['assigned-members'] : ''; ?>" />
+                                                        placeholder="assigned names" name="assigned_members" required
+                                                        value="<?php echo isset($_POST['assigned_members']) ? $_POST['assigned_members'] : ''; ?>" />
                                                 </div>
 
                                                 <div class="form-outline mb-3">
@@ -113,8 +137,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                         style="font-weight:600;">Project Name:</label>
                                                     <input type="text" id="form2Example27"
                                                         class="form-control form-control-md"
-                                                        placeholder="Enter project task" name="group-project" required
-                                                        value="<?php echo isset($_POST['group-project']) ? $_POST['group-project'] : ''; ?>" />
+                                                        placeholder="Enter project task" name="group_project" required
+                                                        value="<?php echo isset($_POST['group_project']) ? $_POST['group_project'] : ''; ?>" />
                                                 </div>
 
                                                 <div class="form-outline mb-3">
@@ -122,15 +146,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                         style="font-weight:600;">Project Task:</label>
                                                     <input type="text" id="form2Example27"
                                                         class="form-control form-control-md"
-                                                        placeholder="Enter project task" name="project-task" required
-                                                        value="<?php echo isset($_POST['project-task']) ? $_POST['project-task'] : ''; ?>" />
+                                                        placeholder="Enter project task" name="project_task" required
+                                                        value="<?php echo isset($_POST['project_task']) ? $_POST['project_task'] : ''; ?>" />
                                                 </div>
 
                                                 <div>
                                                 <label class="form-label mb-3" for="form2Example27"
                                                         style="font-weight:600;">Due Date:</label>
                                                         <input type="date" id="form2Example27" class="form-control form-control-md"
-                                                name="group-due-date" required min="<?php echo date('Y-m-d'); ?>" />
+                                                name="group_due_date" required min="<?php echo date('Y-m-d'); ?>" />
 
                                                 </div>
 

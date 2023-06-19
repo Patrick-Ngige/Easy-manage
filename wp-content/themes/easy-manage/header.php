@@ -39,7 +39,7 @@
                 ?>
             </div>
    <div>
-    <a href="<?php echo wp_logout_url(home_url('/')); ?>" style="color: red; text-decoration: none; font-weight: 600;">
+    <a href="<?php echo wp_logout_url(home_url('')); ?>" style="color: red; text-decoration: none; font-weight: 600;">
         <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/logout.png" style="width: 1rem; height: 1rem;" />
         Logout
     </a>

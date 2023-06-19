@@ -17,7 +17,7 @@ class AllUsers
     {
         register_rest_route(
             'em/v1',
-            '/users',
+            '/users/pm',
             array(
                 'methods' => array('GET'),
                 'callback' => array($this, 'retrieve_pm_callback'),
@@ -26,7 +26,7 @@ class AllUsers
 
         register_rest_route(
             'em/v1',
-            '/users',
+            '/users/trainers',
             array(
                 'methods' => array('GET'),
                 'callback' => array($this, 'retrieve_trainers_callback'),
@@ -35,7 +35,7 @@ class AllUsers
 
         register_rest_route(
             'em/v1',
-            '/users',
+            '/users/trainees',
             array(
                 'methods' => array('GET'),
                 'callback' => array($this, 'retrieve_trainees_callback'),
@@ -72,11 +72,11 @@ class AllUsers
     {
         $users = get_users();
 
-        $pms = array();
+        $pm = array();
 
         foreach ($users as $user) {
-            if (in_array('pm', $user->roles)) {
-                $pms[] = array(
+            if (in_array('program_manager', $user->roles)) {
+                $pm[] = array(
                     'pm_name' => $user->display_name,
                     'pm_email' => $user->user_email,
                     'pm_role' => $user->roles[0],
@@ -84,7 +84,11 @@ class AllUsers
             }
         }
 
-        return $pms;
+        if (empty($pm)) {
+            return new WP_Error('no_program_managers', 'No program managers found.', array('status' => 404));
+        }
+
+        return $pm;
     }
 
     public function retrieve_trainers_callback($request)
@@ -101,6 +105,10 @@ class AllUsers
                     'trainer_role' => $user->roles[0],
                 );
             }
+        }
+
+        if (empty($trainers)) {
+            return new WP_Error('no_trainers', 'No trainer found.', array('status' => 404));
         }
 
         return $trainers;
@@ -120,6 +128,10 @@ class AllUsers
                     'trainee_role' => $user->roles[0],
                 );
             }
+        }
+
+        if (empty($trainees)) {
+            return new WP_Error('no_trainees', 'No trainee found.', array('status' => 404));
         }
 
         return $trainees;

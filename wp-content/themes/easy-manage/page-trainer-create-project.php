@@ -3,17 +3,14 @@
  * Template Name: Trainer Create Project
  */
 
+ob_start();
+
 get_header();
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-$errors = array(); // Store validation errors
-$success_message = ''; // Success message
+$errors = array();
+$success_message = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Validate form fields
     if (empty($_POST['project_name'])) {
         $errors[] = 'Project name is required.';
     }
@@ -30,67 +27,43 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errors[] = 'Due date is required.';
     }
 
-    // Process the form data here
-    if (empty($errors)) {
-        // Retrieve the form data
+    if (isset($_POST['createbtn'])) {
         $project_name = $_POST['project_name'];
         $project_task = $_POST['project_task'];
         $assignee = $_POST['assignee'];
         $due_date = $_POST['due_date'];
 
-        
+        $created_project = array(
+            'project_name' => $project_name,
+            'project_task' => $project_task,
+            'assignee' => $assignee,
+            'due_date' => $due_date,
+        );
 
-        // TODO: Perform authentication and authorization checks here
-        // Example code: Check if the current user is a trainer
+        $response = wp_remote_post(
+            'http://localhost/easy-manage/wp-json/em/v1/projects/individual',
+            array(
+                'method' => 'POST',
+                'headers' => array('Content-Type' => 'application/json'),
+                'body' => wp_json_encode($created_project),
+            )
+        );
 
-        if (current_user_can('trainer_capability')) {
-            // TODO: Process the form data and create the project
+        if (!is_wp_error($response)) {
+            $result = wp_remote_retrieve_body($response);
+            $result = json_decode($result);
 
-            // Set success message
-            $success_message = 'Project created successfully.';
-
-            // Prepare the project data to be sent to the endpoint
-            $created_project = array(
-                'project_name' => $project_name,
-                'project_task' => $project_task,
-                'assignee' => $assignee,
-                'due_date' => $due_date,
-            );
-
-            var_dump($created_project);
-
-            // Send the project data to the endpoint using wp_remote_post()
-            $response = wp_remote_post(
-                'http://localhost/easy-manage/wp-json/em/v1/projects/individual',
-                array(
-                    'method' => 'POST',
-                    'headers' => array('Content-Type' => 'application/json'),
-                    'body' => wp_json_encode($created_project),
-                )
-            );
-
-            // Check the response status
-            if (is_wp_error($response)) {
-                $errors[] = 'An error occurred while creating the project.';
-            } else {
-                $response_code = wp_remote_retrieve_response_code($response);
-                if ($response_code === 200) {
-                    // Successful response
-                    $success_message = 'Project created successfully.';
-                } else {
-                    // Error response
-                    $errors[] = 'An error occurred while creating the project.';
-                }
-            }
-
-            // Redirect to the desired page
-            wp_redirect('http://localhost/easy-manage/trainer-projects/');
-            exit();
-        } else {
-            $errors[] = 'You are not authorized to create a project.';
+            if ($result && $result->success) {
+                // Store success message in session variable
+                $_SESSION['success_message'] = 'Individual project created successfully.';
+                wp_redirect('http://localhost/easy-manage/trainer-projects/');
+                exit;
         }
     }
 }
+}
+
+ob_end_flush();
 ?>
 
 
@@ -101,7 +74,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <div style="padding:1rem ;height:88vh;margin-left:10%;display:flex;flex-direction:row ">
         <div style="padding:1rem;">
-            <!-- Add buttons and search bar here -->
             <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
                 <a href="http://localhost/easy-manage/trainer-group-projects/"
                     style="text-decoration:none;padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
@@ -127,8 +99,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                     style="color:#315B87">
                                                     Create Project
                                                 </h2>
-
-                                                <!-- Display success message if it exists -->
                                                 <?php if ($success_message) { ?>
                                                     <div class="alert alert-success" role="alert">
                                                         <?php echo $success_message; ?>
@@ -177,8 +147,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                         style="font-weight:600;">Due Date:</label>
                                                     <input type="date" id="due_date"
                                                         class="form-control form-control-md" placeholder="Due date"
-                                                        name="due_date"
-                                                        min="<?php echo date('Y-m-d'); ?>"
+                                                        name="due_date" min="<?php echo date('Y-m-d'); ?>"
                                                         value="<?php echo isset($_POST['due_date']) ? $_POST['due_date'] : ''; ?>" />
                                                     <?php if (in_array('Due date is required.', $errors)) { ?>
                                                         <p class="text-danger">Due date is required.</p>

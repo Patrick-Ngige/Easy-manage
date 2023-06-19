@@ -32,6 +32,15 @@ class PMEndpoints
                 'callback' => array($this, 'create_cohort_callback'),
             )
         );
+
+        register_rest_route(
+            'em/v1',
+            '/cohorts/update',
+            array(
+                'methods' => array('POST',),
+                'callback' => array($this, 'update_cohort_callback'),
+            )
+        );
     }
 
 
@@ -51,16 +60,16 @@ class PMEndpoints
     //     return true;
     // }
 
-    // Callback methods for trainee endpoints
+
 
     public function create_trainer_callback($request)
     {
         $parameters = $request->get_params();
 
-        $trainer_name = sanitize_text_field($parameters['trainer_name']);
-        $trainer_email = sanitize_email($parameters['trainer_email']);
-        $trainer_role = sanitize_text_field($parameters['trainer_role']);
-        $trainer_password = sanitize_text_field($parameters['trainer_password']);
+        $trainer_name = sanitize_text_field($request->get_param('trainer_name'));
+        $trainer_email = sanitize_email($request->get_param('trainer_email'));
+        $trainer_role = sanitize_text_field($request->get_param('trainer_role'));
+        $trainer_password = sanitize_text_field($request->get_param('trainer_password'));
 
 
         $user_id = wp_create_user($trainer_name, $trainer_password, $trainer_email);
@@ -98,17 +107,12 @@ class PMEndpoints
     public function create_cohort_callback($request)
     {
         $parameters = $request->get_json_params();
-
-
-        if (empty($parameters) || !isset($parameters['cohort']) || !isset($parameters['cohort_info']) || !isset($parameters['trainer']) || !isset($parameters['starting_date']) || !isset($parameters['ending_date'])) {
-            return new WP_Error('invalid_parameters', 'Invalid parameters.', array('status' => 400));
-        }
     
-        $cohort = $parameters['cohort'];
-        $cohort_info = $parameters['cohort_info'];
-        $trainer = $parameters['trainer'];
-        $starting_date = $parameters['starting_date'];
-        $ending_date = $parameters['ending_date'];
+        $cohort = $request->get_param('cohort');
+        $cohort_info = $request->get_param('cohort_info');
+        $trainer = $request->get_param('trainer');
+        $starting_date = $request->get_param('starting_date');
+        $ending_date = $request->get_param('ending_date');
 
         global $wpdb;
         $table_name = $wpdb->prefix . 'cohorts';
@@ -124,49 +128,65 @@ class PMEndpoints
             )
         );
 
-        // If project creation is successful, return a success response
+        
         if ($result) {
-            $cohort_id = $wpdb->insert_id; // Retrieve the inserted project ID
+            $cohort_id = $wpdb->insert_id; 
 
             $response = array(
                 'success' => true,
-                'message' => 'Individual project created successfully',
+                'message' => 'Cohort created successfully',
                 'cohort_id' => $cohort_id,
             );
 
             return rest_ensure_response($response);
         }
 
-        // If project creation fails, return an error response
+      
         return new WP_Error('cohort_creation_failed', 'Failed to create cohort.', array('status' => 500));
     }
 
 
-    // public function update_individual_project($request)
-    // {
-    //     global $wpdb;
-    //     $table_name = $wpdb->prefix . 'individual_projects';
-    //     $project_id = $request['project_id'];
+    public function update_cohort_callback($request)
+    {
+        global $wpdb;
+        $table_name = $wpdb->prefix . 'cohorts';
+        $cohort_id = $request['cohort_id'];
 
-    //     $data = $request->get_json_params();
+        $data = $request->get_json_params();
 
-    //     $project_name = $data['project_name'];
-    //     $cohort_info = $data['cohort_info'];
-    //     $trainer = $data['trainer'];
-    //     $starting_date = $data['starting_date'];
+        $cohort = $request->get_param('cohort');
+        $cohort_info = $request->get_param('cohort_info');
+        $trainer = $request->get_param('trainer');
+        $starting_date = $request->get_param('starting_date');
+        $ending_date = $request->get_param('ending_date');
 
 
-    //     $data = array(
+        $data = array(
 
-    //         'project_name' => $project_name,
-    //         'cohort_info' => $cohort_info,
-    //         'trainer' => $trainer,
-    //         'starting_date' => $starting_date,
-    //     );
-    //     $condition = array('project_id' => $project_id);
+            'cohort' => $cohort,
+            'cohort_info' => $cohort_info,
+            'trainer' => $trainer,
+            'starting_date' => $starting_date,
+            'ending_date' => $ending_date,
+        );
+        $condition = array('cohort_id' => $cohort_id);
 
-    //     $wpdb->update($table_name, $data, $condition);
-    // }
+        $updated = $wpdb->update($table_name, $data, $condition);
+
+        if ($updated) {
+            $cohort_id = $wpdb->insert_id; 
+
+            $response = array(
+                'success' => true,
+                'message' => 'Cohort created successfully',
+                'cohort_id' => $cohort_id,
+            );
+
+            return rest_ensure_response($response);
+        }  
+        return new WP_Error('cohort_updation_failed', 'Failed to update cohort.', array('status' => 500));
+
+    }
     
 }
 
