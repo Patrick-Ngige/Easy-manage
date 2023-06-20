@@ -1,34 +1,64 @@
-<?php
-get_header();
+<?php get_header();
 
 /**
  * Template Name: Admin Create PM
- * 
+ *
  */
+
+$success = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $errors = array();
 
-    if (empty($_POST['pm-name'])) {
+    if (empty($_POST['pm_name'])) {
         $errors[] = 'Username is required';
     }
 
-    if (empty($_POST['pm-email'])) {
+    if (empty($_POST['pm_email'])) {
         $errors[] = 'Email is required';
     }
 
-    if (empty($_POST['pm-role'])) {
+    if (empty($_POST['pm_role'])) {
         $errors[] = 'Role is required';
     }
 
-    // If there are no errors, process the form
-    if (empty($errors)) {
-        // Process the form data here
-        // ...
+    if (empty($_POST['pm_password'])) {
+        $errors[] = 'Password is required';
+    }
 
-        // Redirect to another page after processing the form
-        header('Location: /success-page');
-        exit;
+    if (isset($_POST['createbtn'])) {
+        $pm_name = $_POST['pm_name'];
+        $pm_email = $_POST['pm_email'];
+        $pm_role = $_POST['pm_role'];
+        $pm_password = $_POST['pm_password'];
+
+        $created_pm = array(
+            'pm_name' => $pm_name,
+            'pm_email' => $pm_email,
+            'pm_role' => $pm_role,
+            'pm_password' => $pm_password
+        );
+
+        $response = wp_remote_post(
+            'http://localhost/easy-manage/wp-json/em/v1/pm',
+            array(
+                'method' => 'POST',
+                'headers' => array('Content-Type' => 'application/json'),
+                'body' => wp_json_encode($created_pm),
+            )
+        );
+
+        if (!is_wp_error($response)) {
+            $result = wp_remote_retrieve_body($response);
+            $result = json_decode($result);
+
+            if ($result && isset($result->success)) {
+                // Store success message in session variable
+                $_SESSION['success_message'] = 'Individual project created successfully.';
+                wp_redirect(add_query_arg('success', 'true'));
+                exit;
+            }
+        }
     }
 }
 ?>
@@ -59,13 +89,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                 style="color:#315B87">
                                                 Create PM</h2>
 
+                                            <?php if (isset($_GET['success']) && $_GET['success'] === 'true') : ?>
+                                                <div class="alert alert-success" role="alert">
+                                                    Program manager created successfully.
+                                                </div>
+                                            <?php endif; ?>
+
                                             <div class="form-outline mb-3">
                                                 <label class="form-label" for="form2Example27"
                                                     style="font-weight:600;">Username:</label>
                                                 <input type="text" id="form2Example27"
                                                     class="form-control form-control-md"
-                                                    placeholder="Enter project task" name="pm-name"
-                                                    value="<?php echo isset($_POST['pm-name']) ? $_POST['pm-name'] : ''; ?>" />
+                                                    placeholder="Enter project task" name="pm_name"
+                                                    value="<?php echo isset($_GET['pm_name']) ? $_GET['pm_name'] : ''; ?>" />
                                                 <?php if (isset($errors) && in_array('Username is required', $errors)) {
                                                     echo '<p class="text-danger">Username is required</p>';
                                                 } ?>
@@ -76,29 +112,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                     style="font-weight:600;">Email:</label>
                                                 <input type="email" id="form2Example27"
                                                     class="form-control form-control-md"
-                                                    placeholder="Enter project task" name="pm-email"
-                                                    value="<?php echo isset($_POST['pm-email']) ? $_POST['pm-email'] : ''; ?>" />
+                                                    placeholder="Enter project task" name="pm_email"
+                                                    value="<?php echo isset($_GET['pm_email']) ? $_GET['pm_email'] : ''; ?>" />
                                                 <?php if (isset($errors) && in_array('Email is required', $errors)) {
                                                     echo '<p class="text-danger">Email is required</p>';
                                                 } ?>
                                             </div>
 
-                                            <div>
+                                            <div class="form-outline mb-3">
                                                 <label class="form-label" for="form2Example27"
                                                     style="font-weight:600;">Role:</label>
-
-                                                <select class="form-select" aria-label="Default select example"
-                                                    name="pm-role" style="font-weight:600;">
-                                                    <option value="">Select a role</option>
-                                                    <option value="Jon Doe" <?php echo isset($_POST['pm-role']) && $_POST['pm-role'] === 'Jon Doe' ? 'selected' : ''; ?>>Jon Doe
-                                                    </option>
-                                                    <option value="Jon Doe" <?php echo isset($_POST['pm-role']) && $_POST['pm-role'] === 'Jon Doe' ? 'selected' : ''; ?>>Jon Doe
-                                                    </option>
-                                                    <option value="Jon Doe" <?php echo isset($_POST['pm-role']) && $_POST['pm-role'] === 'Jon Doe' ? 'selected' : ''; ?>>Jon Doe
-                                                    </option>
-                                                </select>
+                                                <input type="text" id="form2Example27"
+                                                    class="form-control form-control-md"
+                                                    placeholder="Enter project task" name="pm_role"
+                                                    value="<?php echo isset($_GET['pm_role']) ? $_GET['pm_role'] : ''; ?>" />
                                                 <?php if (isset($errors) && in_array('Role is required', $errors)) {
                                                     echo '<p class="text-danger">Role is required</p>';
+                                                } ?>
+                                            </div>
+
+                                            <div class="form-outline mb-3">
+                                                <label class="form-label" for="form2Example27"
+                                                    style="font-weight:600;">Password:</label>
+                                                <input type="password" id="form2Example27"
+                                                    class="form-control form-control-md"
+                                                    placeholder="********" name="pm_password"
+                                                    value="<?php echo isset($_GET['pm_password']) ? $_GET['pm_password'] : ''; ?>" />
+                                                <?php if (isset($errors) && in_array('Password is required', $errors)) {
+                                                    echo '<p class="text-danger">Password is required</p>';
                                                 } ?>
                                             </div>
 

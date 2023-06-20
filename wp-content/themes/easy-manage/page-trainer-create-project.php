@@ -58,9 +58,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['success_message'] = 'Individual project created successfully.';
                 wp_redirect('http://localhost/easy-manage/trainer-projects/');
                 exit;
+            }
         }
     }
-}
 }
 
 ob_end_flush();
