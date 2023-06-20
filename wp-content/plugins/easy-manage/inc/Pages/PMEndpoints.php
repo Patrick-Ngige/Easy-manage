@@ -85,7 +85,10 @@ class PMEndpoints
 
         if (!is_wp_error($user_id)) {
             $user = get_user_by('login', $trainer_name);
+            
             $user->set_role($trainer_role);
+            wp_update_user($user);
+
 
             $response = array(
                 'success' => true,

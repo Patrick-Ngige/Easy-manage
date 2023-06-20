@@ -43,7 +43,7 @@ class TrainerEndpoints
             )
         );
 
-     
+
     }
 
     public function trainee_callbacks($request)
@@ -82,13 +82,14 @@ class TrainerEndpoints
         $trainee_role = sanitize_text_field($request->get_param('trainee_role'));
         $trainee_password = sanitize_text_field($request->get_param('trainee_password'));
 
-
         $user_id = wp_create_user($trainee_name, $trainee_password, $trainee_email);
 
         if (!is_wp_error($user_id)) {
             $user = get_user_by('id', $user_id);
 
+            // Set the trainee's role using wp_update_user
             $user->set_role($trainee_role);
+            wp_update_user($user);
 
             $response = array(
                 'success' => true,
@@ -113,6 +114,7 @@ class TrainerEndpoints
             return rest_ensure_response($response)->set_status(400);
         }
     }
+
 
     public function update_trainee_callback($request)
     {

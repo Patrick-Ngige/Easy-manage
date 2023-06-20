@@ -66,7 +66,10 @@ class AdminEndpoints
 
         if (!is_wp_error($user_id)) {
             $user = get_user_by('login', $pm_name);
+            
             $user->set_role($pm_role);
+            wp_update_user($user);
+
 
             $response = array(
                 'success' => true,

@@ -11,7 +11,7 @@ class AllUsers
 {
     public function register()
     {
-        add_action("rest_api_init", array($this,"users_endpoints" ));
+        add_action("rest_api_init", array($this, "users_endpoints"));
     }
     public function users_endpoints()
     {
@@ -46,7 +46,7 @@ class AllUsers
 
     // Callback methods
 
- 
+
 
 
     // Permission callback methods
@@ -66,7 +66,7 @@ class AllUsers
 
     // Callback methods for trainee endpoints
 
-    
+
 
     public function retrieve_pm_callback($request)
     {
@@ -75,11 +75,11 @@ class AllUsers
         $pm = array();
 
         foreach ($users as $user) {
-            if (in_array('program_manager', $user->roles)) {
+            if (!empty($user->roles) && in_array('program_manager', $user->roles)) {
                 $pm[] = array(
                     'pm_name' => $user->display_name,
                     'pm_email' => $user->user_email,
-                    'pm_role' => $user->roles[0],
+                    'pm_role' => !empty($user->roles[0]) ? $user->roles[0] : '',
                 );
             }
         }
@@ -98,11 +98,11 @@ class AllUsers
         $trainers = array();
 
         foreach ($users as $user) {
-            if (in_array('trainer', $user->roles)) {
+            if (!empty($user->roles) && in_array('trainer', $user->roles)) {
                 $trainers[] = array(
                     'trainer_name' => $user->display_name,
                     'trainer_email' => $user->user_email,
-                    'trainer_role' => $user->roles[0],
+                    'trainer_role' => !empty($user->roles[0]) ? $user->roles[0] : '',
                 );
             }
         }
@@ -115,28 +115,29 @@ class AllUsers
     }
 
     public function retrieve_trainees_callback($request)
-    {
-        $users = get_users();
+{
+    $users = get_users();
+    $trainees = array();
 
-        $trainees = array();
-
-        foreach ($users as $user) {
-            if (in_array('trainee', $user->roles)) {
-                $trainees[] = array(
-                    'trainee_name' => $user->display_name,
-                    'trainee_email' => $user->user_email,
-                    'trainee_role' => $user->roles[0],
-                );
-            }
+    foreach ($users as $user) {
+        if (!empty($user->roles) && in_array('trainee', $user->roles)) {
+            $trainees[] = array(
+                'trainee_name' => $user->display_name,
+                'trainee_email' => $user->user_email,
+                'trainee_role' => !empty($user->roles[0]) ? $user->roles[0] : '',
+            );
         }
-
-        if (empty($trainees)) {
-            return new WP_Error('no_trainees', 'No trainee found.', array('status' => 404));
-        }
-
-        return $trainees;
     }
 
-    
+    if (empty($trainees)) {
+        return new WP_Error('no_trainees', 'No trainee found.', array('status' => 404));
+    }
+
+    return $trainees;
 }
 
+    
+
+
+
+}
