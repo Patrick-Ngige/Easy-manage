@@ -53,9 +53,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $result = json_decode($result);
 
             if ($result && isset($result->success)) {
-                // Store success message in session variable
-                $_SESSION['success_message'] = 'Individual project created successfully.';
-                wp_redirect(add_query_arg('success', 'true'));
+                $_SESSION['success_message'] = 'Program Manager created successfully.';
+                ?>
+                <script>
+                    window.location.href = '<?php echo esc_url(add_query_arg('success', 'true')); ?>';
+                </script>
+                <?php
                 exit;
             }
         }
@@ -71,7 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
     <div style="height:88vh;margin-left:15rem">
-        <div class="container py-5 ">
+        <div class="container py-4 ">
             <div class="row d-flex justify-content-center align-items-center ">
                 <div class="col col-xl-10" style="width:40vw;">
                     <div class="card" style="border-radius: 1rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);">
@@ -80,13 +83,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <div class="row g-0 w-100 d-flex justify-content-center align-items-center w-50 "
                                 style="width:40vw;">
                                 <div class="col-md-6 col-lg-7 d-flex justify-content-center align-items-center  ms-8"
-                                    style="height:80vh; width:40vw;  ">
+                                    style="height:fit-content; width:40vw;  ">
                                     <div class="card-body p-4 p-lg-5 text-black;">
 
                                         <form action="" method="POST" style="font-size:16px;">
 
                                             <h2 class="fw-bold d-flex align-items-end d-flex justify-content-center align-items-center"
-                                                style="color:#315B87">
+                                                style="color:#315B87;margin-top:-2rem">
                                                 Create PM</h2>
 
                                             <?php if (isset($_GET['success']) && $_GET['success'] === 'true') : ?>
@@ -146,7 +149,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                             <div
                                                 class="pt-1 w-100 mt-3 d-flex justify-content-center align-items-center">
                                                 <button class="btn btn-lg btn-block w-50 "
-                                                    style="background-color:#315B87 ;color:#FAFAFA" type="submit"
+                                                    style="background-color:#315B87 ;color:#FAFAFA;margin-bottom:-2rem" type="submit"
                                                     name="createbtn">Create</button>
                                             </div>
                                         </form>
