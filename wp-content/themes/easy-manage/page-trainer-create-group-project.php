@@ -64,7 +64,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 exit;
             }
         }
-
     }
 }
 ?>
@@ -96,8 +95,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
             ?>
             <div style="position:absolute; bottom: 5px; width: 80%;">
-                <button class="btn" style="background-color:#315B87;color:#FAFAFA;width: 100%;"
-                    onclick="selectMembers()">Select</button>
+                <button class="selectbtn"
+                    style="background-color:#315B87;color:#FAFAFA;width: 100%;border-radius:5px;border:none;padding:5px"
+                    onclick="selectMembers()" name="selectbtn">Select</button>
             </div>
         </div>
 
@@ -114,69 +114,74 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     <div class="col-md-6 col-lg-7 d-flex justify-content-center align-items-center  ms-8"
                                         style="height:fit-content; width:40vw; ">
                                         <div class="card-body p-4 p-lg-5 text-black">
-                                            <h2 class="fw-bold d-flex align-items-end d-flex justify-content-center align-items-center"
-                                                style="color:#315B87;margin-top:-2rem">
-                                                Create Group Project
-                                            </h2>
-                                            <?php if (isset($_GET['success']) && $_GET['success'] === 'true'): ?>
-                                                <div class="alert alert-success" role="alert">
-                                                    Group Project created successfully.
+                                            <form action="" method="POST" style="font-size:16px">
+                                                <h2 class="fw-bold d-flex align-items-end d-flex justify-content-center align-items-center"
+                                                    style="color:#315B87;margin-top:-2rem">
+                                                    Create Group Project
+                                                </h2>
+                                                <?php if (isset($_GET['success']) && $_GET['success'] === 'true'): ?>
+                                                    <div class="alert alert-success" role="alert">
+                                                        Group Project created successfully.
+                                                    </div>
+                                                <?php endif; ?>
+                                                <div class="form-outline mb-3">
+                                                    <label class="form-label" for="form2Example27"
+                                                        style="font-weight:600;">
+                                                        Assigned Members:
+                                                    </label>
+                                                    <input type="text" id="form2Example27" readonly
+                                                        class="form-control form-control-md"
+                                                        placeholder="assigned names" name="assigned_members" value="" />
+                                                    <?php if (in_array('Assigned members are required.', $errors)) { ?>
+                                                        <p class="text-danger">Assigned members are required.</p>
+                                                    <?php } ?>
                                                 </div>
-                                            <?php endif; ?>
-                                            <div class="form-outline mb-3">
-                                                <label class="form-label" for="form2Example27" style="font-weight:600;">
-                                                    Assigned Members:
-                                                </label>
-                                                <input type="text" id="form2Example27" readonly
-                                                    class="form-control form-control-md" placeholder="assigned names"
-                                                    name="assigned_members" value="" />
-                                                <?php if (in_array('Assigned members are required.', $errors)) { ?>
-                                                    <p class="text-danger">Assigned members are required.</p>
-                                                <?php } ?>
-                                            </div>
-                                            <div class="form-outline mb-3">
-                                                <label class="form-label" for="form2Example27" style="font-weight:600;">
-                                                    Project Name:
-                                                </label>
-                                                <input type="text" id="form2Example27"
-                                                    class="form-control form-control-md"
-                                                    placeholder="Enter project task" name="group_project"
-                                                    value="<?php echo isset($_GET['group_project']) ? $_GET['group_project'] : ''; ?>" />
-                                                <?php if (in_array('Project is required.', $errors)) { ?>
-                                                    <p class="text-danger">Project is required.</p>
-                                                <?php } ?>
-                                            </div>
-                                            <div class="form-outline mb-3">
-                                                <label class="form-label" for="form2Example27" style="font-weight:600;">
-                                                    Project Task:
-                                                </label>
-                                                <input type="text" id="form2Example27"
-                                                    class="form-control form-control-md"
-                                                    placeholder="Enter project task" name="project_task"
-                                                    value="<?php echo isset($_GET['project_task']) ? $_GET['project_task'] : ''; ?>" />
-                                                <?php if (in_array('Project task is required.', $errors)) { ?>
-                                                    <p class="text-danger">Project task is required.</p>
-                                                <?php } ?>
-                                            </div>
-                                            <div>
-                                                <label class="form-label mb-3" for="form2Example27"
-                                                    style="font-weight:600;">
-                                                    Due Date:
-                                                </label>
-                                                <input type="date" id="form2Example27"
-                                                    class="form-control form-control-md" name="due_date"
-                                                    value="<?php echo isset($_GET['due_date']) ? $_GET['due_date'] : ''; ?>"
-                                                    min="<?php echo date('Y-m-d'); ?>" />
-                                                <?php if (in_array('Due date is required.', $errors)) { ?>
-                                                    <p class="text-danger">Due date is required.</p>
-                                                <?php } ?>
-                                            </div>
-                                            <div
-                                                class="pt-1 mt-3 w-100 d-flex justify-content-center align-items-center">
-                                                <button class="btn btn-lg btn-block w-50 "
-                                                    style="background-color:#315B87 ;color:#FAFAFA;margin-bottom:-2rem"
-                                                    type="submit" name="creategrp">Create</button>
-                                            </div>
+                                                <div class="form-outline mb-3">
+                                                    <label class="form-label" for="form2Example27"
+                                                        style="font-weight:600;">
+                                                        Project Name:
+                                                    </label>
+                                                    <input type="text" id="form2Example27"
+                                                        class="form-control form-control-md"
+                                                        placeholder="Enter project task" name="group_project"
+                                                        value="<?php echo isset($_GET['group_project']) ? $_GET['group_project'] : ''; ?>" />
+                                                    <?php if (in_array('Project is required.', $errors)) { ?>
+                                                        <p class="text-danger">Project is required.</p>
+                                                    <?php } ?>
+                                                </div>
+                                                <div class="form-outline mb-3">
+                                                    <label class="form-label" for="form2Example27"
+                                                        style="font-weight:600;">
+                                                        Project Task:
+                                                    </label>
+                                                    <input type="text" id="form2Example27"
+                                                        class="form-control form-control-md"
+                                                        placeholder="Enter project task" name="project_task"
+                                                        value="<?php echo isset($_GET['project_task']) ? $_GET['project_task'] : ''; ?>" />
+                                                    <?php if (in_array('Project task is required.', $errors)) { ?>
+                                                        <p class="text-danger">Project task is required.</p>
+                                                    <?php } ?>
+                                                </div>
+                                                <div>
+                                                    <label class="form-label mb-3" for="form2Example27"
+                                                        style="font-weight:600;">
+                                                        Due Date:
+                                                    </label>
+                                                    <input type="date" id="form2Example27"
+                                                        class="form-control form-control-md" name="due_date"
+                                                        value="<?php echo isset($_GET['due_date']) ? $_GET['due_date'] : ''; ?>"
+                                                        min="<?php echo date('Y-m-d'); ?>" />
+                                                    <?php if (in_array('Due date is required.', $errors)) { ?>
+                                                        <p class="text-danger">Due date is required.</p>
+                                                    <?php } ?>
+                                                </div>
+                                                <div
+                                                    class="pt-1 mt-3 w-100 d-flex justify-content-center align-items-center">
+                                                    <button class="btn btn-lg btn-block w-50 "
+                                                        style="background-color:#315B87 ;color:#FAFAFA;margin-bottom:-2rem"
+                                                        type="submit" name="creategrp">Create</button>
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -194,11 +199,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         var checkboxes = document.querySelectorAll('.form-check-input');
         var assignedMembersInput = document.querySelector('input[name="assigned_members"]');
         var selectedMembers = [];
+
         checkboxes.forEach(function (checkbox) {
             if (checkbox.checked) {
                 selectedMembers.push(checkbox.value);
             }
         });
-        assignedMembersInput.value = selectedMembers.join(', ');
+
+        if (selectedMembers.length > 3) {
+            checkboxes.forEach(function (checkbox) {
+                if (!checkbox.checked) {
+                    checkbox.disabled = true;
+                }
+            });
+        } else {
+            assignedMembersInput.value = selectedMembers.join(', ');
+
+            checkboxes.forEach(function (checkbox) {
+                checkbox.disabled = false;
+            });
+        }
+
+        var createBtn = document.querySelector('button[name="creategrp"]');
+        createBtn.disabled = (selectedMembers.length === 0);
     }
+
+
+
+
+
 </script>

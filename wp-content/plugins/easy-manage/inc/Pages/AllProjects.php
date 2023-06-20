@@ -127,21 +127,23 @@ class AllProjects
     public function retrieve_completed_projects($request)
     {
         global $wpdb;
-        $individual_projects_table = $wpdb->prefix . 'individual_projects';
         $group_projects_table = $wpdb->prefix . 'group_projects';
+        $individual_projects_table = $wpdb->prefix . 'individual_projects';
+
+         // Retrieve group projects
+         $group_projects = $wpdb->get_results(
+            "SELECT assigned_members project_name, project_task, due_date, group_status FROM $group_projects_table WHERE group_status = 1"
+        );
     
         // Retrieve individual projects
         $individual_projects = $wpdb->get_results(
             "SELECT project_name, project_task, assignee, due_date, project_status FROM $individual_projects_table WHERE project_status = 1"
         );
     
-        // Retrieve group projects
-        $group_projects = $wpdb->get_results(
-            "SELECT project_name, project_task, assignee, due_date, project_status FROM $group_projects_table WHERE project_status = 1"
-        );
+       
     
         // Combine the individual and group projects into a single array
-        $projects = array_merge($individual_projects, $group_projects);
+        $projects = array_merge($group_projects, $individual_projects);
     
         if (empty($projects)) {
             return new WP_Error('no_projects', 'No projects found.', array('status' => 404));
