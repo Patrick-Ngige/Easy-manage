@@ -221,7 +221,7 @@ class TrainerEndpoints
         if ($updated) {
             $response = array(
                 'success' => true,
-                'message' => 'Individual project created successfully',
+                'message' => 'Individual project updated successfully',
                 'project_id' => $updated,
             );
             return rest_ensure_response($response);

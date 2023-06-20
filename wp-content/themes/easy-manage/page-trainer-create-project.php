@@ -53,10 +53,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $result = wp_remote_retrieve_body($response);
             $result = json_decode($result);
 
-            if ($result && $result->success) {
-                // Store success message in session variable
-                $_SESSION['success_message'] = 'Individual project created successfully.';
-                wp_redirect('http://localhost/easy-manage/trainer-projects/');
+            if ($result && isset($result->success)) {
+                $_SESSION['success_message'] = 'Project created successfully.';
+                ?>
+                <script>
+                    window.location.href = '<?php echo esc_url(add_query_arg('success', 'true')); ?>';
+                </script>
+                <?php
                 exit;
             }
         }
@@ -96,14 +99,14 @@ ob_end_flush();
                                         <div class="card-body p-2 p-lg-5 text-black">
                                             <form action="" method="POST" style="font-size:16px">
                                                 <h2 class="fw-bold d-flex align-items-end d-flex justify-content-center align-items-center"
-                                                    style="color:#315B87">
+                                                    style="color:#315B87;margin-top:-2rem">
                                                     Create Project
                                                 </h2>
-                                                <?php if ($success_message) { ?>
-                                                    <div class="alert alert-success" role="alert">
-                                                        <?php echo $success_message; ?>
-                                                    </div>
-                                                <?php } ?>
+                                                <?php if (isset($_GET['success']) && $_GET['success'] === 'true'): ?>
+                                                <div class="alert alert-success" role="alert">
+                                                    Project created successfully.
+                                                </div>
+                                            <?php endif; ?>
 
 
                                                 <div class="form-outline mb-2">
@@ -157,7 +160,7 @@ ob_end_flush();
                                                 <div class="pt-1 mb-2 w-100 d-flex justify-content-center align-items-center"
                                                     style="padding-top:0;">
                                                     <button class="btn btn-lg btn-block w-50"
-                                                        style="background-color:#315B87 ;color:#FAFAFA" type="submit"
+                                                        style="background-color:#315B87 ;color:#FAFAFA;margin-bottom:-2rem" type="submit"
                                                         name="createbtn">Create</button>
                                                 </div>
                                             </form>
