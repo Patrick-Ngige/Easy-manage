@@ -108,11 +108,11 @@ class AllProjects
         global $wpdb;
         $table_name = $wpdb->prefix . 'group_projects';
 
-        $project_id = $request->get_param('project_id');
+        $group_id = $request->get_param('group_id');
 
         $projects = $wpdb->get_results(
             $wpdb->prepare(
-                "SELECT assigned_trainees project_name, project_task, due_date, project_status  FROM $table_name WHERE project_status = 0 
+                "SELECT assigned_members project_name, project_task, due_date, group_status  FROM $table_name WHERE group_status = 0 
         "
             )
         );

@@ -185,6 +185,7 @@ class TrainerEndpoints
                 'success' => true,
                 'message' => 'Individual project created successfully',
                 'project_id' => $project_id,
+                'status' => 300
             );
             return rest_ensure_response($response);
         }
@@ -236,11 +237,10 @@ class TrainerEndpoints
     {
         $data = $request->get_json_params();
 
-        $assigned_trainees = $request->get_param('assigned_trainees');
-        $project_name = $request->get_param('project_name');
+        $assigned_members = $request->get_param('assigned_members');
+        $group_project = $request->get_param('group_project');
         $project_task = $request->get_param('project_task');
         $due_date = $request->get_param('due_date');
-
 
         global $wpdb;
         $table_name = $wpdb->prefix . 'group_projects';
@@ -248,8 +248,8 @@ class TrainerEndpoints
         $result = $wpdb->insert(
             $table_name,
             array(
-                'assigned_trainees' => $assigned_trainees,
-                'project_name' => $project_name,
+                'assigned_members' => $assigned_members,
+                'project_name' => $group_project,
                 'project_task' => $project_task,
                 'due_date' => $due_date,
             )
@@ -269,26 +269,27 @@ class TrainerEndpoints
 
     public function update_group_project($request)
     {
+        $group_id = $request['group_id'];
+
         global $wpdb;
         $table_name = $wpdb->prefix . 'group_projects';
-        $project_id = $request['project_id'];
 
-        $data = $request->get_json_params();
+        $request->get_json_params();
 
-        $assigned_trainees = $request->get_param('assigned_trainees');
-        $project_name = $request->get_param('project_name');
+        $assigned_members = $request->get_param('assigned_members');
+        $group_project = $request->get_param('group_project');
         $project_task = $request->get_param('project_task');
         $due_date = $request->get_param('due_date');
 
 
         $data = array(
 
-            'assigned_trainees' => $assigned_trainees,
-            'project_name' => $project_name,
+            'assigned_members' => $assigned_members,
+            'project_name' => $group_project,
             'project_task' => $project_task,
             'due_date' => $due_date,
         );
-        $condition = array('project_id' => $project_id);
+        $condition = array('group_id' => $group_id);
 
         $update = $wpdb->update($table_name, $data, $condition);
 
