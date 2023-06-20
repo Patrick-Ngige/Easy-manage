@@ -84,8 +84,7 @@ class PMEndpoints
         $user_id = wp_create_user($trainer_name, $trainer_password, $trainer_email);
 
         if (!is_wp_error($user_id)) {
-            $user = get_user_by('id', $user_id);
-
+            $user = get_user_by('login', $trainer_name);
             $user->set_role($trainer_role);
 
             $response = array(
@@ -110,7 +109,6 @@ class PMEndpoints
             return rest_ensure_response($response);
         }
 
-        // return new WP_Error('trainer_creation_failed', 'Failed to create cohort.', array('status' => 500));
     }
 
 

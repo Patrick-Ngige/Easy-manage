@@ -70,7 +70,7 @@ class AdminEndpoints
 
             $response = array(
                 'success' => true,
-                'message' => 'pm created successfully',
+                'message' => 'Project Manager created successfully',
                 'user_id' => $user_id,
             );
 
