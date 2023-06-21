@@ -257,6 +257,12 @@ class TrainerEndpoints
         $project_task = $request->get_param('project_task');
         $due_date = $request->get_param('due_date');
 
+        // Check if the number of assigned members exceeds the limit
+        $assigned_members_limit = 2 || 3;
+        if (count($assigned_members) > $assigned_members_limit) {
+            return new WP_Error('exceeded_assigned_members_limit', 'Exceeded the maximum number of assigned members.', array('status' => 400));
+        }
+
         global $wpdb;
         $table_name = $wpdb->prefix . 'group_projects';
 
@@ -280,6 +286,7 @@ class TrainerEndpoints
         }
         return new WP_Error('project_creation_failed', 'Failed to create group project.', array('status' => 500));
     }
+
     public function update_group_project($request)
     {
         $group_id = $request['group_id'];
