@@ -77,6 +77,11 @@ class AdminEndpoints
         if ($existing_email) {
             return new WP_Error('email_exists', 'User with the same email already exists.', array('status' => 400));
         }
+        
+         $allowed_roles = array('program_manager');
+         if (!in_array($pm_role, $allowed_roles)) {
+             return new WP_Error('invalid_role', 'Invalid program manager role specified.', array('status' => 400));
+         }
     
         $user_id = wp_create_user($pm_name, $pm_password, $pm_email);
     
@@ -84,7 +89,7 @@ class AdminEndpoints
             $user = get_user_by('login', $pm_name);
     
             $user->set_role($pm_role);
-            
+
             wp_update_user($user);
     
             $response = array(
