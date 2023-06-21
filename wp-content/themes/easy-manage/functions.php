@@ -1,11 +1,10 @@
 <?php 
 
-//
+
 function em_script_enqueue(){
     wp_enqueue_style('customstyle', get_template_directory_uri().'/custom/styles.css', [], '3.1.1', 'all');
     wp_enqueue_script('customjs', get_template_directory_uri(). '/custom/script.js',[], '1.0.0', true);
 
-    // introducing bootstrap
     wp_register_style('bootstrapcss', 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css', [], '5.2.3', 'all');
 
     wp_enqueue_style('bootstrapcss');
@@ -19,7 +18,6 @@ add_action('wp_enqueue_scripts', 'em_script_enqueue');
 
 //CUSTOM POST TYPE FOR PROJECTS
 
-// Register the custom post type
 function register_project_post_type() {
     $labels = array(
         'name' => 'Projects',
@@ -62,18 +60,16 @@ function register_project_post_type() {
         'hierarchical' => false,
         'menu_position' => 20,
         'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'custom-fields'),
-        'show_in_rest' => true, // Enable Gutenberg editor
-        'rest_base' => 'projects', // API endpoint base slug
-        'rest_controller_class' => 'WP_REST_Posts_Controller', // Use default REST controller
+        'show_in_rest' => true, 
+        'rest_base' => 'projects', 
+        'rest_controller_class' => 'WP_REST_Posts_Controller', 
     );
 
     register_post_type('project', $args);
 }
 
-// Hook into the 'init' action to register the custom post type
 add_action('init', 'register_project_post_type');
 
-// ADDING MENUS - HEADER AND FOOTER
 
 function em_setup(){
     add_theme_support('menus');

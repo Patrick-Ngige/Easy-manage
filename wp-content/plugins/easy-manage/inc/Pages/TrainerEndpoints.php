@@ -61,7 +61,6 @@ class TrainerEndpoints
             return $this->update_trainee_callback($request);
         }
     }
-
     public function individual_projects_callbacks($request)
     {
         if ($request->get_method() === 'POST') {
@@ -70,7 +69,6 @@ class TrainerEndpoints
             return $this->update_individual_project($request);
         }
     }
-
     public function group_projects_callbacks($request)
     {
         if ($request->get_method() === 'POST') {
@@ -79,7 +77,6 @@ class TrainerEndpoints
             return $this->update_group_project($request);
         }
     }
-
     public function create_trainee_callback($request)
     {
         $parameters = $request->get_params();

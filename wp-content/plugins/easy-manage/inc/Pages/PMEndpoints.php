@@ -69,8 +69,7 @@ class PMEndpoints
         $trainer_email = sanitize_email($request->get_param('trainer_email'));
         $trainer_role = sanitize_text_field($request->get_param('trainer_role'));
         $trainer_password = sanitize_text_field($request->get_param('trainer_password'));
-    
-        // Check if any field is empty
+
         if (empty($trainer_name) || empty($trainer_email) || empty($trainer_role) || empty($trainer_password)) {
             $missing_fields = array();
             if (empty($trainer_name)) {
@@ -88,8 +87,6 @@ class PMEndpoints
     
             return new WP_Error('missing_fields', 'The following fields are required: ' . implode(', ', $missing_fields), array('status' => 400));
         }
-    
-        // Check if a user with the same email already exists
         $existing_email = email_exists($trainer_email);
         if ($existing_email) {
             return new WP_Error('email_exists', 'Trainer with the same email already exists.', array('status' => 400));
@@ -158,9 +155,8 @@ class PMEndpoints
 
     public function create_cohort_callback($request)
     {
-        // Check if the user is a program manager
+
         if (current_user_can('program_manager')) {
-            // User is a program manager, allow access to the endpoint
 
             $parameters = $request->get_json_params();
 
@@ -195,7 +191,6 @@ class PMEndpoints
             }
             return new WP_Error('cohort_creation_failed', 'Failed to create cohort.', array('status' => 500));
         } else {
-            // User is not a program manager, return a forbidden error
             return new WP_Error(
                 'rest_forbidden',
                 __('You are not allowed to access this endpoint.'),

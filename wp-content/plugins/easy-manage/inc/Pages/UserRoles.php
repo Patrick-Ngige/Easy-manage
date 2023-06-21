@@ -14,7 +14,6 @@ class UserRoles
 
     }
 
-
     public function easy_manage_add_roles_and_capabilities()
     {
 
