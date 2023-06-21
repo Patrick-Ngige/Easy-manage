@@ -22,6 +22,7 @@ class TrainerEndpoints
             array(
                 'methods' => array('POST', 'PATCH'),
                 'callback' => array($this, 'trainee_callbacks'),
+                'permission_callback' => array($this, 'check_admin_permission'),
             )
         );
 
@@ -31,6 +32,7 @@ class TrainerEndpoints
             array(
                 'methods' => array('POST', 'PATCH'),
                 'callback' => array($this, 'individual_projects_callbacks'),
+                'permission_callback' => array($this, 'check_admin_permission'),
             )
         );
 
@@ -40,11 +42,21 @@ class TrainerEndpoints
             array(
                 'methods' => array('POST', 'PATCH'),
                 'callback' => array($this, 'group_projects_callbacks'),
+                'permission_callback' => array($this, 'check_admin_permission'),
             )
         );
 
-
     }
+
+    public function check_admin_permission($request)
+    {
+        if (current_user_can('trainer')) {
+            return true;
+        } else {
+            return new WP_Error('rest_forbidden', __('You are not allowed to access this endpoint.'), array('status' => 403));
+        }
+    }
+
 
     public function trainee_callbacks($request)
     {
