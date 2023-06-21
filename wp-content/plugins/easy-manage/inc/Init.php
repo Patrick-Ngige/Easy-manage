@@ -14,10 +14,10 @@ class Init{
             Pages\AdminEndpoints::class,
             Pages\PMEndpoints::class,
             Pages\TrainerEndpoints::class,
-            // Pages\TraineeEndpoints::class,
             Pages\UserRoles::class,
             Pages\AllProjects::class,
-            Pages\AllUsers::class
+            Pages\AllUsers::class,
+            Pages\SoftDelete::class,
         ];
     }
 

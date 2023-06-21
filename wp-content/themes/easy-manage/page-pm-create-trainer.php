@@ -5,28 +5,24 @@
  * 
  */
 
+ $token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2Vhc3ktbWFuYWdlIiwiaWF0IjoxNjg3MzQxODU1LCJuYmYiOjE2ODczNDE4NTUsImV4cCI6MTY4Nzk0NjY1NSwiZGF0YSI6eyJ1c2VyIjp7ImlkIjoiMiJ9fX0.4hkelWCIK1ZT2u4mtMWRuWnHAi9MpFY3_VeczfCJQ6U';
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $errors = array();
-
 
     if (empty($_POST['trainer_name'])) {
         $errors[] = 'Trainer name is required';
     }
-
     if (empty($_POST['trainer_email'])) {
         $errors[] = 'Email is required';
     }
-
     if (empty($_POST['trainer_role'])) {
         $errors[] = 'Role is required';
     }
-
     if (empty($_POST['trainer_password'])) {
         $errors[] = 'Password is required';
     }
-
-
-    
+ 
     if (isset($_POST['createbtn'])) {
         $trainer_name = $_POST['trainer_name'];
         $trainer_email = $_POST['trainer_email'];
@@ -44,7 +40,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'http://localhost/easy-manage/wp-json/em/v1/trainer',
             array(
                 'method' => 'POST',
-                'headers' => array('Content-Type' => 'application/json'),
+                'headers' => array(
+                    'Authorization' => 'Bearer ' . $token,
+                ),
                 'body' => wp_json_encode($created_trainer),
             )
         );
@@ -72,7 +70,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="page-trainee-dashboard" style="margin-top: -1.99rem; width: 20vw;">
         <?php get_template_part('sidenav-pm'); ?>
     </div>
-
     <div style="height: 80vh; margin-left: 15rem;">
         <div class="container py-4">
             <div class="row d-flex justify-content-center align-items-center">
@@ -98,7 +95,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                     Trainer created successfully.
                                                 </div>
                                             <?php endif; ?>
-
 
                                             <div class="form-outline mb-3">
                                                 <label class="form-label" for="form2Example27"
@@ -148,7 +144,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                 } ?>
                                             </div>
 
-
                                             <div
                                                 class="pt-1 mt-3 w-100 d-flex justify-content-center align-items-center">
                                                 <button class="btn btn-lg btn-block w-50"
@@ -156,7 +151,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                     name="createbtn">Create</button>
                                             </div>
                                         </form>
-
                                     </div>
                                 </div>
                             </div>

@@ -89,6 +89,29 @@ class TrainerEndpoints
         $trainee_role = sanitize_text_field($request->get_param('trainee_role'));
         $trainee_password = sanitize_text_field($request->get_param('trainee_password'));
 
+        if (empty($trainee_name) || empty($trainee_email) || empty($trainee_role) || empty($trainee_password)) {
+            $missing_fields = array();
+            if (empty($trainee_name)) {
+                $missing_fields[] = 'trainee_name';
+            }
+            if (empty($trainee_email)) {
+                $missing_fields[] = 'trainee_email';
+            }
+            if (empty($trainee_role)) {
+                $missing_fields[] = 'trainee_role';
+            }
+            if (empty($trainee_password)) {
+                $missing_fields[] = 'trainee_password';
+            }
+
+            return new WP_Error('missing_fields', 'The following fields are required: ' . implode(', ', $missing_fields), array('status' => 400));
+        }
+
+        $existing_email = email_exists($trainee_email);
+        if ($existing_email) {
+            return new WP_Error('email_exists', 'Trainee with the same email already exists.', array('status' => 400));
+        }
+
         $user_id = wp_create_user($trainee_name, $trainee_password, $trainee_email);
 
         if (!is_wp_error($user_id)) {
@@ -107,12 +130,13 @@ class TrainerEndpoints
         } else {
             $response = array(
                 'success' => false,
-                'errors' => new WP_Error('400', 'Trainee not created'),
+                'errors' => new WP_Error('trainee_creation_failed', 'Failed to create Trainee.', array('status' => 400)),
             );
 
             return rest_ensure_response($response)->set_status(400);
         }
     }
+
     public function update_trainee_callback($request)
     {
         $parameters = $request->get_params();

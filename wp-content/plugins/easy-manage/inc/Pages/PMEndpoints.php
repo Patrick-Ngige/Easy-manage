@@ -4,13 +4,14 @@
  */
 
 namespace Inc\Pages;
+
 use WP_Error;
 
 class PMEndpoints
 {
     public function register()
     {
-        add_action("rest_api_init", array($this,"pm_endpoints" ));
+        add_action("rest_api_init", array($this, "pm_endpoints"));
     }
     public function pm_endpoints()
     {
@@ -34,6 +35,7 @@ class PMEndpoints
             )
         );
     }
+
     public function check_admin_permission($request)
     {
         if (current_user_can('program_manager')) {
@@ -42,6 +44,7 @@ class PMEndpoints
             return new WP_Error('rest_forbidden', __('You are not allowed to access this endpoint.'), array('status' => 403));
         }
     }
+
     public function trainer_callbacks($request)
     {
         if ($request->get_method() === 'POST') {
@@ -58,21 +61,45 @@ class PMEndpoints
             return $this->update_cohort_callback($request);
         }
     }
-
     public function create_trainer_callback($request)
     {
         $parameters = $request->get_params();
-
+    
         $trainer_name = sanitize_text_field($request->get_param('trainer_name'));
         $trainer_email = sanitize_email($request->get_param('trainer_email'));
         $trainer_role = sanitize_text_field($request->get_param('trainer_role'));
         $trainer_password = sanitize_text_field($request->get_param('trainer_password'));
-
+    
+        // Check if any field is empty
+        if (empty($trainer_name) || empty($trainer_email) || empty($trainer_role) || empty($trainer_password)) {
+            $missing_fields = array();
+            if (empty($trainer_name)) {
+                $missing_fields[] = 'trainer_name';
+            }
+            if (empty($trainer_email)) {
+                $missing_fields[] = 'trainer_email';
+            }
+            if (empty($trainer_role)) {
+                $missing_fields[] = 'trainer_role';
+            }
+            if (empty($trainer_password)) {
+                $missing_fields[] = 'trainer_password';
+            }
+    
+            return new WP_Error('missing_fields', 'The following fields are required: ' . implode(', ', $missing_fields), array('status' => 400));
+        }
+    
+        // Check if a user with the same email already exists
+        $existing_email = email_exists($trainer_email);
+        if ($existing_email) {
+            return new WP_Error('email_exists', 'Trainer with the same email already exists.', array('status' => 400));
+        }
+    
         $user_id = wp_create_user($trainer_name, $trainer_password, $trainer_email);
-
+    
         if (!is_wp_error($user_id)) {
             $user = get_user_by('login', $trainer_name);
-           
+    
             $user->set_role($trainer_role);
             wp_update_user($user);
             $response = array(
@@ -84,11 +111,12 @@ class PMEndpoints
         } else {
             $response = array(
                 'success' => false,
-                'errors' => new WP_Error('400', 'Trainer not created'),
+                'errors' => new WP_Error('trainer_creation_failed', 'Failed to create Trainer.', array('status' => 400)),
             );
             return rest_ensure_response($response);
         }
     }
+    
     public function update_trainer_callback($request)
     {
         $parameters = $request->get_params();
@@ -130,39 +158,52 @@ class PMEndpoints
 
     public function create_cohort_callback($request)
     {
-        $parameters = $request->get_json_params();
-    
-        $cohort = $request->get_param('cohort');
-        $cohort_info = $request->get_param('cohort_info');
-        $trainer = $request->get_param('trainer');
-        $starting_date = $request->get_param('starting_date');
-        $ending_date = $request->get_param('ending_date');
+        // Check if the user is a program manager
+        if (current_user_can('program_manager')) {
+            // User is a program manager, allow access to the endpoint
 
-        global $wpdb;
-        $table_name = $wpdb->prefix . 'cohorts';
+            $parameters = $request->get_json_params();
 
-        $result = $wpdb->insert(
-            $table_name,
-            array(
-                'cohort' => $cohort,
-                'cohort_info' => $cohort_info,
-                'trainer' => $trainer,
-                'starting_date' => $starting_date,
-                'ending_date' => $ending_date,
-            )
-        );
+            $cohort = $request->get_param('cohort');
+            $cohort_info = $request->get_param('cohort_info');
+            $trainer = $request->get_param('trainer');
+            $starting_date = $request->get_param('starting_date');
+            $ending_date = $request->get_param('ending_date');
 
-        if ($result) {
-            $cohort_id = $wpdb->insert_id; 
-            $response = array(
-                'success' => true,
-                'message' => 'Cohort created successfully',
-                'cohort_id' => $cohort_id,
+            global $wpdb;
+            $table_name = $wpdb->prefix . 'cohorts';
+
+            $result = $wpdb->insert(
+                $table_name,
+                array(
+                    'cohort' => $cohort,
+                    'cohort_info' => $cohort_info,
+                    'trainer' => $trainer,
+                    'starting_date' => $starting_date,
+                    'ending_date' => $ending_date,
+                )
             );
-            return rest_ensure_response($response);
-        } 
-        return new WP_Error('cohort_creation_failed', 'Failed to create cohort.', array('status' => 500));
+
+            if ($result) {
+                $cohort_id = $wpdb->insert_id;
+                $response = array(
+                    'success' => true,
+                    'message' => 'Cohort created successfully',
+                    'cohort_id' => $cohort_id,
+                );
+                return rest_ensure_response($response);
+            }
+            return new WP_Error('cohort_creation_failed', 'Failed to create cohort.', array('status' => 500));
+        } else {
+            // User is not a program manager, return a forbidden error
+            return new WP_Error(
+                'rest_forbidden',
+                __('You are not allowed to access this endpoint.'),
+                array('status' => 403)
+            );
+        }
     }
+
 
 
     public function update_cohort_callback($request)
@@ -192,7 +233,7 @@ class PMEndpoints
         $updated = $wpdb->update($table_name, $data, $condition);
 
         if ($updated) {
-            $cohort_id = $wpdb->insert_id; 
+            $cohort_id = $wpdb->insert_id;
 
             $response = array(
                 'success' => true,
@@ -201,8 +242,7 @@ class PMEndpoints
             );
 
             return rest_ensure_response($response);
-        }  
+        }
         return new WP_Error('cohort_updation_failed', 'Failed to update cohort.', array('status' => 500));
     }
 }
-
