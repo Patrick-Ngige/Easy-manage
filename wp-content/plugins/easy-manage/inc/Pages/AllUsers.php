@@ -27,10 +27,30 @@ class AllUsers
 
         register_rest_route(
             'em/v1',
+            '/users/deleted',
+            array(
+                'methods' => array('GET'),
+                'callback' => array($this, 'retrieve_deleted_users'),
+                'permission_callback' => array($this, 'check_admin_permission'),
+            )
+        );
+
+        register_rest_route(
+            'em/v1',
             '/users/trainers',
             array(
                 'methods' => array('GET'),
                 'callback' => array($this, 'retrieve_trainers_callback'),
+                'permission_callback' => array($this, 'check_admin_permission'),
+            )
+        );
+
+        register_rest_route(
+            'em/v1',
+            '/users/pm',
+            array(
+                'methods' => array('GET'),
+                'callback' => array($this, 'retrieve_pm_callback'),
                 'permission_callback' => array($this, 'check_admin_permission'),
             )
         );
@@ -54,10 +74,7 @@ class AllUsers
                 'permission_callback' => array($this, 'check_admin_permission'),
             )
         );
-
-
     }
-
 
     public function check_admin_permission($request)
     {
@@ -91,7 +108,50 @@ class AllUsers
         return $pm;
     }
 
-
+    public function retrieve_deleted_users($request) {
+        $current_user = wp_get_current_user();
+    
+        // Check the role of the current user
+        $current_user_role = $current_user->roles[0];
+    
+        // Define an array of roles with their corresponding permissions
+        $roles_permissions = array(
+            'administrator' => array(),
+            'project_manager' => array('administrator'),
+            'trainer' => array('administrator', 'project_manager'),
+            'trainee' => array('administrator', 'project_manager', 'trainer'),
+        );
+    
+        // Check if the current user has permission to retrieve deleted users
+        if (!in_array($current_user_role, $roles_permissions['project_manager']) &&
+        !in_array($current_user_role, $roles_permissions['trainer']) &&
+        !in_array($current_user_role, $roles_permissions['administrator'])) {
+        return new WP_Error('permission_denied', 'Permission denied.', array('status' => 403));
+    }
+    
+    
+        global $wpdb;
+        $table_name = $wpdb->prefix . 'users';
+    
+        $allowed_roles = $roles_permissions[$current_user_role];
+    
+        $users = $wpdb->get_results(
+            $wpdb->prepare(
+                "SELECT * FROM $table_name WHERE user_status = %d AND user_role IN ('" . implode("','", $allowed_roles) . "')",
+                1
+            )
+        );
+    
+        if (empty($users)) {
+            return new WP_Error('no_deleted_users', 'No deleted users found.', array('status' => 404));
+        }
+    
+        return $users;
+    }
+    
+    
+    
+    
     public function retrieve_trainers_callback($request)
     {
         $users = get_users();
@@ -137,8 +197,6 @@ class AllUsers
     
         return rest_ensure_response($trainees);
     }
-    
-
 
     public function retrieve_single_callback($request)
     {

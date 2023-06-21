@@ -20,7 +20,7 @@ class SoftDelete
             'em/v1',
             '/soft_delete/(?P<user_id>\d+)',
             array(
-                'methods' => 'DELETE',
+                'methods' => 'DELETE' ,
                 'callback' => array($this, 'soft_delete_callback'),
                 'permission_callback' => array($this, 'check_admin_permission'),
             )
