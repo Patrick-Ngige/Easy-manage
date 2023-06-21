@@ -111,10 +111,8 @@ class AllUsers
     public function retrieve_deleted_users($request) {
         $current_user = wp_get_current_user();
     
-        // Check the role of the current user
         $current_user_role = $current_user->roles[0];
     
-        // Define an array of roles with their corresponding permissions
         $roles_permissions = array(
             'administrator' => array(),
             'project_manager' => array('administrator'),
@@ -122,13 +120,11 @@ class AllUsers
             'trainee' => array('administrator', 'project_manager', 'trainer'),
         );
     
-        // Check if the current user has permission to retrieve deleted users
         if (!in_array($current_user_role, $roles_permissions['project_manager']) &&
         !in_array($current_user_role, $roles_permissions['trainer']) &&
         !in_array($current_user_role, $roles_permissions['administrator'])) {
         return new WP_Error('permission_denied', 'Permission denied.', array('status' => 403));
     }
-    
     
         global $wpdb;
         $table_name = $wpdb->prefix . 'users';
@@ -145,12 +141,8 @@ class AllUsers
         if (empty($users)) {
             return new WP_Error('no_deleted_users', 'No deleted users found.', array('status' => 404));
         }
-    
         return $users;
     }
-    
-    
-    
     
     public function retrieve_trainers_callback($request)
     {
@@ -217,10 +209,5 @@ class AllUsers
 
         return $user_info;
     }
-
-
-
-
-
 
 }
