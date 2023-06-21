@@ -21,12 +21,14 @@ class AdminEndpoints
             array(
                 'methods' => array('POST', 'PATCH'),
                 'callback' => array($this, 'pm_callbacks'),
-                'permission_callback' => array($this, 'check_admin_permission'),
+                'permission_callback' => array($this, 'check_admin_permission'), 
             )
         );
     }
+
     public function check_admin_permission($request)
     {
+
         if (current_user_can('administrator')) {
             return true;
         } else {

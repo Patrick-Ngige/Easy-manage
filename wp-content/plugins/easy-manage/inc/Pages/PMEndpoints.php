@@ -19,9 +19,9 @@ class PMEndpoints
             'em/v1',
             '/trainer',
             array(
-                'methods' => array('POST', 'PATCH'),
+                'methods' => array('POST', 'PUT'),
                 'callback' => array($this, 'trainer_callbacks'),
-                
+                'permission_callback' => array($this, 'check_admin_permission'),
             )
         );
 
@@ -31,16 +31,26 @@ class PMEndpoints
             array(
                 'methods' => array('POST', 'PATCH'),
                 'callback' => array($this, 'cohort_callbacks'),
+                'permission_callback' => array($this, 'check_admin_permission'),
             )
         );
 
+    }
+
+    public function check_admin_permission($request)
+    {
+        if (current_user_can('program_manager')) {
+            return true;
+        } else {
+            return new WP_Error('rest_forbidden', __('You are not allowed to access this endpoint.'), array('status' => 403));
+        }
     }
 
     public function trainer_callbacks($request)
     {
         if ($request->get_method() === 'POST') {
             return $this->create_trainer_callback($request);
-        } elseif ($request->get_method() === 'PATCH') {
+        } elseif ($request->get_method() === 'PUT') {
             return $this->update_trainer_callback($request);
         }
     }
