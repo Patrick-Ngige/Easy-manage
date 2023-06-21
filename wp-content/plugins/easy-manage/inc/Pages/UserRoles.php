@@ -14,22 +14,18 @@ class UserRoles
 
     }
 
-    // Add custom roles and capabilities
+
     public function easy_manage_add_roles_and_capabilities()
     {
-        // Admin Role
+
         add_role('admin', 'Admin');
 
-        // Program Manager Role
         add_role('program_manager', 'Program Manager');
 
-        // Trainer Role
         add_role('trainer', 'Trainer');
 
-        // Trainee Role
         add_role('trainee', 'Trainee');
 
-        // Add capabilities to Admin role
         $admin_capabilities = array(
             'create_program_managers',
             'deactivate_users',
@@ -45,7 +41,6 @@ class UserRoles
             }
         }
 
-        // Add capabilities to Program Manager role
         $program_manager_capabilities = array(
             'create_trainers',
             'search_users',
@@ -60,7 +55,6 @@ class UserRoles
             }
         }
 
-        // Add capabilities to Trainer role
         $trainer_capabilities = array(
             'create_trainees',
             'soft_delete_trainees',
@@ -76,7 +70,6 @@ class UserRoles
             }
         }
 
-        // Add capabilities to Trainee role
         $trainee_capabilities = array(
             'view_assigned_projects'
         );
