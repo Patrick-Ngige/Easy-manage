@@ -50,7 +50,7 @@ class AllUsers
 
     public function check_admin_permission($request)
     {
-        if (current_user_can('admin') || current_user_can('program_manager') || current_user_can('trainer')) {
+        if (current_user_can('administrator') || current_user_can('program_manager') || current_user_can('trainer')) {
             return true;
         } else {
             return new WP_Error('rest_forbidden', __('You are not allowed to access this endpoint.'), array('status' => 403));

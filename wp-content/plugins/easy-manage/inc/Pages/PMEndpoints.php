@@ -4,7 +4,6 @@
  */
 
 namespace Inc\Pages;
-
 use WP_Error;
 
 class PMEndpoints
@@ -34,9 +33,7 @@ class PMEndpoints
                 'permission_callback' => array($this, 'check_admin_permission'),
             )
         );
-
     }
-
     public function check_admin_permission($request)
     {
         if (current_user_can('program_manager')) {
@@ -45,7 +42,6 @@ class PMEndpoints
             return new WP_Error('rest_forbidden', __('You are not allowed to access this endpoint.'), array('status' => 403));
         }
     }
-
     public function trainer_callbacks($request)
     {
         if ($request->get_method() === 'POST') {
@@ -63,25 +59,6 @@ class PMEndpoints
         }
     }
 
-
-
-    // Permission callback methods
-
-    // public function manage_trainees_permission($request)
-    // {
-    //     if (!current_user_can('manage_options')) {
-    //         return new WP_Error(
-    //             'rest_forbidden',
-    //             __('You do not have permissions to manage trainees.', 'text-domain'),
-    //             array('status' => 403)
-    //         );
-    //     }
-
-    //     return true;
-    // }
-
-
-
     public function create_trainer_callback($request)
     {
         $parameters = $request->get_params();
@@ -91,29 +68,18 @@ class PMEndpoints
         $trainer_role = sanitize_text_field($request->get_param('trainer_role'));
         $trainer_password = sanitize_text_field($request->get_param('trainer_password'));
 
-
         $user_id = wp_create_user($trainer_name, $trainer_password, $trainer_email);
 
         if (!is_wp_error($user_id)) {
             $user = get_user_by('login', $trainer_name);
-            
+           
             $user->set_role($trainer_role);
             wp_update_user($user);
-
-
             $response = array(
                 'success' => true,
                 'message' => 'Trainer created successfully',
                 'user_id' => $user_id,
             );
-
-            // Send email to trainee with login information
-            // $email_subject = 'Your Trainer Account Details';
-            // $email_body = 'Your username: ' . $user->user_login . "\r\n";
-            // $email_body .= 'Your password: ' . $trainer_password . "\r\n";
-            // $email_body .= 'Please login to the website using this information.';
-            // wp_mail($trainer_email, $email_subject, $email_body);
-
             return rest_ensure_response($response);
         } else {
             $response = array(
@@ -122,10 +88,7 @@ class PMEndpoints
             );
             return rest_ensure_response($response);
         }
-
     }
-
-
     public function update_trainer_callback($request)
     {
         $parameters = $request->get_params();
@@ -154,7 +117,6 @@ class PMEndpoints
                 'message' => 'trainer updated successfully',
                 'user_id' => $trainer_id,
             );
-
             return rest_ensure_response($response);
 
         } else {
@@ -162,12 +124,10 @@ class PMEndpoints
                 'success' => false,
                 'errors' => new WP_Error('400', 'trainer not found'),
             );
-
             return new WP_Error('trainer_updating_failed', 'Failed to update trainer.', array('status' => 500));
         }
     }
 
-    
     public function create_cohort_callback($request)
     {
         $parameters = $request->get_json_params();
@@ -192,20 +152,15 @@ class PMEndpoints
             )
         );
 
-        
         if ($result) {
             $cohort_id = $wpdb->insert_id; 
-
             $response = array(
                 'success' => true,
                 'message' => 'Cohort created successfully',
                 'cohort_id' => $cohort_id,
             );
-
             return rest_ensure_response($response);
-        }
-
-      
+        } 
         return new WP_Error('cohort_creation_failed', 'Failed to create cohort.', array('status' => 500));
     }
 
@@ -223,7 +178,6 @@ class PMEndpoints
         $trainer = $request->get_param('trainer');
         $starting_date = $request->get_param('starting_date');
         $ending_date = $request->get_param('ending_date');
-
 
         $data = array(
 
@@ -249,10 +203,6 @@ class PMEndpoints
             return rest_ensure_response($response);
         }  
         return new WP_Error('cohort_updation_failed', 'Failed to update cohort.', array('status' => 500));
-
     }
-
-
-    
 }
 

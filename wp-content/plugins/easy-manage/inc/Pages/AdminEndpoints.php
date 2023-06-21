@@ -69,13 +69,6 @@ class AdminEndpoints
                 'user_id' => $user_id,
             );
 
-            // Send email to trainee with login information
-            // $email_subject = 'Your pm Account Details';
-            // $email_body = 'Your username: ' . $user->user_login . "\r\n";
-            // $email_body .= 'Your password: ' . $pm_password . "\r\n";
-            // $email_body .= 'Please login to the website using this information.';
-            // wp_mail($pm_email, $email_subject, $email_body);
-
             return rest_ensure_response($response);
         } else {
             $response = array(
@@ -107,24 +100,19 @@ class AdminEndpoints
             if ($pm_password) {
                 wp_set_password($pm_password, $pm_id);
             }
-
             $user->set_role($pm_role);
-    
-            wp_update_user($user);
-    
+            wp_update_user($user); 
             $response = array(
                 'success' => true,
                 'message' => 'Program manager updated successfully',
                 'user_id' => $pm_id,
-            );
-    
+            );  
             return rest_ensure_response($response);
         } else {
             $response = array(
                 'success' => false,
                 'errors' => new WP_Error('program_manager_not_found', 'Program manager not found'),
-            );
-    
+            );  
             return new WP_Error('program_manager_update_failed', 'Failed to update program manager.', array('status' => 500));
         }
     }

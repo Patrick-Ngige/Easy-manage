@@ -13,7 +13,6 @@ class TrainerEndpoints
     {
         add_action("rest_api_init", array($this, "trainer_endpoints"));
     }
-
     public function trainer_endpoints()
     {
         register_rest_route(
@@ -45,9 +44,7 @@ class TrainerEndpoints
                 'permission_callback' => array($this, 'check_admin_permission'),
             )
         );
-
     }
-
     public function check_admin_permission($request)
     {
         if (current_user_can('trainer')) {
@@ -56,8 +53,6 @@ class TrainerEndpoints
             return new WP_Error('rest_forbidden', __('You are not allowed to access this endpoint.'), array('status' => 403));
         }
     }
-
-
     public function trainee_callbacks($request)
     {
         if ($request->get_method() === 'POST') {
@@ -108,13 +103,6 @@ class TrainerEndpoints
                 'user_id' => $user_id,
             );
 
-            // Send email to trainee with login information
-            // $email_subject = 'Your Trainee Account Details';
-            // $email_body = 'Your username: ' . $user->user_login . "\r\n";
-            // $email_body .= 'Your password: ' . $trainee_password . "\r\n";
-            // $email_body .= 'Please login to the website using this information.';
-            // wp_mail($trainee_email, $email_subject, $email_body);
-
             return rest_ensure_response($response);
         } else {
             $response = array(
@@ -125,8 +113,6 @@ class TrainerEndpoints
             return rest_ensure_response($response)->set_status(400);
         }
     }
-
-
     public function update_trainee_callback($request)
     {
         $parameters = $request->get_params();
@@ -167,11 +153,8 @@ class TrainerEndpoints
             return new WP_Error('trainee_updating_failed', 'Failed to update trainee.', array('status' => 500));
         }
     }
-
-
     public function create_individual_project($request)
     {
-
         $parameters = $request->get_json_params();
 
         $project_name = $request->get_param('project_name');
@@ -198,14 +181,11 @@ class TrainerEndpoints
                 'success' => true,
                 'message' => 'Individual project created successfully',
                 'project_id' => $project_id,
-                'status' => 300
             );
             return rest_ensure_response($response);
         }
-
         return new WP_Error('project_creation_failed', 'Failed to create individual project.', array('status' => 500));
     }
-
 
     public function update_individual_project($request)
     {
@@ -219,7 +199,6 @@ class TrainerEndpoints
         $project_task = $request->get_param('project_task');
         $assignee = $request->get_param('assignee');
         $due_date = $request->get_param('due_date');
-
 
         $data = array(
 
@@ -241,11 +220,7 @@ class TrainerEndpoints
             return rest_ensure_response($response);
         }
         return new WP_Error('project_updating_failed', 'Failed to update individual project.', array('status' => 500));
-
     }
-
-
-
     public function create_group_project($request)
     {
         $data = $request->get_json_params();
@@ -277,9 +252,7 @@ class TrainerEndpoints
             return rest_ensure_response($response);
         }
         return new WP_Error('project_creation_failed', 'Failed to create group project.', array('status' => 500));
-
     }
-
     public function update_group_project($request)
     {
         $group_id = $request['group_id'];
@@ -294,7 +267,6 @@ class TrainerEndpoints
         $project_task = $request->get_param('project_task');
         $due_date = $request->get_param('due_date');
 
-
         $data = array(
 
             'assigned_members' => $assigned_members,
@@ -303,7 +275,6 @@ class TrainerEndpoints
             'due_date' => $due_date,
         );
         $condition = array('group_id' => $group_id);
-
         $update = $wpdb->update($table_name, $data, $condition);
 
         if ($update) {

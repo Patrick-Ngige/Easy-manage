@@ -13,7 +13,6 @@ class AllProjects
     {
         add_action("rest_api_init", array($this, "all_projects_endpoints"));
     }
-
     public function all_projects_endpoints()
     {
        
@@ -54,33 +53,6 @@ class AllProjects
         );
     }
 
-    // Callback methods
-
-
-
-
-
-    // Permission callback methods
-
-    // public function manage_trainees_permission($request)
-    // {
-    //     if (!current_user_can('manage_options')) {
-    //         return new WP_Error(
-    //             'rest_forbidden',
-    //             __('You do not have permissions to manage trainees.', 'text-domain'),
-    //             array('status' => 403)
-    //         );
-    //     }
-
-    //     return true;
-    // }
-
-    // Callback methods for trainee endpoints
-
-
-
-
-
     public function retrieve_individual_projects($request)
     {
         global $wpdb;
@@ -90,7 +62,7 @@ class AllProjects
 
         $projects = $wpdb->get_results(
             $wpdb->prepare(
-                "SELECT project_name, project_task, assignee, due_date, project_status  FROM $table_name WHERE project_status = 0 
+                "SELECT project_id, project_name, project_task, assignee, due_date, project_status  FROM $table_name WHERE project_status = 0 
         "
             )
         );
@@ -112,7 +84,7 @@ class AllProjects
 
         $projects = $wpdb->get_results(
             $wpdb->prepare(
-                "SELECT assigned_members project_name, project_task, due_date, group_status  FROM $table_name WHERE group_status = 0 
+                "SELECT group_id, assigned_members project_name, project_task, due_date, group_status  FROM $table_name WHERE group_status = 0 
         "
             )
         );
@@ -130,19 +102,14 @@ class AllProjects
         $group_projects_table = $wpdb->prefix . 'group_projects';
         $individual_projects_table = $wpdb->prefix . 'individual_projects';
 
-         // Retrieve group projects
          $group_projects = $wpdb->get_results(
-            "SELECT assigned_members project_name, project_task, due_date, group_status FROM $group_projects_table WHERE group_status = 1"
+            "SELECT group_id, assigned_members, project_name, project_task, due_date, group_status FROM $group_projects_table WHERE group_status = 1"
         );
     
-        // Retrieve individual projects
         $individual_projects = $wpdb->get_results(
-            "SELECT project_name, project_task, assignee, due_date, project_status FROM $individual_projects_table WHERE project_status = 1"
+            "SELECT project_id, project_name, project_task, assignee, due_date, project_status FROM $individual_projects_table WHERE project_status = 1"
         );
     
-       
-    
-        // Combine the individual and group projects into a single array
         $projects = array_merge($group_projects, $individual_projects);
     
         if (empty($projects)) {
@@ -152,7 +119,6 @@ class AllProjects
         return $projects;
     }
     
-
     public function retrieve_cohorts_callbacks($request)
     {
         global $wpdb;
