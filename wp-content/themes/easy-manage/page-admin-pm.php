@@ -4,7 +4,6 @@
  * Template Name: admin PM list 
  */
 
-
  $current_user = wp_get_current_user();
 
 ?>
