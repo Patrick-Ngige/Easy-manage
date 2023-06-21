@@ -251,21 +251,25 @@ class TrainerEndpoints
     public function create_group_project($request)
     {
         $data = $request->get_json_params();
-
+    
         $assigned_members = $request->get_param('assigned_members');
         $group_project = $request->get_param('group_project');
         $project_task = $request->get_param('project_task');
         $due_date = $request->get_param('due_date');
-
-        // Check if the number of assigned members exceeds the limit
-        $assigned_members_limit = 2 || 3;
-        if (count($assigned_members) > $assigned_members_limit) {
-            return new WP_Error('exceeded_assigned_members_limit', 'Exceeded the maximum number of assigned members.', array('status' => 400));
+    
+        if (empty($assigned_members) || empty($group_project) || empty($project_task) || empty($due_date)) {
+            return new WP_Error('missing_fields', 'All fields are required.', array('status' => 400));
         }
-
+    
+        $assigned_members_limit = 3;
+        $assigned_members_count = count($assigned_members);
+        if ($assigned_members_count < 2 || $assigned_members_count > $assigned_members_limit) {
+            return new WP_Error('invalid_assigned_members', 'Assigned members should be between 2 and 3.', array('status' => 400));
+        }
+    
         global $wpdb;
         $table_name = $wpdb->prefix . 'group_projects';
-
+    
         $result = $wpdb->insert(
             $table_name,
             array(
@@ -275,7 +279,7 @@ class TrainerEndpoints
                 'due_date' => $due_date,
             )
         );
-
+    
         if ($result) {
             $response = array(
                 'success' => true,
@@ -284,8 +288,10 @@ class TrainerEndpoints
             );
             return rest_ensure_response($response);
         }
+    
         return new WP_Error('project_creation_failed', 'Failed to create group project.', array('status' => 500));
     }
+    
 
     public function update_group_project($request)
     {
