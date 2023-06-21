@@ -19,7 +19,7 @@ class AdminEndpoints
             'em/v1',
             '/pm',
             array(
-                'methods' => array('POST', 'PATCH'),
+                'methods' => array('POST', 'PATCH', 'GET'),
                 'callback' => array($this, 'pm_callbacks'),
                 'permission_callback' => array($this, 'check_admin_permission'),
             )
@@ -42,8 +42,11 @@ class AdminEndpoints
             return $this->create_pm_callback($request);
         } elseif ($request->get_method() === 'PATCH') {
             return $this->update_pm_callback($request);
+        }elseif ($request->get_method() === 'GET'){
+            return $this->retrieve_soft_deleted($request);
         }
     }
+
     public function create_pm_callback($request) {
         $parameters = $request->get_params();
     
@@ -52,7 +55,6 @@ class AdminEndpoints
         $pm_role = sanitize_text_field($request->get_param('pm_role'));
         $pm_password = sanitize_text_field($request->get_param('pm_password'));
     
-        // Check if any field is empty
         if (empty($pm_name) || empty($pm_email) || empty($pm_role) || empty($pm_password)) {
             $missing_fields = array();
             if (empty($pm_name)) {
@@ -138,5 +140,33 @@ class AdminEndpoints
             return new WP_Error('program_manager_update_failed', 'Failed to update program manager.', array('status' => 500));
         }
     }
+
+    public function retrieve_soft_deleted($request) {
+        global $wpdb;
+    
+        $users = $wpdb->get_results(
+            $wpdb->prepare(
+                "SELECT ID, user_login, user_email FROM {$wpdb->prefix}users WHERE user_status = %d",
+                1
+            )
+        );
+    
+        if (!$users) {
+            return new WP_Error('no_users_found', 'No soft deleted users found.', array('status' => 404));
+        }
+    
+        $response = array();
+    
+        foreach ($users as $user) {
+            $response[] = array(
+                'user_id' => $user->ID,
+                'user_login' => $user->user_login,
+                'user_email' => $user->user_email,
+            );
+        }
+    
+        return rest_ensure_response($response);
+    }
+    
 
 }
