@@ -334,6 +334,5 @@ class TrainerEndpoints
         }
     
         return new WP_Error('project_update_failed', 'Failed to update group project.', array('status' => 500));
-    }
-    
+    }    
 }
