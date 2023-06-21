@@ -79,22 +79,22 @@ class AllProjects
     {
         global $wpdb;
         $table_name = $wpdb->prefix . 'group_projects';
-
+    
         $group_id = $request->get_param('group_id');
-
+    
         $projects = $wpdb->get_results(
             $wpdb->prepare(
-                "SELECT group_id, assigned_members project_name, project_task, due_date, group_status  FROM $table_name WHERE group_status = 0 
-        "
+                "SELECT group_id, assigned_members, project_name, project_task, due_date, group_status FROM $table_name WHERE group_status = 0"
             )
         );
-
+    
         if (empty($projects)) {
             return new WP_Error('no_projects', 'No projects found.', array('status' => 404));
         }
-
+    
         return $projects;
     }
+    
 
     public function retrieve_completed_projects($request)
     {

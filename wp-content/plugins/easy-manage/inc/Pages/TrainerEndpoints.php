@@ -251,16 +251,16 @@ class TrainerEndpoints
     public function create_group_project($request)
     {
         $data = $request->get_json_params();
-    
+
         $assigned_members = $request->get_param('assigned_members');
         $group_project = $request->get_param('group_project');
         $project_task = $request->get_param('project_task');
         $due_date = $request->get_param('due_date');
-    
-        if (empty($group_members) || empty($group_project) || empty($project_task) || empty($due_date)) {
+
+        if (empty($assigned_members) || empty($group_project) || empty($project_task) || empty($due_date)) {
             $missing_fields = array();
-            if (empty($group_members)) {
-                $missing_fields[] = 'group_members';
+            if (empty($assigned_members)) {
+                $missing_fields[] = 'assigned_members';
             }
             if (empty($group_project)) {
                 $missing_fields[] = 'group_project';
@@ -268,79 +268,72 @@ class TrainerEndpoints
             if (empty($project_task)) {
                 $missing_fields[] = 'project_task';
             }
-
             if (empty($due_date)) {
                 $missing_fields[] = 'due_date';
             }
-    
+
             return new WP_Error('missing_fields', 'The following fields are required: ' . implode(', ', $missing_fields), array('status' => 400));
         }
-    
+
         $assigned_members_limit = 3;
         $assigned_members_count = count($assigned_members);
         if ($assigned_members_count < 2 || $assigned_members_count > $assigned_members_limit) {
             return new WP_Error('invalid_assigned_members', 'Assigned members should be between 2 and 3.', array('status' => 400));
         }
-    
+
         global $wpdb;
         $table_name = $wpdb->prefix . 'group_projects';
-    
+
         $result = $wpdb->insert(
             $table_name,
             array(
-                'assigned_members' => $assigned_members,
+                'assigned_members' => json_encode($assigned_members),
                 'project_name' => $group_project,
                 'project_task' => $project_task,
                 'due_date' => $due_date,
             )
         );
-    
+
         if ($result) {
             $response = array(
                 'success' => true,
                 'message' => 'Group project created successfully',
-                'project_id' => $result,
+                'project_id' => $wpdb->insert_id,
             );
             return rest_ensure_response($response);
         }
-    
+
         return new WP_Error('project_creation_failed', 'Failed to create group project.', array('status' => 500));
     }
-    
 
     public function update_group_project($request)
     {
         $group_id = $request['group_id'];
-
+    
         global $wpdb;
         $table_name = $wpdb->prefix . 'group_projects';
-
-        $request->get_json_params();
-
-        $assigned_members = $request->get_param('assigned_members');
-        $group_project = $request->get_param('group_project');
-        $project_task = $request->get_param('project_task');
-        $due_date = $request->get_param('due_date');
-
+    
         $data = array(
-
-            'assigned_members' => $assigned_members,
-            'project_name' => $group_project,
-            'project_task' => $project_task,
-            'due_date' => $due_date,
+            'assigned_members' => $request->get_param('assigned_members'),
+            'project_name' => $request->get_param('group_project'),
+            'project_task' => $request->get_param('project_task'),
+            'due_date' => $request->get_param('due_date'),
         );
-        $condition = array('group_id' => $group_id);
-        $update = $wpdb->update($table_name, $data, $condition);
-
-        if ($update) {
+    
+        $where = array('group_id' => $group_id);
+        
+        $updated = $wpdb->update($table_name, $data, $where);
+    
+        if ($updated !== false) {
             $response = array(
                 'success' => true,
                 'message' => 'Group project updated successfully',
-                'project_id' => $update,
+                'project_id' => $group_id,
             );
             return rest_ensure_response($response);
         }
+    
         return new WP_Error('project_update_failed', 'Failed to update group project.', array('status' => 500));
     }
-
+    
 }
