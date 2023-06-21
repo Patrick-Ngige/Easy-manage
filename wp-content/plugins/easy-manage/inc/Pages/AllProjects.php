@@ -128,7 +128,7 @@ class AllProjects
 
         $cohorts = $wpdb->get_results(
             $wpdb->prepare(
-                "SELECT cohort, cohort_info, trainer, ending_date, cohort_status  FROM $table_name WHERE cohort_status = 0 
+                "SELECT cohort_id cohort, cohort_info, trainer, ending_date, cohort_status  FROM $table_name WHERE cohort_status = 0 
         "
             )
         );

@@ -64,13 +64,13 @@ class PMEndpoints
     public function create_trainer_callback($request)
     {
         $parameters = $request->get_params();
-
+    
         $trainer_name = sanitize_text_field($request->get_param('trainer_name'));
         $trainer_email = sanitize_email($request->get_param('trainer_email'));
         $trainer_role = sanitize_text_field($request->get_param('trainer_role'));
         $trainer_password = sanitize_text_field($request->get_param('trainer_password'));
-
-        if (empty($trainer_name) || empty($trainer_email) || empty($trainer_role) || empty($trainer_password)) {
+    
+        if (empty($trainer_name) || empty($trainer_email) || empty($trainer_password)) {
             $missing_fields = array();
             if (empty($trainer_name)) {
                 $missing_fields[] = 'trainer_name';
@@ -78,28 +78,32 @@ class PMEndpoints
             if (empty($trainer_email)) {
                 $missing_fields[] = 'trainer_email';
             }
-            if (empty($trainer_role)) {
-                $missing_fields[] = 'trainer_role';
-            }
             if (empty($trainer_password)) {
                 $missing_fields[] = 'trainer_password';
             }
-
+    
             return new WP_Error('missing_fields', 'The following fields are required: ' . implode(', ', $missing_fields), array('status' => 400));
         }
+    
         $existing_email = email_exists($trainer_email);
         if ($existing_email) {
             return new WP_Error('email_exists', 'Trainer with the same email already exists.', array('status' => 400));
         }
-
+    
+        // Validate trainer_role
+        $allowed_roles = array('trainer');
+        if (!in_array($trainer_role, $allowed_roles)) {
+            return new WP_Error('invalid_role', 'Invalid trainer role specified.', array('status' => 400));
+        }
+    
         $user_id = wp_create_user($trainer_name, $trainer_password, $trainer_email);
-
+    
         if (!is_wp_error($user_id)) {
             $user = get_user_by('login', $trainer_name);
-
+    
             $user->set_role($trainer_role);
             wp_update_user($user);
-
+    
             $response = array(
                 'success' => true,
                 'message' => 'Trainer created successfully',
@@ -114,6 +118,7 @@ class PMEndpoints
             return rest_ensure_response($response);
         }
     }
+    
 
     public function update_trainer_callback($request)
     {
@@ -124,11 +129,6 @@ class PMEndpoints
         $trainer_email = sanitize_email($request->get_param('trainer_email'));
         $trainer_role = sanitize_text_field($request->get_param('trainer_role'));
         $trainer_password = sanitize_text_field($request->get_param('trainer_password'));
-
-        // $existing_email = email_exists($trainer_email);
-        // if ($existing_email) {
-        //     return new WP_Error('email_exists', 'Trainee with the same email already exists.', array('status' => 400));
-        // }
 
         $user = get_user_by('id', $trainer_id);
 
@@ -236,7 +236,7 @@ class PMEndpoints
 
             $response = array(
                 'success' => true,
-                'message' => 'Cohort created successfully',
+                'message' => 'Cohort updated successfully',
                 'cohort_id' => $cohort_id,
             );
 
