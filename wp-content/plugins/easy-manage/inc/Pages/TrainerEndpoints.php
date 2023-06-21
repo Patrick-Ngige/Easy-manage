@@ -257,8 +257,23 @@ class TrainerEndpoints
         $project_task = $request->get_param('project_task');
         $due_date = $request->get_param('due_date');
     
-        if (empty($assigned_members) || empty($group_project) || empty($project_task) || empty($due_date)) {
-            return new WP_Error('missing_fields', 'All fields are required.', array('status' => 400));
+        if (empty($group_members) || empty($group_project) || empty($project_task) || empty($due_date)) {
+            $missing_fields = array();
+            if (empty($group_members)) {
+                $missing_fields[] = 'group_members';
+            }
+            if (empty($group_project)) {
+                $missing_fields[] = 'group_project';
+            }
+            if (empty($project_task)) {
+                $missing_fields[] = 'project_task';
+            }
+
+            if (empty($due_date)) {
+                $missing_fields[] = 'due_date';
+            }
+    
+            return new WP_Error('missing_fields', 'The following fields are required: ' . implode(', ', $missing_fields), array('status' => 400));
         }
     
         $assigned_members_limit = 3;
