@@ -88,6 +88,7 @@ class TrainerEndpoints
 
         if (empty($trainee_name) || empty($trainee_email) || empty($trainee_role) || empty($trainee_password)) {
             $missing_fields = array();
+            
             if (empty($trainee_name)) {
                 $missing_fields[] = 'trainee_name';
             }

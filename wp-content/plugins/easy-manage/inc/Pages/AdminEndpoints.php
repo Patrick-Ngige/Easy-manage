@@ -84,6 +84,7 @@ class AdminEndpoints
             $user = get_user_by('login', $pm_name);
     
             $user->set_role($pm_role);
+            
             wp_update_user($user);
     
             $response = array(
@@ -102,7 +103,6 @@ class AdminEndpoints
             return rest_ensure_response($response)->set_status(400);
         }
     }
-    
     
     public function update_pm_callback($request)
     {
