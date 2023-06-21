@@ -99,7 +99,6 @@ class TrainerEndpoints
         if (!is_wp_error($user_id)) {
             $user = get_user_by('id', $user_id);
 
-            // Set the trainee's role using wp_update_user
             $user->set_role($trainee_role);
             wp_update_user($user);
 

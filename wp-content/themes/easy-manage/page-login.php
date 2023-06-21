@@ -63,17 +63,20 @@ if ($login_attempts >= count($wait_times)) {
                 $user_info = get_userdata($user_id);
                 $user_roles = $user_info->roles;
 
-                if (in_array('Administrator', $user_roles)) {
+                if (in_array('administrator', $user_roles)) {
                     wp_redirect('http://localhost/easy-manage/admin-pm-list/');
                     exit;
-                } elseif (in_array('Program Manager', $user_roles)) {
+                } elseif (in_array('program_manager', $user_roles)) {
                     wp_redirect('http://localhost/easy-manage/pm-dashboard/');
                     exit;
-                } elseif (in_array('Trainer', $user_roles)) {
+                } elseif (in_array('trainer', $user_roles)) {
+                    wp_redirect('http://localhost/easy-manage/trainer-dashboard/');
+                    exit;
+                } elseif (in_array('trainee', $user_roles)) {
                     wp_redirect('http://localhost/easy-manage/trainer-dashboard/');
                     exit;
                 } else {
-                    wp_redirect('http://localhost/easy-manage/trainee-dashboard/');
+                    wp_redirect('http://localhost/easy-manage/');
                     exit;
                 }
             }

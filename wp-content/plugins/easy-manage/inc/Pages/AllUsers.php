@@ -21,6 +21,7 @@ class AllUsers
             array(
                 'methods' => array('GET'),
                 'callback' => array($this, 'retrieve_pm_callback'),
+                'permission_callback' => array($this, 'check_admin_permission'), 
             )
         );
 
@@ -30,6 +31,7 @@ class AllUsers
             array(
                 'methods' => array('GET'),
                 'callback' => array($this, 'retrieve_trainers_callback'),
+                'permission_callback' => array($this, 'check_admin_permission'), 
             )
         );
 
@@ -39,32 +41,22 @@ class AllUsers
             array(
                 'methods' => array('GET'),
                 'callback' => array($this, 'retrieve_trainees_callback'),
+                'permission_callback' => array($this, 'check_admin_permission'), 
             )
         );
 
     }
 
-    // Callback methods
 
-
-
-
-    // Permission callback methods
-
-    // public function manage_trainees_permission($request)
-    // {
-    //     if (!current_user_can('manage_options')) {
-    //         return new WP_Error(
-    //             'rest_forbidden',
-    //             __('You do not have permissions to manage trainees.', 'text-domain'),
-    //             array('status' => 403)
-    //         );
-    //     }
-
-    //     return true;
-    // }
-
-    // Callback methods for trainee endpoints
+    public function check_admin_permission($request)
+    {
+        if (current_user_can('admin') || current_user_can('program_manager') || current_user_can('trainer')) {
+            return true;
+        } else {
+            return new WP_Error('rest_forbidden', __('You are not allowed to access this endpoint.'), array('status' => 403));
+        }
+    }
+    
 
 
 

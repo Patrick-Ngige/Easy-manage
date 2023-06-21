@@ -53,6 +53,3 @@ class ShortCodes
     }
 }
 
-// $shortcodes = new ShortCodes();
-// $shortcodes->register();
-
