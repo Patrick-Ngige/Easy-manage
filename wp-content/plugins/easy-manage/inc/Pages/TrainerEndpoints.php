@@ -88,7 +88,7 @@ class TrainerEndpoints
 
         if (empty($trainee_name) || empty($trainee_email) || empty($trainee_role) || empty($trainee_password)) {
             $missing_fields = array();
-            
+
             if (empty($trainee_name)) {
                 $missing_fields[] = 'trainee_name';
             }
@@ -108,6 +108,11 @@ class TrainerEndpoints
         $existing_email = email_exists($trainee_email);
         if ($existing_email) {
             return new WP_Error('email_exists', 'Trainee with the same email already exists.', array('status' => 400));
+        }
+
+        $allowed_roles = array('trainee');
+        if (!in_array($trainee_role, $allowed_roles)) {
+            return new WP_Error('invalid_role', 'Invalid trainee role specified.', array('status' => 400));
         }
 
         $user_id = wp_create_user($trainee_name, $trainee_password, $trainee_email);
