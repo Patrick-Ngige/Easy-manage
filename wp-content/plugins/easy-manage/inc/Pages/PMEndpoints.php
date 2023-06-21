@@ -21,6 +21,7 @@ class PMEndpoints
             array(
                 'methods' => array('POST', 'PATCH'),
                 'callback' => array($this, 'trainer_callbacks'),
+                
             )
         );
 

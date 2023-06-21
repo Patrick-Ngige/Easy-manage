@@ -21,9 +21,17 @@ class AdminEndpoints
             array(
                 'methods' => array('POST', 'PATCH'),
                 'callback' => array($this, 'pm_callbacks'),
+                'permission_callback' => array($this, 'check_admin_permission'),
             )
         );
-
+    }
+    public function check_admin_permission($request)
+    {
+        if (current_user_can('administrator')) {
+            return true;
+        } else {
+            return new WP_Error('rest_forbidden', __('You are not allowed to access this endpoint.'), array('status' => 403));
+        }
     }
 
     public function pm_callbacks($request)
@@ -34,24 +42,6 @@ class AdminEndpoints
             return $this->update_pm_callback($request);
         }
     }
-
-    // Permission callback methods
-
-    // public function manage_trainees_permission($request)
-    // {
-    //     if (!current_user_can('manage_options')) {
-    //         return new WP_Error(
-    //             'rest_forbidden',
-    //             __('You do not have permissions to manage trainees.', 'text-domain'),
-    //             array('status' => 403)
-    //         );
-    //     }
-
-    //     return true;
-    // }
-
-    // Callback methods for trainee endpoints
-
     public function create_pm_callback($request)
     {
         $parameters = $request->get_params();
