@@ -63,7 +63,7 @@ class SoftDelete
             $current_user_role = $this->get_current_user_role();
         
 
-            if ($current_user_role === 'administrator') {
+            if ($request->get_param('user_id') === 'administrator') {
 
                 return new WP_Error('admin_deletion_not_allowed', 'Admin user cannot be deleted.', array('status' => 403));
             }
