@@ -19,6 +19,7 @@ class Init{
             Pages\AllUsers::class,
             Pages\SoftDelete::class,
             Pages\SearchUsers::class,
+            Pages\MarkComplete::class,
         ];
     }
 

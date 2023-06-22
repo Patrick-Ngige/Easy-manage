@@ -193,6 +193,10 @@ class TrainerEndpoints
         $assignee = $request->get_param('assignee');
         $due_date = $request->get_param('due_date');
 
+        if ($this->is_assignee_reached_max_projects($assignee)) {
+            return new WP_Error('max_projects_reached', 'The assignee has reached the maximum number of projects.', array('status' => 400));
+        }
+
         global $wpdb;
         $table_name = $wpdb->prefix . 'individual_projects';
 
@@ -216,6 +220,28 @@ class TrainerEndpoints
             return rest_ensure_response($response);
         }
         return new WP_Error('project_creation_failed', 'Failed to create individual project.', array('status' => 500));
+    }
+
+    private function is_assignee_reached_max_projects($assignee)
+    {
+
+        $max_projects = 3;
+
+        $assigned_projects_count = get_users(
+            array(
+                'role' => 'trainee',
+                'meta_query' => array(
+                    array(
+                        'key' => 'assigned_projects',
+                        'value' => '"' . $assignee . '"',
+                        'compare' => 'LIKE',
+                    ),
+                ),
+                'count_total' => true,
+            )
+        );
+
+        return $assigned_projects_count >= $max_projects;
     }
 
     public function update_individual_project($request)
@@ -281,8 +307,19 @@ class TrainerEndpoints
 
         $assigned_members_limit = 3;
         $assigned_members_count = count($assigned_members);
+
         if ($assigned_members_count < 2 || $assigned_members_count > $assigned_members_limit) {
             return new WP_Error('invalid_assigned_members', 'Assigned members should be between 2 and 3.', array('status' => 400));
+        }
+
+        foreach ($assigned_members as $assignee) {
+            global $wpdb;
+            $table_name = $wpdb->prefix . 'individual_projects';
+            $assigned_projects_count = $wpdb->get_var($wpdb->prepare("SELECT COUNT(*) FROM $table_name WHERE assignee = %d", $assignee));
+
+            if ($assigned_projects_count >= 3) {
+                return new WP_Error('max_assigned_projects_reached', 'One or more assigned members have already been assigned the maximum number of projects.', array('status' => 400));
+            }
         }
 
         global $wpdb;
@@ -344,20 +381,20 @@ class TrainerEndpoints
     {
         global $wpdb;
         $table_name = $wpdb->prefix . 'users';
-        $trainee_status = 1; // Set the desired user_status value for trainees
-    
+        $trainee_status = 1;
+
         $trainees = $wpdb->get_results(
             $wpdb->prepare(
                 "SELECT * FROM $table_name WHERE user_status = %d AND ID IN (SELECT user_id FROM $wpdb->usermeta WHERE meta_key = 'wp_capabilities' AND meta_value LIKE '%%\"trainee\"%%')",
                 $trainee_status
             )
         );
-    
+
         if (empty($trainees)) {
             return new WP_Error('no_trainees', 'No trainees found.', array('status' => 404));
         }
-    
+
         return $trainees;
     }
-        
+
 }
