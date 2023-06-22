@@ -185,74 +185,75 @@ class TrainerEndpoints
         }
     }
     public function create_individual_project($request)
-    {
-        $parameters = $request->get_json_params();
-    
-        $project_name = $request->get_param('project_name');
-        $project_task = $request->get_param('project_task');
-        $assignee_name = $request->get_param('assignee');
-        $due_date = $request->get_param('due_date');
-    
-        // Check if the assignee exists in wp_users table
-        $assignee_user = get_user_by('login', $assignee_name);
-        if (!$assignee_user) {
-            return new WP_Error('invalid_assignee', 'Invalid assignee. Please select an existing user.', array('status' => 400));
-        }
-    
-        $assignee_id = $assignee_user->ID;
-    
-        if ($this->is_assignee_reached_max_projects($assignee_id)) {
-            return new WP_Error('max_projects_reached', 'The assignee has reached the maximum number of projects.', array('status' => 400));
-        }
-    
-        global $wpdb;
-        $table_name = $wpdb->prefix . 'individual_projects';
-    
-        $result = $wpdb->insert(
-            $table_name,
-            array(
-                'project_name' => $project_name,
-                'project_task' => $project_task,
-                'assignee' => $assignee_id,
-                'due_date' => $due_date,
-            )
+{
+    $parameters = $request->get_json_params();
+
+    $project_name = $request->get_param('project_name');
+    $project_task = $request->get_param('project_task');
+    $assignee_name = $request->get_param('assignee');
+    $due_date = $request->get_param('due_date');
+
+    // Check if the assignee exists in wp_users table
+    $assignee_user = get_user_by('login', $assignee_name);
+    if (!$assignee_user) {
+        return new WP_Error('invalid_assignee', 'Invalid assignee. Please select an existing user.', array('status' => 400));
+    }
+
+    $assignee_id = $assignee_user->ID;
+
+    if ($this->is_assignee_reached_max_projects($assignee_id)) {
+        return new WP_Error('max_projects_reached', 'The assignee has reached the maximum number of projects.', array('status' => 400));
+    }
+
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'individual_projects';
+
+    $result = $wpdb->insert(
+        $table_name,
+        array(
+            'project_name' => $project_name,
+            'project_task' => $project_task,
+            'assignee' => $assignee_id,
+            'due_date' => $due_date,
+        )
+    );
+
+    if ($result !== false) {
+        $project_id = $wpdb->insert_id;
+        $response = array(
+            'success' => true,
+            'message' => 'Individual project created successfully',
+            'project_id' => $project_id,
         );
-    
-        if ($result !== false) {
-            $project_id = $wpdb->insert_id;
-            $response = array(
-                'success' => true,
-                'message' => 'Individual project created successfully',
-                'project_id' => $project_id,
-            );
-            return rest_ensure_response($response);
-        }
+        return rest_ensure_response($response);
+    } else {
         return new WP_Error('project_creation_failed', 'Failed to create individual project.', array('status' => 500));
     }
+}
+
     
     
 
-    private function is_assignee_reached_max_projects($assignee)
-    {
+private function is_assignee_reached_max_projects($assignee)
+{
+    $max_projects = 3;
 
-        $max_projects = 3;
-
-        $assigned_projects_count = get_users(
-            array(
-                'role' => 'trainee',
-                'meta_query' => array(
-                    array(
-                        'key' => 'assigned_projects',
-                        'value' => '"' . $assignee . '"',
-                        'compare' => 'LIKE',
-                    ),
+    $assigned_projects_count = get_users(
+        array(
+            'role' => 'trainee',
+            'meta_query' => array(
+                array(
+                    'key' => 'assigned_projects',
+                    'value' => '"' . $assignee . '"',
+                    'compare' => 'LIKE',
                 ),
-                'count_total' => true,
-            )
-        );
+            ),
+            'count_total' => true,
+        )
+    );
 
-        return $assigned_projects_count >= $max_projects;
-    }
+    return $assigned_projects_count >= $max_projects;
+}
 
     public function update_individual_project($request)
     {
