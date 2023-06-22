@@ -17,14 +17,13 @@ class MarkComplete
     {
         register_rest_route(
             'em/v1',
-            '/projects/mark-complete/(?P<project_id>\d+)',
+            '/projects/mark_complete/(?P<project_id>\d+)',
             array(
-                'methods' => 'POST',
+                'methods' => 'PATCH',
                 'callback' => array($this, 'mark_project_complete'),
                 'permission_callback' => array($this, 'check_admin_permission'),
             )
         );
-
     }
 
     public function check_admin_permission($request)
@@ -36,28 +35,32 @@ class MarkComplete
         }
     }
 
-    public function mark_project_complete($request) {
+    public function mark_project_complete($request)
+    {
         $project_id = $request->get_param('project_id');
+        $group_id = $request->get_param('project_id');
     
         global $wpdb;
         $individual_projects_table = $wpdb->prefix . 'individual_projects';
-
         $group_projects_table = $wpdb->prefix . 'group_projects';
-
-        $wpdb->update(
+    
+        $individual_result = $wpdb->update(
             $individual_projects_table,
-            array('status' => 1),
-            array('id' => $project_id)
+            array('project_status' => 1),
+            array('project_id' => $project_id)
         );
     
-        $wpdb->update(
+        $group_result = $wpdb->update(
             $group_projects_table,
-            array('status' => 1), 
-            array('id' => $project_id)
+            array('group_status' => 1),
+            array('project_id' => $group_id)
         );
+    
+        if ($individual_result === false || $group_result === false) {
+            return new WP_Error('project_update_failed', 'Failed to mark project as complete.', array('status' => 500));
+        }
     
         return rest_ensure_response('Project marked as complete.');
     }
-    
 
 }
