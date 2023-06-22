@@ -51,6 +51,15 @@ class AllProjects
                 'callback' => array($this, 'retrieve_cohorts_callbacks'),
             )
         );
+
+        register_rest_route(
+            'em/v1',
+            '/cohorts/(?P<id>\d+)',
+            array(
+                'methods' => 'GET',
+                'callback' => array($this, 'retrieve_single_cohort'),
+            )
+        );
     }
 
     public function retrieve_individual_projects($request)
@@ -137,4 +146,27 @@ class AllProjects
 
         return $cohorts;
     }
+
+    public function retrieve_single_cohort($request)
+{
+    $cohort_id = $request->get_param('id');
+
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'cohorts';
+
+    $cohort = $wpdb->get_row(
+        $wpdb->prepare(
+            "SELECT * FROM $table_name WHERE cohort_id = %d",
+            $cohort_id
+        ),
+        ARRAY_A
+    );
+
+    if (empty($cohort)) {
+        return new WP_Error('cohort_not_found', 'Cohort not found.', array('status' => 404));
+    }
+
+    return $cohort;
+}
+
 }
