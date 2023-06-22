@@ -206,11 +206,12 @@ class AllUsers
         }
 
         if (empty($trainees)) {
-            return new WP_Error('no_trainees', 'No trainees found.', array('status' => 404));
+            return new WP_Error('no_trainers', 'No trainer found.', array('status' => 404));
         }
 
-        return rest_ensure_response($trainees);
+        return $trainees;
     }
+    
 
     public function retrieve_single_callback($request)
     {
