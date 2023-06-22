@@ -108,12 +108,17 @@ class SoftDelete
         public function restore_user_callback($request) {
             global $wpdb;
             $user_id = $request->get_param('user_id');
-
-            $user = get_user_by('ID', $user_id);
         
+            $user = get_user_by('ID', $user_id);
             if (!$user) {
                 return new WP_Error('user_not_found', 'User not found.', array('status' => 404));
             }
+        
+            $user_status = $user->user_status;
+            if ($user_status != 1) {
+                return new WP_Error('invalid_user_status', 'User already exists.', array('status' => 400));
+            }
+        
             $table_name = $wpdb->prefix . 'users';
             $wpdb->update(
                 $table_name,
@@ -128,6 +133,7 @@ class SoftDelete
         
             return rest_ensure_response($response);
         }
+        
         
         
 }
