@@ -19,7 +19,7 @@ class PMEndpoints
             'em/v1',
             '/trainer',
             array(
-                'methods' => array('POST', 'PUT'),
+                'methods' => array('POST', 'PUT', 'GET'),
                 'callback' => array($this, 'trainer_callbacks'),
                 'permission_callback' => array($this, 'check_admin_permission'),
             )
@@ -51,6 +51,8 @@ class PMEndpoints
             return $this->create_trainer_callback($request);
         } elseif ($request->get_method() === 'PUT') {
             return $this->update_trainer_callback($request);
+        }elseif ($request->get_method() === 'GET') {
+            return $this->retrieve_deleted_trainers($request);
         }
     }
     public function cohort_callbacks($request)
@@ -263,5 +265,25 @@ class PMEndpoints
             return rest_ensure_response($response);
         }
         return new WP_Error('cohort_updation_failed', 'Failed to update cohort.', array('status' => 500));
+    }
+
+    public function retrieve_deleted_trainers($request)
+    {
+        global $wpdb;
+        $table_name = $wpdb->prefix . 'users';
+        $trainer_status = 1; 
+    
+        $trainees = $wpdb->get_results(
+            $wpdb->prepare(
+                "SELECT * FROM $table_name WHERE user_status = %d AND ID IN (SELECT user_id FROM $wpdb->usermeta WHERE meta_key = 'wp_capabilities' AND meta_value LIKE '%%\"trainer\"%%')",
+                $trainer_status
+            )
+        );
+    
+        if (empty($trainees)) {
+            return new WP_Error('no_trainer', 'No trainers found.', array('status' => 404));
+        }
+    
+        return $trainees;
     }
 }
