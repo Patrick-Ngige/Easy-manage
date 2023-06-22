@@ -54,8 +54,6 @@ class MarkComplete
             array('group_status' => 1),
             array('group_id' => $id)
         );
-
-        // return print_r($group_result);
         
         if ($group_result === false) {
             return new WP_Error('project_update_failed', 'Failed to mark project as complete.', array('status' => 500));

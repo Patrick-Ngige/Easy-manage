@@ -278,6 +278,8 @@ class TrainerEndpoints
         }
         return new WP_Error('project_updating_failed', 'Failed to update individual project.', array('status' => 500));
     }
+
+
     public function create_group_project($request)
     {
         $data = $request->get_json_params();
@@ -312,14 +314,13 @@ class TrainerEndpoints
             return new WP_Error('invalid_assigned_members', 'Assigned members should be between 2 and 3.', array('status' => 400));
         }
 
+        $assigned_member_ids = array();
         foreach ($assigned_members as $assignee) {
-            global $wpdb;
-            $table_name = $wpdb->prefix . 'individual_projects';
-            $assigned_projects_count = $wpdb->get_var($wpdb->prepare("SELECT COUNT(*) FROM $table_name WHERE assignee = %d", $assignee));
-
-            if ($assigned_projects_count >= 3) {
-                return new WP_Error('max_assigned_projects_reached', 'One or more assigned members have already been assigned the maximum number of projects.', array('status' => 400));
+            $user = get_user_by('login', $assignee);
+            if (!$user) {
+                return new WP_Error('invalid_assigned_member', 'One or more assigned members do not exist.', array('status' => 400));
             }
+            $assigned_member_ids[] = $user->ID;
         }
 
         global $wpdb;
@@ -328,7 +329,7 @@ class TrainerEndpoints
         $result = $wpdb->insert(
             $table_name,
             array(
-                'assigned_members' => json_encode($assigned_members),
+                'assigned_members' => json_encode($assigned_member_ids),
                 'project_name' => $group_project,
                 'project_task' => $project_task,
                 'due_date' => $due_date,
@@ -346,6 +347,10 @@ class TrainerEndpoints
 
         return new WP_Error('project_creation_failed', 'Failed to create group project.', array('status' => 500));
     }
+
+
+
+
 
     public function update_group_project($request)
     {
