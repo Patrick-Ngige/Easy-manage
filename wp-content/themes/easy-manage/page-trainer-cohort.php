@@ -15,7 +15,7 @@
   </div>
   <?php get_header(); ?>
 
-<div style="display: flex; justify-content: center; align-items: center; height: 100vh;margin-left:15rem">
+<div style="display: flex; justify-content: center; align-items: center; height: 100vh;margin-left:2em">
   <div style="max-width: 800px; background-color: #F7F7F7; border-radius: 10px; box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2); padding: 2rem;">
   <h2 style="color: #315B87; margin-bottom: 1rem;">Assigned Cohort</h2>
   <div style="display: flex; justify-content: center;">
