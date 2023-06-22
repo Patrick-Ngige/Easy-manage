@@ -206,7 +206,7 @@ class AllUsers
         }
 
         if (empty($trainees)) {
-            return new WP_Error('no_trainers', 'No trainer found.', array('status' => 404));
+            return new WP_Error('no_trainees', 'No trainee found.', array('status' => 404));
         }
 
         return $trainees;

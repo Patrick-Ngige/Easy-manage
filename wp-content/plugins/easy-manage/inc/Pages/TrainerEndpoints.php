@@ -343,28 +343,21 @@ class TrainerEndpoints
     public function retrieve_soft_deleted($request)
     {
         global $wpdb;
-
-        $users = $wpdb->get_results(
+        $table_name = $wpdb->prefix . 'users';
+        $trainee_status = 1; // Set the desired user_status value for trainees
+    
+        $trainees = $wpdb->get_results(
             $wpdb->prepare(
-                "SELECT ID, user_login, user_email FROM {$wpdb->prefix}users WHERE user_status = %d AND user_role = 'trainee'",
-                1
+                "SELECT * FROM $table_name WHERE user_status = %d AND ID IN (SELECT user_id FROM $wpdb->usermeta WHERE meta_key = 'wp_capabilities' AND meta_value LIKE '%%\"trainee\"%%')",
+                $trainee_status
             )
         );
-
-        if (!$users) {
-            return new WP_Error('no_users_found', 'No soft deleted users found.', array('status' => 404));
+    
+        if (empty($trainees)) {
+            return new WP_Error('no_trainees', 'No trainees found.', array('status' => 404));
         }
-
-        $response = array();
-
-        foreach ($users as $user) {
-            $response[] = array(
-                'user_id' => $user->ID,
-                'user_login' => $user->user_login,
-                'user_email' => $user->user_email,
-            );
-        }
-
-        return rest_ensure_response($response);
+    
+        return $trainees;
     }
+        
 }
