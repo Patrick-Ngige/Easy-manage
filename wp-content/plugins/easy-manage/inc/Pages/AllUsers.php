@@ -109,43 +109,62 @@ class AllUsers
     }
 
     public function retrieve_deleted_users($request)
-{
-    $current_user = wp_get_current_user();
-    $current_user_role = $current_user->roles[0];
-
-    $roles_permissions = array(
-        'administrator' => array(),
-        'program_manager' => array('administrator'),
-        'trainer' => array('administrator', 'program_manager'),
-        'trainee' => array('administrator', 'program_manager', 'trainer'),
-    );
-
-    if (
-        !in_array($current_user_role, $roles_permissions['program_manager']) &&
-        !in_array($current_user_role, $roles_permissions['trainer']) &&
-        !in_array($current_user_role, $roles_permissions['administrator'])
-    ) {
-        return new WP_Error('permission_denied', 'Permission denied.', array('status' => 403));
+    {
+        $current_user = wp_get_current_user();
+        $current_user_role = $current_user->roles[0];
+    
+        $roles_permissions = array(
+            'administrator' => array(),
+            'program_manager' => array('administrator'),
+            'trainer' => array('administrator', 'program_manager'),
+            'trainee' => array('administrator', 'program_manager', 'trainer'),
+        );
+    
+        if (
+            !in_array($current_user_role, $roles_permissions['program_manager']) &&
+            !in_array($current_user_role, $roles_permissions['trainer']) &&
+            !in_array($current_user_role, $roles_permissions['administrator'])
+        ) {
+            return new WP_Error('permission_denied', 'Permission denied.', array('status' => 403));
+        }
+    
+        global $wpdb;
+        $table_name = $wpdb->prefix . 'users';
+    
+        if ($current_user_role === 'administrator') {
+            // If admin, retrieve users with all roles
+            $users = $wpdb->get_results(
+                $wpdb->prepare(
+                    "SELECT ID, user_login, user_email FROM {$wpdb->prefix}users WHERE user_status = %d",
+                    1
+                )
+            );
+        } elseif ($current_user_role === 'program_manager') {
+            // If program manager, retrieve users with trainer role
+            $users = $wpdb->get_results(
+                $wpdb->prepare(
+                    "SELECT ID, user_login, user_email FROM {$wpdb->prefix}users WHERE user_status = %d AND (user_role = 'trainer' OR user_role = 'trainee')",
+                    1
+                )
+            );
+        } elseif ($current_user_role === 'trainer') {
+            // If trainer, retrieve users with trainee role
+            $users = $wpdb->get_results(
+                $wpdb->prepare(
+                    "SELECT ID, user_login, user_email FROM {$wpdb->prefix}users WHERE user_status = %d AND user_role = 'trainee'",
+                    1
+                )
+            );
+        }
+    
+        if (empty($users)) {
+            return new WP_Error('no_deleted_users', 'No deleted users found.', array('status' => 404));
+        }
+    
+        return $users;
     }
-
-    global $wpdb;
-    $table_name = $wpdb->prefix . 'users';
-
-    $allowed_roles = $roles_permissions[$current_user_role];
-
-    $users = $wpdb->get_results(
-        $wpdb->prepare(
-            "SELECT * FROM $table_name WHERE user_status = %d AND user_role IN ('" . implode("','", $allowed_roles) . "')",
-        )
-    );
-
-    if (empty($users)) {
-        return new WP_Error('no_deleted_users', 'No deleted users found.', array('status' => 404));
-    }
-
-    return $users;
-}
-
+    
+    
 
     public function retrieve_trainers_callback($request)
     {

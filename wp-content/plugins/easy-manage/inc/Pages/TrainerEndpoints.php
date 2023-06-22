@@ -19,7 +19,7 @@ class TrainerEndpoints
             'em/v1',
             '/trainee',
             array(
-                'methods' => array('POST', 'PATCH'),
+                'methods' => array('POST', 'PATCH', 'GET'),
                 'callback' => array($this, 'trainee_callbacks'),
                 'permission_callback' => array($this, 'check_admin_permission'),
             )
@@ -44,6 +44,7 @@ class TrainerEndpoints
                 'permission_callback' => array($this, 'check_admin_permission'),
             )
         );
+
     }
     public function check_admin_permission($request)
     {
@@ -59,7 +60,10 @@ class TrainerEndpoints
             return $this->create_trainee_callback($request);
         } elseif ($request->get_method() === 'PATCH') {
             return $this->update_trainee_callback($request);
+        } elseif ($request->get_method() === 'GET') {
+            return $this->retrieve_soft_deleted($request);
         }
+
     }
     public function individual_projects_callbacks($request)
     {
@@ -309,21 +313,21 @@ class TrainerEndpoints
     public function update_group_project($request)
     {
         $group_id = $request['group_id'];
-    
+
         global $wpdb;
         $table_name = $wpdb->prefix . 'group_projects';
-    
+
         $data = array(
             'assigned_members' => $request->get_param('assigned_members'),
             'project_name' => $request->get_param('group_project'),
             'project_task' => $request->get_param('project_task'),
             'due_date' => $request->get_param('due_date'),
         );
-    
+
         $where = array('group_id' => $group_id);
-        
+
         $updated = $wpdb->update($table_name, $data, $where);
-    
+
         if ($updated !== false) {
             $response = array(
                 'success' => true,
@@ -332,7 +336,35 @@ class TrainerEndpoints
             );
             return rest_ensure_response($response);
         }
-    
+
         return new WP_Error('project_update_failed', 'Failed to update group project.', array('status' => 500));
-    }    
+    }
+
+    public function retrieve_soft_deleted($request)
+    {
+        global $wpdb;
+
+        $users = $wpdb->get_results(
+            $wpdb->prepare(
+                "SELECT ID, user_login, user_email FROM {$wpdb->prefix}users WHERE user_status = %d AND user_role = 'trainee'",
+                1
+            )
+        );
+
+        if (!$users) {
+            return new WP_Error('no_users_found', 'No soft deleted users found.', array('status' => 404));
+        }
+
+        $response = array();
+
+        foreach ($users as $user) {
+            $response[] = array(
+                'user_id' => $user->ID,
+                'user_login' => $user->user_login,
+                'user_email' => $user->user_email,
+            );
+        }
+
+        return rest_ensure_response($response);
+    }
 }
