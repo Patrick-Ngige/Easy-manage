@@ -119,62 +119,80 @@ class PMEndpoints
         }
     }
     
-
     public function update_trainer_callback($request)
     {
         $parameters = $request->get_params();
-
+    
         $trainer_id = sanitize_text_field($request->get_param('trainer_id'));
         $trainer_name = sanitize_text_field($request->get_param('trainer_name'));
         $trainer_email = sanitize_email($request->get_param('trainer_email'));
         $trainer_role = sanitize_text_field($request->get_param('trainer_role'));
         $trainer_password = sanitize_text_field($request->get_param('trainer_password'));
-
+    
+        $existing_trainer = get_users(array(
+            'meta_query' => array(
+                'relation' => 'OR',
+                array('key' => 'user_login', 'value' => $trainer_name),
+                array('key' => 'user_email', 'value' => $trainer_email),
+            ),
+            'exclude' => array($trainer_id),
+            'role' => 'trainer',
+        ));
+    
+        if (!empty($existing_trainer)) {
+            return new WP_Error('trainer_exists', 'A trainer with the same name or email already exists.', array('status' => 400));
+        }
+    
         $user = get_user_by('id', $trainer_id);
-
+    
         if ($user) {
-            $user->user_login = $trainer_name;
-            $user->user_email = $trainer_email;
-
+            $update_fields = array();
+            if ($user->display_name !== $trainer_name) {
+                $update_fields['display_name'] = $trainer_name;
+            }
+            if ($user->user_email !== $trainer_email) {
+                $update_fields['user_email'] = $trainer_email;
+            }
+            if (!empty($update_fields)) {
+                wp_update_user(array('ID' => $trainer_id) + $update_fields);
+            }
+    
             if ($trainer_password) {
                 wp_set_password($trainer_password, $trainer_id);
             }
 
-            $user->set_role($trainer_role);
-            wp_update_user($user);
-
+            update_user_meta($trainer_id, 'trainer_role', $trainer_role);
+    
             $response = array(
                 'success' => true,
-                'message' => 'trainer updated successfully',
+                'message' => 'Trainer updated successfully',
                 'user_id' => $trainer_id,
             );
             return rest_ensure_response($response);
-
         } else {
-            $response = array(
-                'success' => false,
-                'errors' => new WP_Error('400', 'trainer not found'),
-            );
-            return new WP_Error('trainer_updating_failed', 'Failed to update trainer.', array('status' => 500));
+            return new WP_Error('trainer_not_found', 'Trainer not found.', array('status' => 404));
         }
     }
-
+    
+    
     public function create_cohort_callback($request)
     {
-
         if (current_user_can('program_manager')) {
-
             $parameters = $request->get_json_params();
-
+    
             $cohort = $request->get_param('cohort');
             $cohort_info = $request->get_param('cohort_info');
             $trainer = $request->get_param('trainer');
             $starting_date = $request->get_param('starting_date');
             $ending_date = $request->get_param('ending_date');
-
+    
+            if (strtotime($ending_date) <= strtotime($starting_date)) {
+                return new WP_Error('invalid_dates', 'Invalid cohort dates. The ending date must be after the starting date.', array('status' => 400));
+            }
+    
             global $wpdb;
             $table_name = $wpdb->prefix . 'cohorts';
-
+    
             $result = $wpdb->insert(
                 $table_name,
                 array(
@@ -185,7 +203,7 @@ class PMEndpoints
                     'ending_date' => $ending_date,
                 )
             );
-
+    
             if ($result) {
                 $cohort_id = $wpdb->insert_id;
                 $response = array(
@@ -195,6 +213,7 @@ class PMEndpoints
                 );
                 return rest_ensure_response($response);
             }
+    
             return new WP_Error('cohort_creation_failed', 'Failed to create cohort.', array('status' => 500));
         } else {
             return new WP_Error(
@@ -204,6 +223,7 @@ class PMEndpoints
             );
         }
     }
+
 
     public function update_cohort_callback($request)
     {
