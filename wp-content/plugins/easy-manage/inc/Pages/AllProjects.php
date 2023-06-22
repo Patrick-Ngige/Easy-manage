@@ -74,7 +74,6 @@ class AllProjects
         return $projects;
     }
 
-
     public function retrieve_group_projects($request)
     {
         global $wpdb;
@@ -95,7 +94,6 @@ class AllProjects
         return $projects;
     }
     
-
     public function retrieve_completed_projects($request)
     {
         global $wpdb;
