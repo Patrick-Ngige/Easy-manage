@@ -18,6 +18,7 @@ class Init{
             Pages\AllProjects::class,
             Pages\AllUsers::class,
             Pages\SoftDelete::class,
+            Pages\SearchUsers::class,
         ];
     }
 
