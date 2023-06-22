@@ -17,7 +17,7 @@ class MarkComplete
     {
         register_rest_route(
             'em/v1',
-            '/projects/mark_complete/(?P<project_id>\d+)',
+            '/projects/mark_complete/(?P<id>\d+)',
             array(
                 'methods' => 'PATCH',
                 'callback' => array($this, 'mark_project_complete'),
@@ -37,29 +37,30 @@ class MarkComplete
 
     public function mark_project_complete($request)
     {
-        $project_id = $request->get_param('project_id');
-        $group_id = $request->get_param('project_id');
+        $id = $request->get_param('id');
     
         global $wpdb;
         $individual_projects_table = $wpdb->prefix . 'individual_projects';
         $group_projects_table = $wpdb->prefix . 'group_projects';
-    
+        
         $individual_result = $wpdb->update(
             $individual_projects_table,
             array('project_status' => 1),
-            array('project_id' => $project_id)
+            array('project_id' => $id)
         );
-    
+        
         $group_result = $wpdb->update(
             $group_projects_table,
             array('group_status' => 1),
-            array('project_id' => $group_id)
+            array('group_id' => $id)
         );
-    
-        if ($individual_result === false || $group_result === false) {
+
+        // return print_r($group_result);
+        
+        if ($group_result === false) {
             return new WP_Error('project_update_failed', 'Failed to mark project as complete.', array('status' => 500));
         }
-    
+        
         return rest_ensure_response('Project marked as complete.');
     }
 
