@@ -133,7 +133,6 @@ class SoftDelete
         
             return rest_ensure_response($response);
         }
-        
-        
+
         
 }
