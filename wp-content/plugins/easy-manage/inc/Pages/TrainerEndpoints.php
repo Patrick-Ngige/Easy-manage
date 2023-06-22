@@ -314,25 +314,24 @@ class TrainerEndpoints
             return new WP_Error('invalid_assigned_members', 'Assigned members should be between 2 and 3.', array('status' => 400));
         }
 
-        $assigned_member_names = array();
         foreach ($assigned_members as $assignee) {
             if (!is_string($assignee) || empty(trim($assignee))) {
                 return new WP_Error('invalid_assigned_member', 'One or more assigned members contain invalid names.', array('status' => 400));
             }
-            $user = get_user_by('login', $assignee);
-            if (!$user) {
-                return new WP_Error('invalid_assigned_member', 'One or more assigned members do not exist.', array('status' => 400));
-            }
-            $assigned_member_names[] = $assignee;
         }
 
+        // Check if the project already exists with the same credentials
         global $wpdb;
         $table_name = $wpdb->prefix . 'group_projects';
+        $existing_project = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_name WHERE assigned_members = %s AND project_name = %s AND project_task = %s AND due_date = %s", implode(', ', $assigned_members), $group_project, $project_task, $due_date));
+        if ($existing_project) {
+            return new WP_Error('project_already_exists', 'A project with the same credentials already exists.', array('status' => 400));
+        }
 
         $result = $wpdb->insert(
             $table_name,
             array(
-                'assigned_members' => json_encode($assigned_member_names),
+                'assigned_members' => implode(', ', $assigned_members),
                 'project_name' => $group_project,
                 'project_task' => $project_task,
                 'due_date' => $due_date,
