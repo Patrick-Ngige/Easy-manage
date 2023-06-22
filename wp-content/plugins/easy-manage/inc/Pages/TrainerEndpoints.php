@@ -284,10 +284,10 @@ class TrainerEndpoints
     {
         $data = $request->get_json_params();
 
-        $assigned_members = $request->get_param('assigned_members');
-        $group_project = $request->get_param('group_project');
-        $project_task = $request->get_param('project_task');
-        $due_date = $request->get_param('due_date');
+        $assigned_members = $data['assigned_members'];
+        $group_project = $data['group_project'];
+        $project_task = $data['project_task'];
+        $due_date = $data['due_date'];
 
         if (empty($assigned_members) || empty($group_project) || empty($project_task) || empty($due_date)) {
             $missing_fields = array();
@@ -314,13 +314,16 @@ class TrainerEndpoints
             return new WP_Error('invalid_assigned_members', 'Assigned members should be between 2 and 3.', array('status' => 400));
         }
 
-        $assigned_member_ids = array();
+        $assigned_member_names = array();
         foreach ($assigned_members as $assignee) {
+            if (!is_string($assignee) || empty(trim($assignee))) {
+                return new WP_Error('invalid_assigned_member', 'One or more assigned members contain invalid names.', array('status' => 400));
+            }
             $user = get_user_by('login', $assignee);
             if (!$user) {
                 return new WP_Error('invalid_assigned_member', 'One or more assigned members do not exist.', array('status' => 400));
             }
-            $assigned_member_ids[] = $user->ID;
+            $assigned_member_names[] = $assignee;
         }
 
         global $wpdb;
@@ -329,7 +332,7 @@ class TrainerEndpoints
         $result = $wpdb->insert(
             $table_name,
             array(
-                'assigned_members' => json_encode($assigned_member_ids),
+                'assigned_members' => json_encode($assigned_member_names),
                 'project_name' => $group_project,
                 'project_task' => $project_task,
                 'due_date' => $due_date,
@@ -348,9 +351,8 @@ class TrainerEndpoints
         return new WP_Error('project_creation_failed', 'Failed to create group project.', array('status' => 500));
     }
 
-
-
-
+    
+    
 
     public function update_group_project($request)
     {
