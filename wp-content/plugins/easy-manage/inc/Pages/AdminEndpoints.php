@@ -42,19 +42,20 @@ class AdminEndpoints
             return $this->create_pm_callback($request);
         } elseif ($request->get_method() === 'PATCH') {
             return $this->update_pm_callback($request);
-        }elseif ($request->get_method() === 'GET'){
+        } elseif ($request->get_method() === 'GET') {
             return $this->retrieve_soft_deleted($request);
         }
     }
 
-    public function create_pm_callback($request) {
+    public function create_pm_callback($request)
+    {
         $parameters = $request->get_params();
-    
+
         $pm_name = sanitize_text_field($request->get_param('pm_name'));
         $pm_email = sanitize_email($request->get_param('pm_email'));
         $pm_role = sanitize_text_field($request->get_param('pm_role'));
         $pm_password = sanitize_text_field($request->get_param('pm_password'));
-    
+
         if (empty($pm_name) || empty($pm_email) || empty($pm_role) || empty($pm_password)) {
             $missing_fields = array();
             if (empty($pm_name)) {
@@ -69,7 +70,7 @@ class AdminEndpoints
             if (empty($pm_password)) {
                 $missing_fields[] = 'pm_password';
             }
-    
+
             return new WP_Error('missing_fields', 'Cannot create the program manager without the ' . implode(', ', $missing_fields), array('status' => 400));
         }
 
@@ -77,38 +78,38 @@ class AdminEndpoints
         if ($existing_email) {
             return new WP_Error('email_exists', 'User with the same email already exists.', array('status' => 400));
         }
-        
-         $allowed_roles = array('program_manager');
-         if (!in_array($pm_role, $allowed_roles)) {
-             return new WP_Error('invalid_role', 'Invalid program manager role specified.', array('status' => 400));
-         }
-    
+
+        $allowed_roles = array('program_manager');
+        if (!in_array($pm_role, $allowed_roles)) {
+            return new WP_Error('invalid_role', 'Invalid program manager role specified.', array('status' => 400));
+        }
+
         $user_id = wp_create_user($pm_name, $pm_password, $pm_email);
-    
+
         if (!is_wp_error($user_id)) {
             $user = get_user_by('login', $pm_name);
-    
+
             $user->set_role($pm_role);
 
             wp_update_user($user);
-    
+
             $response = array(
                 'success' => true,
                 'message' => 'Project Manager created successfully',
                 'user_id' => $user_id,
             );
-    
+
             return rest_ensure_response($response);
         } else {
             $response = array(
                 'success' => false,
                 'errors' => new WP_Error('pm_creation_failed', 'Failed to create Project Manager.', array('status' => 400)),
             );
-    
+
             return rest_ensure_response($response)->set_status(400);
         }
     }
-    
+
     public function update_pm_callback($request)
     {
         $parameters = $request->get_params();
@@ -146,32 +147,24 @@ class AdminEndpoints
         }
     }
 
-    public function retrieve_soft_deleted($request) {
+    public function retrieve_soft_deleted($request)
+    {
         global $wpdb;
+        $table_name = $wpdb->prefix . 'users';
+        $pm_status = 1; 
     
-        $users = $wpdb->get_results(
+        $pm = $wpdb->get_results(
             $wpdb->prepare(
-                "SELECT ID, user_login, user_email FROM {$wpdb->prefix}users WHERE user_status = %d",
-                1
+                "SELECT * FROM $table_name WHERE user_status = %d AND ID IN (SELECT user_id FROM $wpdb->usermeta WHERE meta_key = 'wp_capabilities' AND meta_value LIKE '%%\"program_manager\"%%')",
+                $pm_status
             )
         );
     
-        if (!$users) {
-            return new WP_Error('no_users_found', 'No soft deleted users found.', array('status' => 404));
+        if (empty($trainees)) {
+            return new WP_Error('no_program manager', 'No program manager found.', array('status' => 404));
         }
     
-        $response = array();
-    
-        foreach ($users as $user) {
-            $response[] = array(
-                'user_id' => $user->ID,
-                'user_login' => $user->user_login,
-                'user_email' => $user->user_email,
-            );
-        }
-    
-        return rest_ensure_response($response);
+        return $pm;
     }
-    
 
 }

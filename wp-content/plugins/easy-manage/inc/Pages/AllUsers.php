@@ -87,19 +87,16 @@ class AllUsers
 
     public function retrieve_pm_callback($request)
     {
-        $users = get_users();
-        $pm = array();
+        global $wpdb;
+        $table_name = $wpdb->prefix . 'users';
+        $user_status = 0;
 
-        foreach ($users as $user) {
-            if (!empty($user->roles) && in_array('program_manager', $user->roles)) {
-                $pm[] = array(
-                    'pm_id' => $user->ID,
-                    'pm_name' => $user->display_name,
-                    'pm_email' => $user->user_email,
-                    'pm_role' => !empty($user->roles[0]) ? $user->roles[0] : '',
-                );
-            }
-        }
+        $pm = $wpdb->get_results(
+            $wpdb->prepare(
+                "SELECT * FROM $table_name WHERE user_status = %d AND ID IN (SELECT user_id FROM $wpdb->usermeta WHERE meta_key = 'wp_capabilities' AND meta_value LIKE '%%\"program_manager\"%%')",
+                $user_status
+            )
+        );
 
         if (empty($pm)) {
             return new WP_Error('no_program_managers', 'No program managers found.', array('status' => 404));
@@ -108,82 +105,23 @@ class AllUsers
         return $pm;
     }
 
-    public function retrieve_deleted_users($request)
-    {
-        $current_user = wp_get_current_user();
-        $current_user_role = $current_user->roles[0];
-    
-        $roles_permissions = array(
-            'administrator' => array(),
-            'program_manager' => array('administrator'),
-            'trainer' => array('administrator', 'program_manager'),
-            'trainee' => array('administrator', 'program_manager', 'trainer'),
-        );
-    
-        if (
-            !in_array($current_user_role, $roles_permissions['program_manager']) &&
-            !in_array($current_user_role, $roles_permissions['trainer']) &&
-            !in_array($current_user_role, $roles_permissions['administrator'])
-        ) {
-            return new WP_Error('permission_denied', 'Permission denied.', array('status' => 403));
-        }
-    
-        global $wpdb;
-        $table_name = $wpdb->prefix . 'users';
-    
-        if ($current_user_role === 'administrator') {
-            // If admin, retrieve users with all roles
-            $users = $wpdb->get_results(
-                $wpdb->prepare(
-                    "SELECT ID, user_login, user_email FROM {$wpdb->prefix}users WHERE user_status = %d",
-                    1
-                )
-            );
-        } elseif ($current_user_role === 'program_manager') {
-            // If program manager, retrieve users with trainer role
-            $users = $wpdb->get_results(
-                $wpdb->prepare(
-                    "SELECT ID, user_login, user_email FROM {$wpdb->prefix}users WHERE user_status = %d AND (user_role = 'trainer' OR user_role = 'trainee')",
-                    1
-                )
-            );
-        } elseif ($current_user_role === 'trainer') {
-            // If trainer, retrieve users with trainee role
-            $users = $wpdb->get_results(
-                $wpdb->prepare(
-                    "SELECT ID, user_login, user_email FROM {$wpdb->prefix}users WHERE user_status = %d AND user_role = 'trainee'",
-                    1
-                )
-            );
-        }
-    
-        if (empty($users)) {
-            return new WP_Error('no_deleted_users', 'No deleted users found.', array('status' => 404));
-        }
-    
-        return $users;
-    }
-    
-    
+
 
     public function retrieve_trainers_callback($request)
     {
-        $users = get_users();
-        $trainers = array();
+        global $wpdb;
+        $table_name = $wpdb->prefix . 'users';
+        $user_status = 0; // Set the desired user_status value
 
-        foreach ($users as $user) {
-            if (!empty($user->roles) && in_array('trainer', $user->roles)) {
-                $trainers[] = array(
-                    'trainer_id' => $user->ID,
-                    'trainer_name' => $user->display_name,
-                    'trainer_email' => $user->user_email,
-                    'trainer_role' => !empty($user->roles[0]) ? $user->roles[0] : '',
-                );
-            }
-        }
+        $trainers = $wpdb->get_results(
+            $wpdb->prepare(
+                "SELECT * FROM $table_name WHERE user_status = %d AND ID IN (SELECT user_id FROM $wpdb->usermeta WHERE meta_key = 'wp_capabilities' AND meta_value LIKE '%%\"trainer\"%%')",
+                $user_status
+            )
+        );
 
         if (empty($trainers)) {
-            return new WP_Error('no_trainers', 'No trainer found.', array('status' => 404));
+            return new WP_Error('no_trainers', 'No trainers found.', array('status' => 404));
         }
 
         return $trainers;
@@ -191,27 +129,24 @@ class AllUsers
 
     public function retrieve_trainees_callback($request)
     {
-        $users = get_users();
-        $trainees = array();
+        global $wpdb;
+        $table_name = $wpdb->prefix . 'users';
+        $user_status = 0; // Set the desired user_status value
 
-        foreach ($users as $user) {
-            if (!empty($user->roles) && in_array('trainee', $user->roles)) {
-                $trainees[] = array(
-                    'trainee_id' => $user->ID,
-                    'trainee_name' => $user->display_name,
-                    'trainee_email' => $user->user_email,
-                    'trainee_role' => !empty($user->roles[0]) ? $user->roles[0] : '',
-                );
-            }
-        }
+        $trainees = $wpdb->get_results(
+            $wpdb->prepare(
+                "SELECT * FROM $table_name WHERE user_status = %d AND ID IN (SELECT user_id FROM $wpdb->usermeta WHERE meta_key = 'wp_capabilities' AND meta_value LIKE '%%\"trainee\"%%')",
+                $user_status
+            )
+        );
 
         if (empty($trainees)) {
-            return new WP_Error('no_trainees', 'No trainee found.', array('status' => 404));
+            return new WP_Error('no_trainees', 'No trainees found.', array('status' => 404));
         }
 
         return $trainees;
     }
-    
+
 
     public function retrieve_single_callback($request)
     {
