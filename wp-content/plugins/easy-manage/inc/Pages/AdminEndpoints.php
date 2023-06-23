@@ -21,7 +21,7 @@ class AdminEndpoints
             array(
                 'methods' => array('POST', 'PATCH', 'GET'),
                 'callback' => array($this, 'pm_callbacks'),
-                // 'permission_callback' => array($this, 'check_admin_permission'),
+                'permission_callback' => array($this, 'check_admin_permission'),
             )
         );
     }
@@ -49,7 +49,9 @@ class AdminEndpoints
 
     public function create_pm_callback($request)
     {
+
         $parameters = $request->get_params();
+
 
         $pm_name = sanitize_text_field($request->get_param('pm_name'));
         $pm_email = sanitize_email($request->get_param('pm_email'));
@@ -108,7 +110,9 @@ class AdminEndpoints
 
             return rest_ensure_response($response)->set_status(400);
         }
+    
     }
+
 
     public function update_pm_callback($request)
     {
