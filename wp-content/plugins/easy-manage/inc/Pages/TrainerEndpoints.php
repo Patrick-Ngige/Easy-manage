@@ -21,7 +21,7 @@ class TrainerEndpoints
             array(
                 'methods' => array('POST', 'PATCH', 'GET'),
                 'callback' => array($this, 'trainee_callbacks'),
-                'permission_callback' => array($this, 'check_admin_permission'),
+                // 'permission_callback' => array($this, 'check_admin_permission'),
             )
         );
 

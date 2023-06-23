@@ -26,29 +26,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
 
-    if (empty($errors)) {
-        $trainee_name = $_POST['trainee_name'];
-        $trainee_email = $_POST['trainee_email'];
-        $trainee_role = $_POST['trainee_role'];
-        $trainee_password = $_POST['trainee_password'];
+    if (isset($_POST['createbtn'])) {
+        $pm_name = $_POST['trainee_name'];
+        $pm_email = $_POST['trainee_email'];
+        $pm_role = $_POST['trainee_role'];
+        $pm_password = $_POST['trainee_password'];
 
-
-        $response = wp_remote_post(
-            'http://localhost/easy-manage/wp-json/em/v1/trainee',
-            array(
-                'body' => array(
-                    'trainee_name' => $trainee_name,
-                    'trainee_email' => $trainee_email,
-                    'trainee_role' => $trainee_role,
-                    'trainee_password' => $trainee_password,
-                ),
-            )
+        $created_trainee = array(
+            'trainee_name' => $pm_name,
+            'trainee_email' => $pm_email,
+            'trainee_role' => $pm_role,
+            'trainee_password' => $pm_password
         );
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL, 'http://localhost/easy-manage/wp-json/em/v1/trainee');
+        curl_setopt($curl, CURLOPT_POST, true);
+        curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($created_trainee));
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
 
+        $response = curl_exec($curl);
+        $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 
-        if (!is_wp_error($response)) {
-            $result = wp_remote_retrieve_body($response);
-            $result = json_decode($result);
+        curl_close($curl);
+
+        if ($httpCode === 200) {
+            $result = json_decode($response);
 
             if ($result && isset($result->success)) {
                 $_SESSION['success_message'] = 'Trainer created successfully.';
