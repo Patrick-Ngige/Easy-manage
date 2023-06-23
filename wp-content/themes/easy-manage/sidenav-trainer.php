@@ -13,9 +13,15 @@ style="background-color:#315B87;height:100vh;display:flex;flex-direction:column;
                     style="width:2.5rem;height:2.5rem;" /> Dashboard</a>
         </div>
         <div class="side-menu <?php echo (strpos($_SERVER['REQUEST_URI'], 'trainer-projects') !== false) ? 'active' : ''; ?>">
-            <a href="http://localhost/easy-manage/trainer-projects/" style=" display: block; padding: 16px; text-decoration: none; color:#FAFAFA;"><img
+            <a href="http://localhost/easy-manage/individual-projects/" style=" display: block; padding: 16px; text-decoration: none; color:#FAFAFA;"><img
                     src='http://localhost/easy-manage/wp-content/uploads/2023/06/project.png'
-                    style="width:2.5rem;height:2.5rem;" /> Projects</a>
+                    style="width:2.5rem;height:2.5rem;" />Individual Projects</a>
+        </div>
+
+        <div class="side-menu <?php echo (strpos($_SERVER['REQUEST_URI'], 'trainer-projects') !== false) ? 'active' : ''; ?>">
+            <a href="http://localhost/easy-manage/group-projects" style=" display: block; padding: 16px; text-decoration: none; color:#FAFAFA;"><img
+                    src='http://localhost/easy-manage/wp-content/uploads/2023/06/project.png'
+                    style="width:2.5rem;height:2.5rem;" />Group Projects</a>
         </div>
         <div class="side-menu <?php echo (strpos($_SERVER['REQUEST_URI'], 'trainer-cohort') !== false) ? 'active' : ''; ?>">
             <a href="http://localhost/easy-manage/trainer-cohort/" style=" display: block; padding: 16px; text-decoration: none; color:#FAFAFA"><img

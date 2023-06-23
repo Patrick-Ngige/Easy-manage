@@ -1,7 +1,7 @@
 <?php get_header();
 
 /**
- * Template Name: Trainer Projects
+ * Template Name: Individual Projects
  * 
  */
 
