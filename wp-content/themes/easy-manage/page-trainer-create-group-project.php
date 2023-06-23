@@ -41,21 +41,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'due_date' => $group_due_date,
         );
 
-        $response = wp_remote_post(
-            'http://localhost/easy-manage/wp-json/em/v1/projects/group',
-            array(
-                'method' => 'POST',
-                'headers' => array('Content-Type' => 'application/json'),
-                'body' => wp_json_encode($created_group_project),
-            )
-        );
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL, 'http://localhost/easy-manage/wp-json/em/v1/projects/group');
+        curl_setopt($curl, CURLOPT_POST, true);
+        curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($created_group_project));
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
 
-        if (!is_wp_error($response)) {
-            $result = wp_remote_retrieve_body($response);
-            $result = json_decode($result);
+        $response = curl_exec($curl);
+        $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+
+        if ($response === false) {
+            echo 'Error: ' . curl_error($curl);
+        } else {
+            echo $response;
+        }
+
+        curl_close($curl);
+
+        if ($httpCode === 200) {
+            $result = json_decode($response);
 
             if ($result && isset($result->success)) {
-                $_SESSION['success_message'] = 'Group Project created successfully.';
+                $_SESSION['success_message'] = 'Group project created successfully.';
                 ?>
                 <script>
                     window.location.href = '<?php echo esc_url(add_query_arg('success', 'true')); ?>';
@@ -76,7 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div style="display:flex;flex-direction:row">
 
         <div
-            style="background-color:#FAFAFA;width:20vw;height:13rem;overflow-y:auto;overflow-x:hidden; border-radius: .5rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);padding:2rem;margin:2rem 0 0rem 2rem; position: relative;">
+            style="background-color:#FAFAFA;width:20vw;height:15rem;overflow-y:auto;overflow-x:hidden; border-radius: .5rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);padding:2rem;margin:2rem 0 0rem 2rem; position: relative;">
             <h6 style="color:#315B87;position:fixed;background-color:#FAFAFA;margin-top:-2rem;padding:5px">Select Group
                 Members</h6>
             <?php
@@ -94,9 +102,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <?php
             }
             ?>
-            <div style="position:absolute; bottom: 5px; width: 80%;">
+            <div style="position:sticky;  width: 80%;z-index:1; margin-bottom:2rem">
                 <button class="selectbtn"
-                    style="background-color:#315B87;color:#FAFAFA;width: 100%;border-radius:5px;border:none;padding:5px"
+                    style="background-color:#315B87;color:#FAFAFA;width: 15%;border-radius:5px;border:none;padding:5px;position:fixed;"
                     onclick="selectMembers()" name="selectbtn">Select</button>
             </div>
         </div>

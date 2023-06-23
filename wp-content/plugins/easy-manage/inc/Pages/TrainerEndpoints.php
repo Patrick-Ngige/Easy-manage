@@ -31,7 +31,7 @@ class TrainerEndpoints
             array(
                 'methods' => array('POST', 'PATCH'),
                 'callback' => array($this, 'individual_projects_callbacks'),
-                'permission_callback' => array($this, 'check_admin_permission'),
+                // 'permission_callback' => array($this, 'check_admin_permission'),
             )
         );
 
@@ -41,7 +41,7 @@ class TrainerEndpoints
             array(
                 'methods' => array('POST', 'PATCH'),
                 'callback' => array($this, 'group_projects_callbacks'),
-                'permission_callback' => array($this, 'check_admin_permission'),
+                // 'permission_callback' => array($this, 'check_admin_permission'),
             )
         );
 
@@ -370,8 +370,6 @@ private function is_assignee_reached_max_projects($assignee)
     
 
     
-    
-
     public function update_group_project($request)
     {
         $group_id = $request['group_id'];
