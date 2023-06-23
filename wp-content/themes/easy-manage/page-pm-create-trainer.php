@@ -36,12 +36,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'trainer_password' => $trainer_password,
         );
 
+        $jwt_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2Vhc3ktbWFuYWdlIiwiaWF0IjoxNjg3Mzc2MDYxLCJuYmYiOjE2ODczNzYwNjEsImV4cCI6MTY4Nzk4MDg2MSwiZGF0YSI6eyJ1c2VyIjp7ImlkIjoiNDIifX19.6Ra05lgPeijcKlYIgq1qVTgUUPdc1ZcqFQs4e8WQRxI';
+
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, 'http://localhost/easy-manage/wp-json/em/v1/trainer');
         curl_setopt($curl, CURLOPT_POST, true);
         curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($created_trainer));
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array(
+            'Content-Type: application/json',
+            'Authorization: Bearer ' . $jwt_token
+        ));
 
         $response = curl_exec($curl);
         $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);

@@ -42,32 +42,40 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'starting_date' => $starting_date,
             'ending_date' => $ending_date
         );
+    
+            $curl = curl_init();
+            curl_setopt($curl, CURLOPT_URL, 'http://localhost/easy-manage/wp-json/em/v1/cohorts');
+            curl_setopt($curl, CURLOPT_POST, true);
+            curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($created_cohort));
+            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+    
+            $response = curl_exec($curl);
+            $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 
-        $response = wp_remote_post(
-            'http://localhost/easy-manage/wp-json/em/v1/cohorts',
-            array(
-                'method' => 'POST',
-                'headers' => array('Content-Type' => 'application/json'),
-                'body' => wp_json_encode($created_cohort),
-            )
-        );
-
-        if (!is_wp_error($response)) {
-            $result = wp_remote_retrieve_body($response);
-            $result = json_decode($result);
-
-            if ($result && isset($result->success)) {
-                $_SESSION['success_message'] = 'Cohort created successfully.';
-                ?>
-                <script>
-                    window.location.href = '<?php echo esc_url(add_query_arg('success', 'true')); ?>';
-                </script>
-                <?php
-                exit;
+            if ($response === false) {
+                echo 'Error: ' . curl_error($curl);
+            } else {
+                echo $response;
+            }
+    
+            curl_close($curl);
+    
+            if ($httpCode === 200) {
+                $result = json_decode($response);
+    
+                if ($result && isset($result->success)) {
+                    $_SESSION['success_message'] = 'Cohort created successfully.';
+                    ?>
+                    <script>
+                        window.location.href = '<?php echo esc_url(add_query_arg('success', 'true')); ?>';
+                    </script>
+                    <?php
+                    exit;
+                }
             }
         }
     }
-}
 ?>
 
 <div style="width:100vw;height:90vh;display:flex;flex-direction:row;margin-top:-2.45rem">
