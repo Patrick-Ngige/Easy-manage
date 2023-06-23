@@ -35,7 +35,7 @@ $current_user = wp_get_current_user();
                 </thead>
                 <tbody>
                     <?php
-                    $request_url = 'http://localhost/easy-manage/wp-json/em/v1/trainee';
+                  $request_url = "http://localhost/easy-manage/wp-json/em/v1/individual_project/{$current_user->ID}";
                     $response = wp_remote_get($request_url);
                     $trainees = wp_remote_retrieve_body($response);
                     $trainees = json_decode($trainees, true);
