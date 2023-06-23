@@ -52,12 +52,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
             $response = curl_exec($curl);
             $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-
-            if ($response === false) {
-                echo 'Error: ' . curl_error($curl);
-            } else {
-                echo $response;
-            }
     
             curl_close($curl);
     
