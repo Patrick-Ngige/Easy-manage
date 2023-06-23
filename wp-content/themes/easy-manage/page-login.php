@@ -73,7 +73,7 @@ if ($login_attempts >= count($wait_times)) {
                     wp_redirect('http://localhost/easy-manage/trainer-dashboard/');
                     exit;
                 } elseif (in_array('trainee', $user_roles)) {
-                    wp_redirect('http://localhost/easy-manage/trainer-dashboard/');
+                    wp_redirect('http://localhost/easy-manage/trainee-dashboard/');
                     exit;
                 } else {
                     wp_redirect('http://localhost/easy-manage/');

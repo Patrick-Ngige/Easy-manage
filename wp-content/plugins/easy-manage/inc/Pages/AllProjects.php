@@ -69,6 +69,15 @@ class AllProjects
                 'callback' => array($this, 'single_individual_project'),
             )
         );
+
+        register_rest_route(
+            'em/v1',
+            '/group_project/(?P<id>\d+)',
+            array(
+                'methods' => 'GET',
+                'callback' => array($this, 'single_group_project'),
+            )
+        );
     }
 
     public function retrieve_individual_projects($request)
@@ -195,6 +204,28 @@ public function single_individual_project($request)
 
     if (empty($cohort)) {
         return new WP_Error('project_not_found', 'Individual project not found.', array('status' => 404));
+    }
+
+    return $cohort;
+}
+
+public function single_group_project($request)
+{
+    $group_id = $request->get_param('id');
+
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'group_projects';
+
+    $cohort = $wpdb->get_row(
+        $wpdb->prepare(
+            "SELECT * FROM $table_name WHERE group_id = %d",
+            $group_id,
+        ),
+        ARRAY_A
+    );
+
+    if (empty($cohort)) {
+        return new WP_Error('project_not_found', 'Group project not found.', array('status' => 404));
     }
 
     return $cohort;
