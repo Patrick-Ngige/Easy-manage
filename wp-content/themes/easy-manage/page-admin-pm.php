@@ -1,10 +1,11 @@
-<?php get_header();
+<?php
+get_header();
 
 /**
- * Template Name: admin PM list 
+ * Template Name: Admin PM List
  */
 
- $current_user = wp_get_current_user();
+$current_user = wp_get_current_user();
 
 ?>
 
@@ -28,8 +29,7 @@
                 <?php echo do_shortcode('[search_bar]'); ?>
             </div>
             
-            <table class="table align-middle mb-0 bg-white table-hover"
-                style="width:90%;margin-left:5%;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;margin-top:3%;">
+            <table class="table align-middle mb-0 bg-white table-hover" style="width:90%;margin-left:5%;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;margin-top:3%;">
                 <thead class="bg-light">
                     <tr style="font-size:large;color:#315B87;padding-left:2rem">
                         <th>Username</th>
@@ -39,163 +39,46 @@
                     </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>
-                        <div class="d-flex align-items-center">
-                            <div class="ms-3">
-                                <p class="mb-1">Jon Doe
-                                </p>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <p class="fw-normal mb-1">jon@yahoo.org</p>
-                    </td>
-                    <td>
-                        <p class="fw-normal mb-1">Pogram Manager</p>
-                    </td>
-                    <td>
-                    <form method="POST">
-                            <a href="#" style="padding:6px;text-decoration:none;color:#315B87"> <img
-                                    src="http://localhost/easy-manage/wp-content/uploads/2023/06/pause-2.png"
-                                    style="width:25px;" alt="">  </a> &nbsp;&nbsp;
-                            <a href="http://localhost/easy-manage/admin-update-form/" style="padding:6px"><img
-                                    src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png"
-                                    style="width:25px;" alt=""></a> &nbsp;&nbsp;
-                            <input type="hidden" name="employee_id" value="">
-                            <button type="submit" name="delete" value=""
-                                style="padding:5px;border:none;background-color:#FAFAFA" onclick=""> <img
-                                    src="http://localhost/easy-manage/wp-content/uploads/2023/06/delete.png"
-                                    style="width:25px" alt=""></button>
-                        </form>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="d-flex align-items-center">
-                            <div class="ms-3">
-                                <p class="fw-normal mb-1">Jon Doe
-                                </p>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <p class="fw-normal mb-1">jon@yahoo.org</p>
-                    </td>
-                    <td>
-                        <p class="fw-normal mb-1">Pogram Manager</p>
-                    </td>
-                    <td>
-                    <form method="POST">
-                            <a href="#" style="padding:6px;text-decoration:none;color:#315B87"> <img
-                                    src="http://localhost/easy-manage/wp-content/uploads/2023/06/pause-2.png"
-                                    style="width:25px;" alt="">  </a> &nbsp;&nbsp;
-                            <a href="http://localhost/easy-manage/admin-update-form/" style="padding:6px"><img
-                                    src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png"
-                                    style="width:25px;" alt=""></a> &nbsp;&nbsp;
-                            <input type="hidden" name="employee_id" value="">
-                            <button type="submit" name="delete" value=""
-                                style="padding:5px;border:none;background-color:#FAFAFA" onclick=""> <img
-                                    src="http://localhost/easy-manage/wp-content/uploads/2023/06/delete.png"
-                                    style="width:25px" alt=""></button>
-                        </form>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="d-flex align-items-center">
-                            <div class="ms-3">
-                            <p class="fw-normal mb-1">Jon Doe
-                                </p>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <p class="fw-normal mb-1">jon@yahoo.org</p>
-                    </td>
-                    <td>
-                        <p class="fw-normal mb-1">Pogram Manager</p>
-                    </td>
-                    <td>
-                    <form method="POST">
-                            <a href="#" style="padding:6px;text-decoration:none;color:#315B87"> <img
-                                    src="http://localhost/easy-manage/wp-content/uploads/2023/06/pause-2.png"
-                                    style="width:25px;" alt="">  </a> &nbsp;&nbsp;
-                            <a href="http://localhost/easy-manage/admin-update-form/" style="padding:6px"><img
-                                    src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png"
-                                    style="width:25px;" alt=""></a> &nbsp;&nbsp;
-                            <input type="hidden" name="employee_id" value="">
-                            <button type="submit" name="delete" value=""
-                                style="padding:5px;border:none;background-color:#FAFAFA" onclick=""> <img
-                                    src="http://localhost/easy-manage/wp-content/uploads/2023/06/delete.png"
-                                    style="width:25px" alt=""></button>
-                        </form>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="d-flex align-items-center">
-                            <div class="ms-3">
-                            <p class="fw-normal mb-1">Jon Doe
-                                </p>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <p class="fw-normal mb-1">jon@yahoo.org</p>
-                    </td>
-                    <td>
-                        <p class="fw-normal mb-1">Pogram Manager</p>
-                    </td>
-                    <td>
-                    <form method="POST">
-                            <a href="#" style="padding:6px;text-decoration:none;color:#315B87"> <img
-                                    src="http://localhost/easy-manage/wp-content/uploads/2023/06/pause-2.png"
-                                    style="width:25px;" alt="">  </a> &nbsp;&nbsp;
-                            <a href="http://localhost/easy-manage/admin-update-form/" style="padding:6px"><img
-                                    src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png"
-                                    style="width:25px;" alt=""></a> &nbsp;&nbsp;
-                            <input type="hidden" name="employee_id" value="">
-                            <button type="submit" name="delete" value=""
-                                style="padding:5px;border:none;background-color:#FAFAFA" onclick=""> <img
-                                    src="http://localhost/easy-manage/wp-content/uploads/2023/06/delete.png"
-                                    style="width:25px" alt=""></button>
-                        </form>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="d-flex align-items-center">
-                            <div class="ms-3">
-                            <p class="fw-normal mb-1">Jon Doe
-                                </p>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <p class="fw-normal mb-1">jon@yahoo.org</p>
-                    </td>
-                    <td>
-                        <p class="fw-normal mb-1">Pogram Manager</p>
-                    </td>
-                    <td>
-                    <form method="POST">
-                            <a href="#" style="padding:6px;text-decoration:none;color:#315B87"> <img
-                                    src="http://localhost/easy-manage/wp-content/uploads/2023/06/pause-2.png"
-                                    style="width:25px;" alt="">  </a> &nbsp;&nbsp;
-                            <a href="http://localhost/easy-manage/admin-update-form/" style="padding:6px"><img
-                                    src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png"
-                                    style="width:25px;" alt=""></a> &nbsp;&nbsp;
-                            <input type="hidden" name="employee_id" value="">
-                            <button type="submit" name="delete" value=""
-                                style="padding:5px;border:none;background-color:#FAFAFA" onclick=""> <img
-                                    src="http://localhost/easy-manage/wp-content/uploads/2023/06/delete.png"
-                                    style="width:25px" alt=""></button>
-                        </form>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                    <?php
+                    $request_url = 'http://localhost/easy-manage/wp-json/em/v1/users/pm';
+                    $response = wp_remote_get($request_url);
+                    $users = wp_remote_retrieve_body($response);
+                    $users = json_decode($users, true);
+                    // $users = $users[0];
+                    
+                    if (is_array($users)) {
+                        foreach ($users as $user) {
+                            
+                        echo '<tr>';
+                        echo '<td>';
+                        echo '<div class="d-flex align-items-center">';
+                        echo '<div class="ms-3">';
+                        echo '<p class="mb-1">' . $user['user_nicename'] . '</p>';
+                        echo '</div>';
+                        echo '</div>';
+                        echo '</td>';
+                        echo '<td>';
+                        echo '<p class="fw-normal mb-1">' . $user['user_email'] . '</p>';
+                        echo '</td>';
+                        echo '<td>';
+                        echo '<p class="fw-normal mb-1"> Program Manager</p>';
+                        echo '</td>';
+                        echo '<td>';
+                        echo '<form method="POST">';
+                        echo '<a href="#" style="padding:6px;text-decoration:none;color:#315B87"> <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/pause-2.png" style="width:25px;" alt="">  </a> &nbsp;&nbsp;';
+                        echo '<a href="http://localhost/easy-manage/admin-update-form/" style="padding:6px"><img src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png" style="width:25px;" alt=""></a> &nbsp;&nbsp;';
+                        echo '<input type="hidden" name="employee_id" value="">';
+                        echo '</form>';
+                        echo '</td>';
+                        echo '</tr>';
+                    }
+                }else{
+                    echo 'Error retrieving users';
+                }
+                    ?>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 

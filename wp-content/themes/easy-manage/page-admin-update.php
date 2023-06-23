@@ -2,111 +2,84 @@
 get_header();
 
 /**
- * Template Name: Admin Update form
- * 
+ * Template Name: Admin PM List
  */
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $errors = array();
+$current_user = wp_get_current_user();
 
-    // Validate fields
-    if (empty($_POST['pm-name'])) {
-        $errors[] = 'Username is required';
-    }
-
-    if (empty($_POST['pm-email'])) {
-        $errors[] = 'Email is required';
-    }
-
-    if (empty($_POST['pm-role'])) {
-        $errors[] = 'Role is required';
-    }
-
-    // If there are no errors, process the form
-    if (empty($errors)) {
-        // Process the form data here
-        // ...
-
-        // Redirect to another page after processing the form
-        header('Location: /success-page');
-        exit;
-    }
-}
 ?>
 
 <div style="width:100vw;height:90vh;display:flex;flex-direction:row;margin-top:-2.45rem">
 
-    <div class="page-trainee-dashboard" style="margin-top:-1.99rem;width:20vw">
+<div class="page-trainee-dashboard" style="margin-top:-1.99rem;width:20vw">
         <?php get_template_part('sidenav-admin'); ?>
     </div>
 
-    <div style="height:88vh;margin-left:15rem ">
-        <div class="container py-5 ">
-            <div class="row d-flex justify-content-center align-items-center ">
-                <div class="col col-xl-10" style="width:40vw;">
-                    <div class="card" style="border-radius: 1rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);">
-                        <div class="row g-0 w-100 d-flex justify-content-center align-items-center w-50 "
-                            style="width:40vw;">
-                            <div class="row g-0 w-100 d-flex justify-content-center align-items-center w-50 "
-                                style="width:40vw;">
-                                <div class="col-md-6 col-lg-7 d-flex justify-content-center align-items-center  ms-8"
-                                    style="height:70vh; width:40vw; ">
-                                    <div class="card-body p-1 p-lg-5 text-black">
-
-                                        <form action="" method="POST" style="font-size:16px">
-
-                                            <h2 class="fw-bold d-flex align-items-end d-flex justify-content-center align-items-center"
-                                                style="color:#315B87">
-                                                Update</h2>
-
-                                            <div class="form-outline mb-3">
-                                                <label class="form-label" for="form2Example27" style="font-weight:600;">Username:</label>
-                                                <input type="text" id="form2Example27" class="form-control form-control-md"
-                                                    placeholder="Enter project task" name="pm-name"
-                                                    value="<?php echo isset($_POST['pm-name']) ? $_POST['pm-name'] : ''; ?>" />
-                                                <?php if (isset($errors) && in_array('Username is required', $errors)) {
-                                                    echo '<p class="text-danger">Username is required</p>';
-                                                } ?>
-                                            </div>
-
-                                            <div class="form-outline mb-3">
-                                                <label class="form-label" for="form2Example27" style="font-weight:600;">Email:</label>
-                                                <input type="email" id="form2Example27" class="form-control form-control-md"
-                                                    placeholder="Enter project task" name="pm-email"
-                                                    value="<?php echo isset($_POST['pm-email']) ? $_POST['pm-email'] : ''; ?>" />
-                                                <?php if (isset($errors) && in_array('Email is required', $errors)) {
-                                                    echo '<p class="text-danger">Email is required</p>';
-                                                } ?>
-                                            </div>
-
-                                            <div>
-                                                <label class="form-label" for="form2Example27" style="font-weight:600;">Role:</label>
-
-                                                <select class="form-select" aria-label="Default select example" name="pm-role"
-                                                    style="font-weight:600;">
-                                                    <option value="">Select a role</option>
-                                                    <option value="PM" <?php echo isset($_POST['pm-role']) && $_POST['pm-role'] === 'PM' ? 'selected' : ''; ?>>PM</option>
-                                                    <option value="Trainer" <?php echo isset($_POST['pm-role']) && $_POST['pm-role'] === 'Trainer' ? 'selected' : ''; ?>>Trainer</option>
-                                                    <option value="Trainee" <?php echo isset($_POST['pm-role']) && $_POST['pm-role'] === 'Trainee' ? 'selected' : ''; ?>>Trainee</option>
-                                                </select>
-                                                <?php if (isset($errors) && in_array('Role is required', $errors)) {
-                                                    echo '<p class="text-danger">Role is required</p>';
-                                                } ?>
-                                            </div>
-
-                                            <div class="pt-1 mb-4 w-100 mt-3 d-flex justify-content-center align-items-center">
-                                                <button class="btn btn-lg btn-block w-50 " style="background-color:#315B87 ;color:#FAFAFA"
-                                                    type="submit" name="createbtn">Create</button>
-                                            </div>
-                                        </form>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    
+    <div style="padding:1rem;width:80vw;margin-left:0rem">
+        <div style="padding:1rem;">
+            <!-- Add buttons and search bar here -->
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+                <a href="http://localhost/easy-manage/admin-trainers-table/"  class="floating-btn" style="text-decoration:none; padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+                    View Trainers
+                </a>
+                <a href="http://localhost/easy-manage/admin-trainees-table/"  class="floating-btn" style="text-decoration:none; padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+                    View Trainees
+                </a>
+                <?php echo do_shortcode('[search_bar]'); ?>
             </div>
+            
+            <table class="table align-middle mb-0 bg-white table-hover" style="width:90%;margin-left:5%;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;margin-top:3%;">
+                <thead class="bg-light">
+                    <tr style="font-size:large;color:#315B87;padding-left:2rem">
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $request_url = 'http://localhost/easy-manage/wp-json/em/v1/users/pm';
+                    $response = wp_remote_get($request_url);
+                    $users = wp_remote_retrieve_body($response);
+                    $users = json_decode($users, true);
+
+                    if (is_array($users)) {
+                        foreach ($users as $user) {
+                            $username = $user['username'];
+                            $email = $user['email'];
+                            $role = $user['role'];
+
+                            echo '<tr>';
+                            echo '<td>';
+                            echo '<div class="d-flex align-items-center">';
+                            echo '<div class="ms-3">';
+                            echo '<p class="mb-1">' . $username . '</p>';
+                            echo '</div>';
+                            echo '</div>';
+                            echo '</td>';
+                            echo '<td>';
+                            echo '<p class="fw-normal mb-1">' . $email . '</p>';
+                            echo '</td>';
+                            echo '<td>';
+                            echo '<p class="fw-normal mb-1">' . $role . '</p>';
+                            echo '</td>';
+                            echo '<td>';
+                            echo '<form method="POST">';
+                            echo '<a href="#" style="padding:6px;text-decoration:none;color:#315B87"> <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/pause-2.png" style="width:25px;" alt="">  </a> &nbsp;&nbsp;';
+                            echo '<a href="http://localhost/easy-manage/admin-update-form/" style="padding:6px"><img src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png" style="width:25px;" alt=""></a> &nbsp;&nbsp;';
+                            echo '<input type="hidden" name="employee_id" value="">';
+                            echo '</form>';
+                            echo '</td>';
+                            echo '</tr>';
+                        }
+                    } else {
+                        echo "Error decoding JSON string";
+                    }
+                    ?>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

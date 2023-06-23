@@ -21,7 +21,7 @@ class AllUsers
             array(
                 'methods' => array('GET'),
                 'callback' => array($this, 'retrieve_pm_callback'),
-                'permission_callback' => array($this, 'check_admin_permission'),
+                // 'permission_callback' => array($this, 'check_admin_permission'),
             )
         );
 
@@ -31,7 +31,7 @@ class AllUsers
             array(
                 'methods' => array('GET'),
                 'callback' => array($this, 'retrieve_deleted_users'),
-                'permission_callback' => array($this, 'check_admin_permission'),
+                // 'permission_callback' => array($this, 'check_admin_permission'),
             )
         );
 
@@ -41,7 +41,7 @@ class AllUsers
             array(
                 'methods' => array('GET'),
                 'callback' => array($this, 'retrieve_trainers_callback'),
-                'permission_callback' => array($this, 'check_admin_permission'),
+                // 'permission_callback' => array($this, 'check_admin_permission'),
             )
         );
 
@@ -51,7 +51,7 @@ class AllUsers
             array(
                 'methods' => array('GET'),
                 'callback' => array($this, 'retrieve_pm_callback'),
-                'permission_callback' => array($this, 'check_admin_permission'),
+                // 'permission_callback' => array($this, 'check_admin_permission'),
             )
         );
 
@@ -61,7 +61,7 @@ class AllUsers
             array(
                 'methods' => array('GET'),
                 'callback' => array($this, 'retrieve_trainees_callback'),
-                'permission_callback' => array($this, 'check_admin_permission'),
+                // 'permission_callback' => array($this, 'check_admin_permission'),
             )
         );
 
@@ -71,19 +71,19 @@ class AllUsers
             array(
                 'methods' => 'GET',
                 'callback' => array($this, 'retrieve_single_callback'),
-                'permission_callback' => array($this, 'check_admin_permission'),
+                // 'permission_callback' => array($this, 'check_admin_permission'),
             )
         );
     }
 
-    public function check_admin_permission($request)
-    {
-        if (current_user_can('administrator') || current_user_can('program_manager') || current_user_can('trainer')) {
-            return true;
-        } else {
-            return new WP_Error('rest_forbidden', __('You are not allowed to access this endpoint.'), array('status' => 403));
-        }
-    }
+    // public function check_admin_permission($request)
+    // {
+    //     if (current_user_can('administrator') || current_user_can('program_manager') || current_user_can('trainer')) {
+    //         return true;
+    //     } else {
+    //         return new WP_Error('rest_forbidden', __('You are not allowed to access this endpoint.'), array('status' => 403));
+    //     }
+    // }
 
     public function retrieve_pm_callback($request)
     {
