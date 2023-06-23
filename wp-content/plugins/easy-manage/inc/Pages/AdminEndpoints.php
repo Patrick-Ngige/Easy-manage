@@ -21,7 +21,7 @@ class AdminEndpoints
             array(
                 'methods' => array('POST', 'PATCH', 'GET'),
                 'callback' => array($this, 'pm_callbacks'),
-                'permission_callback' => array($this, 'check_admin_permission'),
+                // 'permission_callback' => array($this, 'check_admin_permission'),
             )
         );
     }
@@ -112,13 +112,13 @@ class AdminEndpoints
 
     public function update_pm_callback($request)
     {
-        $parameters = $request->get_params();
+        $parameters = $request->get_json_params();
 
-        $pm_id = sanitize_text_field($request->get_param('pm_id'));
-        $pm_name = sanitize_text_field($request->get_param('pm_name'));
-        $pm_email = sanitize_email($request->get_param('pm_email'));
-        $pm_role = sanitize_text_field($request->get_param('pm_role'));
-        $pm_password = sanitize_text_field($request->get_param('pm_password'));
+        $pm_id = sanitize_text_field($request->get_json_param('pm_id'));
+        $pm_name = sanitize_text_field($request->get_json_param('pm_name'));
+        $pm_email = sanitize_email($request->get_json_param('pm_email'));
+        $pm_role = sanitize_text_field($request->get_json_param('pm_role'));
+        $pm_password = sanitize_text_field($request->get_json_param('pm_password'));
 
         $user = get_user_by('id', $pm_id);
 

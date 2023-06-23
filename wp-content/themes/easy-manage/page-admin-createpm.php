@@ -39,18 +39,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'pm_password' => $pm_password
         );
 
-        $response = wp_remote_post(
-            'http://localhost/easy-manage/wp-json/em/v1/pm',
-            array(
-                'method' => 'POST',
-                'headers' => array('Content-Type' => 'application/json'),
-                'body' => wp_json_encode($created_pm),
-            )
-        );
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL, 'http://localhost/easy-manage/wp-json/em/v1/pm');
+        curl_setopt($curl, CURLOPT_POST, true);
+        curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($created_pm));
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
 
-        if (!is_wp_error($response)) {
-            $result = wp_remote_retrieve_body($response);
-            $result = json_decode($result);
+        $response = curl_exec($curl);
+        $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+
+        curl_close($curl);
+
+        echo '<pre>';
+        var_dump($response);
+        echo '</pre>';
+
+        if ($httpCode === 200) {
+            $result = json_decode($response);
 
             if ($result && isset($result->success)) {
                 $_SESSION['success_message'] = 'Program Manager created successfully.';

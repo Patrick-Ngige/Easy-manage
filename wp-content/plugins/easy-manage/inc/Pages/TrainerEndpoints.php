@@ -294,12 +294,12 @@ private function is_assignee_reached_max_projects($assignee)
     public function create_group_project($request)
     {
         $data = $request->get_json_params();
-
+    
         $assigned_members = $data['assigned_members'];
         $group_project = $data['group_project'];
         $project_task = $data['project_task'];
         $due_date = $data['due_date'];
-
+    
         if (empty($assigned_members) || empty($group_project) || empty($project_task) || empty($due_date)) {
             $missing_fields = array();
             if (empty($assigned_members)) {
@@ -314,30 +314,38 @@ private function is_assignee_reached_max_projects($assignee)
             if (empty($due_date)) {
                 $missing_fields[] = 'due_date';
             }
-
+    
             return new WP_Error('missing_fields', 'The following fields are required: ' . implode(', ', $missing_fields), array('status' => 400));
         }
-
+    
         $assigned_members_limit = 3;
         $assigned_members_count = count($assigned_members);
-
+    
         if ($assigned_members_count < 2 || $assigned_members_count > $assigned_members_limit) {
             return new WP_Error('invalid_assigned_members', 'Assigned members should be between 2 and 3.', array('status' => 400));
         }
-
+    
         foreach ($assigned_members as $assignee) {
             if (!is_string($assignee) || empty(trim($assignee))) {
                 return new WP_Error('invalid_assigned_member', 'One or more assigned members contain invalid names.', array('status' => 400));
             }
         }
-
+    
         global $wpdb;
         $table_name = $wpdb->prefix . 'group_projects';
         $existing_project = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_name WHERE assigned_members = %s AND project_name = %s AND project_task = %s AND due_date = %s", implode(', ', $assigned_members), $group_project, $project_task, $due_date));
         if ($existing_project) {
             return new WP_Error('project_already_exists', 'A project with the same credentials already exists.', array('status' => 400));
         }
-
+    
+        foreach ($assigned_members as $assignee) {
+            $projects_count = $wpdb->get_var($wpdb->prepare("SELECT COUNT(*) FROM $table_name WHERE assigned_members LIKE %s", '%' . $assignee . '%'));
+    
+            if ($projects_count >= 3) {
+                return new WP_Error('too_many_projects', 'One or more assigned members already have 3 or more projects.', array('status' => 400));
+            }
+        }
+    
         $result = $wpdb->insert(
             $table_name,
             array(
@@ -347,7 +355,7 @@ private function is_assignee_reached_max_projects($assignee)
                 'due_date' => $due_date,
             )
         );
-
+    
         if ($result) {
             $response = array(
                 'success' => true,
@@ -356,9 +364,10 @@ private function is_assignee_reached_max_projects($assignee)
             );
             return rest_ensure_response($response);
         }
-
+    
         return new WP_Error('project_creation_failed', 'Failed to create group project.', array('status' => 500));
     }
+    
 
     
     
