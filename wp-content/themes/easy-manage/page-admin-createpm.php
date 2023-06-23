@@ -51,10 +51,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         curl_close($curl);
 
-        echo '<pre>';
-        var_dump($response);
-        echo '</pre>';
-
         if ($httpCode === 200) {
             $result = json_decode($response);
 
@@ -98,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                 style="color:#315B87;margin-top:-2rem">
                                                 Create PM</h2>
 
-                                            <?php if (isset($_GET['success']) && $_GET['success'] === 'true') : ?>
+                                            <?php if (isset($_GET['success']) && $_GET['success'] === 'true'): ?>
                                                 <div class="alert alert-success" role="alert">
                                                     Program manager created successfully.
                                                 </div>
@@ -144,8 +140,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                 <label class="form-label" for="form2Example27"
                                                     style="font-weight:600;">Password:</label>
                                                 <input type="password" id="form2Example27"
-                                                    class="form-control form-control-md"
-                                                    placeholder="********" name="pm_password"
+                                                    class="form-control form-control-md" placeholder="********"
+                                                    name="pm_password"
                                                     value="<?php echo isset($_GET['pm_password']) ? $_GET['pm_password'] : ''; ?>" />
                                                 <?php if (isset($errors) && in_array('Password is required', $errors)) {
                                                     echo '<p class="text-danger">Password is required</p>';
@@ -155,8 +151,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                             <div
                                                 class="pt-1 w-100 mt-3 d-flex justify-content-center align-items-center">
                                                 <button class="btn btn-lg btn-block w-50 "
-                                                    style="background-color:#315B87 ;color:#FAFAFA;margin-bottom:-2rem" type="submit"
-                                                    name="createbtn">Create</button>
+                                                    style="background-color:#315B87 ;color:#FAFAFA;margin-bottom:-2rem"
+                                                    type="submit" name="createbtn">Create</button>
                                             </div>
                                         </form>
                                     </div>
