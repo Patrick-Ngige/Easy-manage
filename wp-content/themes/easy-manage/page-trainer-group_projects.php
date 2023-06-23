@@ -44,7 +44,7 @@ $current_user = wp_get_current_user();
                 </thead>
                 <tbody>
                     <?php
-                    $request_url = 'http://localhost/easy-manage/wp-json/em/v1/projects/individual';
+                    $request_url = 'http://localhost/easy-manage/wp-json/em/v1/projects/group';
                     $response = wp_remote_get($request_url);
                     $projects = wp_remote_retrieve_body($response);
                     $projects = json_decode($projects, true);
@@ -56,7 +56,7 @@ $current_user = wp_get_current_user();
                             echo '<td>';
                             echo '<div class="d-flex align-items-center">';
                             echo '<div class="ms-3">';
-                            echo '<p class="mb-1">' . $project['assignee'] . '</p>';
+                            echo '<p class="mb-1">' . $project['assigned_members'] . '</p>';
                             echo '</div>';
                             echo '</div>';
                             echo '</td>';
@@ -64,14 +64,14 @@ $current_user = wp_get_current_user();
                             echo '<p class="fw-normal mb-1">' . $project['project_name'] . '</p>';
                             echo '</td>';
                             echo '<td>';
-                            echo '<p class="fw-normal mb-1">' . ($project['project_status'] == 0 ? 'Ongoing' : 'Completed') . '</p>';
+                            echo '<p class="fw-normal mb-1">' . ($project['group_status'] == 0 ? 'Ongoing' : 'Completed') . '</p>';
                             echo '</td>';
                             echo '<td>';
                             echo '<p class="fw-normal mb-1">'. $project['due_date'].'</p>';
                             echo '</td>';
                             echo '<td>';
                             echo '<form method="POST">';
-                            echo '<a href="http://localhost/easy-manage/admin-update-form/?id=' . $project['project_id'] . '" style="padding:6px"><img src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png" style="width:25px;" alt=""></a> &nbsp;&nbsp;';
+                            echo '<a href="http://localhost/easy-manage/admin-update-form/?id=' . $project['group_id'] . '" style="padding:6px"><img src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png" style="width:25px;" alt=""></a> &nbsp;&nbsp;';
                             echo '<input type="hidden" name="" value="">';
                             echo '<a href="#" style="padding:6px;text-decoration:none;color:#315B87"> <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/pause-2.png" style="width:25px;" alt="">  </a> &nbsp;&nbsp;';
                             echo '</form>';
