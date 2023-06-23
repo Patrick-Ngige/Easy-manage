@@ -21,7 +21,7 @@ class PMEndpoints
             array(
                 'methods' => array('POST', 'PUT', 'GET'),
                 'callback' => array($this, 'trainer_callbacks'),
-                'permission_callback' => array($this, 'check_admin_permission'),
+                // 'permission_callback' => array($this, 'check_admin_permission'),
             )
         );
 
@@ -92,7 +92,6 @@ class PMEndpoints
             return new WP_Error('email_exists', 'Trainer with the same email already exists.', array('status' => 400));
         }
     
-        // Validate trainer_role
         $allowed_roles = array('trainer');
         if (!in_array($trainer_role, $allowed_roles)) {
             return new WP_Error('invalid_role', 'Invalid trainer role specified.', array('status' => 400));
