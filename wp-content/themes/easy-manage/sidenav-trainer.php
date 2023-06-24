@@ -1,10 +1,18 @@
+<?php
+require_once(ABSPATH . 'wp-load.php'); // Include the wp-load.php file
+
+$current_user = wp_get_current_user();?>
 <div class="sidenav-trainer"
 style="background-color:#315B87;height:100vh;display:flex;flex-direction:column; padding-top:3rem;color:#FAFAFA;font-weight:500;">
     <div style=" align-items:center;display:flex;flex-direction:column;">
         <img src='http://localhost/easy-manage/wp-content/uploads/2023/06/profile.png'
             style="width:8em;height:8rem;" />
-        <h5>Jon Doe</h5>
-        <h6>Trainer</h6>
+            <h5>
+            <?php echo $current_user->display_name; ?>
+        </h5>
+        <h6>
+            <?php echo get_user_role($current_user); ?>
+        </h6>
     </div>
     <div >
         <div class="side-menu <?php echo (strpos($_SERVER['REQUEST_URI'], 'trainer-dashboard') !== false) ? 'active' : ''; ?>">

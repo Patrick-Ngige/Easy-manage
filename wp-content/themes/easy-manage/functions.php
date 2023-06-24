@@ -84,6 +84,14 @@ if ( ! file_exists( get_template_directory() . '/class-wp-bootstrap-navwalker.ph
     require_once get_template_directory() . '/class-wp-bootstrap-navwalker.php';
 }
 
+//logged in user details 
+function get_user_role($user) {
+    if (is_array($user->roles) && count($user->roles) > 0) {
+        $roles = array_values($user->roles);
+        return ucfirst($roles[0]);
+    }
+    return '';
+}
 
 
 

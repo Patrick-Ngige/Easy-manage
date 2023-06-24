@@ -45,6 +45,15 @@ class AllProjects
 
         register_rest_route(
             'em/v1',
+            '/projects/completed/(?P<id>\d+)',
+            array(
+                'methods' => array('GET'),
+                'callback' => array($this, 'single_completed_projects'),
+            )
+        );
+
+        register_rest_route(
+            'em/v1',
             '/projects/cohorts',
             array(
                 'methods' => array('GET'),
@@ -144,6 +153,41 @@ class AllProjects
         return $projects;
     }
     
+
+    public function single_completed_projects($request)
+    {
+        global $wpdb;
+        $group_projects_table = $wpdb->prefix . 'group_projects';
+        $individual_projects_table = $wpdb->prefix . 'individual_projects';
+    
+        $current_user = wp_get_current_user();
+        $user_id = $current_user->ID;
+    
+        $group_projects = $wpdb->get_results(
+            $wpdb->prepare(
+                "SELECT group_id, assigned_members, project_name, project_task, due_date, group_status FROM $group_projects_table WHERE group_status = 1 AND assigned_members LIKE %s",
+                '%' . $wpdb->esc_like($user_id) . '%'
+            )
+        );
+    
+        $individual_projects = $wpdb->get_results(
+            $wpdb->prepare(
+                "SELECT project_id, project_name, project_task, assignee, due_date, project_status FROM $individual_projects_table WHERE project_status = 1 AND assignee = %d",
+                $user_id
+            )
+        );
+    
+        $projects = array_merge($group_projects, $individual_projects);
+    
+        if (empty($projects)) {
+            return new WP_Error('no_projects', 'No projects found.', array('status' => 404));
+        }
+    
+        return $projects;
+    }
+    
+
+
     public function retrieve_cohorts_callbacks($request)
     {
         global $wpdb;
