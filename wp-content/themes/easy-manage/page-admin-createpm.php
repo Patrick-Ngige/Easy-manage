@@ -1,4 +1,5 @@
 <?php get_header();
+session_start();
 
 /**
  * Template Name: Admin Create PM
@@ -39,40 +40,41 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'pm_password' => $pm_password
         );
 
-                $jwt_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2Vhc3ktbWFuYWdlIiwiaWF0IjoxNjg3MzI1NzM2LCJuYmYiOjE2ODczMjU3MzYsImV4cCI6MTY4NzkzMDUzNiwiZGF0YSI6eyJ1c2VyIjp7ImlkIjoiMSJ9fX0.yP4_WvhHKZYpuXSYnwbk8Ozju-iUC0Z3W4kyJwXedy0'; 
-        
-                $curl = curl_init();
-                curl_setopt($curl, CURLOPT_URL, 'http://localhost/easy-manage/wp-json/em/v1/pm');
-                curl_setopt($curl, CURLOPT_POST, true);
-                curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($created_pm));
-                curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-                curl_setopt($curl, CURLOPT_HTTPHEADER, array(
-                    'Content-Type: application/json',
-                    'Authorization: Bearer ' . $jwt_token
-                ));
-        
-                $response = curl_exec($curl);
-                $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-    
-        
-                curl_close($curl);
-        
-                if ($httpCode === 200) {
-                    $result = json_decode($response);
-        
-                    if ($result && isset($result->success)) {
-                        $_SESSION['success_message'] = 'Program Manager created successfully.';
-                        ?>
-                        <script>
-                            window.location.href = '<?php echo esc_url(add_query_arg('success', 'true')); ?>';
-                        </script>
-                        <?php
-                        exit;
-                    }
-                }
-            } else {
-                echo 'You do not have permission to perform this action.';
+        $jwt_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2Vhc3ktbWFuYWdlIiwiaWF0IjoxNjg3MzI1NzM2LCJuYmYiOjE2ODczMjU3MzYsImV4cCI6MTY4NzkzMDUzNiwiZGF0YSI6eyJ1c2VyIjp7ImlkIjoiMSJ9fX0.yP4_WvhHKZYpuXSYnwbk8Ozju-iUC0Z3W4kyJwXedy0';
+
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL, 'http://localhost/easy-manage/wp-json/em/v1/pm');
+        curl_setopt($curl, CURLOPT_POST, true);
+        curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($created_pm));
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array(
+            'Content-Type: application/json',
+            'Authorization: Bearer ' . $jwt_token
+        )
+        );
+
+        $response = curl_exec($curl);
+        $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+
+
+        curl_close($curl);
+
+        if ($httpCode === 200) {
+            $result = json_decode($response);
+
+            if ($result && isset($result->success)) {
+                $_SESSION['success_message'] = 'Program Manager created successfully.';
+                ?>
+                <script>
+                    window.location.href = '<?php echo esc_url(add_query_arg('success', 'true')); ?>';
+                </script>
+                <?php
+                exit;
             }
+        }
+    } else {
+        echo 'You do not have permission to perform this action.';
+    }
 }
 
 ?>
@@ -83,8 +85,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="page-trainee-dashboard" style="margin-top:-1.99rem;width:20vw">
         <?php get_template_part('sidenav-admin'); ?>
     </div>
-
-
     <div style="height:88vh;margin-left:15rem">
         <div class="container py-4 ">
             <div class="row d-flex justify-content-center align-items-center ">

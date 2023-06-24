@@ -14,10 +14,7 @@
 
 
     <div style="padding:1rem;width:70vw;margin-left:5rem;overflow-y:auto;z-index:100;height:fit-content;margin-top:1rem">
-
-
             <style>
-
                 .stat-item {
                     display: flex;
                     justify-content: space-between;

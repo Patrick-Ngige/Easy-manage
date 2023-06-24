@@ -5,7 +5,36 @@ get_header();
  * Template Name: Admin PM List
  */
 
-$current_user = wp_get_current_user();
+
+ require_once(ABSPATH . 'wp-load.php');
+
+ $token = $_COOKIE['token'];
+ 
+ $response = wp_remote_get('http://localhost/easy-manage/wp-json/wp/v2/users/me', array(
+     'headers' => array(
+         'Authorization' => 'Bearer ' . $token
+     )
+ ));
+ 
+//  $user_data = null; // Initialize the user data variable
+ 
+ if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 200) {
+     $user_data = json_decode(wp_remote_retrieve_body($response));
+ }
+
+ $endpoint_url = 'http://localhost/easy-manage/wp-json/em/v1/group_project/' . $user_data->name;
+$response = wp_remote_get($endpoint_url);
+$group = wp_remote_retrieve_body($response);
+
+var_dump($group);
+
+preg_match('/\d+/', $group, $matches);
+if (!empty($matches)) {
+  $group_id = intval($matches[0]);
+} else {
+
+  $group_id = 0; 
+}
 
 ?>
 
@@ -44,10 +73,11 @@ $current_user = wp_get_current_user();
                 </thead>
                 <tbody>
                     <?php
-                    $request_url = 'http://localhost/easy-manage/wp-json/em/v1/projects/group';
+                    $request_url = 'http://localhost/easy-manage/wp-json/em/v1/group_project'.$group_id ;
                     $response = wp_remote_get($request_url);
                     $projects = wp_remote_retrieve_body($response);
                     $projects = json_decode($projects, true);
+                    // var_dump($projects);
 
                     if (is_array($projects)) {
                         foreach ($projects as $project) {

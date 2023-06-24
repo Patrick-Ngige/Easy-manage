@@ -3,7 +3,7 @@
 Template Name: Login Page
 */
 
-session_start(); // Start the session
+session_start();
 
 if (!isset($_SESSION['login_attempts'])) {
     $_SESSION['login_attempts'] = 0;
@@ -16,7 +16,7 @@ $remaining_attempts = 3 - (int) $_SESSION['login_attempts'];
 
 $login_attempts = $_SESSION['login_attempts'];
 
-$wait_times = [0, 60, 180, 300]; // Wait times in seconds based on the number of attempts
+$wait_times = [0, 60, 180, 300];
 $wait_time = isset($wait_times[$login_attempts]) ? $wait_times[$login_attempts] : end($wait_times);
 
 if ($login_attempts >= count($wait_times)) {
@@ -35,7 +35,6 @@ if ($login_attempts >= count($wait_times)) {
         $email = sanitize_email($_POST['email']);
         $password = $_POST['password'];
 
-        // Input validation
         if (empty($email) || empty($password)) {
             $error_message = 'Please enter both email and password.';
             $show_attempts = true;
@@ -57,39 +56,59 @@ if ($login_attempts >= count($wait_times)) {
                     $show_attempts = true;
                 }
             } else {
-                $user_id = $user->ID;
-                $user_info = get_userdata($user_id);
-                $user_roles = $user_info->roles;
+                // Successful login
+                // Regenerate token and set cookie
+                $credentials = [
+                    'username' => $email,
+                    'password' => $password
+                ];
 
-                if (in_array('administrator', $user_roles)) {
-                    setcookie('user_role', 'administrator', 0, '/');
-                    wp_redirect('http://localhost/easy-manage/admin-pm-list/');
-                    exit;
-                } elseif (in_array('program_manager', $user_roles)) {
-                    setcookie('user_role', 'program_manager', 0, '/');
-                    wp_redirect('http://localhost/easy-manage/pm-dashboard/');
-                    exit;
-                } elseif (in_array('trainer', $user_roles)) {
-                    setcookie('user_role', 'trainer', 0, '/');
-                    wp_redirect('http://localhost/easy-manage/trainer-dashboard/');
-                    exit;
-                } elseif (in_array('trainee', $user_roles)) {
-                    setcookie('user_role', 'trainee', 0, '/');
-                    wp_redirect('http://localhost/easy-manage/trainee-dashboard/');
-                    exit;
+                // Generate token using credentials
+                $args = [
+                    'method' => 'POST',
+                    'body' => $credentials
+                ];
+
+                $result = wp_remote_post('http://localhost/easy-manage/wp-json/jwt-auth/v1/token', $args);
+
+                if (!is_wp_error($result) && wp_remote_retrieve_response_code($result) === 200) {
+                    $token_data = json_decode(wp_remote_retrieve_body($result));
+
+                    if (isset($token_data->token)) {
+                        $token = $token_data->token;
+                        setcookie('token', $token, time() + (86400 * 30), '/', 'localhost');
+                        echo "Token: " . $token;
+                    }
                 } else {
-                    setcookie('user_role', 'unknown', 0, '/');
-                    wp_redirect('http://localhost/easy-manage/');
-                    exit;
+                    echo "Error generating token.";
+                }
+
+                // Redirect to desired page after successful login
+                if (isset($user->roles) && is_array($user->roles)) {
+                    $user_roles = $user->roles;
+
+                    if (in_array('administrator', $user_roles)) {
+                        wp_redirect('http://localhost/easy-manage/admin-pm-list/');
+                        exit;
+                    } elseif (in_array('program_manager', $user_roles)) {
+                        wp_redirect('http://localhost/easy-manage/pm-dashboard/');
+                        exit;
+                    } elseif (in_array('trainer', $user_roles)) {
+                        wp_redirect('http://localhost/easy-manage/trainer-dashboard/');
+                        exit;
+                    } elseif (in_array('trainee', $user_roles)) {
+                        wp_redirect('http://localhost/easy-manage/trainee-dashboard/');
+                        exit;
+                    } else {
+                        wp_redirect('http://localhost/easy-manage');
+                        exit;
+                    }
                 }
             }
         }
     }
 }
-
 ?>
-<?php wp_head(); ?>
-
 <div class="form-container"
     style="height: 100vh; background-color: #E3E3EE; display: flex; justify-content: center; align-items: center; padding: 0 1rem;">
     <div
@@ -116,7 +135,7 @@ if ($login_attempts >= count($wait_times)) {
                 $salutation = 'Good evening! <br>' . $message;
             }
 
-            echo ($salutation);
+            echo $salutation;
             ?>
         </div>
 
@@ -164,29 +183,3 @@ if ($login_attempts >= count($wait_times)) {
         </div>
     </div>
 </div>
-
-<?php
-if (isset($_COOKIE['user_role'])) {
-    $user_role = $_COOKIE['user_role'];
-    // Access the user role on every page and perform actions accordingly
-    // For example, you can check the user role and display specific content or redirect to different pages
-    if ($user_role === 'administrator') {
-        // User is an administrator
-        // Display specific content or redirect to administrator page
-    } elseif ($user_role === 'program_manager') {
-        // User is a program manager
-        // Display specific content or redirect to program manager page
-    } elseif ($user_role === 'trainer') {
-        // User is a trainer
-        // Display specific content or redirect to trainer page
-    } elseif ($user_role === 'trainee') {
-        // User is a trainee
-        // Display specific content or redirect to trainee page
-    } else {
-        // User role is unknown or not set
-        // Display default content or redirect to default page
-    }
-}
-?>
-
-<?php wp_footer(); ?>

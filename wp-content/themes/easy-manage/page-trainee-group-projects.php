@@ -4,8 +4,21 @@ get_header();
 /**
  * Template Name: Admin PM List
  */
+require_once(ABSPATH . 'wp-load.php');
 
-$current_user = wp_get_current_user();
+$token = $_COOKIE['token'];
+
+$response = wp_remote_get('http://localhost/easy-manage/wp-json/wp/v2/users/me', array(
+    'headers' => array(
+        'Authorization' => 'Bearer ' . $token
+    )
+));
+
+if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 200) {
+    $user_data = json_decode(wp_remote_retrieve_body($response));
+
+    var_dump($user_data->id);
+}
 
 ?>
 
@@ -35,14 +48,23 @@ $current_user = wp_get_current_user();
                 </thead>
                 <tbody>
                     <?php
-                  $request_url = "http://localhost/easy-manage/wp-json/em/v1/group_project/{$current_user->ID}";
+                  $request_url = "http://localhost/easy-manage/wp-json/em/v1/group_project/" .$user_data->id;
                     $response = wp_remote_get($request_url);
                     $trainees = wp_remote_retrieve_body($response);
-                    $trainees = json_decode($trainees, true);
+                    $trainees = json_decode($trainees);
+                    // $trainees = $trainees[0];
+
+                    echo '<pre>';
+                    var_dump(wp_remote_retrieve_body($response));
+                    echo '<pre>';
+
+                    echo '<pre>';
+                    var_dump($trainees);
+                    echo '<pre>';
 
                     if (is_array($trainees)) {
                         foreach ($trainees as $trainee) {
-                            if ($trainee['user_id'] == $current_user->ID) {
+                            if ($trainee->user_id == $user_data->id) {
                                 echo '<tr>';
                                 echo '<td>';
                                 echo '<div class="d-flex align-items-center">';

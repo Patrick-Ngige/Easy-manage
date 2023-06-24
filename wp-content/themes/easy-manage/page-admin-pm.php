@@ -6,12 +6,18 @@
 
 require_once(ABSPATH . 'wp-load.php');
 
-// $current_user = wp_get_current_user();
+$token = $_COOKIE['token'];
 
-$user_role = isset($_COOKIE['user_role']) ? $_COOKIE['user_role'] : '';
+$response = wp_remote_get('http://localhost/easy-manage/wp-json/wp/v2/users/me', array(
+    'headers' => array(
+        'Authorization' => 'Bearer ' . $token
+    )
+));
 
-$current_user = $user_role;
-// var_dump($current_user);
+if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 200) {
+    $user_data = json_decode(wp_remote_retrieve_body($response));
+
+}
 
 ?>
 
@@ -20,11 +26,8 @@ $current_user = $user_role;
     <div class="page-trainee-dashboard" style="margin-top:-1.99rem;width:20vw">
         <?php get_template_part('sidenav-admin'); ?>
     </div>
-
-
     <div style="padding:1rem;width:80vw;margin-left:0rem">
         <div style="padding:1rem;">
-            <!-- Add buttons and search bar here -->
             <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
                 <a href="http://localhost/easy-manage/admin-trainers-table/" class="floating-btn"
                     style="text-decoration:none; padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
@@ -69,7 +72,7 @@ $current_user = $user_role;
                             echo '<p class="fw-normal mb-1">' . $user['user_email'] . '</p>';
                             echo '</td>';
                             echo '<td>';
-                            echo '<p class="fw-normal mb-1">' . $user_role . '</p>'; // Display the user role from the cookie
+                            echo '<p class="fw-normal mb-1">' . $user_data->name . '</p>'; 
                             echo '</td>';
                             echo '<td>';
                             echo '<form method="POST">';

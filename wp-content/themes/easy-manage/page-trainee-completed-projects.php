@@ -5,9 +5,21 @@ get_header();
  * Template Name: completed project
  */
 
-$current_user = wp_get_current_user();
+require_once(ABSPATH . 'wp-load.php');
 
-var_dump($current_user);
+$token = $_COOKIE['token'];
+
+$response = wp_remote_get('http://localhost/easy-manage/wp-json/wp/v2/users/me', array(
+    'headers' => array(
+        'Authorization' => 'Bearer ' . $token
+    )
+));
+
+$user_data = null; // Initialize the user data variable
+
+if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 200) {
+    $user_data = json_decode(wp_remote_retrieve_body($response));
+}
 
 ?>
 
@@ -46,42 +58,44 @@ var_dump($current_user);
                 </thead>
                 <tbody>
                     <?php
-                    $request_url = 'http://localhost/easy-manage/wp-json/em/v1/projects/completed/' . $current_user->ID;
-                    $response = wp_remote_get($request_url);
-                    $projects = wp_remote_retrieve_body($response);
-                    $projects = json_decode($projects, true);
+                    if ($user_data) { // Check if user data exists
+                        $request_url = 'http://localhost/easy-manage/wp-json/em/v1/projects/completed/' . $user_data->id;
+                        $response = wp_remote_get($request_url);
+                        $projects = wp_remote_retrieve_body($response);
+                        $projects = json_decode($projects, true);
 
-                    if (is_array($projects)) {
-                        foreach ($projects as $completed) {
+                        if (is_array($projects)) {
+                            foreach ($projects as $completed) {
 
-                            echo '<tr>';
-                            echo '<td>';
-                            echo '<div class="d-flex align-items-center">';
-                            echo '<div class="ms-3">';
-                            echo '<p class="mb-1">' . $completed['project_name'] . '</p>';
-                            echo '</div>';
-                            echo '</div>';
-                            echo '</td>';
-                            echo '<td>';
-                            echo '<p class="fw-normal mb-1">' . (isset($completed['assigned_members']) ? 'Group' : 'Individual') . '</p>';
-                            echo '</td>';                            
-                            echo '<td>';
-                            echo '<p class="fw-normal mb-1">' . $completed['due_date'] . '</p>';
-                            echo '</td>';
-                            echo '<td>';
-                            echo '<p class="fw-normal mb-1" style="color:#146830"> Completed</p>';
-                            echo '</td>';
-                            echo '<td>';
-                            echo '<form method="POST">';
-                            echo '<a href="http://localhost/easy-manage/admin-update-form/?id=' . (isset($completed['group_id']) ? $completed['group_id'] : '') . (isset($completed['project_id']) ? '&id=' . $completed['project_id'] : '') . '" style="padding:6px"><img src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png" style="width:25px;" alt=""></a> &nbsp;&nbsp;';
-                            echo '<input type="hidden" name="" value="">';
-                            echo '<a href="#" style="padding:6px;text-decoration:none;color:#315B87"> <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/pause-2.png" style="width:25px;" alt="">  </a> &nbsp;&nbsp;';
-                            echo '</form>';
-                            echo '</td>';
-                            echo '</tr>';
+                                echo '<tr>';
+                                echo '<td>';
+                                echo '<div class="d-flex align-items-center">';
+                                echo '<div class="ms-3">';
+                                echo '<p class="mb-1">' . $completed['project_name'] . '</p>';
+                                echo '</div>';
+                                echo '</div>';
+                                echo '</td>';
+                                echo '<td>';
+                                echo '<p class="fw-normal mb-1">' . (isset($completed['assigned_members']) ? 'Group' : 'Individual') . '</p>';
+                                echo '</td>';                            
+                                echo '<td>';
+                                echo '<p class="fw-normal mb-1">' . $completed['due_date'] . '</p>';
+                                echo '</td>';
+                                echo '<td>';
+                                echo '<p class="fw-normal mb-1" style="color:#146830"> Completed</p>';
+                                echo '</td>';
+                                echo '<td>';
+                                echo '<form method="POST">';
+                                echo '<a href="http://localhost/easy-manage/admin-update-form/?id=' . (isset($completed['group_id']) ? $completed['group_id'] : '') . (isset($completed['project_id']) ? '&id=' . $completed['project_id'] : '') . '" style="padding:6px"><img src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png" style="width:25px;" alt=""></a> &nbsp;&nbsp;';
+                                echo '<input type="hidden" name="" value="">';
+                                echo '<a href="#" style="padding:6px;text-decoration:none;color:#315B87"> <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/pause-2.png" style="width:25px;" alt="">  </a> &nbsp;&nbsp;';
+                                echo '</form>';
+                                echo '</td>';
+                                echo '</tr>';
+                            }
+                        } else {
+                            echo 'Error retrieving projects';
                         }
-                    } else {
-                        echo 'Error retrieving projects';
                     }
                     ?>
                 </tbody>

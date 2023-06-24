@@ -63,7 +63,16 @@ class AllProjects
 
         register_rest_route(
             'em/v1',
-            '/cohorts/(?P<id>\d+)',
+            'projects/cohort/(?P<username>[a-zA-Z0-9-]+)',
+            array(
+                'methods' => 'GET',
+                'callback' => array($this, 'get_cohort_id_by_trainer'),
+            )
+        );
+
+        register_rest_route(
+            'em/v1',
+            'projects/cohorts/(?P<id>\d+)',
             array(
                 'methods' => 'GET',
                 'callback' => array($this, 'retrieve_single_cohort'),
@@ -208,6 +217,29 @@ class AllProjects
 
         return $cohorts;
     }
+
+
+    function get_cohort_id_by_trainer( $request ) {
+        $username = $request->get_param( 'username' );
+    
+        global $wpdb;
+        $table_name = $wpdb->prefix . 'cohorts';
+    
+        $cohort_id = $wpdb->get_var(
+            $wpdb->prepare(
+                "SELECT cohort_id FROM $table_name WHERE trainer = %s",
+                $username
+            )
+        );
+    
+        if ( empty( $cohort_id ) ) {
+            return new WP_Error( 'cohort_not_found', 'Cohort not found.', array( 'status' => 404 ) );
+        }
+    
+        return $cohort_id;
+    }
+    
+
 
     public function retrieve_single_cohort($request)
 {

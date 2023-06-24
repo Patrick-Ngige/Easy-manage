@@ -5,7 +5,20 @@ get_header();
  * Template Name: Admin PM List
  */
 
-$current_user = wp_get_current_user();
+ require_once(ABSPATH . 'wp-load.php');
+
+ $token = $_COOKIE['token'];
+ 
+ $response = wp_remote_get('http://localhost/easy-manage/wp-json/wp/v2/users/me', array(
+     'headers' => array(
+         'Authorization' => 'Bearer ' . $token
+     )
+ ));
+ 
+ if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 200) {
+     $user_data = json_decode(wp_remote_retrieve_body($response));
+ 
+ }
 
 ?>
 
@@ -35,14 +48,16 @@ $current_user = wp_get_current_user();
                 </thead>
                 <tbody>
                     <?php
-                  $request_url = "http://localhost/easy-manage/wp-json/em/v1/individual_project/{$current_user->ID}";
+                  $request_url = "http://localhost/easy-manage/wp-json/em/v1/individual_project/{$user_data->id}";
                     $response = wp_remote_get($request_url);
                     $trainees = wp_remote_retrieve_body($response);
                     $trainees = json_decode($trainees, true);
 
+                    var_dump($trainees);
+
                     if (is_array($trainees)) {
                         foreach ($trainees as $trainee) {
-                            if ($trainee['user_id'] == $current_user->ID) {
+                            // if ($trainee['trainee_id'] == $user_data->id) {
                                 echo '<tr>';
                                 echo '<td>';
                                 echo '<div class="d-flex align-items-center">';
@@ -67,9 +82,9 @@ $current_user = wp_get_current_user();
                                 echo '</tr>';
                             }
                         }
-                    } else {
-                        echo 'Error retrieving trainees';
-                    }
+                    // } else {
+                    //     echo 'Error retrieving trainees';
+                    // }
                     ?>
                 </tbody>
             </table>

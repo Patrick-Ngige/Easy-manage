@@ -1,28 +1,49 @@
 <?php
-require_once(ABSPATH . 'wp-load.php'); 
+require_once(ABSPATH . 'wp-load.php');
 
-$user_role = isset($_COOKIE['user_role']) ? $_COOKIE['user_role'] : '';
+$token = $_COOKIE['token'];
 
-$user = get_users(array(
-    'role' => $user_role,
-    'number' => 1, 
+$response = wp_remote_get('http://localhost/easy-manage/wp-json/wp/v2/users/me', array(
+    'headers' => array(
+        'Authorization' => 'Bearer ' . $token
+    )
 ));
 
-if (!empty($user)) {
-    $user = $user[0]; 
+$user_data = null; // Initialize the user data variable
+$roles = array(); // Initialize the roles array
 
-    $username = $user->user_login;
-} ?>
+if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 200) {
+    $user_data = json_decode(wp_remote_retrieve_body($response));
+
+    // Fetch the user's role separately
+    $roles_response = wp_remote_get('http://localhost/easy-manage/wp-json/wp/v2/users/' . $user_data->id . '/roles', array(
+        'headers' => array(
+            'Authorization' => 'Bearer ' . $token
+        )
+    ));
+
+    // Check if the roles request was successful
+    if (!is_wp_error($roles_response) && wp_remote_retrieve_response_code($roles_response) === 200) {
+        // Get the roles data from the response body
+        $roles_data = json_decode(wp_remote_retrieve_body($roles_response));
+
+        // Access the user's role(s)
+        foreach ($roles_data as $role) {
+            $roles[] = $role->name; // Access the role name property
+        }
+    }
+}
+?>
 <div class="sidenav-trainee "
     style="background-color:#315B87;height:100vh;display:flex;flex-direction:column; padding-top:3rem;color:#FAFAFA;font-weight:500;">
     <div style=" align-items:center;display:flex;flex-direction:column;">
         <img src='http://localhost/easy-manage/wp-content/uploads/2023/06/profile.png'
             style="width:8rem;height:8rem;" />
-        <h5>
-            <?php echo $username; ?>
+            <h5>
+            <?php echo $user_data->name ?? ''; ?>
         </h5>
         <h6>
-            <?php echo $user_role; ?>
+            <?php echo !empty($roles) ? implode(', ', $roles) : 'No Roles'; ?>
         </h6>
     </div>
     <div>
