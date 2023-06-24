@@ -3,16 +3,14 @@
 Template Name: Login Page
 */
 
- session_start(); // Start the session
+session_start(); // Start the session
 
-// if (!is_user_logged_in()) {
-//     wp_redirect(home_url('/'));
-//     exit;
-// }
+if (!isset($_SESSION['login_attempts'])) {
+    $_SESSION['login_attempts'] = 0;
+}
 
 $error_message = '';
 $show_attempts = false;
-
 
 $remaining_attempts = 3 - (int) $_SESSION['login_attempts'];
 
@@ -54,7 +52,7 @@ if ($login_attempts >= count($wait_times)) {
                     $error_message = 'Invalid email or password. Please try again.';
                     $show_attempts = true;
                 } else {
-                    $remaining_time = $wait_time;
+                    $remaining_time = $wait_times[$login_attempts];
                     $error_message = 'You have exceeded the maximum number of login attempts. Please try again later.';
                     $show_attempts = true;
                 }
@@ -64,18 +62,23 @@ if ($login_attempts >= count($wait_times)) {
                 $user_roles = $user_info->roles;
 
                 if (in_array('administrator', $user_roles)) {
+                    setcookie('user_role', 'administrator', 0, '/');
                     wp_redirect('http://localhost/easy-manage/admin-pm-list/');
                     exit;
                 } elseif (in_array('program_manager', $user_roles)) {
+                    setcookie('user_role', 'program_manager', 0, '/');
                     wp_redirect('http://localhost/easy-manage/pm-dashboard/');
                     exit;
                 } elseif (in_array('trainer', $user_roles)) {
+                    setcookie('user_role', 'trainer', 0, '/');
                     wp_redirect('http://localhost/easy-manage/trainer-dashboard/');
                     exit;
                 } elseif (in_array('trainee', $user_roles)) {
+                    setcookie('user_role', 'trainee', 0, '/');
                     wp_redirect('http://localhost/easy-manage/trainee-dashboard/');
                     exit;
                 } else {
+                    setcookie('user_role', 'unknown', 0, '/');
                     wp_redirect('http://localhost/easy-manage/');
                     exit;
                 }
@@ -83,8 +86,8 @@ if ($login_attempts >= count($wait_times)) {
         }
     }
 }
-?>
 
+?>
 <?php wp_head(); ?>
 
 <div class="form-container"
@@ -120,7 +123,9 @@ if ($login_attempts >= count($wait_times)) {
         <div
             style="width: 70%; display: flex; flex-direction: column; background-color: #FAFAFA; border-radius: 10px; height: 70vh; justify-content: center; align-items: center;">
             <form action="" method="POST" style="width: 70%; display: flex; flex-direction: column;">
-                <h2 style="color: #315B87; font-weight: 600; font-size: 2rem; text-align: center;margin-bottom:5%;margin-left:-10%">Login
+                <h2
+                    style="color: #315B87; font-weight: 600; font-size: 2rem; text-align: center;margin-bottom:5%;margin-left:-10%">
+                    Login
                 </h2>
                 <?php if ($error_message): ?>
                     <div class="error-message" style="color: #ff5252; opacity: 1; text-align: center;">
@@ -139,10 +144,13 @@ if ($login_attempts >= count($wait_times)) {
                     <div class="attempts" style="text-align: center; color: #ff5252; margin-bottom: 1rem;">
                         <?php if ($remaining_time > 0): ?>
                             Please wait
-                            <span id="countdown" style="font-weight: bold;"><?php echo $remaining_time; ?></span>
+                            <span id="countdown" style="font-weight: bold;">
+                                <?php echo $remaining_time; ?>
+                            </span>
                             seconds before trying again.
                         <?php else: ?>
-                            You have <?php echo $remaining_attempts; ?> attempt(s) remaining.
+                            You have
+                            <?php echo $remaining_attempts; ?> attempt(s) remaining.
                         <?php endif; ?>
                     </div>
                 <?php endif; ?>
@@ -156,5 +164,29 @@ if ($login_attempts >= count($wait_times)) {
         </div>
     </div>
 </div>
+
+<?php
+if (isset($_COOKIE['user_role'])) {
+    $user_role = $_COOKIE['user_role'];
+    // Access the user role on every page and perform actions accordingly
+    // For example, you can check the user role and display specific content or redirect to different pages
+    if ($user_role === 'administrator') {
+        // User is an administrator
+        // Display specific content or redirect to administrator page
+    } elseif ($user_role === 'program_manager') {
+        // User is a program manager
+        // Display specific content or redirect to program manager page
+    } elseif ($user_role === 'trainer') {
+        // User is a trainer
+        // Display specific content or redirect to trainer page
+    } elseif ($user_role === 'trainee') {
+        // User is a trainee
+        // Display specific content or redirect to trainee page
+    } else {
+        // User role is unknown or not set
+        // Display default content or redirect to default page
+    }
+}
+?>
 
 <?php wp_footer(); ?>

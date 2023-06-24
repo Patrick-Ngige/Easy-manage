@@ -1,15 +1,29 @@
 <?php
-require_once(ABSPATH . 'wp-load.php'); // Include the wp-load.php file
+require_once(ABSPATH . 'wp-load.php'); 
 
-$current_user = wp_get_current_user();?>
+$user_role = isset($_COOKIE['user_role']) ? $_COOKIE['user_role'] : '';
+
+$user = get_users(array(
+    'role' => $user_role,
+    'number' => 1, 
+));
+
+if (!empty($user)) {
+    $user = $user[0]; 
+
+    $username = $user->user_login;
+    $email = $user->user_email;
+}
+
+?>
 <div class="sidenav-pm" style="background-color:#315B87;height:100vh;display:flex;flex-direction:column;padding-top:3rem;color:#FAFAFA;font-weight:500;">
     <div style="align-items:center;display:flex;flex-direction:column;">
         <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/profile.png" style="width:8rem;height:8rem;" />
         <h5>
-            <?php echo $current_user->display_name; ?>
+            <?php echo $username; ?>
         </h5>
         <h6>
-            <?php echo get_user_role($current_user); ?>
+            <?php echo $user_role; ?>
         </h6>
     </div>
     <div>

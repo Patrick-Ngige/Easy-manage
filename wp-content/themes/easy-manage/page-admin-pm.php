@@ -1,11 +1,17 @@
-<?php
-get_header();
+<?php get_header();
 
 /**
  * Template Name: Admin PM List
  */
 
-$current_user = wp_get_current_user();
+require_once(ABSPATH . 'wp-load.php');
+
+// $current_user = wp_get_current_user();
+
+$user_role = isset($_COOKIE['user_role']) ? $_COOKIE['user_role'] : '';
+
+$current_user = $user_role;
+// var_dump($current_user);
 
 ?>
 
@@ -63,7 +69,7 @@ $current_user = wp_get_current_user();
                             echo '<p class="fw-normal mb-1">' . $user['user_email'] . '</p>';
                             echo '</td>';
                             echo '<td>';
-                            echo '<p class="fw-normal mb-1"> Program Manager</p>';
+                            echo '<p class="fw-normal mb-1">' . $user_role . '</p>'; // Display the user role from the cookie
                             echo '</td>';
                             echo '<td>';
                             echo '<form method="POST">';
