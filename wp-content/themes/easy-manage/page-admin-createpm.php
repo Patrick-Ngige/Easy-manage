@@ -1,5 +1,7 @@
-<?php get_header();
+<?php
+
 session_start();
+get_header();
 
 /**
  * Template Name: Admin Create PM
@@ -40,17 +42,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'pm_password' => $pm_password
         );
 
-        $jwt_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2Vhc3ktbWFuYWdlIiwiaWF0IjoxNjg3MzI1NzM2LCJuYmYiOjE2ODczMjU3MzYsImV4cCI6MTY4NzkzMDUzNiwiZGF0YSI6eyJ1c2VyIjp7ImlkIjoiMSJ9fX0.yP4_WvhHKZYpuXSYnwbk8Ozju-iUC0Z3W4kyJwXedy0';
+        require_once(ABSPATH . 'wp-load.php');
+
+        $token = $_COOKIE['token'];
 
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, 'http://localhost/easy-manage/wp-json/em/v1/pm');
         curl_setopt($curl, CURLOPT_POST, true);
         curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($created_pm));
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($curl, CURLOPT_HTTPHEADER, array(
-            'Content-Type: application/json',
-            'Authorization: Bearer ' . $jwt_token
-        )
+        curl_setopt(
+            $curl,
+            CURLOPT_HTTPHEADER,
+            array(
+                'Content-Type: application/json',
+                'Authorization: Bearer ' . $token
+            )
         );
 
         $response = curl_exec($curl);

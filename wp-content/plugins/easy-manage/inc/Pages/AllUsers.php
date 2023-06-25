@@ -27,6 +27,15 @@ class AllUsers
 
         register_rest_route(
             'em/v1',
+            '/user_project_ids',
+            array(
+                'methods' => array('GET'),
+                'callback' => array($this, 'get_user_project_ids'),
+            )
+        );
+
+        register_rest_route(
+            'em/v1',
             '/users/deleted',
             array(
                 'methods' => array('GET'),
@@ -106,6 +115,28 @@ class AllUsers
     }
 
 
+    public function get_user_project_ids($request)
+    {
+        $username = $request->get_param('username');
+
+        // Query to retrieve the project ID(s) assigned to the user
+        global $wpdb;
+        $table_name = $wpdb->prefix . 'group_projects';
+
+        $project_ids = $wpdb->get_col(
+            $wpdb->prepare(
+                "SELECT group_id FROM $table_name WHERE FIND_IN_SET(%s, assigned_members) > 0",
+                $username
+            )
+        );
+
+        if (empty($project_ids)) {
+            return new WP_Error('project_ids_not_found', 'No project IDs found for the user.', array('status' => 404));
+        }
+
+        return $project_ids;
+    }
+
 
     public function retrieve_trainers_callback($request)
     {
@@ -126,6 +157,9 @@ class AllUsers
 
         return $trainers;
     }
+
+
+ 
 
     public function retrieve_trainees_callback($request)
     {

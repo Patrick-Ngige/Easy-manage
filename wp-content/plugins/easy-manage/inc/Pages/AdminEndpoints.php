@@ -21,20 +21,20 @@ class AdminEndpoints
             array(
                 'methods' => array('POST', 'PATCH', 'GET'),
                 'callback' => array($this, 'pm_callbacks'),
-                // 'permission_callback' => array($this, 'check_admin_permission'),
+                'permission_callback' => array($this, 'check_admin_permission'),
             )
         );
     }
 
-    // public function check_admin_permission($request)
-    // {
+    public function check_admin_permission($request)
+    {
 
-    //     if (current_user_can('administrator')) {
-    //         return true;
-    //     } else {
-    //         return new WP_Error('rest_forbidden', __('You are not allowed to access this endpoint.'), array('status' => 403));
-    //     }
-    // }
+        if (current_user_can('administrator')) {
+            return true;
+        } else {
+            return new WP_Error('rest_forbidden', __('You are not allowed to access this endpoint.'), array('status' => 403));
+        }
+    }
 
     public function pm_callbacks($request)
     {
