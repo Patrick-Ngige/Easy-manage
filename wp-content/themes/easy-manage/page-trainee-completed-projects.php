@@ -9,17 +9,19 @@ require_once(ABSPATH . 'wp-load.php');
 
 $token = $_COOKIE['token'];
 
-$response = wp_remote_get('http://localhost/easy-manage/wp-json/wp/v2/users/me', array(
-    'headers' => array(
-        'Authorization' => 'Bearer ' . $token
+$response = wp_remote_get(
+    'http://localhost/easy-manage/wp-json/wp/v2/users/me',
+    array(
+        'headers' => array(
+            'Authorization' => 'Bearer ' . $token
+        )
     )
-));
+);
 
 if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 200) {
     $user_data = json_decode(wp_remote_retrieve_body($response));
     $username = $user_data->name;
 
-    // API request to retrieve the project ID(s) assigned to the user
     $projects_url = "http://localhost/easy-manage/wp-json/em/v1/user_project_ids?username=" . $username;
     $projects_response = wp_remote_get($projects_url);
 
@@ -27,10 +29,7 @@ if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 2
         $project_ids = json_decode(wp_remote_retrieve_body($projects_response));
         $projects = array();
 
-        
-
         foreach ($project_ids as $project_id) {
-            // API request to retrieve the group project by its ID
             $project_url = "http://localhost/easy-manage/wp-json/em/v1/project/completed/" . $project_id;
             $project_response = wp_remote_get($project_url);
 
@@ -51,7 +50,6 @@ if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 2
 
     <div style="padding:1rem;width:80vw;margin-left:0rem">
         <div style="padding:1rem;">
-            <!-- Add buttons and search bar here -->
             <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
                 <a href="http://localhost/easy-manage/admin-trainers-table/" class="floating-btn"
                     style="text-decoration:none; padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
@@ -78,33 +76,46 @@ if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 2
                     </thead>
                     <tbody>
                         <?php
-                        foreach ($projects as $completed) {
-                            echo '<tr>';
-                            echo '<td>';
-                            echo '<div class="d-flex align-items-center">';
-                            echo '<div class="ms-3">';
-                            echo '<p class="mb-1">' . $completed->project_name . '</p>';
-                            echo '</div>';
-                            echo '</div>';
-                            echo '</td>';
-                            echo '<td>';
-                            echo '<p class="fw-normal mb-1">' . (isset($completed->assigned_members) ? 'Group' : 'Individual') . '</p>';
-                            echo '</td>';
-                            echo '<td>';
-                            echo '<p class="fw-normal mb-1">' . $completed->due_date . '</p>';
-                            echo '</td>';
-                            echo '<td>';
-                            echo '<p class="fw-normal mb-1" style="color:#146830"> Completed</p>';
-                            echo '</td>';
-                            echo '<td>';
-                            echo '<form method="POST">';
-                            echo '<a href="http://localhost/easy-manage/admin-update-form/?id=' . (isset($completed->group_id) ? $completed->group_id : '') . (isset($completed->project_id) ? '&id=' . $completed->project_id : '') . '" style="padding:6px"><img src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png" style="width:25px;" alt=""></a> &nbsp;&nbsp;';
-                            echo '<input type="hidden" name="" value="">';
-                            echo '<a href="#" style="padding:6px;text-decoration:none;color:#315B87"> <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/pause-2.png" style="width:25px;" alt="">  </a> &nbsp;&nbsp;';
-                            echo '</form>';
-                            echo '</td>';
-                            echo '</tr>';
-                        }
+                        foreach ($projects as $completed) { ?>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div class="ms-3">
+                                            <p class="mb-1">
+                                                <?php echo $completed->project_name ?>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <p class="fw-normal mb-1">
+                                        <?php echo (isset($completed->assigned_members) ? 'Group' : 'Individual') ?>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p class="fw-normal mb-1">
+                                        <?php echo $completed->due_date ?>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p class="fw-normal mb-1" style="color:#146830"> Completed</p>
+                                </td>
+                                <td>
+                                    <form method="POST">
+                                        <a href="http://localhost/easy-manage/admin-update-form/?id=<?php echo (isset($completed->group_id) ? $completed->group_id : '') . (isset($completed->project_id) ? '&id=' . $completed->project_id : ''); ?>"
+                                            style="padding: 6px;">
+                                            <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png"
+                                                style="width: 25px;" alt="">
+                                        </a> &nbsp;&nbsp;
+                                        <input type="hidden" name="" value="">
+
+                                        <a href="#" style="padding:6px;text-decoration:none;color:#315B87"> <img
+                                                src="http://localhost/easy-manage/wp-content/uploads/2023/06/pause-2.png"
+                                                style="width:25px;" alt=""> </a> &nbsp;&nbsp;
+                                    </form>
+                                </td>
+                            </tr>
+                        <?php } ?>
                         ?>
                     </tbody>
                 </table>

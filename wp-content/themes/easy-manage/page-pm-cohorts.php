@@ -12,7 +12,7 @@ $current_user = wp_get_current_user();
 <div style="width:100vw;height:90vh;display:flex;flex-direction:row;margin-top:-2.45rem">
 
     <div class="page-trainee-dashboard" style="margin-top:-1.99rem;width:20vw">
-        <?php get_template_part('sidenav-admin'); ?>
+        <?php get_template_part('sidenav-pm'); ?>
     </div>
 
 
