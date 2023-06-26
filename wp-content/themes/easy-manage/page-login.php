@@ -83,7 +83,6 @@ if ($login_attempts >= count($wait_times)) {
                     echo "Error generating token.";
                 }
 
-                // Redirect to desired page after successful login
                 if (isset($user->roles) && is_array($user->roles)) {
                     $user_roles = $user->roles;
 

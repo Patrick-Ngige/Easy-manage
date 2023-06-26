@@ -63,7 +63,7 @@ class AllProjects
 
         register_rest_route(
             'em/v1',
-            'projects/cohort/(?P<username>[a-zA-Z0-9-]+)',
+            '/projects/cohort/(?P<username>[a-zA-Z0-9-]+)',
             array(
                 'methods' => 'GET',
                 'callback' => array($this, 'get_cohort_id_by_trainer'),
@@ -72,7 +72,7 @@ class AllProjects
 
         register_rest_route(
             'em/v1',
-            'projects/cohorts/(?P<id>\d+)',
+            '/projects/cohorts/(?P<id>\d+)',
             array(
                 'methods' => 'GET',
                 'callback' => array($this, 'retrieve_single_cohort'),

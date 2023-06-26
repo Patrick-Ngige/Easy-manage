@@ -89,7 +89,6 @@ function get_total_trainees() {
     return $total_trainees;
 }
 
-
 function get_recent_individual_projects() {
     global $wpdb;
     $table_name = $wpdb->prefix . 'individual_projects';
@@ -101,10 +100,6 @@ function get_recent_individual_projects() {
     return $results;
 
 }
-
-
-
-
 
 function get_recent_group_projects() {
     global $wpdb;
@@ -119,7 +114,7 @@ function get_recent_group_projects() {
 
 <div style="width:100vw;height:90vh;display:flex;flex-direction:row;margin-top:-2.45rem">
     <div class="page-trainee-dashboard" style="margin-top:-1.99rem;width:20vw">
-        <?php get_template_part('sidenav-pm'); ?>
+        <?php get_template_part('sidenav-trainer'); ?>
     </div>
 
     <div style="padding:1rem;width:70vw;margin-left:5rem;overflow-y:auto;z-index:100;height:fit-content;margin-top:1rem">

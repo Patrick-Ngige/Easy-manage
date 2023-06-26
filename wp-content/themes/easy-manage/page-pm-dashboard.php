@@ -86,17 +86,21 @@ function get_completed_cohorts(){
 }
 
 function get_total_trainers() {
-    global $wpdb;
-    $usermeta_table = $wpdb->prefix . 'usermeta';
+        global $wpdb;
+        $user_table = $wpdb->prefix . 'users';
+        $usermeta_table = $wpdb->prefix . 'usermeta';
+    
+        $role = 'trainer';
+        $user_ids_query = "SELECT user_id FROM $usermeta_table WHERE meta_key = 'wp_capabilities' AND meta_value LIKE '%$role%'";
+        $user_ids = $wpdb->get_col($user_ids_query);
+    
+        $total_trainers_query = "SELECT COUNT(*) as total FROM $user_table WHERE ID IN (" . implode(',', $user_ids) . ")";
+        $total_trainers_result = $wpdb->get_row($total_trainers_query);
+        $total_trainers = $total_trainers_result->total;
+    
+        return $total_trainers;
+    }
 
-    $capability = 'trainer'; 
-    $user_ids_query = "SELECT user_id FROM $usermeta_table WHERE meta_key = 'wp_capabilities' AND meta_value LIKE '%$capability%'";
-    $user_ids = $wpdb->get_col($user_ids_query);
-
-    $total_trainers = count($user_ids);
-
-    return $total_trainers;
-}
 
 function get_total_cohorts($cohort_status = null) {
     global $wpdb;
