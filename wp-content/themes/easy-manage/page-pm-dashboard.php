@@ -213,12 +213,6 @@ function get_recent_group_projects() {
                     <p>Total Trainees</p>
                     <p><?php echo get_total_trainees(); ?></p>
                 </div>
-            </div>
-           
-        </div>
-        <div style=" width:33vw; float: right;margin-top: -5rem; padding: 10px; background-color: #FAFAFA; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; border-radius: 5px;">
-                <h2 style=" font-size: 20px; margin-bottom: 1rem;color:#315B87">Cohorts</h2>
-                
                 <div class="stat-item">
                     <p>Cohorts</p>
                     <p><?php echo get_total_cohorts(); ?></p>
@@ -228,6 +222,8 @@ function get_recent_group_projects() {
                     <p><?php echo get_completed_cohorts(); ?></p>
                 </div>
             </div>
+           
+        </div>
 
         <div style="width:67vw;display:flex; flex-direction:row;gap:10px">
 
