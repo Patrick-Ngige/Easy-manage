@@ -155,20 +155,18 @@ class AdminEndpoints
     {
         global $wpdb;
         $table_name = $wpdb->prefix . 'users';
-        $pm_status = 1; 
     
-        $pm = $wpdb->get_results(
+        $users = $wpdb->get_results(
             $wpdb->prepare(
-                "SELECT * FROM $table_name WHERE user_status = %d AND ID IN (SELECT user_id FROM $wpdb->usermeta WHERE meta_key = 'wp_capabilities' AND meta_value LIKE '%%\"program_manager\"%%')",
-                $pm_status
+                "SELECT * FROM $table_name WHERE user_status = 1"
             )
         );
     
-        if (empty($trainees)) {
-            return new WP_Error('no_program manager', 'No program manager found.', array('status' => 404));
+        if (empty($users)) {
+            return new WP_Error('no_deactivated user', 'No deactivated users found.', array('status' => 404));
         }
     
-        return $pm;
+        return $users;
     }
 
 }

@@ -6,17 +6,14 @@ get_header();
  *
  */
 
-$user_id = $_GET['id'];
 
-// Retrieve user data based on the user_id
-$user = get_user_by('ID', $user_id);
-// if (!$user) {
-//     echo 'User not found.';
-//     exit;
-// }
-
-$user_name = $user->user_nicename;
-$user_email = $user->user_email;
+ $token = $_COOKIE['token'];
+ 
+ $response = wp_remote_get('http://localhost/easy-manage/wp-json/wp/v2/users/me', array(
+     'headers' => array(
+         'Authorization' => 'Bearer ' . $token
+     )
+ ));
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $errors = array();

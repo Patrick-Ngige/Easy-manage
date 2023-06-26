@@ -887,3 +887,154 @@ Stack trace:
   thrown in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php on line 338
 [26-Jun-2023 19:01:48 Africa/Nairobi] PHP Warning:  Undefined property: stdClass::$id in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-cohort.php on line 97
 [26-Jun-2023 19:01:54 Africa/Nairobi] PHP Warning:  Undefined property: stdClass::$id in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-cohort.php on line 97
+[26-Jun-2023 21:30:41 Africa/Nairobi] PHP Warning:  Undefined property: stdClass::$id in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-cohort.php on line 97
+[26-Jun-2023 21:30:46 Africa/Nairobi] PHP Warning:  Undefined property: stdClass::$id in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-cohort.php on line 97
+[26-Jun-2023 21:38:48 Africa/Nairobi] PHP Warning:  Undefined property: stdClass::$id in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-cohort.php on line 96
+[26-Jun-2023 21:38:53 Africa/Nairobi] PHP Warning:  Undefined property: stdClass::$id in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-cohort.php on line 96
+[26-Jun-2023 21:48:34 Africa/Nairobi] PHP Warning:  Undefined property: stdClass::$id in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-cohort.php on line 95
+[26-Jun-2023 21:48:39 Africa/Nairobi] PHP Warning:  Undefined property: stdClass::$id in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-cohort.php on line 95
+[26-Jun-2023 21:48:46 Africa/Nairobi] PHP Warning:  Undefined property: stdClass::$id in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-cohort.php on line 95
+[26-Jun-2023 21:48:50 Africa/Nairobi] PHP Warning:  Undefined property: stdClass::$id in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-cohort.php on line 95
+[26-Jun-2023 22:00:22 Africa/Nairobi] PHP Warning:  Undefined variable $cohortId in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-cohort.php on line 95
+[26-Jun-2023 22:00:27 Africa/Nairobi] PHP Warning:  Undefined variable $cohortId in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-cohort.php on line 95
+[26-Jun-2023 22:01:02 Africa/Nairobi] PHP Warning:  Undefined variable $cohortId in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-cohort.php on line 95
+[26-Jun-2023 22:04:46 Africa/Nairobi] PHP Warning:  Undefined variable $cohortId in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-cohort.php on line 94
+[26-Jun-2023 22:04:51 Africa/Nairobi] PHP Warning:  Undefined variable $cohortId in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-cohort.php on line 94
+[26-Jun-2023 22:05:23 Africa/Nairobi] PHP Warning:  Undefined variable $cohortId in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-cohort.php on line 94
+[26-Jun-2023 22:06:55 Africa/Nairobi] PHP Warning:  Undefined property: stdClass::$id in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-cohort.php on line 105
+[26-Jun-2023 22:06:56 Africa/Nairobi] PHP Warning:  Undefined property: stdClass::$id in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-cohort.php on line 105
+[26-Jun-2023 22:07:01 Africa/Nairobi] PHP Warning:  Undefined property: stdClass::$id in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-cohort.php on line 105
+[26-Jun-2023 22:07:03 Africa/Nairobi] PHP Warning:  Undefined property: stdClass::$id in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-cohort.php on line 105
+[26-Jun-2023 22:07:08 Africa/Nairobi] PHP Warning:  Undefined property: stdClass::$id in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-cohort.php on line 105
+[26-Jun-2023 22:08:21 Africa/Nairobi] PHP Warning:  Undefined property: stdClass::$id in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-cohort.php on line 105
+[26-Jun-2023 22:08:26 Africa/Nairobi] PHP Warning:  Undefined property: stdClass::$id in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-cohort.php on line 105
+[26-Jun-2023 22:09:19 Africa/Nairobi] PHP Warning:  Undefined property: stdClass::$id in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-cohort.php on line 106
+[26-Jun-2023 22:09:24 Africa/Nairobi] PHP Warning:  Undefined property: stdClass::$id in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-cohort.php on line 106
+[26-Jun-2023 22:09:51 Africa/Nairobi] PHP Warning:  Undefined property: stdClass::$id in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-cohort.php on line 107
+[26-Jun-2023 22:09:56 Africa/Nairobi] PHP Warning:  Undefined property: stdClass::$id in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-cohort.php on line 107
+[26-Jun-2023 22:18:35 Africa/Nairobi] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-deactivated.php:58
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-includes\template-loader.php(106): include()
+#1 C:\xampp\htdocs\easy-manage\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-deactivated.php on line 58
+[26-Jun-2023 22:18:38 Africa/Nairobi] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-deactivated.php:58
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-includes\template-loader.php(106): include()
+#1 C:\xampp\htdocs\easy-manage\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-deactivated.php on line 58
+[26-Jun-2023 22:19:13 Africa/Nairobi] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-deactivated.php:58
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-includes\template-loader.php(106): include()
+#1 C:\xampp\htdocs\easy-manage\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-deactivated.php on line 58
+[26-Jun-2023 22:19:16 Africa/Nairobi] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-deactivated.php:58
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-includes\template-loader.php(106): include()
+#1 C:\xampp\htdocs\easy-manage\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-deactivated.php on line 58
+[26-Jun-2023 22:19:21 Africa/Nairobi] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-deactivated.php:58
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-includes\template-loader.php(106): include()
+#1 C:\xampp\htdocs\easy-manage\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-deactivated.php on line 58
+[26-Jun-2023 22:19:24 Africa/Nairobi] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-deactivated.php:58
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-includes\template-loader.php(106): include()
+#1 C:\xampp\htdocs\easy-manage\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-deactivated.php on line 58
+[26-Jun-2023 22:19:43 Africa/Nairobi] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-deactivated.php:58
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-includes\template-loader.php(106): include()
+#1 C:\xampp\htdocs\easy-manage\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-deactivated.php on line 58
+[26-Jun-2023 22:19:47 Africa/Nairobi] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-deactivated.php:58
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-includes\template-loader.php(106): include()
+#1 C:\xampp\htdocs\easy-manage\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-deactivated.php on line 58
+[26-Jun-2023 22:19:48 Africa/Nairobi] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-deactivated.php:58
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-includes\template-loader.php(106): include()
+#1 C:\xampp\htdocs\easy-manage\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-deactivated.php on line 58
+[26-Jun-2023 22:19:50 Africa/Nairobi] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-deactivated.php:58
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-includes\template-loader.php(106): include()
+#1 C:\xampp\htdocs\easy-manage\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-deactivated.php on line 58
+[26-Jun-2023 22:31:47 Africa/Nairobi] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-deactivated.php:59
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-includes\template-loader.php(106): include()
+#1 C:\xampp\htdocs\easy-manage\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-deactivated.php on line 59
+[26-Jun-2023 22:31:50 Africa/Nairobi] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-deactivated.php:59
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-includes\template-loader.php(106): include()
+#1 C:\xampp\htdocs\easy-manage\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-deactivated.php on line 59
+[26-Jun-2023 22:32:45 Africa/Nairobi] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-deactivated.php:61
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-includes\template-loader.php(106): include()
+#1 C:\xampp\htdocs\easy-manage\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-deactivated.php on line 61
+[26-Jun-2023 22:32:48 Africa/Nairobi] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-deactivated.php:61
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-includes\template-loader.php(106): include()
+#1 C:\xampp\htdocs\easy-manage\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-deactivated.php on line 61
+[26-Jun-2023 22:35:05 Africa/Nairobi] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-deactivated.php:68
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-includes\template-loader.php(106): include()
+#1 C:\xampp\htdocs\easy-manage\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-deactivated.php on line 68
+[26-Jun-2023 22:35:09 Africa/Nairobi] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-deactivated.php:68
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-includes\template-loader.php(106): include()
+#1 C:\xampp\htdocs\easy-manage\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-deactivated.php on line 68
+[26-Jun-2023 22:37:24 Africa/Nairobi] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-deactivated.php:68
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-includes\template-loader.php(106): include()
+#1 C:\xampp\htdocs\easy-manage\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-deactivated.php on line 68
+[26-Jun-2023 22:37:28 Africa/Nairobi] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-deactivated.php:68
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-includes\template-loader.php(106): include()
+#1 C:\xampp\htdocs\easy-manage\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-deactivated.php on line 68

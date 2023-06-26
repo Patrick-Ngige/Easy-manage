@@ -46,19 +46,29 @@ if (is_wp_error($cohort_id)) {
 if (isset($_POST['cohortId'])) {
   $cohortId = $_POST['cohortId'];
 
-  $endpoint = 'http://localhost/easy-manage/wp-json/em/v1/cohort/mark_complete/';
-  $url = $endpoint . $cohortId;
+  var_dump($cohort_id);
+  print_r($cohort_id);
+  $endpoint = 'http://localhost/easy-manage/wp-json/em/v1/cohort/mark_complete/' . $cohortId;
 
-  $ch = curl_init($url);
+  $data = json_encode(array());
+
+  $ch = curl_init($endpoint);
+  curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PATCH');
+  curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+  curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+    'Content-Type: application/json',
+    'Authorization: Bearer ' . $token,
+  )
+  );
+
 
   $response = curl_exec($ch);
 
   if ($response) {
-    echo 'Request sent successfully.';
-    // Handle the response if needed.
+    wp_send_json_success('Cohort marked as complete');
   } else {
-    echo 'Failed to send the request.';
+    echo 'Failed to mark completed.';
   }
 
   curl_close($ch);
@@ -73,7 +83,7 @@ if (isset($_POST['cohortId'])) {
 
   <div style="margin: auto;height: 100vh;margin-top: 6rem;">
     <div
-      style="width: 40vw; background-color: #F7F7F7; border-radius: 10px; box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2); padding: 2rem;">
+      style="width: 40vw; background-color: #F7F7F7; border-radius: 10px; box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2); padding: 2rem; ">
       <h2 style="color: #315B87; margin-bottom: 1rem;">Assigned Cohort</h2>
       <div style="display: flex; justify-content: center;">
         <div
@@ -92,9 +102,13 @@ if (isset($_POST['cohortId'])) {
               <?php echo $cohort_data->cohort_info; ?>
             </p>
             <div style="display: flex; justify-content: center; margin-top: 1rem;">
-              <a href="#" class="btn btn-primary"
-                style="background-color: #315B87; color: #FAFAFA; border: none; font-weight: bold;"
-                onclick="markComplete(<?php echo $cohort_data->id; ?>)">Mark Complete</a>
+              <form method="PATCH" onsubmit="markComplete(event)">
+                <input type="hidden" name="action" value="mark_complete">
+                <input type="hidden" name="cohortId" value="<?php echo $cohort_data->id; ?>">
+                <button type="submit" class="btn btn-primary"
+                  style="background-color: #315B87; color: #FAFAFA; border: none; font-weight: bold;">Mark
+                  Complete</button>
+              </form>
             </div>
           <?php } else { ?>
             <p>No assigned cohort found for the user.</p>
@@ -105,21 +119,26 @@ if (isset($_POST['cohortId'])) {
   </div>
 
   <script>
-    function markComplete(cohortId) {
-      var xhr = new XMLHttpRequest();
-      xhr.open('POST', '<?php echo esc_url(admin_url('admin-post.php')); ?>');
-      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-      xhr.onreadystatechange = function () {
+function markComplete(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', '<?php echo esc_url(admin_url('admin-post.php')); ?>');
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.onreadystatechange = function() {
         if (xhr.readyState === 4) {
-          if (xhr.status === 200) {
-            console.log(xhr.responseText);
-            // Handle the response if needed.
-          } else {
-            console.log('Request failed. Status: ' + xhr.status);
-          }
+            if (xhr.status === 200) {
+                console.log(xhr.responseText);
+                location.reload(); // Reload the page
+            } else {
+                console.log('Request failed. Status: ' + xhr.status);
+            }
         }
-      };
-      xhr.send('action=mark_complete&cohortId=' + cohortId);
-    }
-  </script>
+    };
+    xhr.send(new FormData(event.target)); // Send the form data
+
+    return false;
+}
+</script>
+
   <?php get_footer(); ?>

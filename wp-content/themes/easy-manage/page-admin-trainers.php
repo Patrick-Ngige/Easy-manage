@@ -5,7 +5,13 @@ get_header();
  * Template Name: Admin PM List
  */
 
-$current_user = wp_get_current_user();
+ $token = $_COOKIE['token'];
+ 
+ $response = wp_remote_get('http://localhost/easy-manage/wp-json/wp/v2/users/me', array(
+     'headers' => array(
+         'Authorization' => 'Bearer ' . $token
+     )
+ ));
 
 ?>
 
