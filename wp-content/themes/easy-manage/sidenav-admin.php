@@ -46,7 +46,7 @@ if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 2
             <?php echo isset($user_data->name) ? $user_data->name : ''; ?>
         </h5>
         <h6>
-            <?php echo !empty($roles) ? implode(', ', $roles) : 'No Roles'; ?>
+            Administrator
         </h6>
     </div>
     <div>

@@ -43,7 +43,7 @@ if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 2
             <?php echo $user_data->name ?? ''; ?>
         </h5>
         <h6>
-            <?php echo !empty($roles) ? implode(', ', $roles) : 'No Roles'; ?>
+            Trainee
         </h6>
     </div>
     <div>
