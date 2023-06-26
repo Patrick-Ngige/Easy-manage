@@ -272,7 +272,7 @@ class AllProjects
 
         $cohort = $wpdb->get_row(
             $wpdb->prepare(
-                "SELECT * FROM $table_name WHERE group_id = %d AND _status = 0",
+                "SELECT * FROM $table_name WHERE group_id = %d AND group_status = 0",
                 $group_id,
             ),
             ARRAY_A

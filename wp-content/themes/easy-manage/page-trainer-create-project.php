@@ -40,26 +40,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'due_date' => $due_date,
         );
 
-        $token = $_COOKIE['token'];
 
+        $token = $_COOKIE['token'];
+ 
+        try {
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, 'http://localhost/easy-manage/wp-json/em/v1/projects/individual');
         curl_setopt($curl, CURLOPT_POST, true);
         curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($created_project));
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($curl, CURLOPT_HTTPHEADER, array(
-            'Content-Type: application/json',
-            'Authorization: Bearer ' . $token
-        ));
+        curl_setopt(
+            $curl,
+            CURLOPT_HTTPHEADER,
+            array(
+                'Content-Type: application/json',
+                'Authorization: Bearer ' . $token
+            )
+        );
 
         $response = curl_exec($curl);
         $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 
-        if ($response === false) {
-            echo 'Error: ' . curl_error($curl);
-        } else {
-            echo $response;
-        }
+        // if ($response === false) {
+        //     echo 'Error: ' . curl_error($curl);
+        // } else {
+        //     echo $response;
+        // }
 
         curl_close($curl);
 
@@ -69,14 +75,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($result && isset($result->success)) {
                 $_SESSION['success_message'] = 'Project created successfully.';
                 ?>
-                <script>
-                    window.location.href = '<?php echo esc_url(add_query_arg('success', 'true')); ?>';
+                <script>     window.location.href = '<?php echo esc_url(add_query_arg('success', 'true')); ?>';
                 </script>
                 <?php
                 exit;
             }
         }
+    } catch (Exception $e) {
+        // Log or display the exception message
+        error_log('Exception: ' . $e->getMessage());
+        echo 'Exception: ' . $e->getMessage();
+   
     }
+}
 }
 
 ob_end_flush();
@@ -153,48 +164,25 @@ ob_end_flush();
                                                         name="assignee">
                                                         <option value="">Select Assignee</option>
                                                         <?php
-                                                        global $wpdb;
-                                                        $table_name = $wpdb->prefix . 'users';
-                                                        $projects_table = $wpdb->prefix . 'group_projects';
-                                                        $max_projects = 3;
-                                                        
-                                                        $query = $wpdb->prepare(
-                                                            "SELECT ID, user_login
-                                                            FROM {$wpdb->users} AS u
-                                                            WHERE u.ID NOT IN (
-                                                                SELECT user_id
-                                                                FROM {$wpdb->prefix}group_projects
-                                                                WHERE project_type = 'group' OR project_type = 'individual'
-                                                                GROUP BY user_id
-                                                                HAVING COUNT(*) >= %d
-                                                            )
-                                                            AND u.user_status = 0",
-                                                            $max_projects
-                                                        );
-                                                        
-                                                        $trainees = $wpdb->get_results($query);
-                                                        ?>
-                                                        
-                                                        <div class="form-outline mb-2">
-                                                            <label class="form-label" for="assignee" style="font-weight:600;">Assignee:</label>
-                                                            <select id="assignee" class="form-control form-control-md" name="assignee">
-                                                                <option value="">Select Assignee</option>
-                                                                <?php foreach ($trainees as $trainee) {
-                                                                    $user_info = get_userdata($trainee->ID);
-                                                                    if ($user_info) {
-                                                                        $username = $user_info->user_login;
-                                                                        ?>
-                                                                        <option value="<?php echo $trainee->ID; ?>"><?php echo $username; ?></option>
-                                                                        <?php
-                                                                    }
-                                                                } ?>
-                                                            </select>
-                                                            <?php if (in_array('Assignee is required.', $errors)) { ?>
-                                                                <p class="text-danger">Assignee is required.</p>
-                                                            <?php } ?>
-                                                        </div>
-                                                        
+                                                        $endpoint_url = 'http://localhost/easy-manage/wp-json/em/v1/trainees/dropdown';
+                                                        $response = wp_remote_get($endpoint_url);
 
+                                                        if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 200) {
+                                                            $trainees = json_decode(wp_remote_retrieve_body($response));
+
+                                                            foreach ($trainees as $trainee) {
+                                                                $selected = (isset($_POST['assignee']) && $_POST['assignee'] == $trainee->username) ? 'selected' : '';
+                                                                ?>
+                                                                <option value="<?php echo $trainee->username; ?>" <?php echo $selected; ?>><?php echo $trainee->username; ?></option>
+                                                                <?php
+                                                            }
+                                                        }
+                                                        ?>
+                                                    </select>
+                                                    <?php if (in_array('Assignee is required.', $errors)) { ?>
+                                                        <p class="text-danger">Assignee is required.</p>
+                                                    <?php } ?>
+                                                </div>
 
 
                                                 <div class="form-outline mb-2">

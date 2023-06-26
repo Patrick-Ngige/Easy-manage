@@ -16,11 +16,14 @@ $response = wp_remote_get('http://localhost/easy-manage/wp-json/wp/v2/users/me',
 )
 );
 
+
+
 if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 200) {
     $user_data = json_decode(wp_remote_retrieve_body($response));
-    $username = $user_data->name;
+    $username = strtolower($user_data->name);
+    var_dump($username);
 
-    $projects_url = "http://localhost/easy-manage/wp-json/em/v1/user_project_ids?username=" . $username;
+    $projects_url = "http://localhost/easy-manage/wp-json/em/v1/individual/user_project_ids?username=" . $username;
     $projects_response = wp_remote_get($projects_url);
 
     if (!is_wp_error($projects_response) && wp_remote_retrieve_response_code($projects_response) === 200) {

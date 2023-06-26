@@ -48,12 +48,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         curl_setopt($curl, CURLOPT_POST, true);
         curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($created_group_project));
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($curl, CURLOPT_HTTPHEADER, array(
-            'Content-Type: application/json',
-            'Authorization: Bearer ' . $token
-        ));
+        curl_setopt(
+            $curl,
+            CURLOPT_HTTPHEADER,
+            array(
+                'Content-Type: application/json',
+                'Authorization: Bearer ' . $token
+            )
+        );
 
         $response = curl_exec($curl);
+
+        var_dump($response);
         $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 
         if ($response === false) {
@@ -93,27 +99,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <h6 style="color:#315B87;position:fixed;background-color:#FAFAFA;margin-top:-2rem;padding:5px">Select Group
                 Members</h6>
             <?php
-            $trainees = get_users(array('role' => 'trainee'));
-            foreach ($trainees as $trainee) {
-                $trainee_name = $trainee->display_name;
-                ?>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="<?php echo $trainee_name; ?>"
-                        id="flexCheckDefault" />
-                    <label class="form-check-label" for="flexCheckDefault">
-                        <?php echo $trainee_name; ?>
-                    </label>
-                </div>
-                <?php
+            $endpoint_url = 'http://localhost/easy-manage/wp-json/em/v1/trainees/dropdown';
+            $response = wp_remote_get($endpoint_url);
+
+            if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 200) {
+                $trainees = json_decode(wp_remote_retrieve_body($response));
+
+                foreach ($trainees as $trainee) {
+                    $trainee_name = $trainee->username;
+                    ?>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="<?php echo $trainee_name; ?>"
+                            id="flexCheckDefault" />
+                        <label class="form-check-label" for="flexCheckDefault">
+                            <?php echo $trainee_name; ?>
+                        </label>
+                    </div>
+                    <?php
+                }
             }
             ?>
-            <div style="position:sticky;  width: 80%;z-index:1; margin-bottom:2rem">
+            <div style="position: absolute; bottom: 1rem; left: 25%;right:20%;">
                 <button class="selectbtn"
-                    style="background-color:#315B87;color:#FAFAFA;width: 15%;border-radius:5px;border:none;padding:5px;position:fixed;"
+                    style="background-color:#315B87;color:#FAFAFA;border-radius:5px;border:none;padding:5px;width: 80%;"
                     onclick="selectMembers()" name="selectbtn">Select</button>
             </div>
         </div>
-
 
         <div style="height:88vh;margin-left:1rem;padding:1rem ">
             <div class="container py-3 h-auto">

@@ -27,10 +27,28 @@ class AllUsers
 
         register_rest_route(
             'em/v1',
-            '/user_project_ids',
+            '/trainees/dropdown',
             array(
                 'methods' => array('GET'),
-                'callback' => array($this, 'get_user_project_ids'),
+                'callback' => array($this, 'get_trainees'),
+            )
+        );
+
+        register_rest_route(
+            'em/v1',
+            '/individual/user_project_ids',
+            array(
+                'methods' => array('GET'),
+                'callback' => array($this, 'get_user_individual_project_ids'),
+            )
+        );
+
+        register_rest_route(
+            'em/v1',
+            '/group/user_project_ids',
+            array(
+                'methods' => array('GET'),
+                'callback' => array($this, 'get_user_group_project_ids'),
             )
         );
 
@@ -114,35 +132,118 @@ class AllUsers
         return $pm;
     }
 
+    function get_trainees($request)
+    {
+        global $wpdb;
+        $max_projects = 3;
 
-    public function get_user_project_ids($request)
+        $query = $wpdb->prepare(
+            "SELECT u.ID, u.user_login
+            FROM {$wpdb->users} AS u
+            JOIN {$wpdb->usermeta} AS um ON u.ID = um.user_id
+            WHERE u.user_status = 0
+            AND um.meta_key = 'wp_capabilities'
+            AND um.meta_value LIKE '%trainee%'
+            AND (
+                u.ID NOT IN (
+                    SELECT assignee
+                    FROM {$wpdb->prefix}individual_projects
+                    GROUP BY assignee
+                    HAVING COUNT(*) < %d
+                )
+                OR
+                u.ID NOT IN (
+                    SELECT assigned_members
+                    FROM {$wpdb->prefix}group_projects
+                    WHERE id = group_id
+                    GROUP BY assigned_members
+                    HAVING COUNT(*) < %d
+                )
+            )",
+            $max_projects,
+            $max_projects
+        );
+
+        $trainees = $wpdb->get_results($query);
+
+        $response = array();
+        foreach ($trainees as $trainee) {
+            $project_count = $wpdb->get_var(
+                $wpdb->prepare(
+                    "SELECT COUNT(*) 
+                    FROM (
+                        SELECT assignee FROM {$wpdb->prefix}individual_projects
+                        WHERE assignee = %d
+                        UNION ALL
+                        SELECT assigned_members FROM {$wpdb->prefix}group_projects
+                        WHERE assigned_members = %d
+                    ) AS projects",
+                    $trainee->ID,
+                    $trainee->ID
+                )
+            );
+            if ($project_count < $max_projects) {
+                $response[] = array(
+                    'ID' => $trainee->ID,
+                    'username' => $trainee->user_login,
+                );
+            }
+        }
+
+        return rest_ensure_response($response);
+    }
+
+
+
+    public function get_user_individual_project_ids($request)
     {
         $username = $request->get_param('username');
-
-        // Query to retrieve the project ID(s) assigned to the user
         global $wpdb;
-        $table_name = $wpdb->prefix . 'group_projects';
+        $individual_table = $wpdb->prefix . 'individual_projects';
 
         $project_ids = $wpdb->get_col(
             $wpdb->prepare(
-                "SELECT group_id FROM $table_name WHERE FIND_IN_SET(%s, assigned_members) > 0 AND group_status = 0",
+                "SELECT project_id FROM $individual_table WHERE FIND_IN_SET(%s, assignee) > 0 AND project_status = 0",
                 $username
             )
         );
 
         if (empty($project_ids)) {
-            return new WP_Error('project_ids_not_found', 'No project IDs found for the user.', array('status' => 404));
+            return new WP_Error('project_ids_not_found', 'No individual project IDs found for the user.', array('status' => 404));
         }
 
         return $project_ids;
     }
+
+    public function get_user_group_project_ids($request)
+    {
+        $username = $request->get_param('username');
+        global $wpdb;
+        $group_table = $wpdb->prefix . 'group_projects';
+    
+        $project_ids = $wpdb->get_col(
+            $wpdb->prepare(
+                "SELECT group_id FROM $group_table WHERE assigned_members REGEXP %s AND group_status = 0",
+                '[[:<:]]' . $username . '[[:>:]]'
+            )
+        );
+    
+        if (empty($project_ids)) {
+            return new WP_Error('project_ids_not_found', 'No group project IDs found for the user.', array('status' => 404));
+        }
+    
+        return $project_ids;
+    }
+    
+
+
 
 
     public function retrieve_trainers_callback($request)
     {
         global $wpdb;
         $table_name = $wpdb->prefix . 'users';
-        $user_status = 0; // Set the desired user_status value
+        $user_status = 0;
 
         $trainers = $wpdb->get_results(
             $wpdb->prepare(
@@ -158,14 +259,11 @@ class AllUsers
         return $trainers;
     }
 
-
- 
-
     public function retrieve_trainees_callback($request)
     {
         global $wpdb;
         $table_name = $wpdb->prefix . 'users';
-        $user_status = 0; // Set the desired user_status value
+        $user_status = 0;
 
         $trainees = $wpdb->get_results(
             $wpdb->prepare(

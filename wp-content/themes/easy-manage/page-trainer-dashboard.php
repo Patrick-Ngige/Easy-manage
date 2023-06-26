@@ -93,7 +93,7 @@ function get_recent_individual_projects() {
     global $wpdb;
     $table_name = $wpdb->prefix . 'individual_projects';
 
-    $query = "SELECT * FROM $table_name ORDER BY project_id DESC LIMIT 2";
+    $query = "SELECT * FROM $table_name ORDER BY project_id DESC LIMIT 1";
     $results = $wpdb->get_results($query);
     
 
@@ -105,7 +105,7 @@ function get_recent_group_projects() {
     global $wpdb;
     $table_name = $wpdb->prefix . 'group_projects';
 
-    $query = "SELECT * FROM $table_name ORDER BY group_id DESC LIMIT 2";
+    $query = "SELECT * FROM $table_name ORDER BY group_id DESC LIMIT 1";
     $results = $wpdb->get_results($query);
 
     return $results;

@@ -21,7 +21,7 @@ class TrainerEndpoints
             array(
                 'methods' => array('POST', 'PATCH', 'GET'),
                 'callback' => array($this, 'trainee_callbacks'),
-                // 'permission_callback' => array($this, 'check_admin_permission'),
+                'permission_callback' => array($this, 'check_admin_permission'),
             )
         );
 
@@ -31,7 +31,7 @@ class TrainerEndpoints
             array(
                 'methods' => array('POST', 'PATCH'),
                 'callback' => array($this, 'individual_projects_callbacks'),
-                // 'permission_callback' => array($this, 'check_admin_permission'),
+                'permission_callback' => array($this, 'check_admin_permission'),
             )
         );
 
@@ -41,7 +41,7 @@ class TrainerEndpoints
             array(
                 'methods' => array('POST', 'PATCH'),
                 'callback' => array($this, 'group_projects_callbacks'),
-                // 'permission_callback' => array($this, 'check_admin_permission'),
+                'permission_callback' => array($this, 'check_admin_permission'),
             )
         );
 
@@ -144,6 +144,7 @@ class TrainerEndpoints
         }
     }
 
+
     public function update_trainee_callback($request)
     {
         $parameters = $request->get_params();
@@ -184,76 +185,91 @@ class TrainerEndpoints
             return new WP_Error('trainee_updating_failed', 'Failed to update trainee.', array('status' => 500));
         }
     }
+
+
     public function create_individual_project($request)
-{
-    $parameters = $request->get_json_params();
+    {
+        $project_name = $request->get_param('project_name');
+        $project_task = $request->get_param('project_task');
+        $assignee_username = $request->get_param('assignee');
+        $due_date = $request->get_param('due_date');
 
-    $project_name = $request->get_param('project_name');
-    $project_task = $request->get_param('project_task');
-    $assignee_name = $request->get_param('assignee');
-    $due_date = $request->get_param('due_date');
+        $assignee_name = trim($assignee_username);
 
-    // Check if the assignee exists in wp_users table
-    $assignee_user = get_user_by('login', $assignee_name);
-    if (!$assignee_user) {
-        return new WP_Error('invalid_assignee', 'Invalid assignee. Please select an existing user.', array('status' => 400));
-    }
+        if (!username_exists($assignee_username)) {
+            return new WP_Error('invalid_assignee', 'Invalid assignee. Please select an existing user.', array('status' => 400));
+        }
 
-    $assignee_id = $assignee_user->ID;
+        $assignee_id = username_exists($assignee_username);
 
-    if ($this->is_assignee_reached_max_projects($assignee_id)) {
-        return new WP_Error('max_projects_reached', 'The assignee has reached the maximum number of projects.', array('status' => 400));
-    }
+        if ($this->is_assignee_reached_max_projects($assignee_username)) {
+            return new WP_Error('max_projects_reached', 'The assignee has reached the maximum number of projects.', array('status' => 400));
+        }
 
-    global $wpdb;
-    $table_name = $wpdb->prefix . 'individual_projects';
+        global $wpdb;
+        $table_name = $wpdb->prefix . 'individual_projects';
 
-    $result = $wpdb->insert(
-        $table_name,
-        array(
-            'project_name' => $project_name,
-            'project_task' => $project_task,
-            'assignee' => $assignee_id,
-            'due_date' => $due_date,
-        )
-    );
-
-    if ($result !== false) {
-        $project_id = $wpdb->insert_id;
-        $response = array(
-            'success' => true,
-            'message' => 'Individual project created successfully',
-            'project_id' => $project_id,
+        // Check if the project already exists
+        $existing_project = $wpdb->get_row(
+            $wpdb->prepare(
+                "SELECT project_id FROM $table_name WHERE project_name = %s AND assignee = %s",
+                $project_name,
+                $assignee_name
+            )
         );
-        return rest_ensure_response($response);
-    } else {
-        return new WP_Error('project_creation_failed', 'Failed to create individual project.', array('status' => 500));
+
+        if ($existing_project) {
+            return new WP_Error('project_exists', 'This project already exists.', array('status' => 400));
+        }
+
+        $result = $wpdb->insert(
+            $table_name,
+            array(
+                'project_name' => $project_name,
+                'project_task' => $project_task,
+                'assignee' => $assignee_name,
+                'due_date' => $due_date,
+            )
+        );
+
+        if ($result !== false) {
+            $project_id = $wpdb->insert_id;
+
+            $assigned_projects = get_user_meta($assignee_id, 'assigned_projects', true);
+            $assigned_projects[] = $project_id;
+            update_user_meta($assignee_id, 'assigned_projects', $assigned_projects);
+
+            $response = array(
+                'success' => true,
+                'message' => 'Individual project created successfully',
+                'project_id' => $project_id,
+            );
+            return rest_ensure_response($response);
+        } else {
+            return new WP_Error('project_creation_failed', 'Failed to create individual project.', array('status' => 500));
+        }
     }
-}
 
-    
-    
+    private function is_assignee_reached_max_projects($assignee_username)
+    {
+        $max_projects = 3;
 
-private function is_assignee_reached_max_projects($assignee)
-{
-    $max_projects = 3;
+        $assignee = get_user_by('login', $assignee_username);
 
-    $assigned_projects_count = get_users(
-        array(
-            'role' => 'trainee',
-            'meta_query' => array(
-                array(
-                    'key' => 'assigned_projects',
-                    'value' => '"' . $assignee . '"',
-                    'compare' => 'LIKE',
-                ),
-            ),
-            'count_total' => true,
-        )
-    );
+        if (!$assignee) {
+            return false;
+        }
 
-    return $assigned_projects_count >= $max_projects;
-}
+        $assignee_id = $assignee->ID;
+
+        $assigned_projects_count = get_user_meta($assignee_id, 'assigned_projects', true);
+
+        return count($assigned_projects_count) >= $max_projects;
+    }
+
+
+
+
 
     public function update_individual_project($request)
     {
@@ -293,12 +309,12 @@ private function is_assignee_reached_max_projects($assignee)
 
     public function create_group_project($request)
     {
-        $data = $request->get_json_params();
+        // $data = $request->get_json_params();
     
-        $assigned_members = $data['assigned_members'];
-        $group_project = $data['group_project'];
-        $project_task = $data['project_task'];
-        $due_date = $data['due_date'];
+        $assigned_members = $request->get_param('assigned_members');
+        $group_project = $request->get_param('group_project');
+        $project_task = $request->get_param('project_task');
+        $due_date = $request->get_param('due_date');
     
         if (empty($assigned_members) || empty($group_project) || empty($project_task) || empty($due_date)) {
             $missing_fields = array();
@@ -346,10 +362,12 @@ private function is_assignee_reached_max_projects($assignee)
             }
         }
     
+        $assigned_members_names = implode(', ', $assigned_members); 
+    
         $result = $wpdb->insert(
             $table_name,
             array(
-                'assigned_members' => implode(', ', $assigned_members),
+                'assigned_members' => $assigned_members_names,
                 'project_name' => $group_project,
                 'project_task' => $project_task,
                 'due_date' => $due_date,
@@ -365,11 +383,12 @@ private function is_assignee_reached_max_projects($assignee)
             return rest_ensure_response($response);
         }
     
-        return new WP_Error('project_creation_failed', 'Failed to create group project.', array('status' => 500));
+        return new WP_Error('project_creation_failed', 'Failed to create group project.', array('status' => 501));
     }
     
 
-    
+
+
     public function update_group_project($request)
     {
         $group_id = $request['group_id'];

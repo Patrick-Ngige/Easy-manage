@@ -1,0 +1,812 @@
+[26-Jun-2023 12:27:35 UTC] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, string given in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php:258
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(258): count('')
+#1 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(207): Inc\Pages\TrainerEndpoints->is_assignee_reached_max_projects('Brian')
+#2 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(71): Inc\Pages\TrainerEndpoints->create_individual_project(Object(WP_REST_Request))
+#3 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1181): Inc\Pages\TrainerEndpoints->individual_projects_callbacks(Object(WP_REST_Request))
+#4 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1028): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/em/v1/projects...', Array, NULL)
+#5 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(442): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#6 C:\xampp\htdocs\easy-manage\wp-includes\rest-api.php(410): WP_REST_Server->serve_request('/em/v1/projects...')
+#7 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(308): rest_api_loaded(Object(WP))
+#8 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters('', Array)
+#9 C:\xampp\htdocs\easy-manage\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#10 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(399): do_action_ref_array('parse_request', Array)
+#11 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(780): WP->parse_request('')
+#12 C:\xampp\htdocs\easy-manage\wp-includes\functions.php(1334): WP->main('')
+#13 C:\xampp\htdocs\easy-manage\wp-blog-header.php(16): wp()
+#14 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#15 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php on line 258
+[26-Jun-2023 12:41:05 UTC] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, string given in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php:258
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(258): count('')
+#1 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(207): Inc\Pages\TrainerEndpoints->is_assignee_reached_max_projects('Brian')
+#2 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(71): Inc\Pages\TrainerEndpoints->create_individual_project(Object(WP_REST_Request))
+#3 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1181): Inc\Pages\TrainerEndpoints->individual_projects_callbacks(Object(WP_REST_Request))
+#4 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1028): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/em/v1/projects...', Array, NULL)
+#5 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(442): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#6 C:\xampp\htdocs\easy-manage\wp-includes\rest-api.php(410): WP_REST_Server->serve_request('/em/v1/projects...')
+#7 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(308): rest_api_loaded(Object(WP))
+#8 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters('', Array)
+#9 C:\xampp\htdocs\easy-manage\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#10 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(399): do_action_ref_array('parse_request', Array)
+#11 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(780): WP->parse_request('')
+#12 C:\xampp\htdocs\easy-manage\wp-includes\functions.php(1334): WP->main('')
+#13 C:\xampp\htdocs\easy-manage\wp-blog-header.php(16): wp()
+#14 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#15 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php on line 258
+[26-Jun-2023 12:41:34 UTC] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, string given in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php:258
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(258): count('')
+#1 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(207): Inc\Pages\TrainerEndpoints->is_assignee_reached_max_projects('Brian')
+#2 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(71): Inc\Pages\TrainerEndpoints->create_individual_project(Object(WP_REST_Request))
+#3 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1181): Inc\Pages\TrainerEndpoints->individual_projects_callbacks(Object(WP_REST_Request))
+#4 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1028): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/em/v1/projects...', Array, NULL)
+#5 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(442): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#6 C:\xampp\htdocs\easy-manage\wp-includes\rest-api.php(410): WP_REST_Server->serve_request('/em/v1/projects...')
+#7 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(308): rest_api_loaded(Object(WP))
+#8 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters('', Array)
+#9 C:\xampp\htdocs\easy-manage\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#10 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(399): do_action_ref_array('parse_request', Array)
+#11 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(780): WP->parse_request('')
+#12 C:\xampp\htdocs\easy-manage\wp-includes\functions.php(1334): WP->main('')
+#13 C:\xampp\htdocs\easy-manage\wp-blog-header.php(16): wp()
+#14 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#15 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php on line 258
+[26-Jun-2023 12:42:44 UTC] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, string given in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php:259
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(259): count('')
+#1 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(208): Inc\Pages\TrainerEndpoints->is_assignee_reached_max_projects('Brian')
+#2 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(71): Inc\Pages\TrainerEndpoints->create_individual_project(Object(WP_REST_Request))
+#3 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1181): Inc\Pages\TrainerEndpoints->individual_projects_callbacks(Object(WP_REST_Request))
+#4 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1028): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/em/v1/projects...', Array, NULL)
+#5 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(442): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#6 C:\xampp\htdocs\easy-manage\wp-includes\rest-api.php(410): WP_REST_Server->serve_request('/em/v1/projects...')
+#7 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(308): rest_api_loaded(Object(WP))
+#8 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters('', Array)
+#9 C:\xampp\htdocs\easy-manage\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#10 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(399): do_action_ref_array('parse_request', Array)
+#11 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(780): WP->parse_request('')
+#12 C:\xampp\htdocs\easy-manage\wp-includes\functions.php(1334): WP->main('')
+#13 C:\xampp\htdocs\easy-manage\wp-blog-header.php(16): wp()
+#14 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#15 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php on line 259
+[26-Jun-2023 12:43:58 UTC] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, bool given in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php:259
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(259): count(false)
+#1 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(208): Inc\Pages\TrainerEndpoints->is_assignee_reached_max_projects('Brian')
+#2 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(71): Inc\Pages\TrainerEndpoints->create_individual_project(Object(WP_REST_Request))
+#3 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1181): Inc\Pages\TrainerEndpoints->individual_projects_callbacks(Object(WP_REST_Request))
+#4 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1028): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/em/v1/projects...', Array, NULL)
+#5 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(442): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#6 C:\xampp\htdocs\easy-manage\wp-includes\rest-api.php(410): WP_REST_Server->serve_request('/em/v1/projects...')
+#7 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(308): rest_api_loaded(Object(WP))
+#8 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters('', Array)
+#9 C:\xampp\htdocs\easy-manage\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#10 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(399): do_action_ref_array('parse_request', Array)
+#11 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(780): WP->parse_request('')
+#12 C:\xampp\htdocs\easy-manage\wp-includes\functions.php(1334): WP->main('')
+#13 C:\xampp\htdocs\easy-manage\wp-blog-header.php(16): wp()
+#14 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#15 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php on line 259
+[26-Jun-2023 12:44:35 UTC] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, bool given in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php:259
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(259): count(false)
+#1 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(208): Inc\Pages\TrainerEndpoints->is_assignee_reached_max_projects('Brian')
+#2 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(71): Inc\Pages\TrainerEndpoints->create_individual_project(Object(WP_REST_Request))
+#3 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1181): Inc\Pages\TrainerEndpoints->individual_projects_callbacks(Object(WP_REST_Request))
+#4 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1028): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/em/v1/projects...', Array, NULL)
+#5 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(442): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#6 C:\xampp\htdocs\easy-manage\wp-includes\rest-api.php(410): WP_REST_Server->serve_request('/em/v1/projects...')
+#7 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(308): rest_api_loaded(Object(WP))
+#8 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters('', Array)
+#9 C:\xampp\htdocs\easy-manage\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#10 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(399): do_action_ref_array('parse_request', Array)
+#11 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(780): WP->parse_request('')
+#12 C:\xampp\htdocs\easy-manage\wp-includes\functions.php(1334): WP->main('')
+#13 C:\xampp\htdocs\easy-manage\wp-blog-header.php(16): wp()
+#14 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#15 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php on line 259
+[26-Jun-2023 12:46:24 UTC] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, string given in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php:248
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(248): count('')
+#1 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(207): Inc\Pages\TrainerEndpoints->is_assignee_reached_max_projects(69)
+#2 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(71): Inc\Pages\TrainerEndpoints->create_individual_project(Object(WP_REST_Request))
+#3 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1181): Inc\Pages\TrainerEndpoints->individual_projects_callbacks(Object(WP_REST_Request))
+#4 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1028): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/em/v1/projects...', Array, NULL)
+#5 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(442): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#6 C:\xampp\htdocs\easy-manage\wp-includes\rest-api.php(410): WP_REST_Server->serve_request('/em/v1/projects...')
+#7 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(308): rest_api_loaded(Object(WP))
+#8 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters('', Array)
+#9 C:\xampp\htdocs\easy-manage\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#10 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(399): do_action_ref_array('parse_request', Array)
+#11 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(780): WP->parse_request('')
+#12 C:\xampp\htdocs\easy-manage\wp-includes\functions.php(1334): WP->main('')
+#13 C:\xampp\htdocs\easy-manage\wp-blog-header.php(16): wp()
+#14 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#15 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php on line 248
+[26-Jun-2023 12:46:42 UTC] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, string given in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php:248
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(248): count('')
+#1 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(207): Inc\Pages\TrainerEndpoints->is_assignee_reached_max_projects(69)
+#2 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(71): Inc\Pages\TrainerEndpoints->create_individual_project(Object(WP_REST_Request))
+#3 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1181): Inc\Pages\TrainerEndpoints->individual_projects_callbacks(Object(WP_REST_Request))
+#4 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1028): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/em/v1/projects...', Array, NULL)
+#5 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(442): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#6 C:\xampp\htdocs\easy-manage\wp-includes\rest-api.php(410): WP_REST_Server->serve_request('/em/v1/projects...')
+#7 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(308): rest_api_loaded(Object(WP))
+#8 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters('', Array)
+#9 C:\xampp\htdocs\easy-manage\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#10 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(399): do_action_ref_array('parse_request', Array)
+#11 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(780): WP->parse_request('')
+#12 C:\xampp\htdocs\easy-manage\wp-includes\functions.php(1334): WP->main('')
+#13 C:\xampp\htdocs\easy-manage\wp-blog-header.php(16): wp()
+#14 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#15 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php on line 248
+[26-Jun-2023 12:54:01 UTC] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, string given in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php:248
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(248): count('')
+#1 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(207): Inc\Pages\TrainerEndpoints->is_assignee_reached_max_projects(69)
+#2 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(71): Inc\Pages\TrainerEndpoints->create_individual_project(Object(WP_REST_Request))
+#3 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1181): Inc\Pages\TrainerEndpoints->individual_projects_callbacks(Object(WP_REST_Request))
+#4 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1028): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/em/v1/projects...', Array, NULL)
+#5 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(442): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#6 C:\xampp\htdocs\easy-manage\wp-includes\rest-api.php(410): WP_REST_Server->serve_request('/em/v1/projects...')
+#7 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(308): rest_api_loaded(Object(WP))
+#8 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters('', Array)
+#9 C:\xampp\htdocs\easy-manage\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#10 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(399): do_action_ref_array('parse_request', Array)
+#11 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(780): WP->parse_request('')
+#12 C:\xampp\htdocs\easy-manage\wp-includes\functions.php(1334): WP->main('')
+#13 C:\xampp\htdocs\easy-manage\wp-blog-header.php(16): wp()
+#14 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#15 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php on line 248
+[26-Jun-2023 12:55:23 UTC] PHP Fatal error:  Uncaught Error: [] operator not supported for strings in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php:228
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(71): Inc\Pages\TrainerEndpoints->create_individual_project(Object(WP_REST_Request))
+#1 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1181): Inc\Pages\TrainerEndpoints->individual_projects_callbacks(Object(WP_REST_Request))
+#2 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1028): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/em/v1/projects...', Array, NULL)
+#3 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(442): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#4 C:\xampp\htdocs\easy-manage\wp-includes\rest-api.php(410): WP_REST_Server->serve_request('/em/v1/projects...')
+#5 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(308): rest_api_loaded(Object(WP))
+#6 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters('', Array)
+#7 C:\xampp\htdocs\easy-manage\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#8 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(399): do_action_ref_array('parse_request', Array)
+#9 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(780): WP->parse_request('')
+#10 C:\xampp\htdocs\easy-manage\wp-includes\functions.php(1334): WP->main('')
+#11 C:\xampp\htdocs\easy-manage\wp-blog-header.php(16): wp()
+#12 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#13 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php on line 228
+[26-Jun-2023 13:02:00 UTC] PHP Fatal error:  Uncaught Error: [] operator not supported for strings in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php:228
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(71): Inc\Pages\TrainerEndpoints->create_individual_project(Object(WP_REST_Request))
+#1 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1181): Inc\Pages\TrainerEndpoints->individual_projects_callbacks(Object(WP_REST_Request))
+#2 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1028): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/em/v1/projects...', Array, NULL)
+#3 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(442): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#4 C:\xampp\htdocs\easy-manage\wp-includes\rest-api.php(410): WP_REST_Server->serve_request('/em/v1/projects...')
+#5 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(308): rest_api_loaded(Object(WP))
+#6 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters('', Array)
+#7 C:\xampp\htdocs\easy-manage\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#8 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(399): do_action_ref_array('parse_request', Array)
+#9 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(780): WP->parse_request('')
+#10 C:\xampp\htdocs\easy-manage\wp-includes\functions.php(1334): WP->main('')
+#11 C:\xampp\htdocs\easy-manage\wp-blog-header.php(16): wp()
+#12 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#13 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php on line 228
+[26-Jun-2023 13:07:25 UTC] PHP Fatal error:  Uncaught Error: [] operator not supported for strings in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php:230
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(71): Inc\Pages\TrainerEndpoints->create_individual_project(Object(WP_REST_Request))
+#1 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1181): Inc\Pages\TrainerEndpoints->individual_projects_callbacks(Object(WP_REST_Request))
+#2 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1028): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/em/v1/projects...', Array, NULL)
+#3 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(442): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#4 C:\xampp\htdocs\easy-manage\wp-includes\rest-api.php(410): WP_REST_Server->serve_request('/em/v1/projects...')
+#5 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(308): rest_api_loaded(Object(WP))
+#6 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters('', Array)
+#7 C:\xampp\htdocs\easy-manage\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#8 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(399): do_action_ref_array('parse_request', Array)
+#9 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(780): WP->parse_request('')
+#10 C:\xampp\htdocs\easy-manage\wp-includes\functions.php(1334): WP->main('')
+#11 C:\xampp\htdocs\easy-manage\wp-blog-header.php(16): wp()
+#12 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#13 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php on line 230
+[26-Jun-2023 13:08:41 UTC] PHP Fatal error:  Uncaught Error: [] operator not supported for strings in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php:230
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(71): Inc\Pages\TrainerEndpoints->create_individual_project(Object(WP_REST_Request))
+#1 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1181): Inc\Pages\TrainerEndpoints->individual_projects_callbacks(Object(WP_REST_Request))
+#2 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1028): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/em/v1/projects...', Array, NULL)
+#3 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(442): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#4 C:\xampp\htdocs\easy-manage\wp-includes\rest-api.php(410): WP_REST_Server->serve_request('/em/v1/projects...')
+#5 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(308): rest_api_loaded(Object(WP))
+#6 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters('', Array)
+#7 C:\xampp\htdocs\easy-manage\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#8 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(399): do_action_ref_array('parse_request', Array)
+#9 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(780): WP->parse_request('')
+#10 C:\xampp\htdocs\easy-manage\wp-includes\functions.php(1334): WP->main('')
+#11 C:\xampp\htdocs\easy-manage\wp-blog-header.php(16): wp()
+#12 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#13 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php on line 230
+[26-Jun-2023 13:09:23 UTC] PHP Fatal error:  Uncaught Error: [] operator not supported for strings in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php:230
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(71): Inc\Pages\TrainerEndpoints->create_individual_project(Object(WP_REST_Request))
+#1 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1181): Inc\Pages\TrainerEndpoints->individual_projects_callbacks(Object(WP_REST_Request))
+#2 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1028): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/em/v1/projects...', Array, NULL)
+#3 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(442): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#4 C:\xampp\htdocs\easy-manage\wp-includes\rest-api.php(410): WP_REST_Server->serve_request('/em/v1/projects...')
+#5 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(308): rest_api_loaded(Object(WP))
+#6 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters('', Array)
+#7 C:\xampp\htdocs\easy-manage\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#8 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(399): do_action_ref_array('parse_request', Array)
+#9 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(780): WP->parse_request('')
+#10 C:\xampp\htdocs\easy-manage\wp-includes\functions.php(1334): WP->main('')
+#11 C:\xampp\htdocs\easy-manage\wp-blog-header.php(16): wp()
+#12 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#13 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php on line 230
+[26-Jun-2023 13:11:03 UTC] PHP Fatal error:  Uncaught Error: [] operator not supported for strings in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php:230
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(71): Inc\Pages\TrainerEndpoints->create_individual_project(Object(WP_REST_Request))
+#1 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1181): Inc\Pages\TrainerEndpoints->individual_projects_callbacks(Object(WP_REST_Request))
+#2 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1028): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/em/v1/projects...', Array, NULL)
+#3 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(442): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#4 C:\xampp\htdocs\easy-manage\wp-includes\rest-api.php(410): WP_REST_Server->serve_request('/em/v1/projects...')
+#5 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(308): rest_api_loaded(Object(WP))
+#6 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters('', Array)
+#7 C:\xampp\htdocs\easy-manage\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#8 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(399): do_action_ref_array('parse_request', Array)
+#9 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(780): WP->parse_request('')
+#10 C:\xampp\htdocs\easy-manage\wp-includes\functions.php(1334): WP->main('')
+#11 C:\xampp\htdocs\easy-manage\wp-blog-header.php(16): wp()
+#12 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#13 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php on line 230
+[26-Jun-2023 13:16:37 UTC] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, string given in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php:251
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(251): count('')
+#1 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(207): Inc\Pages\TrainerEndpoints->is_assignee_reached_max_projects(72)
+#2 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(71): Inc\Pages\TrainerEndpoints->create_individual_project(Object(WP_REST_Request))
+#3 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1181): Inc\Pages\TrainerEndpoints->individual_projects_callbacks(Object(WP_REST_Request))
+#4 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1028): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/em/v1/projects...', Array, NULL)
+#5 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(442): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#6 C:\xampp\htdocs\easy-manage\wp-includes\rest-api.php(410): WP_REST_Server->serve_request('/em/v1/projects...')
+#7 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(308): rest_api_loaded(Object(WP))
+#8 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters('', Array)
+#9 C:\xampp\htdocs\easy-manage\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#10 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(399): do_action_ref_array('parse_request', Array)
+#11 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(780): WP->parse_request('')
+#12 C:\xampp\htdocs\easy-manage\wp-includes\functions.php(1334): WP->main('')
+#13 C:\xampp\htdocs\easy-manage\wp-blog-header.php(16): wp()
+#14 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#15 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php on line 251
+[26-Jun-2023 13:17:12 UTC] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, string given in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php:251
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(251): count('')
+#1 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(207): Inc\Pages\TrainerEndpoints->is_assignee_reached_max_projects(72)
+#2 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(71): Inc\Pages\TrainerEndpoints->create_individual_project(Object(WP_REST_Request))
+#3 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1181): Inc\Pages\TrainerEndpoints->individual_projects_callbacks(Object(WP_REST_Request))
+#4 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1028): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/em/v1/projects...', Array, NULL)
+#5 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(442): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#6 C:\xampp\htdocs\easy-manage\wp-includes\rest-api.php(410): WP_REST_Server->serve_request('/em/v1/projects...')
+#7 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(308): rest_api_loaded(Object(WP))
+#8 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters('', Array)
+#9 C:\xampp\htdocs\easy-manage\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#10 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(399): do_action_ref_array('parse_request', Array)
+#11 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(780): WP->parse_request('')
+#12 C:\xampp\htdocs\easy-manage\wp-includes\functions.php(1334): WP->main('')
+#13 C:\xampp\htdocs\easy-manage\wp-blog-header.php(16): wp()
+#14 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#15 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php on line 251
+[26-Jun-2023 13:18:16 UTC] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, string given in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php:251
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(251): count('')
+#1 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(207): Inc\Pages\TrainerEndpoints->is_assignee_reached_max_projects(72)
+#2 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(71): Inc\Pages\TrainerEndpoints->create_individual_project(Object(WP_REST_Request))
+#3 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1181): Inc\Pages\TrainerEndpoints->individual_projects_callbacks(Object(WP_REST_Request))
+#4 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1028): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/em/v1/projects...', Array, NULL)
+#5 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(442): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#6 C:\xampp\htdocs\easy-manage\wp-includes\rest-api.php(410): WP_REST_Server->serve_request('/em/v1/projects...')
+#7 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(308): rest_api_loaded(Object(WP))
+#8 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters('', Array)
+#9 C:\xampp\htdocs\easy-manage\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#10 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(399): do_action_ref_array('parse_request', Array)
+#11 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(780): WP->parse_request('')
+#12 C:\xampp\htdocs\easy-manage\wp-includes\functions.php(1334): WP->main('')
+#13 C:\xampp\htdocs\easy-manage\wp-blog-header.php(16): wp()
+#14 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#15 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php on line 251
+[26-Jun-2023 13:18:47 UTC] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, string given in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php:251
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(251): count('')
+#1 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(207): Inc\Pages\TrainerEndpoints->is_assignee_reached_max_projects(72)
+#2 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(71): Inc\Pages\TrainerEndpoints->create_individual_project(Object(WP_REST_Request))
+#3 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1181): Inc\Pages\TrainerEndpoints->individual_projects_callbacks(Object(WP_REST_Request))
+#4 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1028): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/em/v1/projects...', Array, NULL)
+#5 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(442): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#6 C:\xampp\htdocs\easy-manage\wp-includes\rest-api.php(410): WP_REST_Server->serve_request('/em/v1/projects...')
+#7 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(308): rest_api_loaded(Object(WP))
+#8 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters('', Array)
+#9 C:\xampp\htdocs\easy-manage\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#10 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(399): do_action_ref_array('parse_request', Array)
+#11 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(780): WP->parse_request('')
+#12 C:\xampp\htdocs\easy-manage\wp-includes\functions.php(1334): WP->main('')
+#13 C:\xampp\htdocs\easy-manage\wp-blog-header.php(16): wp()
+#14 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#15 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php on line 251
+[26-Jun-2023 13:19:12 UTC] PHP Fatal error:  Uncaught Error: [] operator not supported for strings in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php:230
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(71): Inc\Pages\TrainerEndpoints->create_individual_project(Object(WP_REST_Request))
+#1 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1181): Inc\Pages\TrainerEndpoints->individual_projects_callbacks(Object(WP_REST_Request))
+#2 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1028): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/em/v1/projects...', Array, NULL)
+#3 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(442): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#4 C:\xampp\htdocs\easy-manage\wp-includes\rest-api.php(410): WP_REST_Server->serve_request('/em/v1/projects...')
+#5 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(308): rest_api_loaded(Object(WP))
+#6 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters('', Array)
+#7 C:\xampp\htdocs\easy-manage\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#8 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(399): do_action_ref_array('parse_request', Array)
+#9 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(780): WP->parse_request('')
+#10 C:\xampp\htdocs\easy-manage\wp-includes\functions.php(1334): WP->main('')
+#11 C:\xampp\htdocs\easy-manage\wp-blog-header.php(16): wp()
+#12 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#13 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php on line 230
+[26-Jun-2023 13:21:01 UTC] PHP Fatal error:  Uncaught Error: [] operator not supported for strings in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php:230
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(71): Inc\Pages\TrainerEndpoints->create_individual_project(Object(WP_REST_Request))
+#1 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1181): Inc\Pages\TrainerEndpoints->individual_projects_callbacks(Object(WP_REST_Request))
+#2 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1028): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/em/v1/projects...', Array, NULL)
+#3 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(442): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#4 C:\xampp\htdocs\easy-manage\wp-includes\rest-api.php(410): WP_REST_Server->serve_request('/em/v1/projects...')
+#5 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(308): rest_api_loaded(Object(WP))
+#6 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters('', Array)
+#7 C:\xampp\htdocs\easy-manage\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#8 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(399): do_action_ref_array('parse_request', Array)
+#9 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(780): WP->parse_request('')
+#10 C:\xampp\htdocs\easy-manage\wp-includes\functions.php(1334): WP->main('')
+#11 C:\xampp\htdocs\easy-manage\wp-blog-header.php(16): wp()
+#12 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#13 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php on line 230
+[26-Jun-2023 13:22:11 UTC] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, string given in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php:258
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(258): count('')
+#1 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(207): Inc\Pages\TrainerEndpoints->is_assignee_reached_max_projects('Kim')
+#2 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(71): Inc\Pages\TrainerEndpoints->create_individual_project(Object(WP_REST_Request))
+#3 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1181): Inc\Pages\TrainerEndpoints->individual_projects_callbacks(Object(WP_REST_Request))
+#4 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1028): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/em/v1/projects...', Array, NULL)
+#5 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(442): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#6 C:\xampp\htdocs\easy-manage\wp-includes\rest-api.php(410): WP_REST_Server->serve_request('/em/v1/projects...')
+#7 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(308): rest_api_loaded(Object(WP))
+#8 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters('', Array)
+#9 C:\xampp\htdocs\easy-manage\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#10 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(399): do_action_ref_array('parse_request', Array)
+#11 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(780): WP->parse_request('')
+#12 C:\xampp\htdocs\easy-manage\wp-includes\functions.php(1334): WP->main('')
+#13 C:\xampp\htdocs\easy-manage\wp-blog-header.php(16): wp()
+#14 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#15 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php on line 258
+[26-Jun-2023 13:22:34 UTC] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, string given in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php:258
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(258): count('')
+#1 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(207): Inc\Pages\TrainerEndpoints->is_assignee_reached_max_projects('Kim')
+#2 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(71): Inc\Pages\TrainerEndpoints->create_individual_project(Object(WP_REST_Request))
+#3 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1181): Inc\Pages\TrainerEndpoints->individual_projects_callbacks(Object(WP_REST_Request))
+#4 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1028): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/em/v1/projects...', Array, NULL)
+#5 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(442): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#6 C:\xampp\htdocs\easy-manage\wp-includes\rest-api.php(410): WP_REST_Server->serve_request('/em/v1/projects...')
+#7 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(308): rest_api_loaded(Object(WP))
+#8 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters('', Array)
+#9 C:\xampp\htdocs\easy-manage\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#10 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(399): do_action_ref_array('parse_request', Array)
+#11 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(780): WP->parse_request('')
+#12 C:\xampp\htdocs\easy-manage\wp-includes\functions.php(1334): WP->main('')
+#13 C:\xampp\htdocs\easy-manage\wp-blog-header.php(16): wp()
+#14 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#15 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php on line 258
+[26-Jun-2023 13:23:36 UTC] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, string given in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php:258
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(258): count('')
+#1 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(207): Inc\Pages\TrainerEndpoints->is_assignee_reached_max_projects('Kim')
+#2 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(71): Inc\Pages\TrainerEndpoints->create_individual_project(Object(WP_REST_Request))
+#3 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1181): Inc\Pages\TrainerEndpoints->individual_projects_callbacks(Object(WP_REST_Request))
+#4 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1028): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/em/v1/projects...', Array, NULL)
+#5 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(442): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#6 C:\xampp\htdocs\easy-manage\wp-includes\rest-api.php(410): WP_REST_Server->serve_request('/em/v1/projects...')
+#7 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(308): rest_api_loaded(Object(WP))
+#8 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters('', Array)
+#9 C:\xampp\htdocs\easy-manage\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#10 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(399): do_action_ref_array('parse_request', Array)
+#11 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(780): WP->parse_request('')
+#12 C:\xampp\htdocs\easy-manage\wp-includes\functions.php(1334): WP->main('')
+#13 C:\xampp\htdocs\easy-manage\wp-blog-header.php(16): wp()
+#14 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#15 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php on line 258
+[26-Jun-2023 13:24:04 UTC] PHP Fatal error:  Uncaught Error: [] operator not supported for strings in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php:230
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(71): Inc\Pages\TrainerEndpoints->create_individual_project(Object(WP_REST_Request))
+#1 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1181): Inc\Pages\TrainerEndpoints->individual_projects_callbacks(Object(WP_REST_Request))
+#2 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1028): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/em/v1/projects...', Array, NULL)
+#3 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(442): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#4 C:\xampp\htdocs\easy-manage\wp-includes\rest-api.php(410): WP_REST_Server->serve_request('/em/v1/projects...')
+#5 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(308): rest_api_loaded(Object(WP))
+#6 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters('', Array)
+#7 C:\xampp\htdocs\easy-manage\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#8 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(399): do_action_ref_array('parse_request', Array)
+#9 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(780): WP->parse_request('')
+#10 C:\xampp\htdocs\easy-manage\wp-includes\functions.php(1334): WP->main('')
+#11 C:\xampp\htdocs\easy-manage\wp-blog-header.php(16): wp()
+#12 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#13 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php on line 230
+[26-Jun-2023 13:25:00 UTC] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, string given in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php:258
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(258): count('')
+#1 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(207): Inc\Pages\TrainerEndpoints->is_assignee_reached_max_projects('Joy')
+#2 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(71): Inc\Pages\TrainerEndpoints->create_individual_project(Object(WP_REST_Request))
+#3 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1181): Inc\Pages\TrainerEndpoints->individual_projects_callbacks(Object(WP_REST_Request))
+#4 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1028): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/em/v1/projects...', Array, NULL)
+#5 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(442): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#6 C:\xampp\htdocs\easy-manage\wp-includes\rest-api.php(410): WP_REST_Server->serve_request('/em/v1/projects...')
+#7 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(308): rest_api_loaded(Object(WP))
+#8 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters('', Array)
+#9 C:\xampp\htdocs\easy-manage\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#10 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(399): do_action_ref_array('parse_request', Array)
+#11 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(780): WP->parse_request('')
+#12 C:\xampp\htdocs\easy-manage\wp-includes\functions.php(1334): WP->main('')
+#13 C:\xampp\htdocs\easy-manage\wp-blog-header.php(16): wp()
+#14 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#15 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php on line 258
+[26-Jun-2023 13:25:30 UTC] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, string given in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php:258
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(258): count('')
+#1 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(207): Inc\Pages\TrainerEndpoints->is_assignee_reached_max_projects('Joy')
+#2 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(71): Inc\Pages\TrainerEndpoints->create_individual_project(Object(WP_REST_Request))
+#3 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1181): Inc\Pages\TrainerEndpoints->individual_projects_callbacks(Object(WP_REST_Request))
+#4 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1028): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/em/v1/projects...', Array, NULL)
+#5 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(442): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#6 C:\xampp\htdocs\easy-manage\wp-includes\rest-api.php(410): WP_REST_Server->serve_request('/em/v1/projects...')
+#7 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(308): rest_api_loaded(Object(WP))
+#8 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters('', Array)
+#9 C:\xampp\htdocs\easy-manage\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#10 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(399): do_action_ref_array('parse_request', Array)
+#11 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(780): WP->parse_request('')
+#12 C:\xampp\htdocs\easy-manage\wp-includes\functions.php(1334): WP->main('')
+#13 C:\xampp\htdocs\easy-manage\wp-blog-header.php(16): wp()
+#14 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#15 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php on line 258
+[26-Jun-2023 13:26:06 UTC] PHP Fatal error:  Uncaught Error: [] operator not supported for strings in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php:230
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(71): Inc\Pages\TrainerEndpoints->create_individual_project(Object(WP_REST_Request))
+#1 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1181): Inc\Pages\TrainerEndpoints->individual_projects_callbacks(Object(WP_REST_Request))
+#2 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1028): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/em/v1/projects...', Array, NULL)
+#3 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(442): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#4 C:\xampp\htdocs\easy-manage\wp-includes\rest-api.php(410): WP_REST_Server->serve_request('/em/v1/projects...')
+#5 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(308): rest_api_loaded(Object(WP))
+#6 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters('', Array)
+#7 C:\xampp\htdocs\easy-manage\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#8 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(399): do_action_ref_array('parse_request', Array)
+#9 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(780): WP->parse_request('')
+#10 C:\xampp\htdocs\easy-manage\wp-includes\functions.php(1334): WP->main('')
+#11 C:\xampp\htdocs\easy-manage\wp-blog-header.php(16): wp()
+#12 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#13 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php on line 230
+[26-Jun-2023 13:30:04 UTC] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, string given in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php:267
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(267): count('')
+#1 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(205): Inc\Pages\TrainerEndpoints->is_assignee_reached_max_projects('Joy')
+#2 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(71): Inc\Pages\TrainerEndpoints->create_individual_project(Object(WP_REST_Request))
+#3 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1181): Inc\Pages\TrainerEndpoints->individual_projects_callbacks(Object(WP_REST_Request))
+#4 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1028): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/em/v1/projects...', Array, NULL)
+#5 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(442): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#6 C:\xampp\htdocs\easy-manage\wp-includes\rest-api.php(410): WP_REST_Server->serve_request('/em/v1/projects...')
+#7 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(308): rest_api_loaded(Object(WP))
+#8 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters('', Array)
+#9 C:\xampp\htdocs\easy-manage\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#10 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(399): do_action_ref_array('parse_request', Array)
+#11 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(780): WP->parse_request('')
+#12 C:\xampp\htdocs\easy-manage\wp-includes\functions.php(1334): WP->main('')
+#13 C:\xampp\htdocs\easy-manage\wp-blog-header.php(16): wp()
+#14 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#15 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php on line 267
+[26-Jun-2023 13:30:33 UTC] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, string given in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php:267
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(267): count('')
+#1 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(205): Inc\Pages\TrainerEndpoints->is_assignee_reached_max_projects('Brian')
+#2 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(71): Inc\Pages\TrainerEndpoints->create_individual_project(Object(WP_REST_Request))
+#3 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1181): Inc\Pages\TrainerEndpoints->individual_projects_callbacks(Object(WP_REST_Request))
+#4 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1028): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/em/v1/projects...', Array, NULL)
+#5 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(442): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#6 C:\xampp\htdocs\easy-manage\wp-includes\rest-api.php(410): WP_REST_Server->serve_request('/em/v1/projects...')
+#7 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(308): rest_api_loaded(Object(WP))
+#8 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters('', Array)
+#9 C:\xampp\htdocs\easy-manage\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#10 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(399): do_action_ref_array('parse_request', Array)
+#11 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(780): WP->parse_request('')
+#12 C:\xampp\htdocs\easy-manage\wp-includes\functions.php(1334): WP->main('')
+#13 C:\xampp\htdocs\easy-manage\wp-blog-header.php(16): wp()
+#14 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#15 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php on line 267
+[26-Jun-2023 13:30:56 UTC] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, string given in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php:267
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(267): count('')
+#1 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(205): Inc\Pages\TrainerEndpoints->is_assignee_reached_max_projects('Brian')
+#2 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(71): Inc\Pages\TrainerEndpoints->create_individual_project(Object(WP_REST_Request))
+#3 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1181): Inc\Pages\TrainerEndpoints->individual_projects_callbacks(Object(WP_REST_Request))
+#4 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1028): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/em/v1/projects...', Array, NULL)
+#5 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(442): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#6 C:\xampp\htdocs\easy-manage\wp-includes\rest-api.php(410): WP_REST_Server->serve_request('/em/v1/projects...')
+#7 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(308): rest_api_loaded(Object(WP))
+#8 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters('', Array)
+#9 C:\xampp\htdocs\easy-manage\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#10 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(399): do_action_ref_array('parse_request', Array)
+#11 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(780): WP->parse_request('')
+#12 C:\xampp\htdocs\easy-manage\wp-includes\functions.php(1334): WP->main('')
+#13 C:\xampp\htdocs\easy-manage\wp-blog-header.php(16): wp()
+#14 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#15 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php on line 267
+[26-Jun-2023 16:38:40 Africa/Nairobi] PHP Warning:  Undefined property: stdClass::$user_nicename in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainee-dashboard.php on line 23
+[26-Jun-2023 16:38:44 Africa/Nairobi] PHP Warning:  Undefined property: stdClass::$user_nicename in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainee-dashboard.php on line 23
+[26-Jun-2023 16:40:34 Africa/Nairobi] PHP Warning:  Undefined property: stdClass::$user_nicename in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainee-dashboard.php on line 23
+[26-Jun-2023 16:40:34 Africa/Nairobi] PHP Warning:  Undefined variable $username in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainee-dashboard.php on line 26
+[26-Jun-2023 16:40:37 Africa/Nairobi] PHP Warning:  Undefined property: stdClass::$user_nicename in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainee-dashboard.php on line 23
+[26-Jun-2023 16:40:37 Africa/Nairobi] PHP Warning:  Undefined variable $username in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainee-dashboard.php on line 26
+[26-Jun-2023 13:47:26 UTC] WordPress database error Unknown column 'group_id' in 'field list' for query SELECT group_id FROM wp_individual_projects WHERE FIND_IN_SET('brian', assignee) > 0 AND project_status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllUsers->get_user_project_ids
+[26-Jun-2023 13:57:46 UTC] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, string given in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php:338
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(338): count('Brian, Dante, Z...')
+#1 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(79): Inc\Pages\TrainerEndpoints->create_group_project(Object(WP_REST_Request))
+#2 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1181): Inc\Pages\TrainerEndpoints->group_projects_callbacks(Object(WP_REST_Request))
+#3 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1028): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/em/v1/projects...', Array, NULL)
+#4 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(442): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#5 C:\xampp\htdocs\easy-manage\wp-includes\rest-api.php(410): WP_REST_Server->serve_request('/em/v1/projects...')
+#6 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(308): rest_api_loaded(Object(WP))
+#7 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters('', Array)
+#8 C:\xampp\htdocs\easy-manage\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#9 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(399): do_action_ref_array('parse_request', Array)
+#10 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(780): WP->parse_request('')
+#11 C:\xampp\htdocs\easy-manage\wp-includes\functions.php(1334): WP->main('')
+#12 C:\xampp\htdocs\easy-manage\wp-blog-header.php(16): wp()
+#13 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#14 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php on line 338
+[26-Jun-2023 13:59:46 UTC] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, string given in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php:338
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(338): count('Brian, Dante, Z...')
+#1 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(79): Inc\Pages\TrainerEndpoints->create_group_project(Object(WP_REST_Request))
+#2 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1181): Inc\Pages\TrainerEndpoints->group_projects_callbacks(Object(WP_REST_Request))
+#3 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1028): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/em/v1/projects...', Array, NULL)
+#4 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(442): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#5 C:\xampp\htdocs\easy-manage\wp-includes\rest-api.php(410): WP_REST_Server->serve_request('/em/v1/projects...')
+#6 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(308): rest_api_loaded(Object(WP))
+#7 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters('', Array)
+#8 C:\xampp\htdocs\easy-manage\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#9 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(399): do_action_ref_array('parse_request', Array)
+#10 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(780): WP->parse_request('')
+#11 C:\xampp\htdocs\easy-manage\wp-includes\functions.php(1334): WP->main('')
+#12 C:\xampp\htdocs\easy-manage\wp-blog-header.php(16): wp()
+#13 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#14 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php on line 338
+[26-Jun-2023 17:01:01 Africa/Nairobi] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-group_projects.php:85
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-includes\template-loader.php(106): include()
+#1 C:\xampp\htdocs\easy-manage\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-group_projects.php on line 85
+[26-Jun-2023 17:01:04 Africa/Nairobi] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-group_projects.php:85
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-includes\template-loader.php(106): include()
+#1 C:\xampp\htdocs\easy-manage\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-group_projects.php on line 85
+[26-Jun-2023 14:03:04 UTC] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, string given in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php:338
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(338): count('Brian, Joy, Kor...')
+#1 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(79): Inc\Pages\TrainerEndpoints->create_group_project(Object(WP_REST_Request))
+#2 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1181): Inc\Pages\TrainerEndpoints->group_projects_callbacks(Object(WP_REST_Request))
+#3 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1028): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/em/v1/projects...', Array, NULL)
+#4 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(442): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#5 C:\xampp\htdocs\easy-manage\wp-includes\rest-api.php(410): WP_REST_Server->serve_request('/em/v1/projects...')
+#6 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(308): rest_api_loaded(Object(WP))
+#7 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters('', Array)
+#8 C:\xampp\htdocs\easy-manage\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#9 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(399): do_action_ref_array('parse_request', Array)
+#10 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(780): WP->parse_request('')
+#11 C:\xampp\htdocs\easy-manage\wp-includes\functions.php(1334): WP->main('')
+#12 C:\xampp\htdocs\easy-manage\wp-blog-header.php(16): wp()
+#13 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#14 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php on line 338
+[26-Jun-2023 14:05:14 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 1 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:05:14 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 2 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:05:14 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 3 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:05:15 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 4 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:05:15 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 5 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:05:16 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 6 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:05:16 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 1 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:05:18 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 1 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:05:19 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 2 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:05:19 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 3 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:05:19 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 4 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:05:20 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 5 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:05:20 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 6 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:05:21 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 1 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 17:08:17 Africa/Nairobi] PHP Warning:  Undefined variable $project_id in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainee-group-projects.php on line 25
+[26-Jun-2023 14:08:18 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 1 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:08:18 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 2 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:08:19 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 3 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:08:19 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 4 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:08:19 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 5 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:08:20 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 6 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:08:20 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 1 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 17:08:22 Africa/Nairobi] PHP Warning:  Undefined variable $project_id in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainee-group-projects.php on line 25
+[26-Jun-2023 14:08:23 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 1 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:08:23 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 2 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:08:23 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 3 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:08:24 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 4 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:08:24 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 5 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:08:25 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 6 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:08:25 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 1 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 17:09:56 Africa/Nairobi] PHP Warning:  Undefined variable $project_id in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainee-group-projects.php on line 31
+[26-Jun-2023 14:09:56 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 1 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:09:57 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 2 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:09:57 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 3 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:09:58 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 4 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:09:58 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 5 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:09:58 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 6 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:09:59 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 1 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 17:10:01 Africa/Nairobi] PHP Warning:  Undefined variable $project_id in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainee-group-projects.php on line 31
+[26-Jun-2023 14:10:01 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 1 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:10:01 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 2 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:10:02 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 3 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:10:02 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 4 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:10:03 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 5 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:10:03 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 6 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:10:03 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 1 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:10:08 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 1 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:10:08 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 2 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:10:09 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 3 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:10:09 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 4 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:10:10 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 5 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:10:10 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 6 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:10:10 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 1 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:10:13 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 1 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:10:13 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 2 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:10:13 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 3 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:10:14 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 4 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:10:14 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 5 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:10:14 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 6 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:10:15 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 1 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:10:46 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 1 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:10:46 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 2 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:10:47 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 3 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:10:47 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 4 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:10:48 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 5 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:10:48 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 6 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:10:48 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 1 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:10:51 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 1 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:10:51 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 2 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:10:51 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 3 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:10:52 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 4 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:10:52 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 5 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:10:52 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 6 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:10:53 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 1 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:11:18 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 1 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:11:18 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 2 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:11:19 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 3 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:11:19 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 4 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:11:19 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 5 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:11:20 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 6 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:11:20 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 1 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:11:23 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 1 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:11:23 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 2 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:11:23 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 3 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:11:24 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 4 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:11:24 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 5 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:11:24 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 6 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:11:25 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 1 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:11:47 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 1 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:11:47 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 2 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:11:48 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 3 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:11:48 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 4 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:11:48 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 5 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:11:49 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 6 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:11:49 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 1 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:11:52 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 1 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:11:52 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 2 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:11:52 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 3 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:11:53 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 4 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:11:53 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 5 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:11:53 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 6 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:11:54 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 1 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:17:38 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 1 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:17:41 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 1 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:18:07 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 1 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:18:09 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 1 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:18:45 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 1 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 17:18:45 Africa/Nairobi] PHP Fatal error:  Uncaught Error: Using $this when not in object context in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainee-group-projects.php:43
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-includes\template-loader.php(106): include()
+#1 C:\xampp\htdocs\easy-manage\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainee-group-projects.php on line 43
+[26-Jun-2023 14:18:47 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 1 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 17:18:47 Africa/Nairobi] PHP Fatal error:  Uncaught Error: Using $this when not in object context in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainee-group-projects.php:43
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-includes\template-loader.php(106): include()
+#1 C:\xampp\htdocs\easy-manage\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainee-group-projects.php on line 43
+[26-Jun-2023 14:19:10 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 1 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 17:19:10 Africa/Nairobi] PHP Fatal error:  Uncaught Error: Using $this when not in object context in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainee-group-projects.php:45
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-includes\template-loader.php(106): include()
+#1 C:\xampp\htdocs\easy-manage\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainee-group-projects.php on line 45
+[26-Jun-2023 14:19:12 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 1 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 17:19:12 Africa/Nairobi] PHP Fatal error:  Uncaught Error: Using $this when not in object context in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainee-group-projects.php:45
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-includes\template-loader.php(106): include()
+#1 C:\xampp\htdocs\easy-manage\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainee-group-projects.php on line 45
+[26-Jun-2023 14:19:33 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 1 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 14:19:48 UTC] WordPress database error Unknown column '_status' in 'where clause' for query SELECT * FROM wp_group_projects WHERE group_id = 1 AND _status = 0 made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\AllProjects->single_group_project
+[26-Jun-2023 17:20:33 Africa/Nairobi] PHP Fatal error:  Uncaught Error: Using $this when not in object context in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainee-group-projects.php:45
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-includes\template-loader.php(106): include()
+#1 C:\xampp\htdocs\easy-manage\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainee-group-projects.php on line 45
+[26-Jun-2023 17:20:35 Africa/Nairobi] PHP Fatal error:  Uncaught Error: Using $this when not in object context in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainee-group-projects.php:45
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-includes\template-loader.php(106): include()
+#1 C:\xampp\htdocs\easy-manage\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainee-group-projects.php on line 45
+[26-Jun-2023 17:20:42 Africa/Nairobi] PHP Fatal error:  Uncaught Error: Using $this when not in object context in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainee-group-projects.php:45
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-includes\template-loader.php(106): include()
+#1 C:\xampp\htdocs\easy-manage\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainee-group-projects.php on line 45
+[26-Jun-2023 17:20:44 Africa/Nairobi] PHP Fatal error:  Uncaught Error: Using $this when not in object context in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainee-group-projects.php:45
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-includes\template-loader.php(106): include()
+#1 C:\xampp\htdocs\easy-manage\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainee-group-projects.php on line 45

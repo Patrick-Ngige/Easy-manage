@@ -16,7 +16,6 @@ get_header();
      )
  ));
  
-//  $user_data = null; // Initialize the user data variable
  
  if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 200) {
      $user_data = json_decode(wp_remote_retrieve_body($response));
@@ -26,7 +25,6 @@ get_header();
 $response = wp_remote_get($endpoint_url);
 $group = wp_remote_retrieve_body($response);
 
-var_dump($group);
 
 preg_match('/\d+/', $group, $matches);
 if (!empty($matches)) {
@@ -47,16 +45,15 @@ if (!empty($matches)) {
 
     <div style="padding:1rem;width:80vw;margin-left:0rem">
         <div style="padding:1rem;">
-            <!-- Add buttons and search bar here -->
             <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
-                <!-- <a href="http://localhost/easy-manage/admin-trainers-table/" class="floating-btn"
+                <a href="http://localhost/easy-manage/admin-trainers-table/" class="floating-btn"
                     style="text-decoration:none; padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
                     View Trainers
                 </a>
                 <a href="http://localhost/easy-manage/admin-trainees-table/" class="floating-btn"
                     style="text-decoration:none; padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
                     View Trainees
-                </a> -->
+                </a>
                 <?php echo do_shortcode('[search_bar]'); ?>
             </div>
 
@@ -77,7 +74,6 @@ if (!empty($matches)) {
                     $response = wp_remote_get($request_url);
                     $projects = wp_remote_retrieve_body($response);
                     $projects = json_decode($projects, true);
-                    // var_dump($projects);
 
                     if (is_array($projects)) {
                         foreach ($projects as $project) {
