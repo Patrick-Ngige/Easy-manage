@@ -35,7 +35,7 @@ class MarkComplete
 
         register_rest_route(
             'em/v1',
-            '/cohorts/mark_complete/(?P<id>\d+)',
+            '/cohort/mark_complete/(?P<id>\d+)',
             array(
                 'methods' => 'PATCH',
                 'callback' => array($this, 'mark_cohort_complete'),

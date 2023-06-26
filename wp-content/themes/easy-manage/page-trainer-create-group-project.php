@@ -57,9 +57,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             )
         );
 
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array(
+            'Content-Type: application/json',
+            'Authorization: Bearer ' . $token
+        ));
+        
         $response = curl_exec($curl);
 
-        var_dump($response);
         $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 
         if ($response === false) {
@@ -219,37 +223,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </div>
 
 <script>
-    function selectMembers() {
-        var checkboxes = document.querySelectorAll('.form-check-input');
-        var assignedMembersInput = document.querySelector('input[name="assigned_members"]');
-        var selectedMembers = [];
+function selectMembers() {
+    var checkboxes = document.querySelectorAll('.form-check-input');
+    var assignedMembersInput = document.querySelector('input[name="assigned_members"]');
+    var selectedMembers = [];
 
+    checkboxes.forEach(function (checkbox) {
+        if (checkbox.checked) {
+            selectedMembers.push(checkbox.value);
+        }
+    });
+
+    if (selectedMembers.length > 3) {
         checkboxes.forEach(function (checkbox) {
-            if (checkbox.checked) {
-                selectedMembers.push(checkbox.value);
+            if (!checkbox.checked) {
+                checkbox.disabled = true;
             }
         });
+    } else {
+        assignedMembersInput.value = JSON.stringify(selectedMembers); // Convert array to JSON string
 
-        if (selectedMembers.length > 3) {
-            checkboxes.forEach(function (checkbox) {
-                if (!checkbox.checked) {
-                    checkbox.disabled = true;
-                }
-            });
-        } else {
-            assignedMembersInput.value = selectedMembers.join(', ');
-
-            checkboxes.forEach(function (checkbox) {
-                checkbox.disabled = false;
-            });
-        }
-
-        var createBtn = document.querySelector('button[name="creategrp"]');
-        createBtn.disabled = (selectedMembers.length === 0);
+        checkboxes.forEach(function (checkbox) {
+            checkbox.disabled = false;
+        });
     }
 
-
-
-
-
+    var createBtn = document.querySelector('button[name="creategrp"]');
+    createBtn.disabled = (selectedMembers.length === 0);
+}
 </script>

@@ -831,3 +831,59 @@ Stack trace:
 #2 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
 #3 {main}
   thrown in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainee-dashboard.php on line 146
+[26-Jun-2023 15:27:33 UTC] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, string given in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php:338
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(338): count('Brian, Joy, Kor...')
+#1 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(79): Inc\Pages\TrainerEndpoints->create_group_project(Object(WP_REST_Request))
+#2 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1181): Inc\Pages\TrainerEndpoints->group_projects_callbacks(Object(WP_REST_Request))
+#3 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1028): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/em/v1/projects...', Array, NULL)
+#4 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(442): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#5 C:\xampp\htdocs\easy-manage\wp-includes\rest-api.php(410): WP_REST_Server->serve_request('/em/v1/projects...')
+#6 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(308): rest_api_loaded(Object(WP))
+#7 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters('', Array)
+#8 C:\xampp\htdocs\easy-manage\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#9 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(399): do_action_ref_array('parse_request', Array)
+#10 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(780): WP->parse_request('')
+#11 C:\xampp\htdocs\easy-manage\wp-includes\functions.php(1334): WP->main('')
+#12 C:\xampp\htdocs\easy-manage\wp-blog-header.php(16): wp()
+#13 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#14 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php on line 338
+[26-Jun-2023 15:33:33 UTC] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, string given in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php:338
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(338): count('[\\"Brian\\",\\"Jo...')
+#1 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(79): Inc\Pages\TrainerEndpoints->create_group_project(Object(WP_REST_Request))
+#2 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1181): Inc\Pages\TrainerEndpoints->group_projects_callbacks(Object(WP_REST_Request))
+#3 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1028): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/em/v1/projects...', Array, NULL)
+#4 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(442): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#5 C:\xampp\htdocs\easy-manage\wp-includes\rest-api.php(410): WP_REST_Server->serve_request('/em/v1/projects...')
+#6 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(308): rest_api_loaded(Object(WP))
+#7 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters('', Array)
+#8 C:\xampp\htdocs\easy-manage\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#9 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(399): do_action_ref_array('parse_request', Array)
+#10 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(780): WP->parse_request('')
+#11 C:\xampp\htdocs\easy-manage\wp-includes\functions.php(1334): WP->main('')
+#12 C:\xampp\htdocs\easy-manage\wp-blog-header.php(16): wp()
+#13 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#14 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php on line 338
+[26-Jun-2023 15:40:59 UTC] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, string given in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php:338
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(338): count('[\\"Brian\\",\\"Jo...')
+#1 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(79): Inc\Pages\TrainerEndpoints->create_group_project(Object(WP_REST_Request))
+#2 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1181): Inc\Pages\TrainerEndpoints->group_projects_callbacks(Object(WP_REST_Request))
+#3 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1028): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/em/v1/projects...', Array, NULL)
+#4 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(442): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#5 C:\xampp\htdocs\easy-manage\wp-includes\rest-api.php(410): WP_REST_Server->serve_request('/em/v1/projects...')
+#6 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(308): rest_api_loaded(Object(WP))
+#7 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters('', Array)
+#8 C:\xampp\htdocs\easy-manage\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#9 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(399): do_action_ref_array('parse_request', Array)
+#10 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(780): WP->parse_request('')
+#11 C:\xampp\htdocs\easy-manage\wp-includes\functions.php(1334): WP->main('')
+#12 C:\xampp\htdocs\easy-manage\wp-blog-header.php(16): wp()
+#13 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#14 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php on line 338
+[26-Jun-2023 19:01:48 Africa/Nairobi] PHP Warning:  Undefined property: stdClass::$id in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-cohort.php on line 97
+[26-Jun-2023 19:01:54 Africa/Nairobi] PHP Warning:  Undefined property: stdClass::$id in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-cohort.php on line 97

@@ -45,10 +45,28 @@ class AllUsers
 
         register_rest_route(
             'em/v1',
+            '/individual/completed/user_project_ids',
+            array(
+                'methods' => array('GET'),
+                'callback' => array($this, 'get_user_individual_completed_project_ids'),
+            )
+        );
+
+        register_rest_route(
+            'em/v1',
             '/group/user_project_ids',
             array(
                 'methods' => array('GET'),
                 'callback' => array($this, 'get_user_group_project_ids'),
+            )
+        );
+
+        register_rest_route(
+            'em/v1',
+            '/group/completed/user_project_ids',
+            array(
+                'methods' => array('GET'),
+                'callback' => array($this, 'get_user_group_completed_project_ids'),
             )
         );
 
@@ -215,6 +233,26 @@ class AllUsers
         return $project_ids;
     }
 
+    public function get_user_individual_completed_project_ids($request)
+    {
+        $username = $request->get_param('username');
+        global $wpdb;
+        $individual_table = $wpdb->prefix . 'individual_projects';
+
+        $project_ids = $wpdb->get_col(
+            $wpdb->prepare(
+                "SELECT project_id FROM $individual_table WHERE FIND_IN_SET(%s, assignee) > 0 AND project_status = 1",
+                $username
+            )
+        );
+
+        if (empty($project_ids)) {
+            return new WP_Error('project_ids_not_found', 'No individual project IDs found for the user.', array('status' => 404));
+        }
+
+        return $project_ids;
+    }
+
     public function get_user_group_project_ids($request)
     {
         $username = $request->get_param('username');
@@ -235,8 +273,25 @@ class AllUsers
         return $project_ids;
     }
     
-
-
+    public function get_user_group_completed_project_ids($request)
+    {
+        $username = $request->get_param('username');
+        global $wpdb;
+        $group_table = $wpdb->prefix . 'group_projects';
+    
+        $project_ids = $wpdb->get_col(
+            $wpdb->prepare(
+                "SELECT group_id FROM $group_table WHERE assigned_members REGEXP %s AND group_status = 1",
+                '[[:<:]]' . $username . '[[:>:]]'
+            )
+        );
+    
+        if (empty($project_ids)) {
+            return new WP_Error('project_ids_not_found', 'No group project IDs found for the user.', array('status' => 404));
+        }
+    
+        return $project_ids;
+    }
 
 
     public function retrieve_trainers_callback($request)

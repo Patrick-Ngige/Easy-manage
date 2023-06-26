@@ -49,31 +49,42 @@ $current_user = wp_get_current_user();
                     $cohort = json_decode($cohort, true);
 
                     if (is_array($cohort)) {
-                        foreach ($cohort as $Cohort) {
+                        foreach ($cohort as $Cohort) { ?>
 
-                            echo '<tr>';
-                            echo '<td>';
-                            echo '<div class="d-flex align-items-center">';
-                            echo '<div class="ms-3">';
-                            echo '<p class="mb-1">' . $Cohort['cohort'] . '</p>';
-                            echo '</div>';
-                            echo '</div>';
-                            echo '</td>';
-                            echo '<td>';
-                            echo '<p class="fw-normal mb-1">' . $Cohort['trainer'] . '</p>';
-                            echo '</td>';
-                            echo '<td>';
-                            echo '<p class="fw-normal mb-1">' .$Cohort['ending_date'] .'</p>';
-                            echo '</td>';
-                            echo '<td>';
-                            echo '<form method="POST">';
-                            echo '<a href="http://localhost/easy-manage/admin-update-form/?id=' . $Cohort['cohort_id'] . '" style="padding:6px"><img src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png" style="width:25px;" alt=""></a> &nbsp;&nbsp;';
-                            echo '<input type="hidden" name="" value="">';
-                            echo '<a href="#" style="padding:6px;text-decoration:none;color:#315B87"> <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/pause-2.png" style="width:25px;" alt="">  </a> &nbsp;&nbsp;';
-                            echo '</form>';
-                            echo '</td>';
-                            echo '</tr>';
-                        }
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div class="ms-3">
+                                            <p class="mb-1">
+                                                <?php echo $Cohort['cohort'] ?>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <p class="fw-normal mb-1">
+                                        <?php echo $Cohort['trainer'] ?>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p class="fw-normal mb-1">
+                                        <?php echo $Cohort['ending_date'] ?>
+                                    </p>
+                                </td>
+                                <td>
+                                    <form method="POST">
+                                        <a href="http://localhost/easy-manage/admin-update-form/?id=<?php echo $Cohort['cohort_id'] ?>"
+                                            style="padding:6px"><img
+                                                src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png"
+                                                style="width:25px;" alt=""></a> &nbsp;&nbsp;
+                                        <input type="hidden" name="" value="">
+                                        <a href="#" style="padding:6px;text-decoration:none;color:#315B87"> <img
+                                                src="http://localhost/easy-manage/wp-content/uploads/2023/06/pause-2.png"
+                                                style="width:25px;" alt=""> </a> &nbsp;&nbsp;
+                                    </form>
+                                </td>
+                            </tr>
+                        <?php }
                     } else {
                         echo 'Error retrieving cohort';
                     }

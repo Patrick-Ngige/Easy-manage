@@ -40,7 +40,6 @@ class SearchUsers
             return new WP_Error('no_users_found', 'No users found.', array('status' => 404));
         }
     
-        // Process the search results and return the desired response format
         $results = array();
         foreach ($users as $user) {
             $results[] = array(
