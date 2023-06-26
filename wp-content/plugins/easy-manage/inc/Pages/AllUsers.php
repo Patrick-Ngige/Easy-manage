@@ -125,7 +125,7 @@ class AllUsers
 
         $project_ids = $wpdb->get_col(
             $wpdb->prepare(
-                "SELECT group_id FROM $table_name WHERE FIND_IN_SET(%s, assigned_members) > 0",
+                "SELECT group_id FROM $table_name WHERE FIND_IN_SET(%s, assigned_members) > 0 AND group_status = 0",
                 $username
             )
         );

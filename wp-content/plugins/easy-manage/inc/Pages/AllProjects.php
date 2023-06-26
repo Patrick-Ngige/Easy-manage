@@ -107,8 +107,7 @@ class AllProjects
 
         $projects = $wpdb->get_results(
             $wpdb->prepare(
-                "SELECT project_id, project_name, project_task, assignee, due_date, project_status  FROM $table_name WHERE project_status = 0 
-        "
+                "SELECT *  FROM $table_name WHERE project_status = 0"
             )
         );
 
@@ -128,7 +127,7 @@ class AllProjects
 
         $projects = $wpdb->get_results(
             $wpdb->prepare(
-                "SELECT group_id, assigned_members, project_name, project_task, due_date, group_status FROM $table_name WHERE group_status = 0"
+                "SELECT * FROM $table_name WHERE group_status = 0"
             )
         );
 
@@ -273,7 +272,7 @@ class AllProjects
 
         $cohort = $wpdb->get_row(
             $wpdb->prepare(
-                "SELECT * FROM $table_name WHERE group_id = %d AND project_status = 0",
+                "SELECT * FROM $table_name WHERE group_id = %d AND _status = 0",
                 $group_id,
             ),
             ARRAY_A
