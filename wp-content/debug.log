@@ -810,3 +810,24 @@ Stack trace:
 #2 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
 #3 {main}
   thrown in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainee-group-projects.php on line 45
+[26-Jun-2023 17:45:27 Africa/Nairobi] PHP Warning:  Undefined array key "success" in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainee-dashboard.php on line 134
+[26-Jun-2023 17:45:27 Africa/Nairobi] PHP Warning:  Undefined array key "success" in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainee-dashboard.php on line 134
+[26-Jun-2023 17:45:28 Africa/Nairobi] PHP Warning:  Undefined array key "success" in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainee-dashboard.php on line 134
+[26-Jun-2023 17:45:28 Africa/Nairobi] PHP Warning:  Undefined array key "success" in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainee-dashboard.php on line 134
+[26-Jun-2023 17:45:28 Africa/Nairobi] PHP Warning:  Undefined array key "success" in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainee-dashboard.php on line 134
+[26-Jun-2023 17:45:29 Africa/Nairobi] PHP Warning:  Undefined array key "success" in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainee-dashboard.php on line 134
+[26-Jun-2023 17:48:24 Africa/Nairobi] PHP Warning:  Undefined array key "success" in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainee-dashboard.php on line 134
+[26-Jun-2023 17:48:24 Africa/Nairobi] PHP Warning:  Undefined array key "success" in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainee-dashboard.php on line 134
+[26-Jun-2023 17:48:25 Africa/Nairobi] PHP Warning:  Undefined array key "success" in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainee-dashboard.php on line 134
+[26-Jun-2023 17:48:25 Africa/Nairobi] PHP Warning:  Undefined array key "success" in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainee-dashboard.php on line 134
+[26-Jun-2023 17:48:25 Africa/Nairobi] PHP Warning:  Undefined array key "success" in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainee-dashboard.php on line 134
+[26-Jun-2023 17:48:26 Africa/Nairobi] PHP Warning:  Undefined array key "success" in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainee-dashboard.php on line 134
+[26-Jun-2023 17:50:01 Africa/Nairobi] PHP Warning:  Undefined array key "success" in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainee-dashboard.php on line 146
+[26-Jun-2023 17:58:12 Africa/Nairobi] PHP Warning:  Undefined array key "success" in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainee-dashboard.php on line 146
+[26-Jun-2023 18:03:53 Africa/Nairobi] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainee-dashboard.php:146
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-includes\template-loader.php(106): include()
+#1 C:\xampp\htdocs\easy-manage\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainee-dashboard.php on line 146

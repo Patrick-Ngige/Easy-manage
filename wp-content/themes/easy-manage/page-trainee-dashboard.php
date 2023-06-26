@@ -9,19 +9,18 @@ require_once(ABSPATH . 'wp-load.php');
 
 $token = $_COOKIE['token'];
 
-$response = wp_remote_get('http://localhost/easy-manage/wp-json/wp/v2/users/me', array(
-    'headers' => array(
-        'Authorization' => 'Bearer ' . $token
+$response = wp_remote_get(
+    'http://localhost/easy-manage/wp-json/wp/v2/users/me',
+    array(
+        'headers' => array(
+            'Authorization' => 'Bearer ' . $token
+        )
     )
-)
 );
-
-
 
 if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 200) {
     $user_data = json_decode(wp_remote_retrieve_body($response));
     $username = strtolower($user_data->name);
-    var_dump($username);
 
     $projects_url = "http://localhost/easy-manage/wp-json/em/v1/individual/user_project_ids?username=" . $username;
     $projects_response = wp_remote_get($projects_url);
@@ -53,7 +52,8 @@ if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 2
 
     <div style="padding:1rem;width:80vw;margin-left:0rem">
         <div style="padding:1rem;">
-            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+            <div
+                style="display: flex; justify-content: space-between; margin-bottom: 1rem; flex-direction: row-reversed;">
                 <?php echo do_shortcode('[search_bar]'); ?>
             </div>
 
@@ -94,13 +94,14 @@ if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 2
                                 </td>
                                 <td>
                                     <form method="POST">
-                                        <a href="http://localhost/easy-manage/admin-update-form/?id=<?php echo $project->project_id ?>"
-                                            style="padding:6px"><img
-                                                src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png"
-                                                style="width:25px;" alt=""></a> &nbsp;&nbsp;
+                                        <input type="hidden" name="project_id" value="<?php echo $project->project_id ?>">
+                                        <button type="submit" name="mark_complete" style="border: none; background: none; padding: 0;">
+                                            <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png" style="width: 25px;" alt="">
+                                        </button>
                                     </form>
                                 </td>
                             </tr>
+
                         <?php } ?>
                     </tbody>
                 </table>
@@ -112,5 +113,43 @@ if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 2
         </div>
     </div>
 </div>
+
+<?php
+
+if (isset($_POST['mark_complete'])) {
+    $project_id = $_POST['project_id'];
+
+    $api_endpoint = 'http://localhost/easy-manage/wp-json/em/v1/individual/mark_complete/' . $project_id;
+
+
+    $curl = curl_init();
+
+    curl_setopt_array($curl, [
+        CURLOPT_URL => $api_endpoint,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_CUSTOMREQUEST => 'PATCH',
+    ]);
+
+    $response = curl_exec($curl);
+
+    if (curl_errno($curl)) {
+        $error_message = curl_error($curl);
+    }
+
+    curl_close($curl);
+
+    if ($response === false) {
+
+    } else {
+
+        $response_data = json_decode($response, true);
+        if ($response_data['success']) {
+           echo 'project marked as complete';
+        } else {
+           echo 'Project not completed';
+        }
+    }
+}
+?>
 
 <?php get_footer(); ?>

@@ -29,6 +29,8 @@ if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 2
         $project_ids = json_decode(wp_remote_retrieve_body($projects_response));
         $projects = array();
 
+        var_dump($projects);
+
         foreach ($project_ids as $project_id) {
             $project_url = "http://localhost/easy-manage/wp-json/em/v1/project/completed/" . $project_id;
             $project_response = wp_remote_get($project_url);
@@ -51,14 +53,6 @@ if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 2
     <div style="padding:1rem;width:80vw;margin-left:0rem">
         <div style="padding:1rem;">
             <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
-                <a href="http://localhost/easy-manage/admin-trainers-table/" class="floating-btn"
-                    style="text-decoration:none; padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
-                    View Trainers
-                </a>
-                <a href="http://localhost/easy-manage/admin-trainees-table/" class="floating-btn"
-                    style="text-decoration:none; padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
-                    View Trainees
-                </a>
                 <?php echo do_shortcode('[search_bar]'); ?>
             </div>
 
