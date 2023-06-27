@@ -8,15 +8,43 @@ require_once(ABSPATH . 'wp-load.php');
 
 $token = $_COOKIE['token'];
 
-$response = wp_remote_get('http://localhost/easy-manage/wp-json/wp/v2/users/me', array(
-    'headers' => array(
-        'Authorization' => 'Bearer ' . $token
+$response = wp_remote_get(
+    'http://localhost/easy-manage/wp-json/wp/v2/users/me',
+    array(
+        'headers' => array(
+            'Authorization' => 'Bearer ' . $token
+        )
     )
-));
+);
 
 if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 200) {
     $user_data = json_decode(wp_remote_retrieve_body($response));
 
+   
+}
+
+
+if (isset($_POST['soft_delete'])) {
+    $user_id = $_POST['user_id'];
+    $endpoint_url = 'http://localhost/easy-manage/wp-json/em/v1/soft_delete/' . $user_id;
+
+    $curl = curl_init();
+    curl_setopt($curl, CURLOPT_URL, $endpoint_url);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'DELETE');
+    curl_setopt($curl, CURLOPT_HTTPHEADER, array(
+        'Authorization: Bearer ' . $token
+    ));
+    $response = curl_exec($curl);
+
+    if ($response === false) {
+        echo 'Error: ' . curl_error($curl);
+    }
+
+
+    curl_close($curl);
+
+    
 }
 
 ?>
@@ -56,37 +84,52 @@ if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 2
                     $response = wp_remote_get($request_url);
                     $users = wp_remote_retrieve_body($response);
                     $users = json_decode($users, true);
-
+                    
                     if (is_array($users)) {
-                        foreach ($users as $user) { ?>
+                        foreach ($users as $user) {
+
+                            ?>
 
                             <tr>
-                            <td>
-                            <div class="d-flex align-items-center">
-                            <div class="ms-3">
-                            <p class="mb-1"><?php echo $user['user_nicename'] ?></p>
-                            </div>
-                            </div>
-                            </td>
-                            <td>
-                            <p class="fw-normal mb-1"><?php echo $user['user_email'] ?></p>
-                            </td>
-                            <td>
-                            <p class="fw-normal mb-1">Program Manager</p> 
-                            </td>
-                            <td>
-                            <form method="POST">
-                            <a href="#" style="padding:6px;text-decoration:none;color:#315B87"> <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/pause-2.png" style="width:25px;" alt="">  </a> &nbsp;&nbsp;
-                            <a href="http://localhost/easy-manage/admin-update-form/?id=' . $user['ID'] . '" style="padding:6px"><img src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png" style="width:25px;" alt=""></a> &nbsp;&nbsp;
-                            <input type="hidden" name="" value="">
-                            </form>
-                            </td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div class="ms-3">
+                                            <p class="mb-1">
+                                                <?php echo $user['user_login'] ?>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <p class="fw-normal mb-1">
+                                        <?php echo $user['user_email'] ?>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p class="fw-normal mb-1">Program Manager</p>
+                                </td>
+                                <td>
+                                    <form method="POST">
+                                        <input type="hidden" name="user_id" value="<?php echo $user['ID']; ?>">
+                                        <button type="submit" name="soft_delete" class="btn-soft-delete"
+                                            style="padding:6px;border:none">
+                                            <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/pause-2.png"
+                                                style="width:25px;" alt="">
+                                        </button>
+                                        <a href="http://localhost/easy-manage/admin-update-form/?id=<?php echo $user['ID']; ?>"
+                                            style="padding:6px">
+                                            <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png"
+                                                style="width:25px;" alt="">
+                                        </a> &nbsp;&nbsp;
+                                    </form>
+                                </td>
                             </tr>
-                      <?php  }
+                        <?php }
                     } else {
                         echo 'Error retrieving users';
                     }
                     ?>
+
                 </tbody>
             </table>
         </div>

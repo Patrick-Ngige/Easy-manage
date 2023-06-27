@@ -93,5 +93,9 @@ function get_user_role($user) {
     return '';
 }
 
+function custom_rewrite_rule() {
+    add_rewrite_rule('^search-results/?([^/]*)/?','index.php?pagename=search-results&s=$matches[1]','top');
+}
+add_action('init', 'custom_rewrite_rule', 10, 0);
 
 

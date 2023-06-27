@@ -35,16 +35,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'pm_email' => $pm_email,
         );
 
-        // $jwt_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2Vhc3ktbWFuYWdlIiwiaWF0IjoxNjg3MzI1NzM2LCJuYmYiOjE2ODczMjU3MzYsImV4cCI6MTY4NzkzMDUzNiwiZGF0YSI6eyJ1c2VyIjp7ImlkIjoiMSJ9fX0.yP4_WvhHKZYpuXSYnwbk8Ozju-iUC0Z3W4kyJwXedy0';
+       $token ;
 
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, 'http://localhost/easy-manage/wp-json/em/v1/pm');
-        curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'PATCH'); // Set the request method to PATCH
+        curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'PATCH'); 
         curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($updated_pm));
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($curl, CURLOPT_HTTPHEADER, array(
             'Content-Type: application/json',
-            // 'Authorization: Bearer ' . $jwt_token
+            'Authorization: Bearer ' . $token
         ));
 
         $response = curl_exec($curl);
@@ -99,9 +99,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     <div class="card-body p-4 p-lg-5 text-black">
 
                                         <?php
-                                        $errors = array(); // Store validation errors
+                                        $errors = array();
                                         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                                            // Validate form fields
+                                           
                                             if (empty($_POST['pm_name'])) {
                                                 $errors[] = 'Username is required.';
                                             }
@@ -110,15 +110,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                 $errors[] = 'Email is required.';
                                             }
 
-                                            // Process the form data here
+                                          
                                             if (empty($errors)) {
-                                                // Retrieve the form data
+                                              
                                                 $pmName = $_POST['pm_name'];
                                                 $pmEmail = $_POST['pm_email'];
 
-                                                // Redirect to a success page
-                                                // header('Location: /success-page');
-                                                // exit();
                                             }
                                         }
                                         ?>
@@ -155,6 +152,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                     class="form-control form-control-md"
                                                     placeholder="Enter project task" name="pm_email"
                                                     value="<?php echo $user_email; ?>"
+                                                    required />
+                                            </div>
+
+                                            <div class="form-outline mb-3">
+                                                <label class="form-label" for="form2Example27"
+                                                    style="font-weight:600;">Role:</label>
+                                                <input type="email" id="form2Example27"
+                                                    class="form-control form-control-md"
+                                                    placeholder="Enter project task" name="pm_email"
+                                                    value="Program Manager"
                                                     required />
                                             </div>
 

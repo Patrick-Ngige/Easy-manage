@@ -1,17 +1,20 @@
 <?php
 get_header();
+session_start();
 
 /**
  * Template Name: Admin PM List
  */
 
- $token = $_COOKIE['token'];
- 
- $response = wp_remote_get('http://localhost/easy-manage/wp-json/wp/v2/users/me', array(
-     'headers' => array(
-         'Authorization' => 'Bearer ' . $token
-     )
- ));
+$token = $_COOKIE['token'];
+
+$response = wp_remote_get('http://localhost/easy-manage/wp-json/wp/v2/users/me', array(
+    'headers' => array(
+        'Authorization' => 'Bearer ' . $token
+    )
+)
+);
+
 
 ?>
 
@@ -55,31 +58,41 @@ get_header();
                     $users = json_decode($users, true);
 
                     if (is_array($users)) {
-                        foreach ($users as $user) {
+                        foreach ($users as $user) { ?>
 
-                            echo '<tr>';
-                            echo '<td>';
-                            echo '<div class="d-flex align-items-center">';
-                            echo '<div class="ms-3">';
-                            echo '<p class="mb-1">' . $user['user_nicename'] . '</p>';
-                            echo '</div>';
-                            echo '</div>';
-                            echo '</td>';
-                            echo '<td>';
-                            echo '<p class="fw-normal mb-1">' . $user['user_email'] . '</p>';
-                            echo '</td>';
-                            echo '<td>';
-                            echo '<p class="fw-normal mb-1"> Trainee</p>';
-                            echo '</td>';
-                            echo '<td>';
-                            echo '<form method="POST">';
-                            echo '<a href="http://localhost/easy-manage/admin-update-form/?id=' . $user['ID'] . '" style="padding:6px"><img src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png" style="width:25px;" alt=""></a> &nbsp;&nbsp;';
-                            echo '<input type="hidden" name="" value="">';
-                            echo '<a href="#" style="padding:6px;text-decoration:none;color:#315B87"> <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/pause-2.png" style="width:25px;" alt="">  </a> &nbsp;&nbsp;';
-                            echo '</form>';
-                            echo '</td>';
-                            echo '</tr>';
-                        }
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div class="ms-3">
+                                            <p class="mb-1">
+                                                <?php echo $user['user_nicename'] ?>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <p class="fw-normal mb-1">
+                                        <?php echo $user['user_email'] ?>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p class="fw-normal mb-1"> Trainee</p>
+                                </td>
+                                <td>
+                                    <form method="POST">
+                                    <a href="#" style="padding:6px;text-decoration:none;color:#315B87"> <img
+                                                src="http://localhost/easy-manage/wp-content/uploads/2023/06/pause-2.png"
+                                                style="width:25px;" alt=""> </a> &nbsp;&nbsp;
+                                        <a href="http://localhost/easy-manage/admin-update-form/?id=<?php echo $user['ID'] ?>"
+                                            style="padding:6px"><img
+                                                src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png"
+                                                style="width:25px;" alt=""></a> &nbsp;&nbsp;
+                                        <input type="hidden" name="" value="">
+                                       
+                                    </form>
+                                </td>
+                            </tr>
+                        <?php }
                     } else {
                         echo 'Error retrieving users';
                     }
