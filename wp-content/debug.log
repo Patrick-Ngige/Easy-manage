@@ -1914,3 +1914,38 @@ Stack trace:
 #2 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
 #3 {main}
   thrown in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-admin-pm.php on line 98
+[27-Jun-2023 12:51:25 Africa/Nairobi] PHP Warning:  Undefined variable $curl in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-deactivated.php on line 34
+[27-Jun-2023 12:51:25 Africa/Nairobi] PHP Fatal error:  Uncaught TypeError: curl_setopt(): Argument #1 ($handle) must be of type CurlHandle, null given in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-deactivated.php:35
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-deactivated.php(35): curl_setopt(NULL, 10023, Array)
+#1 C:\xampp\htdocs\easy-manage\wp-includes\template-loader.php(106): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\easy-manage\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-deactivated.php on line 35
+[27-Jun-2023 12:55:16 Africa/Nairobi] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\easy-manage\wp-includes\class-wp-styles.php:214) in C:\xampp\htdocs\easy-manage\wp-includes\pluggable.php on line 1427
+[27-Jun-2023 12:55:16 Africa/Nairobi] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\easy-manage\wp-includes\class-wp-styles.php:214) in C:\xampp\htdocs\easy-manage\wp-includes\pluggable.php on line 1430
+[27-Jun-2023 12:58:05 Africa/Nairobi] PHP Warning:  Undefined variable $endpoint in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-deactivated.php on line 28
+[27-Jun-2023 12:58:09 Africa/Nairobi] PHP Warning:  Undefined variable $endpoint in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-deactivated.php on line 28
+[27-Jun-2023 12:58:47 Africa/Nairobi] PHP Warning:  Undefined variable $endpoint in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-deactivated.php on line 29
+[27-Jun-2023 12:58:48 Africa/Nairobi] PHP Warning:  Undefined variable $users in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-deactivated.php on line 83
+[27-Jun-2023 12:58:48 Africa/Nairobi] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-deactivated.php on line 83
+[27-Jun-2023 12:58:49 Africa/Nairobi] PHP Warning:  Undefined variable $endpoint in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-deactivated.php on line 29
+[27-Jun-2023 12:58:51 Africa/Nairobi] PHP Warning:  Undefined variable $users in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-deactivated.php on line 83
+[27-Jun-2023 12:58:51 Africa/Nairobi] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-deactivated.php on line 83
+[27-Jun-2023 12:59:00 Africa/Nairobi] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-admin-pm.php:98
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-includes\template-loader.php(106): include()
+#1 C:\xampp\htdocs\easy-manage\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-admin-pm.php on line 98
+[27-Jun-2023 12:59:03 Africa/Nairobi] PHP Warning:  Undefined variable $endpoint in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-deactivated.php on line 29
+[27-Jun-2023 12:59:03 Africa/Nairobi] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-admin-pm.php:98
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-includes\template-loader.php(106): include()
+#1 C:\xampp\htdocs\easy-manage\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-admin-pm.php on line 98
+[27-Jun-2023 12:59:05 Africa/Nairobi] PHP Warning:  Undefined variable $endpoint in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-deactivated.php on line 29

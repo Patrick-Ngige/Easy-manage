@@ -14,28 +14,24 @@ $response = wp_remote_get($request_url, array(
     'headers' => array(
         'Authorization' => 'Bearer ' . $token
     )
-)
-);
+));
 
 if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 200) {
     $users = json_decode(wp_remote_retrieve_body($response), true);
+}
 
     if (isset($_POST['restore_user'])) {
         $user_id = $_POST['user_id'];
-        $endpoint = 'http://localhost/easy-manage/wp-json/em/v1/restore_user/';
+        $endpoint = 'http://localhost/easy-manage/wp-json/em/v1/restore_user/' . $user_id;
 
-        $data = array('user_id' => $user_id);
-        $data_string = json_encode($data);
+    }
 
         $ch = curl_init($endpoint);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-            'Content-Type: application/json',
-            'Content-Length: ' . strlen($data_string)
-        )
-        );
+            'Authorization: Bearer ' . $token
+        ));
 
         $result = curl_exec($ch);
         $http_status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
@@ -50,7 +46,7 @@ if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 2
         }
 
         curl_close($ch);
-    }
+    
     ?>
     <div style="width:100vw;height:90vh;display:flex;flex-direction:row;margin-top:-2.45rem">
         <div class="page-trainee-dashboard" style="margin-top:-1.99rem;width:20vw">
@@ -114,8 +110,6 @@ if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 2
                                         </button>
                                     </form>
                                 </td>
-
-
                             </tr>
                             <?php
                         }
@@ -126,10 +120,6 @@ if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 2
         </div>
     </div>
     <?php
-} else {
-    // Handle case when no users are found
-    echo 'No users found.';
-}
 
 get_footer();
 ?>
