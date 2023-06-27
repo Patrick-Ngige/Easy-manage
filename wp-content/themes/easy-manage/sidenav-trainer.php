@@ -55,13 +55,13 @@ if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 2
         <div class="side-menu <?php echo (strpos($_SERVER['REQUEST_URI'], 'trainer-projects') !== false) ? 'active' : ''; ?>">
             <a href="http://localhost/easy-manage/individual-projects/" style="display: block; padding: 16px; text-decoration: none; color:#FAFAFA;">
                 <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/project.png" style="width:2.5rem;height:2.5rem;" />
-                Individual Projects
+                Projects
             </a>
         </div>
         <div class="side-menu <?php echo (strpos($_SERVER['REQUEST_URI'], 'trainer-projects') !== false) ? 'active' : ''; ?>">
-            <a href="http://localhost/easy-manage/group-projects" style="display: block; padding: 16px; text-decoration: none; color:#FAFAFA;">
+            <a href="http://localhost/easy-manage/deactivated-projects/" style="display: block; padding: 16px; text-decoration: none; color:#FAFAFA;">
                 <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/project.png" style="width:2.5rem;height:2.5rem;" />
-                Group Projects
+                Deleted projects
             </a>
         </div>
         <div class="side-menu <?php echo (strpos($_SERVER['REQUEST_URI'], 'trainer-cohort') !== false) ? 'active' : ''; ?>">
@@ -73,7 +73,7 @@ if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 2
         <div class="side-menu <?php echo (strpos($_SERVER['REQUEST_URI'], 'trash') !== false) ? 'active' : ''; ?>">
             <a href="http://localhost/easy-manage/trash/" style="display: block; padding: 16px; text-decoration: none; color:#FAFAFA;">
                 <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/dustbin.png" style="width:2.5rem;height:2.5rem;" />
-                Trash
+                Deactivated trainees
             </a>
         </div>
     </div>

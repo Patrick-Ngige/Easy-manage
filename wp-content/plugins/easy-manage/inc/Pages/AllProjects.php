@@ -45,6 +45,15 @@ class AllProjects
 
         register_rest_route(
             'em/v1',
+            '/projects/deleted',
+            array(
+                'methods' => array('GET'),
+                'callback' => array($this, 'deleted_projects'),
+            )
+        );
+
+        register_rest_route(
+            'em/v1',
             '/project/completed/(?P<id>\d+)',
             array(
                 'methods' => array('GET'),
@@ -117,6 +126,41 @@ class AllProjects
 
         return $projects;
     }
+
+    public function deleted_projects($request)
+    {
+        global $wpdb;
+        $individual_table = $wpdb->prefix . 'individual_projects';
+        $group_table = $wpdb->prefix . 'group_projects';
+    
+        $individual_projects = $wpdb->get_results(
+            $wpdb->prepare(
+                "SELECT * FROM $individual_table WHERE project_status = %d",
+                1
+            )
+        );
+    
+        $group_projects = $wpdb->get_results(
+            $wpdb->prepare(
+                "SELECT * FROM $group_table WHERE group_status = %d",
+                1
+            )
+        );
+    
+        $projects = array(
+            'individual_projects' => $individual_projects,
+            'group_projects' => $group_projects
+        );
+
+        $projects = array_merge($individual_projects, $group_projects);
+    
+        if (empty($projects)) {
+            return new WP_Error('no_projects', 'No projects found.', array('status' => 404));
+        }
+    
+        return $projects;
+    }
+    
 
     public function retrieve_group_projects($request)
     {

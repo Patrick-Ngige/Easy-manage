@@ -6,34 +6,37 @@ get_header();
  */
 
 
- require_once(ABSPATH . 'wp-load.php');
+require_once(ABSPATH . 'wp-load.php');
 
- $token = $_COOKIE['token'];
- 
- $response = wp_remote_get('http://localhost/easy-manage/wp-json/wp/v2/users/me', array(
-     'headers' => array(
-         'Authorization' => 'Bearer ' . $token
-     )
- ));
- 
- 
- if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 200) {
-     $user_data = json_decode(wp_remote_retrieve_body($response));
- }
+$token = $_COOKIE['token'];
 
- $endpoint_url = 'http://localhost/easy-manage/wp-json/em/v1/group_project/' . $user_data->name;
-$response = wp_remote_get($endpoint_url);
-$group = wp_remote_retrieve_body($response);
+$response = wp_remote_get('http://localhost/easy-manage/wp-json/wp/v2/users/me', array(
+    'headers' => array(
+        'Authorization' => 'Bearer ' . $token
+    )
+)
+);
 
+if (isset($_POST['soft_delete'])) {
+    $group_id = $_POST['group_id'];
+    $endpoint_url = 'http://localhost/easy-manage/wp-json/em/v1/group_project/soft_delete/' . $group_id;
 
-preg_match('/\d+/', $group, $matches);
-if (!empty($matches)) {
-  $group_id = intval($matches[0]);
-} else {
+    $curl = curl_init();
+    curl_setopt($curl, CURLOPT_URL, $endpoint_url);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'DELETE');
+    curl_setopt($curl, CURLOPT_HTTPHEADER, array(
+        'Authorization: Bearer ' . $token
+    )
+    );
+    $response = curl_exec($curl);
 
-  $group_id = 0; 
+    if ($response === false) {
+        echo 'Error: ' . curl_error($curl);
+    }
+
+    curl_close($curl);
 }
-
 ?>
 
 <div style="width:100vw;height:90vh;display:flex;flex-direction:row;margin-top:-2.45rem">
@@ -41,7 +44,6 @@ if (!empty($matches)) {
     <div class="page-trainee-dashboard" style="margin-top:-1.99rem;width:20vw">
         <?php get_template_part('sidenav-trainer'); ?>
     </div>
-
 
     <div style="padding:1rem;width:80vw;margin-left:0rem">
         <div style="padding:1rem;">
@@ -70,40 +72,56 @@ if (!empty($matches)) {
                 </thead>
                 <tbody>
                     <?php
-                    $request_url = 'http://localhost/easy-manage/wp-json/em/v1/group_project'.$group_id ;
+                    $request_url = 'http://localhost/easy-manage/wp-json/em/v1/projects/group';
                     $response = wp_remote_get($request_url);
                     $projects = wp_remote_retrieve_body($response);
                     $projects = json_decode($projects, true);
 
                     if (is_array($projects)) {
-                        foreach ($projects as $project) {
+                        foreach ($projects as $project) { ?>
 
-                            echo '<tr>';
-                            echo '<td>';
-                            echo '<div class="d-flex align-items-center">';
-                            echo '<div class="ms-3">';
-                            echo '<p class="mb-1">' . $project['assigned_members'] . '</p>';
-                            echo '</div>';
-                            echo '</div>';
-                            echo '</td>';
-                            echo '<td>';
-                            echo '<p class="fw-normal mb-1">' . $project['project_name'] . '</p>';
-                            echo '</td>';
-                            echo '<td>';
-                            echo '<p class="fw-normal mb-1">' . ($project['group_status'] == 0 ? 'Ongoing' : 'Completed') . '</p>';
-                            echo '</td>';
-                            echo '<td>';
-                            echo '<p class="fw-normal mb-1">'. $project['due_date'].'</p>';
-                            echo '</td>';
-                            echo '<td>';
-                            echo '<form method="POST">';
-                            echo '<a href="http://localhost/easy-manage/admin-update-form/?id=' . $project['group_id'] . '" style="padding:6px"><img src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png" style="width:25px;" alt=""></a> &nbsp;&nbsp;';
-                            echo '<input type="hidden" name="" value="">';
-                            echo '<a href="#" style="padding:6px;text-decoration:none;color:#315B87"> <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/pause-2.png" style="width:25px;" alt="">  </a> &nbsp;&nbsp;';
-                            echo '</form>';
-                            echo '</td>';
-                            echo '</tr>';
-                        }
+                            <tr></tr>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <div class="ms-3">
+                                        <p class="mb-1">
+                                            <?php echo $project['assigned_members'] ?>
+                                        </p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <p class="fw-normal mb-1">
+                                    <?php echo $project['project_name'] ?>
+                                </p>
+                            </td>
+                            <td>
+                                <p class="fw-normal mb-1">
+                                    <?php echo ($project['group_status'] == 0 ? '<span style="color:green;">Ongoing</span>' : 'Completed') ?>
+                                </p>
+                            </td>
+                            <td>
+                                <p class="fw-normal mb-1">
+                                    <?php echo $project['due_date'] ?>
+                                </p>
+                            </td>
+                            <td>
+                                <form method="POST">
+                                <input type="hidden" name="group_id" value="<?php echo $project['group_id']; ?>">
+                                        <button type="submit" name="soft_delete" class="btn-soft-delete"
+                                            style="padding:6px;border:none">
+                                            <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/pause-2.png"
+                                                style="width:25px;" alt="">
+                                        </button>
+                                    <a href="http://localhost/easy-manage/admin-update-form/?id=<?php echo $project['group_id'] ?>"
+                                        style="padding:6px"><img
+                                            src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png"
+                                            style="width:25px;" alt=""></a> &nbsp;&nbsp;
+                                    
+                                </form>
+                            </td>
+                            </tr>
+                        <?php }
                     } else {
                         echo 'Error retrieving projects';
                     }
