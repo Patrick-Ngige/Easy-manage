@@ -20,13 +20,13 @@ if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 2
     $users = json_decode(wp_remote_retrieve_body($response), true);
 }
 
+$endpoint_url = '';
     if (isset($_POST['restore_user'])) {
         $user_id = $_POST['user_id'];
-        $endpoint = 'http://localhost/easy-manage/wp-json/em/v1/restore_user/' . $user_id;
+        $endpoint_url = 'http://localhost/easy-manage/wp-json/em/v1/restore_user/' . $user_id;
 
     }
-
-        $ch = curl_init($endpoint);
+        $ch = curl_init($endpoint_url);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(
@@ -37,12 +37,17 @@ if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 2
         $http_status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
         if ($http_status === 200) {
-            // Successful response
-            $response = json_decode($result, true);
-            // Handle the response accordingly
-        } else {
-            // Error occurred
-            // Handle the error response
+            $result = json_decode($result);
+
+            if ($result && isset($result->success)) {
+                $_SESSION['success_message'] = 'User restored successfully.';
+                ?>
+                <script>
+                    window.location.href = '<?php echo esc_url(add_query_arg('success', 'true')); ?>';
+                </script>
+                <?php
+                exit;
+            }
         }
 
         curl_close($ch);
@@ -75,7 +80,7 @@ if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 2
                             <th>Username</th>
                             <th>Email</th>
                             <th>Status</th>
-                            <th>Actions</th>
+                            <th>Restore</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -104,9 +109,9 @@ if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 2
                                     <form method="POST">
                                         <input type="hidden" name="user_id" value="<?php echo $user['ID']; ?>">
                                         <button type="submit" name="restore_user"
-                                            style="padding:6px; border: none; background: none; cursor: pointer;">
-                                            <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/pause-2.png"
-                                                style="width:25px;" alt="">
+                                            style="border: none; background: none; cursor: pointer;">
+                                            <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/reuse.png"
+                                                style="width:3vw;" alt="">
                                         </button>
                                     </form>
                                 </td>

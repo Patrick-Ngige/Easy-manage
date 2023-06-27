@@ -253,7 +253,7 @@ class TrainerEndpoints
                         );
                         return rest_ensure_response($response);
                     } else {
-                        return new WP_Error('project_creation_failed', 'Failed to create individual project.', array('status' => 500));
+                        return new WP_Error('project_creation_failed', 'Failed to create individual project.', array('status' => 403));
                     }
                 }
             }
