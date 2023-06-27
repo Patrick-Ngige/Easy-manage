@@ -32,42 +32,54 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $project_task = $_POST['project_task'];
         $assignee = $_POST['assignee'];
         $due_date = $_POST['due_date'];
-
+    
         $created_project = array(
             'project_name' => $project_name,
             'project_task' => $project_task,
             'assignee' => $assignee,
             'due_date' => $due_date,
         );
-
-
+    
         $token = $_COOKIE['token'];
- 
-        try {
+    
+        $endpoint = 'http://localhost/easy-manage/wp-json/em/v1/projects/individual';
+        $ch = curl_init($endpoint);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+            'Authorization: Bearer ' . $token,
+            'Content-Type: application/json'
+        ));
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($created_project)); 
+    
+        $response = curl_exec($ch);
+        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    
+        if ($response === false) {
+            echo 'Error: ' . curl_error($ch);
+        } else {
+            echo $response;
+        }
+    
+        curl_close($ch);
+
+        
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, 'http://localhost/easy-manage/wp-json/em/v1/projects/individual');
         curl_setopt($curl, CURLOPT_POST, true);
         curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($created_project));
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt(
-            $curl,
-            CURLOPT_HTTPHEADER,
-            array(
-                'Content-Type: application/json',
-                'Authorization: Bearer ' . $token
-            )
-        );
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array(
+            'Content-Type: application/json',
+            'Authorization: Bearer ' . $token
+        ));
 
         $response = curl_exec($curl);
         $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 
-        // if ($response === false) {
-        //     echo 'Error: ' . curl_error($curl);
-        // } else {
-        //     echo $response;
-        // }
-
         curl_close($curl);
+       
 
         if ($httpCode === 200) {
             $result = json_decode($response);
@@ -75,23 +87,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($result && isset($result->success)) {
                 $_SESSION['success_message'] = 'Project created successfully.';
                 ?>
-                <script>     window.location.href = '<?php echo esc_url(add_query_arg('success', 'true')); ?>';
+                <script>
+                    window.location.href = '<?php echo esc_url(add_query_arg('success', 'true')); ?>';
                 </script>
                 <?php
                 exit;
             }
         }
-    } catch (Exception $e) {
-        // Log or display the exception message
-        error_log('Exception: ' . $e->getMessage());
-        echo 'Exception: ' . $e->getMessage();
-   
     }
-}
 }
 
 ob_end_flush();
 ?>
+
 
 
 <div style="width:100vw;height:90vh;display:flex;flex-direction:row;margin-top:-2.45rem">

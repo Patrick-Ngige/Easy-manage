@@ -2882,3 +2882,326 @@ Stack trace:
 #2 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
 #3 {main}
   thrown in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-group_projects.php on line 88
+[27-Jun-2023 16:52:26 Africa/Nairobi] PHP Warning:  Undefined variable $endpoint in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 29
+[27-Jun-2023 16:52:29 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:52:29 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:52:29 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:52:29 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:52:29 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:52:29 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:52:29 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:52:29 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:52:29 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:52:29 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:52:29 Africa/Nairobi] PHP Warning:  Undefined array key "project_id" in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 124
+[27-Jun-2023 16:52:30 Africa/Nairobi] PHP Warning:  Undefined variable $endpoint in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 29
+[27-Jun-2023 16:52:32 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:52:32 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:52:32 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:52:32 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:52:32 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:52:32 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:52:32 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:52:32 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:52:32 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:52:32 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:52:32 Africa/Nairobi] PHP Warning:  Undefined array key "project_id" in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 124
+[27-Jun-2023 16:53:09 Africa/Nairobi] PHP Warning:  Undefined variable $endpoint in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 29
+[27-Jun-2023 16:53:12 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:53:12 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:53:12 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:53:12 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:53:12 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:53:12 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:53:12 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:53:12 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:53:12 Africa/Nairobi] PHP Fatal error:  Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php:100
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php(100): implode(', ', 'Brian, Joy, Kim')
+#1 C:\xampp\htdocs\easy-manage\wp-includes\template-loader.php(106): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\easy-manage\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 100
+[27-Jun-2023 16:53:13 Africa/Nairobi] PHP Warning:  Undefined variable $endpoint in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 29
+[27-Jun-2023 16:53:16 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:53:16 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:53:16 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:53:16 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:53:16 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:53:16 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:53:16 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:53:16 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:53:16 Africa/Nairobi] PHP Fatal error:  Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php:100
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php(100): implode(', ', 'Brian, Joy, Kim')
+#1 C:\xampp\htdocs\easy-manage\wp-includes\template-loader.php(106): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\easy-manage\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 100
+[27-Jun-2023 16:53:25 Africa/Nairobi] PHP Warning:  Undefined variable $endpoint in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 29
+[27-Jun-2023 16:53:29 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:53:29 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:53:29 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:53:29 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:53:29 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:53:29 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:53:29 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:53:29 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:53:29 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:53:29 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:53:29 Africa/Nairobi] PHP Warning:  Undefined array key "project_id" in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 124
+[27-Jun-2023 16:53:30 Africa/Nairobi] PHP Warning:  Undefined variable $endpoint in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 29
+[27-Jun-2023 16:53:33 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:53:33 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:53:33 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:53:33 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:53:33 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:53:33 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:53:33 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:53:33 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:53:33 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:53:33 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:53:33 Africa/Nairobi] PHP Warning:  Undefined array key "project_id" in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 124
+[27-Jun-2023 16:53:56 Africa/Nairobi] PHP Warning:  Undefined variable $endpoint in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 29
+[27-Jun-2023 16:53:58 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:53:58 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:53:58 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:53:58 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:53:58 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:53:58 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:53:58 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:53:58 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:53:58 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:53:58 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:53:59 Africa/Nairobi] PHP Warning:  Undefined variable $endpoint in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 29
+[27-Jun-2023 16:54:02 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:54:02 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:54:02 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:54:02 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:54:02 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:54:02 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:54:02 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:54:02 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:54:02 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:54:02 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:54:17 Africa/Nairobi] PHP Warning:  Undefined variable $endpoint in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 29
+[27-Jun-2023 16:54:19 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:54:19 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:54:19 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:54:19 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:54:19 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:54:19 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:54:19 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:54:19 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:54:19 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:54:19 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:54:21 Africa/Nairobi] PHP Warning:  Undefined variable $endpoint in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 29
+[27-Jun-2023 16:54:23 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:54:23 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:54:23 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:54:23 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:54:23 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:54:23 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:54:23 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:54:23 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:54:23 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 16:54:23 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 13:54:53 UTC] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, string given in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php:267
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(267): count('')
+#1 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(205): Inc\Pages\TrainerEndpoints->is_assignee_reached_max_projects('Kores')
+#2 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(71): Inc\Pages\TrainerEndpoints->create_individual_project(Object(WP_REST_Request))
+#3 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1181): Inc\Pages\TrainerEndpoints->individual_projects_callbacks(Object(WP_REST_Request))
+#4 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1028): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/em/v1/projects...', Array, NULL)
+#5 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(442): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#6 C:\xampp\htdocs\easy-manage\wp-includes\rest-api.php(410): WP_REST_Server->serve_request('/em/v1/projects...')
+#7 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(308): rest_api_loaded(Object(WP))
+#8 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters('', Array)
+#9 C:\xampp\htdocs\easy-manage\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#10 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(399): do_action_ref_array('parse_request', Array)
+#11 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(780): WP->parse_request('')
+#12 C:\xampp\htdocs\easy-manage\wp-includes\functions.php(1334): WP->main('')
+#13 C:\xampp\htdocs\easy-manage\wp-blog-header.php(16): wp()
+#14 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#15 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php on line 267
+[27-Jun-2023 13:57:13 UTC] WordPress database error Column 'project_name' cannot be null for query INSERT INTO `wp_individual_projects` (`project_name`, `project_task`, `assignee`, `due_date`) VALUES (NULL, NULL, '', NULL) made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\TrainerEndpoints->individual_projects_callbacks, Inc\Pages\TrainerEndpoints->create_individual_project
+[27-Jun-2023 17:27:23 Africa/Nairobi] PHP Warning:  Undefined variable $endpoint in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-create-project.php on line 63
+[27-Jun-2023 17:33:14 Africa/Nairobi] PHP Warning:  Undefined variable $endpoint in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-create-project.php on line 63
+[27-Jun-2023 17:35:14 Africa/Nairobi] PHP Warning:  Undefined variable $endpoint in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-create-project.php on line 63
+[27-Jun-2023 17:35:56 Africa/Nairobi] PHP Warning:  Undefined variable $endpoint in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-create-project.php on line 63
+[27-Jun-2023 17:44:21 Africa/Nairobi] PHP Warning:  Undefined variable $endpoint in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-create-project.php on line 63
+[27-Jun-2023 14:44:21 UTC] WordPress database error Column 'project_name' cannot be null for query INSERT INTO `wp_individual_projects` (`project_name`, `project_task`, `assignee`, `due_date`) VALUES (NULL, NULL, NULL, NULL) made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\TrainerEndpoints->individual_projects_callbacks, Inc\Pages\TrainerEndpoints->create_individual_project
+[27-Jun-2023 17:45:03 Africa/Nairobi] PHP Warning:  Undefined variable $endpoint in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-create-project.php on line 63
+[27-Jun-2023 14:45:03 UTC] WordPress database error Column 'project_name' cannot be null for query INSERT INTO `wp_individual_projects` (`project_name`, `project_task`, `assignee`, `due_date`) VALUES (NULL, NULL, NULL, NULL) made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\TrainerEndpoints->individual_projects_callbacks, Inc\Pages\TrainerEndpoints->create_individual_project
+[27-Jun-2023 17:47:02 Africa/Nairobi] PHP Warning:  Undefined variable $endpoint in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-create-project.php on line 63
+[27-Jun-2023 14:47:03 UTC] PHP Warning:  Undefined property: wpdb::$profix in C:\xampp\htdocs\easy-manage\wp-includes\class-wpdb.php on line 789
+[27-Jun-2023 14:47:03 UTC] WordPress database error Table 'easy-manage.individual_projects' doesn't exist for query SHOW FULL COLUMNS FROM `individual_projects` made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\TrainerEndpoints->individual_projects_callbacks, Inc\Pages\TrainerEndpoints->create_individual_project
+[27-Jun-2023 14:48:03 UTC] PHP Warning:  Undefined property: wpdb::$profix in C:\xampp\htdocs\easy-manage\wp-includes\class-wpdb.php on line 789
+[27-Jun-2023 14:48:03 UTC] WordPress database error Table 'easy-manage.individual_projects' doesn't exist for query SHOW FULL COLUMNS FROM `individual_projects` made by require('wp-blog-header.php'), wp, WP->main, WP->parse_request, do_action_ref_array('parse_request'), WP_Hook->do_action, WP_Hook->apply_filters, rest_api_loaded, WP_REST_Server->serve_request, WP_REST_Server->dispatch, WP_REST_Server->respond_to_request, Inc\Pages\TrainerEndpoints->individual_projects_callbacks, Inc\Pages\TrainerEndpoints->create_individual_project
+[27-Jun-2023 14:48:34 UTC] PHP Fatal error:  Uncaught Error: [] operator not supported for strings in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php:244
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(71): Inc\Pages\TrainerEndpoints->create_individual_project(Object(WP_REST_Request))
+#1 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1181): Inc\Pages\TrainerEndpoints->individual_projects_callbacks(Object(WP_REST_Request))
+#2 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1028): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/em/v1/projects...', Array, NULL)
+#3 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(442): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#4 C:\xampp\htdocs\easy-manage\wp-includes\rest-api.php(410): WP_REST_Server->serve_request('/em/v1/projects...')
+#5 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(308): rest_api_loaded(Object(WP))
+#6 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters('', Array)
+#7 C:\xampp\htdocs\easy-manage\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#8 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(399): do_action_ref_array('parse_request', Array)
+#9 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(780): WP->parse_request('')
+#10 C:\xampp\htdocs\easy-manage\wp-includes\functions.php(1334): WP->main('')
+#11 C:\xampp\htdocs\easy-manage\wp-blog-header.php(16): wp()
+#12 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#13 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php on line 244
+[27-Jun-2023 17:52:38 Africa/Nairobi] PHP Warning:  Undefined variable $endpoint in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-create-project.php on line 63
+[27-Jun-2023 17:54:49 Africa/Nairobi] PHP Warning:  Undefined variable $curl in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-create-project.php on line 71
+[27-Jun-2023 17:54:49 Africa/Nairobi] PHP Fatal error:  Uncaught TypeError: curl_exec(): Argument #1 ($handle) must be of type CurlHandle, null given in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-create-project.php:71
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-create-project.php(71): curl_exec(NULL)
+#1 C:\xampp\htdocs\easy-manage\wp-includes\template-loader.php(106): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\easy-manage\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-create-project.php on line 71
+[27-Jun-2023 17:55:11 Africa/Nairobi] PHP Warning:  Undefined variable $curl in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-create-project.php on line 71
+[27-Jun-2023 17:55:11 Africa/Nairobi] PHP Fatal error:  Uncaught TypeError: curl_exec(): Argument #1 ($handle) must be of type CurlHandle, null given in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-create-project.php:71
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-create-project.php(71): curl_exec(NULL)
+#1 C:\xampp\htdocs\easy-manage\wp-includes\template-loader.php(106): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\easy-manage\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-create-project.php on line 71
+[27-Jun-2023 14:59:34 UTC] PHP Fatal error:  Uncaught Error: [] operator not supported for strings in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php:246
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(71): Inc\Pages\TrainerEndpoints->create_individual_project(Object(WP_REST_Request))
+#1 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1181): Inc\Pages\TrainerEndpoints->individual_projects_callbacks(Object(WP_REST_Request))
+#2 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1028): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/em/v1/projects...', Array, NULL)
+#3 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(442): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#4 C:\xampp\htdocs\easy-manage\wp-includes\rest-api.php(410): WP_REST_Server->serve_request('/em/v1/projects...')
+#5 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(308): rest_api_loaded(Object(WP))
+#6 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters('', Array)
+#7 C:\xampp\htdocs\easy-manage\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#8 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(399): do_action_ref_array('parse_request', Array)
+#9 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(780): WP->parse_request('')
+#10 C:\xampp\htdocs\easy-manage\wp-includes\functions.php(1334): WP->main('')
+#11 C:\xampp\htdocs\easy-manage\wp-blog-header.php(16): wp()
+#12 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#13 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php on line 246
+[27-Jun-2023 18:01:39 Africa/Nairobi] PHP Warning:  Undefined variable $ch in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-create-project.php on line 79
+[27-Jun-2023 18:01:39 Africa/Nairobi] PHP Fatal error:  Uncaught TypeError: curl_exec(): Argument #1 ($handle) must be of type CurlHandle, null given in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-create-project.php:79
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-create-project.php(79): curl_exec(NULL)
+#1 C:\xampp\htdocs\easy-manage\wp-includes\template-loader.php(106): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\easy-manage\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-create-project.php on line 79
+[27-Jun-2023 18:01:50 Africa/Nairobi] PHP Warning:  Undefined variable $ch in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-create-project.php on line 79
+[27-Jun-2023 18:01:50 Africa/Nairobi] PHP Fatal error:  Uncaught TypeError: curl_exec(): Argument #1 ($handle) must be of type CurlHandle, null given in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-create-project.php:79
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-create-project.php(79): curl_exec(NULL)
+#1 C:\xampp\htdocs\easy-manage\wp-includes\template-loader.php(106): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\easy-manage\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-create-project.php on line 79
+[27-Jun-2023 18:02:02 Africa/Nairobi] PHP Warning:  Undefined variable $ch in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-create-project.php on line 79
+[27-Jun-2023 18:02:02 Africa/Nairobi] PHP Fatal error:  Uncaught TypeError: curl_exec(): Argument #1 ($handle) must be of type CurlHandle, null given in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-create-project.php:79
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-create-project.php(79): curl_exec(NULL)
+#1 C:\xampp\htdocs\easy-manage\wp-includes\template-loader.php(106): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\easy-manage\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-create-project.php on line 79
+[27-Jun-2023 18:02:23 Africa/Nairobi] PHP Warning:  Undefined variable $ch in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-create-project.php on line 79
+[27-Jun-2023 18:02:23 Africa/Nairobi] PHP Fatal error:  Uncaught TypeError: curl_exec(): Argument #1 ($handle) must be of type CurlHandle, null given in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-create-project.php:79
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-create-project.php(79): curl_exec(NULL)
+#1 C:\xampp\htdocs\easy-manage\wp-includes\template-loader.php(106): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\easy-manage\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-create-project.php on line 79
+[27-Jun-2023 18:02:28 Africa/Nairobi] PHP Warning:  Undefined variable $ch in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-create-project.php on line 79
+[27-Jun-2023 18:02:28 Africa/Nairobi] PHP Fatal error:  Uncaught TypeError: curl_exec(): Argument #1 ($handle) must be of type CurlHandle, null given in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-create-project.php:79
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-create-project.php(79): curl_exec(NULL)
+#1 C:\xampp\htdocs\easy-manage\wp-includes\template-loader.php(106): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\easy-manage\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-create-project.php on line 79
+[27-Jun-2023 15:03:04 UTC] PHP Fatal error:  Uncaught Error: [] operator not supported for strings in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php:246
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(71): Inc\Pages\TrainerEndpoints->create_individual_project(Object(WP_REST_Request))
+#1 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1181): Inc\Pages\TrainerEndpoints->individual_projects_callbacks(Object(WP_REST_Request))
+#2 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1028): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/em/v1/projects...', Array, NULL)
+#3 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(442): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#4 C:\xampp\htdocs\easy-manage\wp-includes\rest-api.php(410): WP_REST_Server->serve_request('/em/v1/projects...')
+#5 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(308): rest_api_loaded(Object(WP))
+#6 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters('', Array)
+#7 C:\xampp\htdocs\easy-manage\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#8 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(399): do_action_ref_array('parse_request', Array)
+#9 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(780): WP->parse_request('')
+#10 C:\xampp\htdocs\easy-manage\wp-includes\functions.php(1334): WP->main('')
+#11 C:\xampp\htdocs\easy-manage\wp-blog-header.php(16): wp()
+#12 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#13 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php on line 246
+[27-Jun-2023 18:06:53 Africa/Nairobi] PHP Warning:  Undefined variable $endpoint in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 29
+[27-Jun-2023 18:06:55 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 18:06:55 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 18:06:55 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 18:06:55 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 18:06:55 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 18:06:55 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 18:06:55 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 18:06:55 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 18:06:55 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 18:06:55 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 18:06:57 Africa/Nairobi] PHP Warning:  Undefined variable $endpoint in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 29
+[27-Jun-2023 18:06:59 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 18:06:59 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 18:06:59 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 18:06:59 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 18:06:59 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 18:06:59 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 18:06:59 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 18:06:59 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 18:06:59 Africa/Nairobi] PHP Warning:  Undefined variable $user in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 18:06:59 Africa/Nairobi] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-deactivated-projects.php on line 118
+[27-Jun-2023 18:07:18 Africa/Nairobi] PHP Warning:  Undefined variable $httpCode in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-create-project.php on line 69
+[27-Jun-2023 18:08:59 Africa/Nairobi] PHP Warning:  Undefined variable $ch in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-create-project.php on line 79
+[27-Jun-2023 18:08:59 Africa/Nairobi] PHP Fatal error:  Uncaught TypeError: curl_exec(): Argument #1 ($handle) must be of type CurlHandle, null given in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-create-project.php:79
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-create-project.php(79): curl_exec(NULL)
+#1 C:\xampp\htdocs\easy-manage\wp-includes\template-loader.php(106): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\easy-manage\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\themes\easy-manage\page-trainer-create-project.php on line 79
+[27-Jun-2023 15:10:32 UTC] PHP Fatal error:  Uncaught Error: [] operator not supported for strings in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php:246
+Stack trace:
+#0 C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php(71): Inc\Pages\TrainerEndpoints->create_individual_project(Object(WP_REST_Request))
+#1 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1181): Inc\Pages\TrainerEndpoints->individual_projects_callbacks(Object(WP_REST_Request))
+#2 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(1028): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/em/v1/projects...', Array, NULL)
+#3 C:\xampp\htdocs\easy-manage\wp-includes\rest-api\class-wp-rest-server.php(442): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#4 C:\xampp\htdocs\easy-manage\wp-includes\rest-api.php(410): WP_REST_Server->serve_request('/em/v1/projects...')
+#5 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(308): rest_api_loaded(Object(WP))
+#6 C:\xampp\htdocs\easy-manage\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters('', Array)
+#7 C:\xampp\htdocs\easy-manage\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#8 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(399): do_action_ref_array('parse_request', Array)
+#9 C:\xampp\htdocs\easy-manage\wp-includes\class-wp.php(780): WP->parse_request('')
+#10 C:\xampp\htdocs\easy-manage\wp-includes\functions.php(1334): WP->main('')
+#11 C:\xampp\htdocs\easy-manage\wp-blog-header.php(16): wp()
+#12 C:\xampp\htdocs\easy-manage\index.php(17): require('C:\\xampp\\htdocs...')
+#13 {main}
+  thrown in C:\xampp\htdocs\easy-manage\wp-content\plugins\easy-manage\inc\Pages\TrainerEndpoints.php on line 246

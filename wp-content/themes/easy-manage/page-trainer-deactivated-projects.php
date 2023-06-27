@@ -76,7 +76,7 @@ curl_close($ch);
                         <th>Trainee</th>
                         <th>Project</th>
                         <th>Status</th>
-                        <th>Actions</th>
+                        <th>Restore</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -121,10 +121,6 @@ curl_close($ch);
                                             <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/pause-2.png"
                                                 style="width:25px;" alt="">
                                         </button>
-                                        <a href="http://localhost/easy-manage/admin-update-form/?id=?<?php echo $project['project_id'] ?>"
-                                            style="padding:6px"><img
-                                                src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png"
-                                                style="width:25px;" alt=""></a> &nbsp;&nbsp;
 
                                     </form>
                                 </td>

@@ -193,62 +193,73 @@ class TrainerEndpoints
         $project_task = $request->get_param('project_task');
         $assignee_username = $request->get_param('assignee');
         $due_date = $request->get_param('due_date');
-
-        $assignee_name = trim($assignee_username);
-
-        if (!username_exists($assignee_username)) {
-            return new WP_Error('invalid_assignee', 'Invalid assignee. Please select an existing user.', array('status' => 400));
-        }
-
-        $assignee_id = username_exists($assignee_username);
-
-        if ($this->is_assignee_reached_max_projects($assignee_username)) {
-            return new WP_Error('max_projects_reached', 'The assignee has reached the maximum number of projects.', array('status' => 400));
-        }
-
+    
         global $wpdb;
-        $table_name = $wpdb->prefix . 'individual_projects';
-
-        // Check if the project already exists
-        $existing_project = $wpdb->get_row(
+        $user_table = $wpdb->prefix . 'users';
+        $user_status = 0;
+    
+        $user_exists = $wpdb->get_var(
             $wpdb->prepare(
-                "SELECT project_id FROM $table_name WHERE project_name = %s AND assignee = %s",
-                $project_name,
-                $assignee_name
+                "SELECT ID FROM $user_table WHERE user_login = %s AND user_status = %d",
+                $assignee_username,
+                $user_status
             )
         );
-
-        if ($existing_project) {
-            return new WP_Error('project_exists', 'This project already exists.', array('status' => 400));
-        }
-
-        $result = $wpdb->insert(
-            $table_name,
-            array(
-                'project_name' => $project_name,
-                'project_task' => $project_task,
-                'assignee' => $assignee_name,
-                'due_date' => $due_date,
-            )
-        );
-
-        if ($result !== false) {
-            $project_id = $wpdb->insert_id;
-
-            $assigned_projects = get_user_meta($assignee_id, 'assigned_projects', true);
-            $assigned_projects[] = $project_id;
-            update_user_meta($assignee_id, 'assigned_projects', $assigned_projects);
-
-            $response = array(
-                'success' => true,
-                'message' => 'Individual project created successfully',
-                'project_id' => $project_id,
-            );
-            return rest_ensure_response($response);
+    
+        if (!$user_exists) {
+            return new WP_Error('invalid_assignee', 'Invalid assignee. Please select an existing user.', array('status' => 400));
         } else {
-            return new WP_Error('project_creation_failed', 'Failed to create individual project.', array('status' => 500));
+            $assignee_id = $user_exists;
+    
+            if ($this->is_assignee_reached_max_projects($assignee_id)) {
+                return new WP_Error('max_projects_reached', 'The assignee has reached the maximum number of projects.', array('status' => 400));
+            } else {
+                global $wpdb;
+                $table_name = $wpdb->prefix . 'individual_projects';
+    
+                // Check if the project already exists
+                $existing_project = $wpdb->get_row(
+                    $wpdb->prepare(
+                        "SELECT project_id FROM $table_name WHERE project_name = %s AND assignee = %s",
+                        $project_name,
+                        $assignee_username
+                    )
+                );
+    
+                if ($existing_project) {
+                    return new WP_Error('project_exists', 'This project already exists.', array('status' => 400));
+                } else {
+                    $result = $wpdb->insert(
+                        $table_name,
+                        array(
+                            'project_name' => $project_name,
+                            'project_task' => $project_task,
+                            'assignee' => $assignee_username,
+                            'due_date' => $due_date,
+                        )
+                    );
+    
+                    if ($result !== false) {
+                        $project_id = $wpdb->insert_id;
+    
+                        $assigned_projects = get_user_meta($assignee_id, 'assigned_projects', true);
+                        $assigned_projects[] = $project_id;
+                        update_user_meta($assignee_id, 'assigned_projects', $assigned_projects);
+    
+                        $response = array(
+                            'success' => true,
+                            'message' => 'Individual project created successfully',
+                            'project_id' => $project_id,
+                        );
+                        return rest_ensure_response($response);
+                    } else {
+                        return new WP_Error('project_creation_failed', 'Failed to create individual project.', array('status' => 500));
+                    }
+                }
+            }
         }
     }
+    
 
     private function is_assignee_reached_max_projects($assignee_username)
     {
@@ -310,12 +321,12 @@ class TrainerEndpoints
     public function create_group_project($request)
     {
         // $data = $request->get_json_params();
-    
+
         $assigned_members = $request->get_param('assigned_members');
         $group_project = $request->get_param('group_project');
         $project_task = $request->get_param('project_task');
         $due_date = $request->get_param('due_date');
-    
+
         if (empty($assigned_members) || empty($group_project) || empty($project_task) || empty($due_date)) {
             $missing_fields = array();
             if (empty($assigned_members)) {
@@ -330,40 +341,40 @@ class TrainerEndpoints
             if (empty($due_date)) {
                 $missing_fields[] = 'due_date';
             }
-    
+
             return new WP_Error('missing_fields', 'The following fields are required: ' . implode(', ', $missing_fields), array('status' => 400));
         }
-    
+
         $assigned_members_limit = 3;
         $assigned_members_count = count($assigned_members);
-    
+
         if ($assigned_members_count < 2 || $assigned_members_count > $assigned_members_limit) {
             return new WP_Error('invalid_assigned_members', 'Assigned members should be between 2 and 3.', array('status' => 400));
         }
-    
+
         foreach ($assigned_members as $assignee) {
             if (!is_string($assignee) || empty(trim($assignee))) {
                 return new WP_Error('invalid_assigned_member', 'One or more assigned members contain invalid names.', array('status' => 400));
             }
         }
-    
+
         global $wpdb;
         $table_name = $wpdb->prefix . 'group_projects';
         $existing_project = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_name WHERE assigned_members = %s AND project_name = %s AND project_task = %s AND due_date = %s", implode(', ', $assigned_members), $group_project, $project_task, $due_date));
         if ($existing_project) {
             return new WP_Error('project_already_exists', 'A project with the same credentials already exists.', array('status' => 400));
         }
-    
+
         foreach ($assigned_members as $assignee) {
             $projects_count = $wpdb->get_var($wpdb->prepare("SELECT COUNT(*) FROM $table_name WHERE assigned_members LIKE %s", '%' . $assignee . '%'));
-    
+
             if ($projects_count >= 3) {
                 return new WP_Error('too_many_projects', 'One or more assigned members already have 3 or more projects.', array('status' => 400));
             }
         }
-    
-        $assigned_members_names = implode(', ', $assigned_members); 
-    
+
+        $assigned_members_names = implode(', ', $assigned_members);
+
         $result = $wpdb->insert(
             $table_name,
             array(
@@ -373,7 +384,7 @@ class TrainerEndpoints
                 'due_date' => $due_date,
             )
         );
-    
+
         if ($result) {
             $response = array(
                 'success' => true,
@@ -382,10 +393,10 @@ class TrainerEndpoints
             );
             return rest_ensure_response($response);
         }
-    
+
         return new WP_Error('project_creation_failed', 'Failed to create group project.', array('status' => 501));
     }
-    
+
 
 
 
