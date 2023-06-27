@@ -14,6 +14,29 @@ $response = wp_remote_get('http://localhost/easy-manage/wp-json/wp/v2/users/me',
 )
 );
 
+
+if (isset($_POST['soft_delete'])) {
+    $user_id = $_POST['user_id'];
+    $endpoint_url = 'http://localhost/easy-manage/wp-json/em/v1/soft_delete/' . $user_id;
+
+    $curl = curl_init();
+    curl_setopt($curl, CURLOPT_URL, $endpoint_url);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'DELETE');
+    curl_setopt($curl, CURLOPT_HTTPHEADER, array(
+        'Authorization: Bearer ' . $token
+    ));
+    $response = curl_exec($curl);
+
+    if ($response === false) {
+        echo 'Error: ' . curl_error($curl);
+    }
+
+
+    curl_close($curl);
+
+}
+
 ?>
 
 <div style="width:100vw;height:90vh;display:flex;flex-direction:row;margin-top:-2.45rem">
@@ -78,9 +101,12 @@ $response = wp_remote_get('http://localhost/easy-manage/wp-json/wp/v2/users/me',
                                 </td>
                                 <td>
                                     <form method="POST">
-                                    <a href="#" style="padding:6px;text-decoration:none;color:#315B87"> <img
-                                                src="http://localhost/easy-manage/wp-content/uploads/2023/06/pause-2.png"
-                                                style="width:25px;" alt=""> </a> &nbsp;&nbsp;
+                                    <input type="hidden" name="user_id" value="<?php echo $user['ID']; ?>">
+                                        <button type="submit" name="soft_delete" class="btn-soft-delete"
+                                            style="padding:6px;border:none">
+                                            <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/pause-2.png"
+                                                style="width:25px;" alt="">
+                                        </button>
                                         <a href="http://localhost/easy-manage/admin-update-form/?id=<?php echo $user['ID'] ?>"
                                             style="padding:6px"><img
                                                 src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png"
