@@ -5,7 +5,37 @@ get_header();
  * Template Name: Admin PM List
  */
 
-$current_user = wp_get_current_user();
+ $token = $_COOKIE['token'];
+
+ $response = wp_remote_get('http://localhost/easy-manage/wp-json/wp/v2/users/me', array(
+     'headers' => array(
+         'Authorization' => 'Bearer ' . $token
+     )
+ )
+ );
+ 
+ if (isset($_POST['soft_delete'])) {
+     $cohort_id = $_POST['cohort_id'];
+     $endpoint_url = 'http://localhost/easy-manage/wp-json/em/v1/soft_delete/' . $cohort_id;
+ 
+     $curl = curl_init();
+     curl_setopt($curl, CURLOPT_URL, $endpoint_url);
+     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+     curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'DELETE');
+     curl_setopt($curl, CURLOPT_HTTPHEADER, array(
+         'Authorization: Bearer ' . $token
+     ));
+     $response = curl_exec($curl);
+ 
+     if ($response === false) {
+         echo 'Error: ' . curl_error($curl);
+     }
+ 
+ 
+     curl_close($curl);
+ 
+     
+ }
 
 ?>
 
@@ -19,15 +49,8 @@ $current_user = wp_get_current_user();
     <div style="padding:1rem;width:80vw;margin-left:0rem">
         <div style="padding:1rem;">
             <!-- Add buttons and search bar here -->
-            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
-                <a href="http://localhost/easy-manage/admin-trainers-table/" class="floating-btn"
-                    style="text-decoration:none; padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
-                    View Trainers
-                </a>
-                <a href="http://localhost/easy-manage/admin-trainees-table/" class="floating-btn"
-                    style="text-decoration:none; padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
-                    View Trainees
-                </a>
+            <div style="display: flex; align-items: center; justify-content:end; margin-bottom: 1rem;">
+                
                 <?php echo do_shortcode('[search_bar]'); ?>
             </div>
 
@@ -73,14 +96,11 @@ $current_user = wp_get_current_user();
                                 </td>
                                 <td>
                                     <form method="POST">
-                                        <a href="http://localhost/easy-manage/admin-update-form/?id=<?php echo $Cohort['cohort_id'] ?>"
+                                        <a href="http://localhost/easy-manage/single-page/?id=<?php echo $Cohort['cohort_id'] ?>"
                                             style="padding:6px"><img
-                                                src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png"
+                                                src="http://localhost/easy-manage/wp-content/uploads/2023/06/right-arrow.png"
                                                 style="width:25px;" alt=""></a> &nbsp;&nbsp;
                                         <input type="hidden" name="" value="">
-                                        <a href="#" style="padding:6px;text-decoration:none;color:#315B87"> <img
-                                                src="http://localhost/easy-manage/wp-content/uploads/2023/06/pause-2.png"
-                                                style="width:25px;" alt=""> </a> &nbsp;&nbsp;
                                     </form>
                                 </td>
                             </tr>

@@ -20,6 +20,7 @@ if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 2
     $users = json_decode(wp_remote_retrieve_body($response), true);
 }
 
+$endpoint = '';
 if (isset($_POST['restore_user'])) {
     $user_id = $_POST['user_id'];
     $endpoint = 'http://localhost/easy-manage/wp-json/em/v1/restore_user/' . $user_id;

@@ -12,22 +12,13 @@
 
     <div>
 
-        <div style="margin-left:18%;width:60vw;margin-top:30vh">
+        <div style="margin-left:50%;width:40vw;margin-top:30vh;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;border-radius:5px">
 
             <div class="card " style="height: fit-content;display:flex;">
 
-                <div class="card-header h5" style="display:flex;justify-content:space-between;background-color:#315B87;">
-                    <h4 style="color:#FAFAFA;">Cohort</h4>
-                    <form method="POST">
-                        <a href="#" style="padding:6px"><img
-                                src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png"
-                                style="width:25px;" alt=""></a> &nbsp;&nbsp;
-                        <input type="hidden" name="cohort_id" value="">
-                        <button type="submit" name="delete" value=""
-                            style="padding:5px;border:none;background-color:#FAFAFA" onclick=""> <img
-                                src="http://localhost/easy-manage/wp-content/uploads/2023/06/delete.png"
-                                style="width:25px" alt=""></button>
-                    </form>
+                <div class="card-header h5" style="display:flex;justify-content:space-between;background-color:#315B87;border-radius:5px">
+                    <h4 style="color:#FAFAFA;margin-left:auto;margin-right:auto">Cohort</h4>
+
                 </div>
                 <div class="card-body">
                     <h5 class="card-title" style="color: #315B87;">WordPress</h5>
@@ -37,7 +28,7 @@
                     <p><span style="color: #315B87;font-weight:500">Ending Date: </span> 30/07/2023</p>
                     </div>
                     <a href="http://localhost/easy-manage/cohorts/" class="floating-btn"
-                        style="text-decoration:none; padding: 0.5rem 1rem; border-radius: 8px; background-color: #315B87; border: none; color: #FAFAFA; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+                        style="text-decoration:none; padding: 0.5rem 1rem; border-radius: 8px; background-color: #315B87; border: none; color: #FAFAFA; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);margin-left:auto;margin-right:auto;">
                         back to cohort
                     </a>
                 </div>

@@ -2,7 +2,7 @@
 get_header();
 
 /**
- * Template Name: Admin PM List
+ * Template Name: deactivated trainers
  */
 
 $token = $_COOKIE['token'];
@@ -18,7 +18,7 @@ $response = wp_remote_get(
 
 if (isset($_POST['soft_delete'])) {
     $user_id = $_POST['user_id'];
-    $endpoint_url = 'http://localhost/easy-manage/wp-json/em/v1/soft_delete/' . $user_id;
+    $endpoint_url = 'http://localhost/easy-manage/wp-json/em/v1/restore/' . $user_id;
 
     $curl = curl_init();
     curl_setopt($curl, CURLOPT_URL, $endpoint_url);
@@ -32,11 +32,7 @@ if (isset($_POST['soft_delete'])) {
     if ($response === false) {
         echo 'Error: ' . curl_error($curl);
     }
-
-
     curl_close($curl);
-
-    
 }
 ?>
 
@@ -46,15 +42,11 @@ if (isset($_POST['soft_delete'])) {
         <?php get_template_part('sidenav-pm'); ?>
     </div>
 
-
     <div style="padding:1rem;width:80vw;margin-left:0rem">
         <div style="padding:1rem;">
             <!-- Add buttons and search bar here -->
-            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
-            <a href="http://localhost/easy-manage/deleted-trainers/" class="floating-btn"
-                    style="text-decoration:none; padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
-                    Deactivated Trainers
-                </a>
+            <div style="display: flex; align-items: center; justify-content: end; margin-bottom: 1rem;">
+       
                 <?php echo do_shortcode('[search_bar]'); ?>
             </div>
 
@@ -64,26 +56,25 @@ if (isset($_POST['soft_delete'])) {
                     <tr style="font-size:large;color:#315B87;padding-left:2rem">
                         <th>Username</th>
                         <th>Email</th>
-                        <th>Role</th>
+                        <th>Status</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
-                    $request_url = 'http://localhost/easy-manage/wp-json/em/v1/users/trainers';
+                    $request_url = 'http://localhost/easy-manage/wp-json/em/v1/trainer';
                     $response = wp_remote_get($request_url);
                     $users = wp_remote_retrieve_body($response);
                     $users = json_decode($users, true);
 
                     if (is_array($users)) {
                         foreach ($users as $user) { ?>
-
                             <tr>
                                 <td>
                                     <div class="d-flex align-items-center">
                                         <div class="ms-3">
                                             <p class="mb-1">
-                                                <?php echo $user['user_nicename'] ?>
+                                                <?php echo $user['user_login'] ?>
                                             </p>
                                         </div>
                                     </div>
@@ -94,7 +85,7 @@ if (isset($_POST['soft_delete'])) {
                                     </p>
                                 </td>
                                 <td>
-                                    <p class="fw-normal mb-1"> Trainer</p>
+                                    <p class="fw-normal mb-1" style="color:red"> Deleted</p>
                                 </td>
                                 <td>
                                     <form method="POST">
@@ -104,10 +95,6 @@ if (isset($_POST['soft_delete'])) {
                                             <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/pause-2.png"
                                                 style="width:25px;" alt="">
                                         </button>
-                                        <a href="http://localhost/easy-manage/admin-update-form/?id=<?php echo $user['ID'] ?>"
-                                            style="padding:6px"><img
-                                                src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png"
-                                                style="width:25px;" alt=""></a> &nbsp;&nbsp;
                                         
                                     </form>
                                 </td>
