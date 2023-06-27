@@ -68,7 +68,7 @@ if (isset($_POST['soft_delete'])) {
                         <th>Username</th>
                         <th>Email</th>
                         <th>Role</th>
-                        <th>Actions</th>
+                        <th>Deactivate</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -103,15 +103,11 @@ if (isset($_POST['soft_delete'])) {
                                     <form method="POST">
                                     <input type="hidden" name="user_id" value="<?php echo $user['ID']; ?>">
                                         <button type="submit" name="soft_delete" class="btn-soft-delete"
-                                            style="padding:6px;border:none">
+                                            style="padding:6px;border:none;margin-left:1rem">
                                             <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/pause-2.png"
                                                 style="width:25px;" alt="">
                                         </button>
-                                        <a href="http://localhost/easy-manage/admin-update-form/?id=<?php echo $user['ID'] ?>"
-                                            style="padding:6px"><img
-                                                src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png"
-                                                style="width:25px;" alt=""></a> &nbsp;&nbsp;
-                                        <input type="hidden" name="" value="">
+                                       
                                         
                                     </form>
                                 </td>
