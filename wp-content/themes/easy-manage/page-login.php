@@ -56,14 +56,12 @@ if ($login_attempts >= count($wait_times)) {
                     $show_attempts = true;
                 }
             } else {
-                // Successful login
-                // Regenerate token and set cookie
+
                 $credentials = [
                     'username' => $email,
                     'password' => $password
                 ];
 
-                // Generate token using credentials
                 $args = [
                     'method' => 'POST',
                     'body' => $credentials

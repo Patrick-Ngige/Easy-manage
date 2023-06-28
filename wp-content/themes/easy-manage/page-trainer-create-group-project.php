@@ -45,29 +45,46 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $token = $_COOKIE['token'];
 
         $args = array(
-            'method'=>'POST',
-            'body'=>json_encode(
-                $created_group_project
-            ),
-            'headers'=>[
-                'Content-Type' =>'application/json',
-                'Authorization'=>'Bearer ' . $token
-            ]
+            'method' => 'POST',
+            'body' => json_encode($created_group_project),
+            'headers' => array(
+                'Content-Type' => 'application/json',
+                'Authorization' => 'Bearer ' . $token
+            )
         );
-
-        $result = wp_remote_post('http://localhost/easy-manage/wp-json/em/v1/projects/group', $args);
-
-
-        if ($response == false) {
-            echo 'Error: ';
+        
+        $response = wp_remote_post('http://localhost/easy-manage/wp-json/em/v1/projects/group', $args);
+        
+        if (is_wp_error($response)) {
+            echo 'Error: ' . $response->get_error_message();
         } else {
-            echo $response;
+            $response_code = wp_remote_retrieve_response_code($response);
+            $response_body = wp_remote_retrieve_body($response);
+            $decoded_result = json_decode($response_body, true);
+            
+            if ($response_code === 200) {
+                // Successful response
+                if ($decoded_result && isset($decoded_result['success'])) {
+                    $_SESSION['success_message'] = 'Group project created successfully.';
+                    ?>
+                    <script>
+                        window.location.href = '<?php echo esc_url(add_query_arg('success', 'true')); ?>';
+                    </script>
+                    <?php
+                    exit;
+                }
+            } else {
+                // Error response
+                echo 'Error: ' . $response_body;
+            }
         }
-
-        if ($httpCode === 200) {
-            $result = json_decode($response);
-
-            if ($result && isset($result->success)) {
+        
+        
+        
+        if ($http_status === 200) {
+            $results = $result;
+        
+            if ($result && isset($result['success'])) {
                 $_SESSION['success_message'] = 'Group project created successfully.';
                 ?>
                 <script>
@@ -77,6 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 exit;
             }
         }
+        
     }
 }
 ?>

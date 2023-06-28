@@ -82,10 +82,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
         if ($httpCode === 200) {
-            $result = json_decode($response);
-
-            if ($result && isset($result->success)) {
-                $_SESSION['success_message'] = 'Project created successfully.';
+            // Successful response
+            if ($decoded_result && isset($decoded_result['success'])) {
+                $_SESSION['success_message'] = 'Group project created successfully.';
                 ?>
                 <script>
                     window.location.href = '<?php echo esc_url(add_query_arg('success', 'true')); ?>';
@@ -93,6 +92,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <?php
                 exit;
             }
+        } elseif($httpCode === 405) {
+            if ($decoded_result && isset($decoded_result['success'])) {
+                $_SESSION['success_message'] = 'This project already exists..';
+                ?>
+                <script>
+                    window.location.href = '<?php echo esc_url(add_query_arg('success', 'true')); ?>';
+                </script>
+                <?php
+                exit;
+            }
+        }
+        else {
+            echo 'error';
         }
     }
 }

@@ -117,7 +117,8 @@ function get_recent_group_projects() {
         <?php get_template_part('sidenav-trainer'); ?>
     </div>
 
-    <div style="padding:1rem;width:70vw;margin-left:5rem;overflow-y:auto;z-index:100;height:fit-content;margin-top:1rem">
+    <div style="padding:1rem;width:70vw;margin-left:5rem;overflow-y:auto;z-index:100;height:fit-content;margin-top:1rem;">
+   
         <style>
             .stat-item {
                 display: flex;
@@ -136,8 +137,9 @@ function get_recent_group_projects() {
                 border-bottom: 1px solid #ddd;
             }
         </style>
-
+ <div style="display:flex;justify-content:end;margin-bottom: 2rem">
         <?php echo do_shortcode('[search_bar]'); ?>
+        </div>
 
         <div style=" display: flex; justify-content: space-between; align-items: flex-start;">
             <div style="flex: 1;margin-right: 20px; padding: 10px; background-color: #FAFAFA; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; border-radius: 5px;">
