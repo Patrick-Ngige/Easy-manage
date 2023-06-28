@@ -74,7 +74,14 @@ if (isset($_POST['soft_delete'])) {
                 <tbody>
                     <?php
                     $request_url = 'http://localhost/easy-manage/wp-json/em/v1/users/trainers';
-                    $response = wp_remote_get($request_url);
+                    $response = wp_remote_get(
+                        $request_url,
+                        array(
+                            'headers' => array(
+                                'Authorization' => 'Bearer ' . $token
+                            )
+                        )
+                    );
                     $users = wp_remote_retrieve_body($response);
                     $users = json_decode($users, true);
 
@@ -86,7 +93,7 @@ if (isset($_POST['soft_delete'])) {
                                     <div class="d-flex align-items-center">
                                         <div class="ms-3">
                                             <p class="mb-1">
-                                                <?php echo $user['user_nicename'] ?>
+                                                <?php echo $user['user_login'] ?>
                                             </p>
                                         </div>
                                     </div>
@@ -114,7 +121,7 @@ if (isset($_POST['soft_delete'])) {
                             </tr>
                         <?php }
                     } else {
-                        echo 'No trainers available';
+                        echo '<tr><td colspan="4" style="text-align: center;">No trainer available</td></tr>';
                     }
                     ?>
                 </tbody>

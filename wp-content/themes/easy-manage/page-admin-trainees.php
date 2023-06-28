@@ -74,7 +74,14 @@ if (isset($_POST['soft_delete'])) {
                 <tbody>
                     <?php
                     $request_url = 'http://localhost/easy-manage/wp-json/em/v1/users/trainees';
-                    $response = wp_remote_get($request_url);
+                    $response = wp_remote_get(
+                        $request_url,
+                        array(
+                            'headers' => array(
+                                'Authorization' => 'Bearer ' . $token
+                            )
+                        )
+                    );
                     $users = wp_remote_retrieve_body($response);
                     $users = json_decode($users, true);
 
@@ -113,7 +120,7 @@ if (isset($_POST['soft_delete'])) {
                             </tr>
                         <?php }
                     } else {
-                        echo 'No trainees available';
+                        echo '<tr><td colspan="4" style="text-align: center;">No trainee available</td></tr>';
                     }
                     ?>
                 </tbody>

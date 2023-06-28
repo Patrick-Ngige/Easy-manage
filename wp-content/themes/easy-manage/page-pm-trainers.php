@@ -96,7 +96,7 @@ if (isset($_POST['soft_delete'])) {
                                     <div class="d-flex align-items-center">
                                         <div class="ms-3">
                                             <p class="mb-1">
-                                                <?php echo $user['user_nicename'] ?>
+                                                <?php echo $user['user_login'] ?>
                                             </p>
                                         </div>
                                     </div>
