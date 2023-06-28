@@ -117,20 +117,20 @@ class AdminEndpoints
     public function update_pm_callback($request)
     {
         $parameters = $request->get_json_params();
-
+    
         $pm_id = sanitize_text_field($request->get_json_param('pm_id'));
         $pm_name = sanitize_text_field($request->get_json_param('pm_name'));
         $pm_email = sanitize_email($request->get_json_param('pm_email'));
         $pm_role = sanitize_text_field($request->get_json_param('pm_role'));
         $pm_password = sanitize_text_field($request->get_json_param('pm_password'));
-
+    
         $user = get_user_by('id', $pm_id);
-
+    
         if ($user) {
             $user->user_login = $pm_name;
             $user->user_nicename = sanitize_title($pm_name);
             $user->user_email = $pm_email;
-
+    
             if ($pm_password) {
                 wp_set_password($pm_password, $pm_id);
             }
@@ -150,6 +150,7 @@ class AdminEndpoints
             return new WP_Error('program_manager_update_failed', 'Failed to update program manager.', array('status' => 500));
         }
     }
+    
 
     public function retrieve_soft_deleted($request)
     {

@@ -6,14 +6,32 @@ get_header();
  *
  */
 
+$user_id = $_GET['id'];
 
- $token = $_COOKIE['token'];
- 
- $response = wp_remote_get('http://localhost/easy-manage/wp-json/wp/v2/users/me', array(
-     'headers' => array(
-         'Authorization' => 'Bearer ' . $token
-     )
- ));
+$curl = curl_init();
+
+$url = "http://localhost/easy-manage/wp-json/em/v1/users/program_manager/" . $user_id;
+curl_setopt($curl, CURLOPT_URL, $url);
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+$response = curl_exec($curl);
+$user = json_decode($response, true);
+
+if ($response === false) {
+    $error = curl_error($curl);
+}
+
+curl_close($curl);
+
+$token = $_COOKIE['token'];
+
+var_dump($token);
+
+$response = wp_remote_get('http://localhost/easy-manage/wp-json/wp/v2/users/me', array(
+    'headers' => array(
+        'Authorization' => 'Bearer ' . $token
+    )
+));
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $errors = array();
@@ -35,11 +53,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'pm_email' => $pm_email,
         );
 
-       $token ;
+        $token;
 
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, 'http://localhost/easy-manage/wp-json/em/v1/pm');
-        curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'PATCH'); 
+        curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'PATCH');
         curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($updated_pm));
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($curl, CURLOPT_HTTPHEADER, array(
@@ -52,7 +70,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if ($response === false) {
             wp_die('Error: ' . curl_error($curl));
-
         } else {
             echo $response;
         }
@@ -87,43 +104,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="container py-3 h-auto">
             <div class="row d-flex justify-content-center align-items-center h-auto">
                 <div class="col col-xl-10" style="width:40vw;">
-                    <div class="card"
-                        style="border-radius: 1rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);">
-                        <div class="row g-0 w-100 d-flex justify-content-center align-items-center w-50 "
-                            style="width:40vw;">
-                            <div class="row g-0 w-100 d-flex justify-content-center align-items-center w-50 "
-                                style="width:40vw;">
-                                <div
-                                    class="col-md-6 col-lg-7 d-flex justify-content-center align-items-center  ms-8"
-                                    style="height:80vh; width:40vw; ">
+                    <div class="card" style="border-radius: 1rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);">
+                        <div class="row g-0 w-100 d-flex justify-content-center align-items-center w-50 " style="width:40vw;">
+                            <div class="row g-0 w-100 d-flex justify-content-center align-items-center w-50 " style="width:40vw;">
+                                <div class="col-md-6 col-lg-7 d-flex justify-content-center align-items-center  ms-8" style="height:80vh; width:40vw; ">
                                     <div class="card-body p-4 p-lg-5 text-black">
-
-                                        <?php
-                                        $errors = array();
-                                        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                                           
-                                            if (empty($_POST['pm_name'])) {
-                                                $errors[] = 'Username is required.';
-                                            }
-
-                                            if (empty($_POST['pm_email'])) {
-                                                $errors[] = 'Email is required.';
-                                            }
-
-                                          
-                                            if (empty($errors)) {
-                                              
-                                                $pmName = $_POST['pm_name'];
-                                                $pmEmail = $_POST['pm_email'];
-
-                                            }
-                                        }
-                                        ?>
 
                                         <form action="" method="POST" style="font-size:16px">
 
-                                            <h2 class="fw-bold d-flex align-items-end d-flex justify-content-center align-items-center"
-                                                style="color:#315B87">
+                                            <h2 class="fw-bold d-flex align-items-end d-flex justify-content-center align-items-center" style="color:#315B87">
                                                 Update PM
                                             </h2>
 
@@ -136,40 +125,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                             ?>
 
                                             <div class="form-outline mb-3">
-                                                <label class="form-label" for="form2Example27"
-                                                    style="font-weight:600;">Username:</label>
-                                                <input type="text" id="form2Example27"
-                                                    class="form-control form-control-md"
-                                                    placeholder="Enter project task" name="pm_name"
-                                                    value="<?php echo $user_name; ?>"
-                                                    required />
+                                                <label class="form-label" for="form2Example27" style="font-weight:600;">Username:</label>
+                                                <input type="text" id="form2Example27" class="form-control form-control-md" placeholder="Enter project task" name="pm_name" value="<?php echo $user['user_name']; ?>" required />
                                             </div>
 
                                             <div class="form-outline mb-3">
-                                                <label class="form-label" for="form2Example27"
-                                                    style="font-weight:600;">Email</label>
-                                                <input type="email" id="form2Example27"
-                                                    class="form-control form-control-md"
-                                                    placeholder="Enter project task" name="pm_email"
-                                                    value="<?php echo $user_email; ?>"
-                                                    required />
+                                                <label class="form-label" for="form2Example27" style="font-weight:600;">Email</label>
+                                                <input type="email" id="form2Example27" class="form-control form-control-md" placeholder="Enter project task" name="pm_email" value="<?php echo $user['user_email']; ?>" required />
                                             </div>
 
                                             <div class="form-outline mb-3">
-                                                <label class="form-label" for="form2Example27"
-                                                    style="font-weight:600;">Role:</label>
-                                                <input type="email" id="form2Example27"
-                                                    class="form-control form-control-md"
-                                                    placeholder="Enter project task" name="pm_email"
-                                                    value="Program Manager"
-                                                    required />
+                                                <label class="form-label" for="form2Example27" style="font-weight:600;">Role:</label>
+                                                <input type="text" id="form2Example27" class="form-control form-control-md" placeholder="Enter project task" name="pm_email" value="Program Manager" required />
                                             </div>
 
-                                            <div
-                                                class="pt-1 mb-4 w-100 d-flex justify-content-center align-items-center">
-                                                <button class="btn btn-lg btn-block w-50 "
-                                                    style="background-color:#315B87 ;color:#FAFAFA" type="submit"
-                                                    name="updatebtn">Update</button>
+                                            <div class="pt-1 mb-4 w-100 d-flex justify-content-center align-items-center">
+                                                <button class="btn btn-lg btn-block w-50 " style="background-color:#315B87 ;color:#FAFAFA" type="submit" name="updatebtn">Update</button>
                                             </div>
                                         </form>
                                     </div>
@@ -182,4 +153,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </div>
 </div>
-       

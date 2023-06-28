@@ -117,7 +117,7 @@ function get_recent_group_projects() {
         <?php get_template_part('sidenav-trainer'); ?>
     </div>
 
-    <div style="padding:1rem;width:70vw;margin-left:5rem;overflow-y:auto;z-index:100;height:fit-content;margin-top:1rem;gap:2rem">
+    <div style="padding:1rem;width:70vw;margin-left:5rem;overflow-y:auto;z-index:100;height:fit-content;margin-top:1rem">
         <style>
             .stat-item {
                 display: flex;
@@ -137,27 +137,12 @@ function get_recent_group_projects() {
             }
         </style>
 
-                <!-- <a href="http://localhost/easy-manage/create-trainee/" class="floating-btn"
-                    style="text-decoration:none; padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
-                    Create Trainee
-                </a>
-
-                <a href="http://localhost/easy-manage/admin-trainees-table/" class="floating-btn"
-                    style="text-decoration:none; padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
-                    View Trainees
-                </a>
-
-                <a href="http://localhost/easy-manage/create-project/" class="floating-btn"
-                    style="text-decoration:none; padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
-                    Create Project
-                </a> -->
-
         <?php echo do_shortcode('[search_bar]'); ?>
 
         <div style=" display: flex; justify-content: space-between; align-items: flex-start;">
             <div style="flex: 1;margin-right: 20px; padding: 10px; background-color: #FAFAFA; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; border-radius: 5px;">
                 <h2 style=" font-size: 20px; margin-bottom: 1rem;color:#315B87">Projects</h2>
-                <div class="stat-item" ></div>
+                <div class="stat-item">
                     <p>Total Individual Projects</p>
                     <p><?php echo get_total_individual_projects(); ?></p>
                 </div>

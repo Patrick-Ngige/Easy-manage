@@ -29,13 +29,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (isset($_POST['creategrp'])) {
-        $assigned_members = $_POST['assigned_members']; // Retrieve assigned members as an array
+        $assigned_members = $_POST['assigned_members']; 
         $group_project = $_POST['group_project'];
         $project_task = $_POST['project_task'];
         $group_due_date = $_POST['due_date'];
+        $group_members = json_decode(stripslashes($assigned_members));
 
         $created_group_project = array(
-            'assigned_members' => $assigned_members,
+            'assigned_members' =>  $group_members,
             'group_project' => $group_project,
             'project_task' => $project_task,
             'due_date' => $group_due_date,
@@ -43,31 +44,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $token = $_COOKIE['token'];
 
-        $curl = curl_init();
-        curl_setopt($curl, CURLOPT_URL, 'http://localhost/easy-manage/wp-json/em/v1/projects/group');
-        curl_setopt($curl, CURLOPT_POST, true);
-        curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($created_group_project));
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt(
-            $curl,
-            CURLOPT_HTTPHEADER,
-            array(
-                'Content-Type: application/json',
-                'Authorization: Bearer ' . $token
-            )
+        $args = array(
+            'method'=>'POST',
+            'body'=>json_encode(
+                $created_group_project
+            ),
+            'headers'=>[
+                'Content-Type' =>'application/json',
+                'Authorization'=>'Bearer ' . $token
+            ]
         );
 
-        $response = curl_exec($curl);
+        $result = wp_remote_post('http://localhost/easy-manage/wp-json/em/v1/projects/group', $args);
 
-        $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 
-        if ($response === false) {
-            echo 'Error: ' . curl_error($curl);
+        if ($response == false) {
+            echo 'Error: ';
         } else {
             echo $response;
         }
-
-        curl_close($curl);
 
         if ($httpCode === 200) {
             $result = json_decode($response);
@@ -236,8 +231,7 @@ function selectMembers() {
             }
         });
     } else {
-        assignedMembersInput.value = JSON.stringify(selectedMembers); // Convert array to JSON string
-
+        assignedMembersInput.value = JSON.stringify(selectedMembers); 
         checkboxes.forEach(function (checkbox) {
             checkbox.disabled = false;
         });

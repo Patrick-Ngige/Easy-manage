@@ -238,17 +238,17 @@ class TrainerEndpoints
                         )
                     );
 
-                    if ($result !== false) {
-                        $project_id = $wpdb->insert_id;
+                    if ($result == true) {
+                        //$project_id = $wpdb->insert_id;
 
-                        $assigned_projects = get_user_meta($assignee_id, 'assigned_projects', true);
-                        $assigned_projects[] = $project_id;
-                        update_user_meta($assignee_id, 'assigned_projects', $assigned_projects);
+                        // $assigned_projects = get_user_meta($assignee_id, 'assigned_projects', true);
+                        // // $assigned_projects[] = $project_id;
+                        // update_user_meta($assignee_id, 'assigned_projects', $assigned_projects);
 
                         $response = array(
                             'success' => true,
                             'message' => 'Individual project created successfully',
-                            'project_id' => $project_id,
+                            // 'project_id' => $project_id,
                         );
                         return rest_ensure_response($response);
                     } else {
@@ -374,6 +374,8 @@ class TrainerEndpoints
 
         $assigned_members_names = implode(', ', $assigned_members);
 
+        // // var_dump($assigned_members);
+
         $result = $wpdb->insert(
             $table_name,
             array(
@@ -383,17 +385,19 @@ class TrainerEndpoints
                 'due_date' => $due_date,
             )
         );
-
+        
         if ($result) {
             $response = array(
                 'success' => true,
-                'message' => 'Group project created successfully',
-                'project_id' => $wpdb->insert_id,
+                'message' => 'Group project created successfully'
+                // 'project_id' => $wpdb->insert_id,
             );
             return rest_ensure_response($response);
+        }else{
+            return new WP_Error('project_creation_failed', 'Failed to create group project.', array('status' => 501));
+
         }
 
-        return new WP_Error('project_creation_failed', 'Failed to create group project.', array('status' => 501));
     }
 
 
