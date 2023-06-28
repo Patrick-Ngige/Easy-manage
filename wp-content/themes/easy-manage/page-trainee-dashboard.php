@@ -53,7 +53,7 @@ if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 2
     <div style="padding:1rem;width:80vw;margin-left:0rem">
         <div style="padding:1rem;">
             <div
-                style="display: flex; justify-content: space-between; margin-bottom: 1rem; flex-direction: row-reversed;">
+                style="display: flex; justify-content: end; margin-bottom: 1rem; flex-direction: row-reversed;">
                 <?php echo do_shortcode('[search_bar]'); ?>
             </div>
 
@@ -64,7 +64,7 @@ if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 2
                             <th>Project</th>
                             <th>Project</th>
                             <th>Status</th>
-                            <th>Actions</th>
+                            <th>Mark Complete</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -95,8 +95,8 @@ if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 2
                                 <td>
                                     <form method="POST">
                                         <input type="hidden" name="project_id" value="<?php echo $project->project_id ?>">
-                                        <button type="submit" name="mark_complete" style="border: none; background: none; padding: 0;">
-                                            <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png" style="width: 25px;" alt="">
+                                        <button type="submit" name="mark_complete" style="border: none; background: none; padding: 0;margin-left:3rem">
+                                            <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/check.png" style="width: 25px;" alt="">
                                         </button>
                                     </form>
                                 </td>

@@ -56,10 +56,13 @@ if (isset($_POST['cohortId'])) {
   curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PATCH');
   curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-  curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-    'Content-Type: application/json',
-    'Authorization: Bearer ' . $token,
-  )
+  curl_setopt(
+    $ch,
+    CURLOPT_HTTPHEADER,
+    array(
+      'Content-Type: application/json',
+      'Authorization: Bearer ' . $token,
+    )
   );
 
 
@@ -88,7 +91,7 @@ if (isset($_POST['cohortId'])) {
       <div style="display: flex; justify-content: center;">
         <div
           style="width:35vw; background-color: #FAFAFA; border-radius: 10px; padding: 1rem; box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);">
-          <?php if ($cohort_data) { ?>
+          <?php if (!empty($cohort_data)) { ?>
             <h4 style="color: #315B87; margin-bottom: 1rem; text-align: center;">
               <?php echo $cohort_data->cohort_info; ?>
             </h4>
@@ -119,26 +122,26 @@ if (isset($_POST['cohortId'])) {
   </div>
 
   <script>
-function markComplete(event) {
-    event.preventDefault(); // Prevent the default form submission
+    function markComplete(event) {
+      event.preventDefault(); 
 
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', '<?php echo esc_url(admin_url('admin-post.php')); ?>');
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.onreadystatechange = function() {
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', '<?php echo esc_url(admin_url('admin-post.php')); ?>');
+      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
-            if (xhr.status === 200) {
-                console.log(xhr.responseText);
-                location.reload(); // Reload the page
-            } else {
-                console.log('Request failed. Status: ' + xhr.status);
-            }
+          if (xhr.status === 200) {
+            console.log(xhr.responseText);
+            location.reload();
+          } else {
+            console.log('Request failed. Status: ' + xhr.status);
+          }
         }
-    };
-    xhr.send(new FormData(event.target)); // Send the form data
+      };
+      xhr.send(new FormData(event.target)); 
 
-    return false;
-}
-</script>
+      return false;
+    }
+  </script>
 
   <?php get_footer(); ?>

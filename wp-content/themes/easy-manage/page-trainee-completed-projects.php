@@ -1,5 +1,4 @@
-<?php
-get_header();
+<?php get_header();
 
 /**
  * Template Name: completed project
@@ -33,6 +32,9 @@ if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 2
             $project_url = "http://localhost/easy-manage/wp-json/em/v1/project/completed/" . $project_id;
             $project_response = wp_remote_get($project_url);
 
+            // echo '<pre>';
+            // var_dump($project_response);
+            // echo '</pre>';
             if (!is_wp_error($project_response) && wp_remote_retrieve_response_code($project_response) === 200) {
                 $group_project = json_decode(wp_remote_retrieve_body($project_response));
                 $projects[] = $group_project;
@@ -50,23 +52,23 @@ if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 2
 
     <div style="padding:1rem;width:80vw;margin-left:0rem">
         <div style="padding:1rem;">
-            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+            <div style="display: flex; align-items: center; justify-content: end; margin-bottom: 1rem;">
                 <?php echo do_shortcode('[search_bar]'); ?>
             </div>
 
-                <table class="table align-middle mb-0 bg-white table-hover"
-                    style="width:90%;margin-left:5%;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;margin-top:3%;">
-                    <thead class="bg-light">
-                        <tr style="font-size:large;color:#315B87;padding-left:2rem">
-                            <th>Project</th>
-                            <th>Type</th>
-                            <th>Due Date</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        if (!empty($projects)) {
+            <table class="table align-middle mb-0 bg-white table-hover"
+                style="width:90%;margin-left:5%;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;margin-top:3%;">
+                <thead class="bg-light">
+                    <tr style="font-size:large;color:#315B87;padding-left:2rem">
+                        <th>Project</th>
+                        <th>Type</th>
+                        <th>Due Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    if (!empty($projects)) {
                         foreach ($projects as $completed) { ?>
                             <tr>
                                 <td>
@@ -92,13 +94,13 @@ if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 2
                                     <p class="fw-normal mb-1" style="color:#146830"> Completed</p>
                                 </td>
                             </tr>
-                        <?php } ?>
-                        ?>
-                    </tbody>
-                </table>
-            <?php } else {
-                echo 'No completed projects available';
-            } ?>
+                        <?php }
+                    } else {
+                        echo 'No completed projects available';
+                    }
+                    ?>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

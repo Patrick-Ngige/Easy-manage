@@ -71,7 +71,7 @@ get_header();
                     $cohort = wp_remote_retrieve_body($response);
                     $cohort = json_decode($cohort, true);
 
-                    if (is_array($cohort)) {
+                    if (!empty($cohort)) {
                         foreach ($cohort as $Cohort) { ?>
 
                             <tr>
@@ -106,7 +106,7 @@ get_header();
                             </tr>
                         <?php }
                     } else {
-                        echo 'Error retrieving cohort';
+                        echo 'No cohorts available';
                     }
                     ?>
                 </tbody>
