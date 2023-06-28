@@ -44,6 +44,7 @@ class PMEndpoints
             return new WP_Error('rest_forbidden', __('You are not allowed to access this endpoint.'), array('status' => 403));
         }
     }
+    
 
     public function trainer_callbacks($request)
     {

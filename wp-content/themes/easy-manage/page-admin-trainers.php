@@ -78,7 +78,7 @@ if (isset($_POST['soft_delete'])) {
                     $users = wp_remote_retrieve_body($response);
                     $users = json_decode($users, true);
 
-                    if (is_array($users)) {
+                    if (!empty($users)) {
                         foreach ($users as $user) { ?>
 
                             <tr>
@@ -114,7 +114,7 @@ if (isset($_POST['soft_delete'])) {
                             </tr>
                         <?php }
                     } else {
-                        echo 'Error retrieving users';
+                        echo 'No trainers available';
                     }
                     ?>
                 </tbody>

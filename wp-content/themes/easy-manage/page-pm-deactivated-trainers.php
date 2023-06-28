@@ -7,33 +7,56 @@ get_header();
 
 $token = $_COOKIE['token'];
 
-$response = wp_remote_get(
-    'http://localhost/easy-manage/wp-json/wp/v2/users/me',
-    array(
-        'headers' => array(
-            'Authorization' => 'Bearer ' . $token
-        )
-    )
-);
-
-if (isset($_POST['soft_delete'])) {
+if (isset($_POST['restore'])) {
     $user_id = $_POST['user_id'];
-    $endpoint_url = 'http://localhost/easy-manage/wp-json/em/v1/restore/' . $user_id;
+    $endpoint_url = 'http://localhost/easy-manage/wp-json/em/v1/restore_user/' . $user_id;
 
-    $curl = curl_init();
-    curl_setopt($curl, CURLOPT_URL, $endpoint_url);
-    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'DELETE');
-    curl_setopt($curl, CURLOPT_HTTPHEADER, array(
-        'Authorization: Bearer ' . $token
-    ));
-    $response = curl_exec($curl);
+    $restore_response = wp_remote_request(
+        $endpoint_url,
+        array(
+            'method' => 'POST',
+            'headers' => array(
+                'Authorization' => 'Bearer ' . $token
+            )
+        )
+    );
 
-    if ($response === false) {
-        echo 'Error: ' . curl_error($curl);
+    if (is_wp_error($restore_response)) {
+        echo 'Error restoring user: ' . $restore_response->get_error_message();
+    } else {
+        // Fetch the updated user data after restoration
+        $response = wp_remote_get(
+            'http://localhost/easy-manage/wp-json/em/v1/trainer',
+            array(
+                'headers' => array(
+                    'Authorization' => 'Bearer ' . $token
+                )
+            )
+        );
     }
-    curl_close($curl);
+} else {
+    // Fetch the initial user data
+    $response = wp_remote_get(
+        'http://localhost/easy-manage/wp-json/em/v1/trainer',
+        array(
+            'headers' => array(
+                'Authorization' => 'Bearer ' . $token
+            )
+        )
+    );
 }
+
+if (is_wp_error($response)) {
+    echo 'Error retrieving user data: ' . $response->get_error_message();
+} else {
+    $user_data = wp_remote_retrieve_body($response);
+    $user = json_decode($user_data, true);
+
+    if (empty($user)) {
+        echo 'No users available.';
+    }
+}
+
 ?>
 
 <div style="width:100vw;height:90vh;display:flex;flex-direction:row;margin-top:-2.45rem">
@@ -44,9 +67,9 @@ if (isset($_POST['soft_delete'])) {
 
     <div style="padding:1rem;width:80vw;margin-left:0rem">
         <div style="padding:1rem;">
-            <!-- Add buttons and search bar here -->
+
             <div style="display: flex; align-items: center; justify-content: end; margin-bottom: 1rem;">
-       
+
                 <?php echo do_shortcode('[search_bar]'); ?>
             </div>
 
@@ -62,26 +85,22 @@ if (isset($_POST['soft_delete'])) {
                 </thead>
                 <tbody>
                     <?php
-                    $request_url = 'http://localhost/easy-manage/wp-json/em/v1/trainer';
-                    $response = wp_remote_get($request_url);
-                    $users = wp_remote_retrieve_body($response);
-                    $users = json_decode($users, true);
 
-                    if (is_array($users)) {
-                        foreach ($users as $user) { ?>
+                    if (empty($user)) {
+                        foreach ($user as $User) { ?>
                             <tr>
                                 <td>
                                     <div class="d-flex align-items-center">
                                         <div class="ms-3">
                                             <p class="mb-1">
-                                                <?php echo $user['user_login'] ?>
+                                                <?php echo $User['user_login'] ?>
                                             </p>
                                         </div>
                                     </div>
                                 </td>
                                 <td>
                                     <p class="fw-normal mb-1">
-                                        <?php echo $user['user_email'] ?>
+                                        <?php echo $User['user_email'] ?>
                                     </p>
                                 </td>
                                 <td>
@@ -89,19 +108,19 @@ if (isset($_POST['soft_delete'])) {
                                 </td>
                                 <td>
                                     <form method="POST">
-                                    <input type="hidden" name="user_id" value="<?php echo $user['ID']; ?>">
-                                        <button type="submit" name="soft_delete" class="btn-soft-delete"
+                                        <input type="hidden" name="user_id" value="<?php echo $User['ID']; ?>">
+                                        <button type="submit" name="restore" class="btn-soft-delete"
                                             style="padding:6px;border:none;">
                                             <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/pause-2.png"
                                                 style="width:25px;" alt="">
                                         </button>
-                                        
+
                                     </form>
                                 </td>
                             </tr>
                         <?php }
                     } else {
-                        echo 'Error retrieving users';
+                        echo 'No deactivated trainers available';
                     }
                     ?>
                 </tbody>

@@ -57,8 +57,6 @@ if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 2
                 <?php echo do_shortcode('[search_bar]'); ?>
             </div>
 
-            <?php
-            if (!empty($group_projects)) { ?>
                 <table class="table align-middle mb-0 bg-white table-hover"
                     style="width:90%;margin-left:5%;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;margin-top:3%;">
                     <thead class="bg-light">
@@ -71,7 +69,9 @@ if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 2
                     </thead>
                     <tbody>
 
-                        <?php foreach ($group_projects as $project) { ?>
+                        <?php
+                        if (!empty($group_projects)) {
+                        foreach ($group_projects as $project) { ?>
                             <tr>
                                 <td>
                                     <div class="d-flex align-items-center">
@@ -106,7 +106,7 @@ if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 2
                     </tbody>
                 </table>
             <?php } else {
-                echo 'No projects assigned.';
+                echo 'No individual projects assigned.';
             }
             ?>
 
