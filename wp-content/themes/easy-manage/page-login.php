@@ -12,7 +12,7 @@ if (!isset($_SESSION['login_attempts'])) {
 $error_message = '';
 $show_attempts = false;
 
-$remaining_attempts = 3 - (int) $_SESSION['login_attempts'];
+$remaining_attempts = 3 - (int)$_SESSION['login_attempts'];
 
 $login_attempts = $_SESSION['login_attempts'];
 
@@ -39,66 +39,73 @@ if ($login_attempts >= count($wait_times)) {
             $error_message = 'Please enter both email and password.';
             $show_attempts = true;
         } else {
-            $user = wp_authenticate($email, $password);
-
-            if (is_wp_error($user)) {
-                $login_attempts++;
-                $_SESSION['login_attempts'] = $login_attempts;
-                $_SESSION['last_attempt_time'] = time();
-
-                if ($login_attempts < count($wait_times)) {
-                    $remaining_time = $wait_times[$login_attempts];
-                    $error_message = 'Invalid email or password. Please try again.';
-                    $show_attempts = true;
-                } else {
-                    $remaining_time = $wait_times[$login_attempts];
-                    $error_message = 'You have exceeded the maximum number of login attempts. Please try again later.';
-                    $show_attempts = true;
-                }
+            // Check if the user has user_status = 1
+            $user = get_user_by('email', $email);
+            if ($user && $user->user_status === '1') {
+                $error_message = 'You are not allowed to log in.';
+                $show_attempts = true;
             } else {
+                $user = wp_authenticate($email, $password);
 
-                $credentials = [
-                    'username' => $email,
-                    'password' => $password
-                ];
+                if (is_wp_error($user)) {
+                    $login_attempts++;
+                    $_SESSION['login_attempts'] = $login_attempts;
+                    $_SESSION['last_attempt_time'] = time();
 
-                $args = [
-                    'method' => 'POST',
-                    'body' => $credentials
-                ];
-
-                $result = wp_remote_post('http://localhost/easy-manage/wp-json/jwt-auth/v1/token', $args);
-
-                if (!is_wp_error($result) && wp_remote_retrieve_response_code($result) === 200) {
-                    $token_data = json_decode(wp_remote_retrieve_body($result));
-
-                    if (isset($token_data->token)) {
-                        $token = $token_data->token;
-                        setcookie('token', $token, time() + (86400 * 30), '/', 'localhost');
-                        echo "Token: " . $token;
+                    if ($login_attempts < count($wait_times)) {
+                        $remaining_time = $wait_times[$login_attempts];
+                        $error_message = 'Invalid email or password. Please try again.';
+                        $show_attempts = true;
+                    } else {
+                        $remaining_time = $wait_times[$login_attempts];
+                        $error_message = 'You have exceeded the maximum number of login attempts. Please try again later.';
+                        $show_attempts = true;
                     }
                 } else {
-                    echo "Error generating token.";
-                }
 
-                if (isset($user->roles) && is_array($user->roles)) {
-                    $user_roles = $user->roles;
+                    $credentials = [
+                        'username' => $email,
+                        'password' => $password
+                    ];
 
-                    if (in_array('administrator', $user_roles)) {
-                        wp_redirect('http://localhost/easy-manage/admin-pm-list/');
-                        exit;
-                    } elseif (in_array('program_manager', $user_roles)) {
-                        wp_redirect('http://localhost/easy-manage/pm-dashboard/');
-                        exit;
-                    } elseif (in_array('trainer', $user_roles)) {
-                        wp_redirect('http://localhost/easy-manage/trainer-dashboard/');
-                        exit;
-                    } elseif (in_array('trainee', $user_roles)) {
-                        wp_redirect('http://localhost/easy-manage/trainee-dashboard/');
-                        exit;
+                    $args = [
+                        'method' => 'POST',
+                        'body' => $credentials
+                    ];
+
+                    $result = wp_remote_post('http://localhost/easy-manage/wp-json/jwt-auth/v1/token', $args);
+
+                    if (!is_wp_error($result) && wp_remote_retrieve_response_code($result) === 200) {
+                        $token_data = json_decode(wp_remote_retrieve_body($result));
+
+                        if (isset($token_data->token)) {
+                            $token = $token_data->token;
+                            setcookie('token', $token, time() + (86400 * 30), '/', 'localhost');
+                            echo "Token: " . $token;
+                        }
                     } else {
-                        wp_redirect('http://localhost/easy-manage');
-                        exit;
+                        echo "Error generating token.";
+                    }
+
+                    if (isset($user->roles) && is_array($user->roles)) {
+                        $user_roles = $user->roles;
+
+                        if (in_array('administrator', $user_roles)) {
+                            wp_redirect('http://localhost/easy-manage/admin-pm-list/');
+                            exit;
+                        } elseif (in_array('program_manager', $user_roles)) {
+                            wp_redirect('http://localhost/easy-manage/pm-dashboard/');
+                            exit;
+                        } elseif (in_array('trainer', $user_roles)) {
+                            wp_redirect('http://localhost/easy-manage/trainer-dashboard/');
+                            exit;
+                        } elseif (in_array('trainee', $user_roles)) {
+                            wp_redirect('http://localhost/easy-manage/trainee-dashboard/');
+                            exit;
+                        } else {
+                            wp_redirect('http://localhost/easy-manage');
+                            exit;
+                        }
                     }
                 }
             }
@@ -106,8 +113,9 @@ if ($login_attempts >= count($wait_times)) {
     }
 }
 ?>
+
 <div class="form-container"
-    style="height: 100vh; background-color: #E3E3EE; display: flex; justify-content: center; align-items: center; padding: 0 1rem;">
+    style="height: 100vh; background-color: #E3E3EE; display: flex; justify-content: center; align-items: center; padding: 0 1rem;overflow:hidden;">
     <div
         style="z-index: 1; width: 24rem; position: fixed; height: 13rem; background-color: #315B87; display: flex; align-self: flex-end; top: 0; right: 0;">
     </div>
