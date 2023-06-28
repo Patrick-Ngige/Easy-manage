@@ -77,7 +77,7 @@ if (isset($_POST['soft_delete'])) {
                     $projects = wp_remote_retrieve_body($response);
                     $projects = json_decode($projects, true);
 
-                    if (is_array($projects)) {
+                    if (!empty($projects)) {
                         foreach ($projects as $project) { ?>
 
                             <tr></tr>
@@ -123,7 +123,7 @@ if (isset($_POST['soft_delete'])) {
                             </tr>
                         <?php }
                     } else {
-                        echo 'Error retrieving projects';
+                        echo 'No group projects available';
                     }
                     ?>
                 </tbody>

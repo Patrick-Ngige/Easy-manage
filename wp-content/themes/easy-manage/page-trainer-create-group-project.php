@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (isset($_POST['creategrp'])) {
-        $assigned_members = $_POST['assigned_members'];
+        $assigned_members = $_POST['assigned_members']; // Retrieve assigned members as an array
         $group_project = $_POST['group_project'];
         $project_task = $_POST['project_task'];
         $group_due_date = $_POST['due_date'];
@@ -57,11 +57,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             )
         );
 
-        curl_setopt($curl, CURLOPT_HTTPHEADER, array(
-            'Content-Type: application/json',
-            'Authorization: Bearer ' . $token
-        ));
-        
         $response = curl_exec($curl);
 
         $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);

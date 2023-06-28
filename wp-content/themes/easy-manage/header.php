@@ -17,7 +17,7 @@ setcookie('user_role', '', time() - 3600, '/');
     <?php wp_head(); ?>
 </head>
 
-<body style="background-color:#E3E3EE;height:80vh;display:flex;margin-top:0rem">
+<body style="background-color:#E3E3EE;height:80vh;overflow:hidden;display:flex;margin-top:0rem">
 
     <div style="display:flex;flex-direction:column;width:80vw;">
         <div

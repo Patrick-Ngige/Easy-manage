@@ -193,11 +193,11 @@ class TrainerEndpoints
         $project_task = $request->get_param('project_task');
         $assignee_username = $request->get_param('assignee');
         $due_date = $request->get_param('due_date');
-    
+
         global $wpdb;
         $user_table = $wpdb->prefix . 'users';
         $user_status = 0;
-    
+
         $user_exists = $wpdb->get_var(
             $wpdb->prepare(
                 "SELECT ID FROM $user_table WHERE user_login = %s AND user_status = %d",
@@ -205,19 +205,18 @@ class TrainerEndpoints
                 $user_status
             )
         );
-    
+
         if (!$user_exists) {
             return new WP_Error('invalid_assignee', 'Invalid assignee. Please select an existing user.', array('status' => 400));
         } else {
             $assignee_id = $user_exists;
-    
+
             if ($this->is_assignee_reached_max_projects($assignee_id)) {
                 return new WP_Error('max_projects_reached', 'The assignee has reached the maximum number of projects.', array('status' => 400));
             } else {
                 global $wpdb;
                 $table_name = $wpdb->prefix . 'individual_projects';
-    
-                // Check if the project already exists
+
                 $existing_project = $wpdb->get_row(
                     $wpdb->prepare(
                         "SELECT project_id FROM $table_name WHERE project_name = %s AND assignee = %s",
@@ -225,7 +224,7 @@ class TrainerEndpoints
                         $assignee_username
                     )
                 );
-    
+
                 if ($existing_project) {
                     return new WP_Error('project_exists', 'This project already exists.', array('status' => 400));
                 } else {
@@ -238,14 +237,14 @@ class TrainerEndpoints
                             'due_date' => $due_date,
                         )
                     );
-    
+
                     if ($result !== false) {
                         $project_id = $wpdb->insert_id;
-    
+
                         $assigned_projects = get_user_meta($assignee_id, 'assigned_projects', true);
                         $assigned_projects[] = $project_id;
                         update_user_meta($assignee_id, 'assigned_projects', $assigned_projects);
-    
+
                         $response = array(
                             'success' => true,
                             'message' => 'Individual project created successfully',
@@ -259,7 +258,7 @@ class TrainerEndpoints
             }
         }
     }
-    
+
 
     private function is_assignee_reached_max_projects($assignee_username)
     {

@@ -8,11 +8,13 @@ require_once(ABSPATH . 'wp-load.php');
 
 $token = $_COOKIE['token'];
 
-$response = wp_remote_get('http://localhost/easy-manage/wp-json/wp/v2/users/me', array(
-    'headers' => array(
-        'Authorization' => 'Bearer ' . $token
+$response = wp_remote_get(
+    'http://localhost/easy-manage/wp-json/wp/v2/users/me',
+    array(
+        'headers' => array(
+            'Authorization' => 'Bearer ' . $token
+        )
     )
-)
 );
 
 if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 200) {
@@ -98,13 +100,14 @@ if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 2
                                     </form>
                                 </td>
                             </tr>
-                        <?php } ?>
-                </tbody>
-            </table>
-            <?php } else {
+                        <?php }
+                    } else {
                         echo 'No group projects assigned.';
                     }
                     ?>
+                </tbody>
+            </table>
+
         </div>
     </div>
 </div>
@@ -139,9 +142,9 @@ if (isset($_POST['mark_complete'])) {
 
         $response_data = json_decode($response, true);
         if ($response_data['success']) {
-           echo 'group project marked as complete';
+            echo 'group project marked as complete';
         } else {
-           echo 'group project not completed';
+            echo 'group project not completed';
         }
     }
 }
