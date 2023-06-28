@@ -12,6 +12,9 @@ $response = wp_remote_get(
     array(
         'headers' => array(
             'Authorization' => 'Bearer ' . $token
+        ),
+        'cookies' => array(
+            'token' => $token
         )
     )
 );
@@ -50,7 +53,7 @@ if (isset($_POST['soft_delete'])) {
     <div style="padding:1rem;width:80vw;margin-left:0rem">
         <div style="padding:1rem;">
             <!-- Add buttons and search bar here -->
-            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+            <div style="display: flex; align-items: center; justify-content:space-between; margin-bottom: 1rem;">
             <a href="http://localhost/easy-manage/deleted-trainers/" class="floating-btn"
                     style="text-decoration:none; padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
                     Deactivated Trainers
@@ -70,8 +73,18 @@ if (isset($_POST['soft_delete'])) {
                 </thead>
                 <tbody>
                     <?php
-                    $request_url = 'http://localhost/easy-manage/wp-json/em/v1/users/trainers';
-                    $response = wp_remote_get($request_url);
+                  $request_url = 'http://localhost/easy-manage/wp-json/em/v1/users/trainers';
+                  $response = wp_remote_get(
+                      $request_url,
+                      array(
+                          'headers' => array(
+                              'Authorization' => 'Bearer ' . $token
+                          )
+                      )
+                  );
+                  $users = wp_remote_retrieve_body($response);
+                  $users = json_decode($users, true);
+                  
                     $users = wp_remote_retrieve_body($response);
                     $users = json_decode($users, true);
 
@@ -114,7 +127,7 @@ if (isset($_POST['soft_delete'])) {
                             </tr>
                         <?php }
                     } else {
-                        echo 'Error retrieving users';
+                        echo '<tr><td colspan="4" style="text-align: center;">No trainers available</td></tr>';
                     }
                     ?>
                 </tbody>

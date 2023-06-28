@@ -139,7 +139,7 @@ function get_recent_individual_projects() {
     global $wpdb;
     $table_name = $wpdb->prefix . 'individual_projects';
 
-    $query = "SELECT * FROM $table_name ORDER BY project_id DESC LIMIT 2";
+    $query = "SELECT * FROM $table_name ORDER BY project_id DESC LIMIT 1";
     $results = $wpdb->get_results($query);
     
 
@@ -152,7 +152,7 @@ function get_recent_group_projects() {
     global $wpdb;
     $table_name = $wpdb->prefix . 'group_projects';
 
-    $query = "SELECT * FROM $table_name ORDER BY group_id DESC LIMIT 2";
+    $query = "SELECT * FROM $table_name ORDER BY group_id DESC LIMIT 1";
     $results = $wpdb->get_results($query);
 
     return $results;
@@ -160,7 +160,7 @@ function get_recent_group_projects() {
 ?>
 
 <div style="width:100vw;height:90vh;display:flex;flex-direction:row;margin-top:-2.45rem">
-    <div class="page-trainee-dashboard" style="margin-top:-1.99rem;width:20vw">
+    <div class="page-trainee-dashboard" style="margin-top:-1.99rem;width:20vw;">
         <?php get_template_part('sidenav-pm'); ?>
     </div>
 
@@ -184,8 +184,9 @@ function get_recent_group_projects() {
             }
         </style>
 
+            <div style="display:flex;justify-content:end;margin-bottom:2rem">
         <?php echo do_shortcode('[search_bar]'); ?>
-
+        </div>
         <div style=" display: flex; justify-content: space-between; align-items: flex-start;">
             <div style="flex: 1;margin-right: 20px; padding: 10px; background-color: #FAFAFA; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; border-radius: 5px;">
                 <h2 style=" font-size: 20px; margin-bottom: 1rem;color:#315B87">Projects</h2>

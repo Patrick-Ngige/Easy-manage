@@ -63,15 +63,8 @@ curl_close($ch);
     <div style="padding:1rem;width:80vw;margin-left:0rem">
         <div style="padding:1rem;">
             <!-- Add buttons and search bar here -->
-            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
-                <a href="http://localhost/easy-manage/admin-trainers-table/" class="floating-btn"
-                    style="text-decoration:none; padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
-                    View Trainers
-                </a>
-                <a href="http://localhost/easy-manage/admin-trainees-table/" class="floating-btn"
-                    style="text-decoration:none; padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
-                    View Trainees
-                </a>
+            <div style="display: flex; align-items: center; justify-content: end; margin-bottom: 1rem;">
+              
                 <?php echo do_shortcode('[search_bar]'); ?>
             </div>
 
@@ -126,8 +119,8 @@ curl_close($ch);
                                         <input type="hidden" name="user_id" value="<?php echo $user['ID']; ?>">
                                         <button type="submit" name="soft_delete" class="btn-soft-delete"
                                             style="padding:6px;border:none">
-                                            <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/pause-2.png"
-                                                style="width:25px;" alt="">
+                                            <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/reuse.png"
+                                                style="width:3vw;" alt="">
                                         </button>
 
                                     </form>

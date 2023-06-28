@@ -120,7 +120,7 @@ if (is_wp_error($response)) {
                             </tr>
                         <?php }
                     } else {
-                        echo 'No deactivated trainers available';
+                        echo '<tr><td colspan="4" style="text-align: center;">No deleted trainers available</td></tr>';
                     }
                     ?>
                 </tbody>
