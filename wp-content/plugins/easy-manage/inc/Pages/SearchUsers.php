@@ -23,12 +23,20 @@ class SearchUsers
             array(
                 'methods' => 'GET',
                 'callback' => array($this, 'search_users_callback'),
+                'args' => array(
+                    'name' => array(
+                        'required' => true,
+                        'sanitize_callback' => 'sanitize_text_field',
+                    ),
+                ),
             )
         );
     }
     public function search_users_callback($request) {
         $name = $request->get_param('name');
     
+        // return $name;
+       
         global $wpdb;
         $users_table = $wpdb->prefix . 'users';
     
@@ -36,6 +44,7 @@ class SearchUsers
         $prepared_query = $wpdb->prepare($query, '%' . esc_sql($name) . '%');
         $users = $wpdb->get_results($prepared_query);
     
+
         if (empty($users)) {
             return new WP_Error('no_users_found', 'No users found.', array('status' => 404));
         }
