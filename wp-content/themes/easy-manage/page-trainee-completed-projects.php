@@ -32,9 +32,6 @@ if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 2
             $project_url = "http://localhost/easy-manage/wp-json/em/v1/project/completed/" . $project_id;
             $project_response = wp_remote_get($project_url);
 
-            // echo '<pre>';
-            // var_dump($project_response);
-            // echo '</pre>';
             if (!is_wp_error($project_response) && wp_remote_retrieve_response_code($project_response) === 200) {
                 $group_project = json_decode(wp_remote_retrieve_body($project_response));
                 $projects[] = $group_project;
@@ -96,7 +93,7 @@ if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 2
                             </tr>
                         <?php }
                     } else {
-                        echo 'No completed projects available';
+                        echo '<tr><td colspan="4" style="text-align: center;">No completed projects available</td></tr>';
                     }
                     ?>
                 </tbody>

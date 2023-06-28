@@ -31,7 +31,7 @@ class PMEndpoints
             array(
                 'methods' => array('POST', 'PATCH'),
                 'callback' => array($this, 'cohort_callbacks'),
-                // 'permission_callback' => array($this, 'check_admin_permission'),
+                'permission_callback' => array($this, 'check_admin_permission'),
             )
         );
     }

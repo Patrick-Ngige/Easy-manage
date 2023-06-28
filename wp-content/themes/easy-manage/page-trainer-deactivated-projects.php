@@ -9,11 +9,13 @@ $token = $_COOKIE['token'];
 
 
 $request_url = 'http://localhost/easy-manage/wp-json/em/v1/pm';
-$response = wp_remote_get($request_url, array(
-    'headers' => array(
-        'Authorization' => 'Bearer ' . $token
+$response = wp_remote_get(
+    $request_url,
+    array(
+        'headers' => array(
+            'Authorization' => 'Bearer ' . $token
+        )
     )
-)
 );
 
 if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 200) {
@@ -30,9 +32,12 @@ if (isset($_POST['restore_user'])) {
 $ch = curl_init($endpoint);
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-    'Authorization: Bearer ' . $token
-)
+curl_setopt(
+    $ch,
+    CURLOPT_HTTPHEADER,
+    array(
+        'Authorization: Bearer ' . $token
+    )
 );
 
 $result = curl_exec($ch);
@@ -94,12 +99,14 @@ curl_close($ch);
                                 <td>
                                     <div class="d-flex align-items-center">
                                         <div class="ms-3">
-                                            <p class="mb-1">
-                                                <?php if (isset($project['assignee'])) {
+                                        <p class="mb-1">
+                                                <?php
+                                                if ($project['project_type'] === 'individual') {
                                                     echo $project['assignee'];
-                                                } elseif (isset($product['assigned_members'])) {
-                                                    echo implode(', ', $product['assigned_members']);
-                                                } ?>
+                                                } elseif ($project['project_type'] === 'group') {
+                                                    echo is_array($project['assigned_members']) ? implode(', ', $project['assigned_members']) : $project['assigned_members'];
+                                                }
+                                                ?>
                                             </p>
                                         </div>
                                     </div>
@@ -128,7 +135,7 @@ curl_close($ch);
                             </tr>
                         <?php }
                     } else {
-                        echo 'Error retrieving projects';
+                        echo '<tr><td colspan="4" style="text-align: center;">No deactivated trainers available</td></tr>';
                     }
                     ?>
                 </tbody>

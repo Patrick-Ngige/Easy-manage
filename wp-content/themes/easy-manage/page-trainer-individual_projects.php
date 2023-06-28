@@ -69,7 +69,7 @@ get_header();
                     Create Trainee
                 </a>
 
-                <a href="http://localhost/easy-manage/admin-trainees-table/" class="floating-btn"
+                <a href="http://localhost/easy-manage/trainees-list/" class="floating-btn"
                     style="text-decoration:none; padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
                     View Trainees
                 </a>
@@ -146,7 +146,7 @@ get_header();
                             </tr>
                         <?php }
                     } else {
-                        echo 'Error retrieving projects';
+                        echo '<tr><td colspan="4" style="text-align: center;">Noindividual peojects available</td></tr>';
                     }
                     ?>
                 </tbody>

@@ -102,7 +102,7 @@ if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 2
                             </tr>
                         <?php }
                     } else {
-                        echo 'No group projects assigned.';
+                        echo '<tr><td colspan="4" style="text-align: center;">No group project assigned</td></tr>';
                     }
                     ?>
                 </tbody>

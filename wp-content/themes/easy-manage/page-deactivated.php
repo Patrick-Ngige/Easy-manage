@@ -116,7 +116,7 @@ curl_close($ch);
                             </tr>
                             <?php }
                     } else {
-                        echo 'No deactivated users available';
+                        echo '<tr><td colspan="4" style="text-align: center;">No deactivated users available</td></tr>';
                     }
                     ?>
                 </tbody>

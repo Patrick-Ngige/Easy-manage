@@ -106,7 +106,7 @@ if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 2
                     </tbody>
                 </table>
             <?php } else {
-                echo 'No individual projects assigned.';
+                echo '<tr><td colspan="4" style="text-align: center;">No individual project assigned</td></tr>';
             }
             ?>
 

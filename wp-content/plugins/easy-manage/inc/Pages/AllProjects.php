@@ -132,26 +132,21 @@ class AllProjects
         global $wpdb;
         $individual_table = $wpdb->prefix . 'individual_projects';
         $group_table = $wpdb->prefix . 'group_projects';
-    
+        
         $individual_projects = $wpdb->get_results(
             $wpdb->prepare(
-                "SELECT * FROM $individual_table WHERE project_status = %d",
+                "SELECT *, 'individual' as project_type FROM $individual_table WHERE project_status = %d",
                 1
             )
         );
-    
+        
         $group_projects = $wpdb->get_results(
             $wpdb->prepare(
-                "SELECT * FROM $group_table WHERE group_status = %d",
+                "SELECT *, 'group' as project_type FROM $group_table WHERE group_status = %d",
                 1
             )
         );
-    
-        $projects = array(
-            'individual_projects' => $individual_projects,
-            'group_projects' => $group_projects
-        );
-
+        
         $projects = array_merge($individual_projects, $group_projects);
     
         if (empty($projects)) {

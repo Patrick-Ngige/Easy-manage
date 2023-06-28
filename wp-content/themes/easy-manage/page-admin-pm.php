@@ -85,7 +85,7 @@ if (isset($_POST['soft_delete'])) {
                     $users = wp_remote_retrieve_body($response);
                     $users = json_decode($users, true);
                     
-                    if (is_array($users)) {
+                    if (!empty($users)) {
                         foreach ($users as $user) {
 
                             ?>
@@ -126,7 +126,7 @@ if (isset($_POST['soft_delete'])) {
                             </tr>
                         <?php }
                     } else {
-                        echo 'Error retrieving users';
+                        echo '<tr><td colspan="4" style="text-align: center;">No program managers available</td></tr>';
                     }
                     ?>
 
