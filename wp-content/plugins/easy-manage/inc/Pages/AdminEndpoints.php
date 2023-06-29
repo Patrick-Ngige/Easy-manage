@@ -144,8 +144,6 @@ class AdminEndpoints
         }
     }
     
-    
-    
 
     public function retrieve_soft_deleted($request)
     {

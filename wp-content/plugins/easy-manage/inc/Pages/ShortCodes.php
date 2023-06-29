@@ -46,39 +46,38 @@ class ShortCodes
                 <input type="search" class="search-field" name="search" placeholder="Search..."
                     value="<?php echo isset($_POST['search']) ? esc_attr($_POST['search']) : ''; ?>" />
             </label>
-            <button type="submit" name="searchbtn">Search</button>
+            <button type="submit" name="searchbtn" style="border:none;background-color:#315B87;color:#fff;border-radius:5px;padding:5px;width:5vw">Search</button>
         </form>
 
-        <div class="search-results">
-            <?php
-            if (isset($_POST['searchbtn'])) {
-                $searchQuery = $_POST['search'];
-                $searchEndpoint = 'http://localhost/easy-manage/wp-json/em/v1/users/search';
-                
-                $response = wp_remote_post($searchEndpoint, array(
-                    'body' => array(
-                        'name' => $searchQuery,
-                    ),
-                ));
+        <div class="search-results" style="position: inherit;background-color: #fff;padding:10px;border-radius:2px;font-size:normal;margin-top:4rem;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
+    <?php
+    if (isset($_POST['searchbtn'])) {
+        $searchQuery = $_POST['search'];
+        $searchEndpoint = "http://localhost/easy-manage/wp-json/em/v1/users/search?name=$searchQuery";
+        
+        $response = wp_remote_get($searchEndpoint, array(
+            'method' => 'GET'
+        ));
 
+        if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 200) {
+            $results = json_decode(wp_remote_retrieve_body($response), true);
 
-                if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 200) {
-                    $results = json_decode(wp_remote_retrieve_body($response), true);
-                    if ($results) {
-                        foreach ($results as $result) {
-                            echo '<div class="search-result">';
-                            echo '<h3>' . esc_html($result['name']) . '</h3>';
-                            echo '</div>';
-                        }
-                    } else {
-                        echo '<p>No results found.</p>';
-                    }
-                } else {
-                    echo '<p>Error occurred while performing the search.</p>';
+            if ($results) {
+                foreach ($results as $result) {
+                    echo '<div class="search-result">';
+                    echo '<p>' . esc_html($result['user_name']).'-> '  . esc_html($result['user_email']) . '</p>';
+                    echo '</div>';
                 }
+            } else {
+                echo '<p>No results found.</p>';
             }
-            ?>
-        </div>
+        } else {
+            echo '<p>Error occurred while performing the search.</p>';
+        }
+    }
+    ?>
+</div>
+
 
         <?php
         return ob_get_clean();

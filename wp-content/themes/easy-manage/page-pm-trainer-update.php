@@ -1,7 +1,7 @@
 <?php get_header();
 
 /**
- * Template Name: PM update trainee
+ * Template Name: PM update Trainer
  * 
  */
 $user_id = $_GET['id'];
@@ -22,46 +22,44 @@ $user_id = $_GET['id'];
 if (is_wp_error($response)) {
     $error = $response->get_error_message();
 } else {
-    $trainee = json_decode(wp_remote_retrieve_body($response), true);
+    $trainer = json_decode(wp_remote_retrieve_body($response), true);
 }
-
-var_dump($trainee);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $errors = array();
 
     if (empty($_POST['trainer_name'])) {
-        $errors[] = 'trainee name is required';
+        $errors[] = 'Trainer name is required';
     }
-    if (empty($_POST['trainee_email'])) {
+    if (empty($_POST['trainer_email'])) {
         $errors[] = 'Email is required';
     }
-    if (empty($_POST['trainee_role'])) {
+    if (empty($_POST['trainer_role'])) {
         $errors[] = 'Role is required';
     }
  
     if (isset($_POST['updatebtn'])) {
-        $trainee_name = $_POST['trainee_name'];
-        $trainee_email = $_POST['trainee_email'];
-        $trainee_role = $_POST['trainee_role'];
+        $trainer_name = $_POST['trainer_name'];
+        $trainer_email = $_POST['trainer_email'];
+        $trainer_role = $_POST['trainer_role'];
 
-        $updated_trainee = array(
-            'trainee_id' => $user_id,
-            'trainee_name' => $trainee_name,
-            'trainee_email' => $trainee_email,
-            'trainee_role' => $trainee_role,
+        $updated_trainer = array(
+            'trainer_id' => $user_id,
+            'trainer_name' => $trainer_name,
+            'trainer_email' => $trainer_email,
+            'trainer_role' => $trainer_role,
         );
 
 
         $responses = wp_remote_post(
             'http://localhost/easy-manage/wp-json/em/v1/trainee',
             array(
-                'method' => 'PUT',
+                'method' => 'PATCH',
                 'headers' => array(
                     'Content-Type' => 'application/json',
                     'Authorization' => 'Bearer ' . $token
                 ),
-                'body' => json_encode($updated_trainee),
+                'body' => json_encode($updated_trainer),
             )
         );
 
@@ -74,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $result = json_decode(wp_remote_retrieve_body($response));
 
                 if ($result && isset($result->success)) {
-                    $_SESSION['success_message'] = 'trainee updated successfully.';
+                    $_SESSION['success_message'] = 'trainer updated successfully.';
                     ?>
                     <script>
                         window.location.href = '<?php echo esc_url(add_query_arg('success', 'true')); ?>';
@@ -83,7 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     exit;
                 }
             } else {
-                wp_die('Error updating trainee. HTTP response code: ' . $response_code);
+                wp_die('Error updating trainer. HTTP response code: ' . $response_code);
             }
         }
 
@@ -114,24 +112,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                                             <h2 class="fw-bold d-flex align-items-end d-flex justify-content-center align-items-center"
                                                 style="color: #315B87;margin-top:-2rem">
-                                               Update trainee
+                                               Update Trainer
                                             </h2>
 
                                             <?php if (isset($_GET['success']) && $_GET['success'] === 'true'): ?>
                                                 <div class="alert alert-success" role="alert">
-                                                    trainee created successfully.
+                                                    Trainer created successfully.
                                                 </div>
                                             <?php endif; ?>
 
                                             <div class="form-outline mb-3">
                                                 <label class="form-label" for="form2Example27"
-                                                    style="font-weight: 600;">trainee:</label>
+                                                    style="font-weight: 600;">Trainer:</label>
                                                 <input type="text" id="form2Example27"
                                                     class="form-control form-control-md"
-                                                    placeholder="Enter trainee name" name="trainee_name"
-                                                    value="<?php echo $trainee['user_nicename'] ?>" />
-                                                <?php if (isset($errors) && in_array('trainee name is required', $errors)) {
-                                                    echo '<p class="text-danger">trainee name is required</p>';
+                                                    placeholder="Enter trainer name" name="trainer_name"
+                                                    value="<?php echo $trainer['user_name'] ?>" />
+                                                <?php if (isset($errors) && in_array('Trainer name is required', $errors)) {
+                                                    echo '<p class="text-danger">Trainer name is required</p>';
                                                 } ?>
                                             </div>
 
@@ -140,8 +138,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                     style="font-weight: 600;">Email:</label>
                                                 <input type="email" id="form2Example27"
                                                     class="form-control form-control-md"
-                                                    placeholder="Enter trainee email" name="trainee_email"
-                                                    value="<?php echo $trainee['user_email'] ?>" />
+                                                    placeholder="Enter trainer email" name="trainer_email"
+                                                    value="<?php echo $trainer['user_email'] ?>" />
                                                 <?php if (isset($errors) && in_array('Email is required', $errors)) {
                                                     echo '<p class="text-danger">Email is required</p>';
                                                 } ?>
@@ -152,8 +150,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                     style="font-weight: 600;">Role:</label>
                                                 <input type="text" id="form2Example27"
                                                     class="form-control form-control-md"
-                                                    placeholder="Enter trainee role" name="trainee_role"
-                                                    value="<?php echo $trainee['user_role'] ?>" />
+                                                    placeholder="Enter trainer role" name="trainer_role"
+                                                    value="<?php echo $trainer['user_role'] ?>" />
                                                 <?php if (isset($errors) && in_array('Role is required', $errors)) {
                                                     echo '<p class="text-danger">Role is required</p>';
                                                 } ?>

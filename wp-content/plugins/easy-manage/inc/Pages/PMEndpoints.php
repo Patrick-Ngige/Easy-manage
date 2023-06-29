@@ -129,13 +129,12 @@ class PMEndpoints
         $trainer_name = sanitize_text_field($request->get_param('trainer_name'));
         $trainer_email = sanitize_email($request->get_param('trainer_email'));
         $trainer_role = sanitize_text_field($request->get_param('trainer_role'));
-        $trainer_password = sanitize_text_field($request->get_param('trainer_password'));
 
         $existing_trainer = get_users(
             array(
                 'meta_query' => array(
                     'relation' => 'OR',
-                    array('key' => 'user_login', 'value' => $trainer_name),
+                    array('key' => 'user_name', 'value' => $trainer_name),
                     array('key' => 'user_email', 'value' => $trainer_email),
                 ),
                 'exclude' => array($trainer_id),
@@ -151,8 +150,9 @@ class PMEndpoints
 
         if ($user) {
             $update_fields = array();
-            if ($user->display_name !== $trainer_name) {
-                $update_fields['display_name'] = $trainer_name;
+            if ($user->user_nicename !== $trainer_name) {
+                $update_fields['user_nicename'] = $trainer_name;
+                $update_fields['user_login'] = $trainer_name;
             }
             if ($user->user_email !== $trainer_email) {
                 $update_fields['user_email'] = $trainer_email;
@@ -161,16 +161,11 @@ class PMEndpoints
                 wp_update_user(array('ID' => $trainer_id) + $update_fields);
             }
 
-            if ($trainer_password) {
-                wp_set_password($trainer_password, $trainer_id);
-            }
-
             update_user_meta($trainer_id, 'trainer_role', $trainer_role);
 
             $response = array(
                 'success' => true,
                 'message' => 'Trainer updated successfully',
-                'user_id' => $trainer_id,
             );
             return rest_ensure_response($response);
         } else {

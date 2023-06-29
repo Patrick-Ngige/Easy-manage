@@ -120,7 +120,7 @@ get_header();
                                 </td>
                                 <td>
                                     <p class="fw-normal mb-1">
-                                        <?php echo ($project['project_status'] == 0 ? 'Ongoing' : 'Completed') ?>
+                                        <?php echo ($project['project_status'] == 0 ? '<span style="color:green">Ongoing</span>' : 'Completed') ?>
                                     </p>
                                 </td>
                                 <td>
