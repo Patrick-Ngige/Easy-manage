@@ -115,7 +115,7 @@ if ($login_attempts >= count($wait_times)) {
 ?>
 
 <div class="form-container"
-    style="height: 100vh; background-color: #E3E3EE; display: flex; justify-content: center; align-items: center; padding: 0 1rem;overflow:hidden;">
+    style="height: 97vh; background-color: #E3E3EE; display: flex; justify-content: center; align-items: center; padding: 0 1rem;overflow-y:hidden;">
     <div
         style="z-index: 1; width: 24rem; position: fixed; height: 13rem; background-color: #315B87; display: flex; align-self: flex-end; top: 0; right: 0;">
     </div>
