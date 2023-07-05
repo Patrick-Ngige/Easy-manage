@@ -17,6 +17,13 @@
     color: #FAFAFA;
 }
 
-
-
+@media (min-width: 320px) and (max-width: 412px) {
+    body {
+      background-color: purple;
+    }
+    .login-card{
+        display: flex;
+        flex-direction: column;
+    }
+  }
 

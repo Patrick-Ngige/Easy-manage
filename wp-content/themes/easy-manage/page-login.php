@@ -12,7 +12,7 @@ if (!isset($_SESSION['login_attempts'])) {
 $error_message = '';
 $show_attempts = false;
 
-$remaining_attempts = 3 - (int)$_SESSION['login_attempts'];
+$remaining_attempts = 3 - (int) $_SESSION['login_attempts'];
 
 $login_attempts = $_SESSION['login_attempts'];
 
@@ -114,7 +114,7 @@ if ($login_attempts >= count($wait_times)) {
 }
 ?>
 
-<div class="form-container"
+<div class="form-container login"
     style="height: 97vh; background-color: #E3E3EE; display: flex; justify-content: center; align-items: center; padding: 0 1rem;overflow-y:hidden;">
     <div
         style="z-index: 1; width: 24rem; position: fixed; height: 13rem; background-color: #315B87; display: flex; align-self: flex-end; top: 0; right: 0;">
@@ -122,7 +122,7 @@ if ($login_attempts >= count($wait_times)) {
     <div
         style="z-index: 1; width: 24rem; position: fixed; height: 13rem; background-color: #315B87; display: flex; align-self: flex-start; bottom: 0; left: 0;">
     </div>
-    <div
+    <div class="login-card"
         style="z-index: 9999; box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px; display: flex; justify-content: center; align-items: center; width: 75%; border-radius: 20px;">
         <div
             style="width: 30%; height: 70vh; background-color: #315B87; color: #FAFAFA; font-size: large; display: flex; align-items: center; justify-content: center; border-bottom-left-radius: 10px; border-top-left-radius: 10px;">
