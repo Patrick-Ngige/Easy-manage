@@ -3,7 +3,7 @@ require_once(ABSPATH . 'wp-load.php');
 setcookie('user_role', '', time() - 3600, '/');
 
 // Rest of the code follows...
-?> 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,7 +41,7 @@ setcookie('user_role', '', time() - 3600, '/');
                 "</h6>";
                 ?>
             </div>
-        
+
 
             <div>
                 <a href="<?php echo wp_logout_url(home_url('')); ?>"
