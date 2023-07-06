@@ -44,12 +44,10 @@ $result = curl_exec($ch);
 $http_status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
 if ($http_status === 200) {
-    // Successful response
     $response = json_decode($result, true);
-    // Handle the response accordingly
+
 } else {
-    // Error occurred
-    // Handle the error response
+
 }
 
 curl_close($ch);
