@@ -84,28 +84,24 @@ class ShortCodes
         <?php
         return ob_get_clean();
     }
-    
-    // AJAX handler
     public function search_users_ajax_handler()
     {
         if (isset($_POST['search'])) {
             $searchQuery = sanitize_text_field($_POST['search']);
             $searchEndpoint = "http://localhost/easy-manage/wp-json/em/v1/users/search?name=$searchQuery";
-            
+            var_dump($searchQuery);
+
             $response = wp_remote_get($searchEndpoint, array(
                 'method' => 'GET'
             ));
 
             print_r($response);
         
-
-            // Log API request URL
             error_log('Search API Request: ' . $searchEndpoint);
     
             if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 200) {
                 $results = json_decode(wp_remote_retrieve_body($response), true);
 
-                // Log API response
                 error_log('Search API Response: ' . print_r($results, true));
     
                 if ($results) {
