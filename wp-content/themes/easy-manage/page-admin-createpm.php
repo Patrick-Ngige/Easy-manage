@@ -21,10 +21,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errors[] = 'Email is required';
     }
 
-    if (empty($_POST['pm_role'])) {
-        $errors[] = 'Role is required';
-    }
-
     if (empty($_POST['pm_password'])) {
         $errors[] = 'Password is required';
     }
@@ -32,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['createbtn'])) {
         $pm_name = $_POST['pm_name'];
         $pm_email = $_POST['pm_email'];
-        $pm_role = $_POST['pm_role'];
+        $pm_role = 'program_manager';
         $pm_password = $_POST['pm_password'];
 
         $created_pm = array(
@@ -138,18 +134,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                     value="<?php echo isset($_GET['pm_email']) ? $_GET['pm_email'] : ''; ?>" />
                                                 <?php if (isset($errors) && in_array('Email is required', $errors)) {
                                                     echo '<p class="text-danger">Email is required</p>';
-                                                } ?>
-                                            </div>
-
-                                            <div class="form-outline mb-3">
-                                                <label class="form-label" for="form2Example27"
-                                                    style="font-weight:600;">Role:</label>
-                                                <input type="text" id="form2Example27"
-                                                    class="form-control form-control-md"
-                                                    placeholder="Enter project task" name="pm_role"
-                                                    value="<?php echo isset($_GET['pm_role']) ? $_GET['pm_role'] : ''; ?>" />
-                                                <?php if (isset($errors) && in_array('Role is required', $errors)) {
-                                                    echo '<p class="text-danger">Role is required</p>';
                                                 } ?>
                                             </div>
 
