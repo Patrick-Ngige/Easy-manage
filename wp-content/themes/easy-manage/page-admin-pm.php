@@ -20,7 +20,7 @@ $response = wp_remote_get(
 if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 200) {
     $user_data = json_decode(wp_remote_retrieve_body($response));
 
-   
+
 }
 
 
@@ -34,7 +34,8 @@ if (isset($_POST['soft_delete'])) {
     curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'DELETE');
     curl_setopt($curl, CURLOPT_HTTPHEADER, array(
         'Authorization: Bearer ' . $token
-    ));
+    )
+    );
     $response = curl_exec($curl);
 
     if ($response === false) {
@@ -44,7 +45,7 @@ if (isset($_POST['soft_delete'])) {
 
     curl_close($curl);
 
-    
+
 }
 
 ?>
@@ -91,7 +92,7 @@ if (isset($_POST['soft_delete'])) {
                     );
                     $users = wp_remote_retrieve_body($response);
                     $users = json_decode($users, true);
-                    
+
                     if (!empty($users)) {
                         foreach ($users as $user) {
 
@@ -118,16 +119,19 @@ if (isset($_POST['soft_delete'])) {
                                 <td>
                                     <form method="POST">
                                         <input type="hidden" name="user_id" value="<?php echo $user['ID']; ?>">
-                                        <button type="submit" name="soft_delete" class="btn-soft-delete"
-                                            style="padding:6px;border:none">
-                                            <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/pause-2.png"
+                                        <button type="submit" name="soft_delete" class="btn-soft-delete" style="padding:6px"
+                                            data-bs-toggle="tooltip" data-bs-placement="top" title="deactivate Button">
+                                            <img src="http://localhost/easy-manage/wp-content/uploads/2023/07/off-button.png"
                                                 style="width:25px;" alt="">
                                         </button>
+
                                         <a href="http://localhost/easy-manage/admin-update-form/?id=<?php echo $user['ID']; ?>"
-                                            style="padding:6px">
+                                            style="padding:6px" data-bs-toggle="tooltip" data-bs-placement="top"
+                                            title="Edit Button">
                                             <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png"
                                                 style="width:25px;" alt="">
-                                        </a> &nbsp;&nbsp;
+                                        </a>
+
                                     </form>
                                 </td>
                             </tr>
@@ -144,3 +148,9 @@ if (isset($_POST['soft_delete'])) {
 </div>
 
 <?php get_footer(); ?>
+
+<script>
+    $(function () {
+        $('[data-bs-toggle="tooltip"]').tooltip();
+    });
+</script>

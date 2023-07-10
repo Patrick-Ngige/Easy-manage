@@ -59,12 +59,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         );
 
 
-        if (is_wp_error($response)) {
-            wp_die('Error: ' . $response->get_error_message());
+        if (is_wp_error($responses)) {
+            wp_die('Error: ' . $responses->get_error_message());
         } else {
-            $response_code = wp_remote_retrieve_response_code($response);
+            $response_code = wp_remote_retrieve_response_code($responses);
             if ($response_code === 200) {
-                $result = json_decode(wp_remote_retrieve_body($response));
+                $result = json_decode(wp_remote_retrieve_body($responses));
 
                 if ($result && isset($result->success)) {
                     $_SESSION['success_message'] = 'pm
@@ -90,7 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <div style="width: 100vw; height: 90vh; display: flex; flex-direction: row; margin-top: -2.45rem;">
 
     <div class="page-trainee-dashboard" style="margin-top: -1.99rem; width: 20vw;">
-        <?php get_template_part('sidenav-pm'); ?>
+        <?php get_template_part('sidenav-admin'); ?>
     </div>
     <div style="height: 80vh; margin-left: 15rem;">
         <div class="container py-4">
