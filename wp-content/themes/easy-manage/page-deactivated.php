@@ -17,16 +17,18 @@ $response = wp_remote_get(
     )
 );
 
+
+
 if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 200) {
     $users = json_decode(wp_remote_retrieve_body($response), true);
 }
-
 $endpoint_url = '';
 if (isset($_POST['restore_user'])) {
     $user_id = $_POST['user_id'];
     $endpoint_url = 'http://localhost/easy-manage/wp-json/em/v1/restore_user/' . $user_id;
 
 }
+
 $ch = curl_init($endpoint_url);
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -82,7 +84,7 @@ curl_close($ch);
                 </thead>
                 <tbody>
                     <?php
-                    if (!empty($user)) {
+                    if (!empty($users)) {
                         foreach ($users as $user) {
                             ?>
                             <tr>
@@ -107,7 +109,8 @@ curl_close($ch);
                                     <form method="POST">
                                         <input type="hidden" name="user_id" value="<?php echo $user['ID']; ?>">
                                         <button type="submit" name="restore_user"
-                                            style="border: none; background: none; cursor: pointer;">
+                                            style="border: none; background: none; cursor: pointer;" 
+                                            data-bs-toggle="tooltip" data-bs-placement="top" title="activate Button">
                                             <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/reuse.png"
                                                 style="width:3vw;" alt="">
                                         </button>
@@ -128,3 +131,8 @@ curl_close($ch);
 
 get_footer();
 ?>
+<script>
+    $(function () {
+        $('[data-bs-toggle="tooltip"]').tooltip();
+    });
+</script>
