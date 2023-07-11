@@ -16,9 +16,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($_POST['trainer_email'])) {
         $errors[] = 'Email is required';
     }
-    if (empty($_POST['trainer_role'])) {
-        $errors[] = 'Role is required';
-    }
     if (empty($_POST['trainer_password'])) {
         $errors[] = 'Password is required';
     }
@@ -26,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['createbtn'])) {
         $trainer_name = $_POST['trainer_name'];
         $trainer_email = $_POST['trainer_email'];
-        $trainer_role = $_POST['trainer_role'];
+        $trainer_role = 'trainer';
         $trainer_password = $_POST['trainer_password'];
 
         $created_trainer = array(
@@ -60,10 +57,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['success_message'] = 'Trainer created successfully.';
                 ?>
                 <script>
-                    window.location.href = '<?php echo esc_url(add_query_arg('success', 'true')); ?>';
+                    window.location.href = '<?php echo esc_url("http://localhost/easy-manage/pm-trainers-list/"); ?>';
                 </script>
                 <?php
-                exit;
+            }else{
+                echo "failed to create trainer";
             }
         }
 
@@ -78,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php get_template_part('sidenav-pm'); ?>
     </div>
     <div style="height: 80vh; margin-left: 15rem;">
-        <div class="container py-4">
+        <div class="container py-5">
             <div class="row d-flex justify-content-center align-items-center">
                 <div class="col col-xl-10" style="width: 40vw;">
                     <div class="card" style="border-radius: 1rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);">
@@ -124,18 +122,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                     value="<?php echo isset($_POST['trainer_email']) ? $_POST['trainer_email'] : ''; ?>" />
                                                 <?php if (isset($errors) && in_array('Email is required', $errors)) {
                                                     echo '<p class="text-danger">Email is required</p>';
-                                                } ?>
-                                            </div>
-
-                                            <div class="form-outline mb-3">
-                                                <label class="form-label" for="form2Example27"
-                                                    style="font-weight: 600;">Role:</label>
-                                                <input type="text" id="form2Example27"
-                                                    class="form-control form-control-md"
-                                                    placeholder="Enter trainer role" name="trainer_role"
-                                                    value="<?php echo isset($_POST['trainer_role']) ? $_POST['trainer_role'] : ''; ?>" />
-                                                <?php if (isset($errors) && in_array('Role is required', $errors)) {
-                                                    echo '<p class="text-danger">Role is required</p>';
                                                 } ?>
                                             </div>
 
