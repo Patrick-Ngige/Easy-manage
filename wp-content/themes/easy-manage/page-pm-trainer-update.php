@@ -8,7 +8,7 @@ $user_id = $_GET['id'];
  $token = $_COOKIE['token'];
 
  $response = wp_remote_get(
-    'http://localhost/easy-manage/wp-json/em/v1/users/trainee/'. $user_id,
+    'http://localhost/easy-manage/wp-json/em/v1/users/trainer/'. $user_id,
     array(
         'headers' => array(
             'Authorization' => 'Bearer ' . $token
@@ -75,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $_SESSION['success_message'] = 'trainer updated successfully.';
                     ?>
                     <script>
-                        window.location.href = '<?php echo esc_url(add_query_arg('success', 'true')); ?>';
+                        window.location.href = '<?php echo esc_url("http://localhost/easy-manage/pm-trainers-list/"); ?>';
                     </script>
                     <?php
                     exit;
