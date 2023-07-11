@@ -17,12 +17,11 @@ get_header();
  );
  
  if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 200) {
-     $user_data = json_decode(wp_remote_retrieve_body($response));
+     $user = json_decode(wp_remote_retrieve_body($response));
  
-    
  }
  
- 
+
  if (isset($_POST['soft_delete'])) {
      $project_id = $_POST['user_id'];
      $endpoint_url = 'http://localhost/easy-manage/wp-json/em/v1/individual_project/soft_delete/' . $project_id;
@@ -57,7 +56,6 @@ get_header();
 
     <div style="padding:1rem;width:80vw;margin-left:0rem">
         <div style="padding:1rem;">
-            <!-- Add buttons and search bar here -->
             <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
 
             <a href="http://localhost/easy-manage/group-projects/" class="floating-btn"

@@ -63,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $decoded_result = json_decode($response_body, true);
             
             if ($response_code === 200) {
-                // Successful response
+
                 if ($decoded_result && isset($decoded_result['success'])) {
                     $_SESSION['success_message'] = 'Group project created successfully.';
                     ?>
@@ -74,24 +74,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     exit;
                 }
             } else {
-                // Error response
+
                 echo 'Error: ' . $response_body;
-            }
-        }
-        
-        
-        
-        if ($http_status === 200) {
-            $results = $result;
-        
-            if ($result && isset($result['success'])) {
-                $_SESSION['success_message'] = 'Group project created successfully.';
-                ?>
-                <script>
-                    window.location.href = '<?php echo esc_url(add_query_arg('success', 'true')); ?>';
-                </script>
-                <?php
-                exit;
             }
         }
         

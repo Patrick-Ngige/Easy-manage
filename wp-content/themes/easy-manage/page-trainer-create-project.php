@@ -3,6 +3,8 @@
  * Template Name: Trainer Create Project
  */
 
+session_start();
+
 ob_start();
 
 get_header();
@@ -56,61 +58,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $response = curl_exec($ch);
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
-        if ($response === false) {
-            echo 'Error: ' . curl_error($ch);
-        } else {
-            echo $response;
-        }
-
-        curl_close($ch);
-
-
-        $curl = curl_init();
-        curl_setopt($curl, CURLOPT_URL, 'http://localhost/easy-manage/wp-json/em/v1/projects/individual');
-        curl_setopt($curl, CURLOPT_POST, true);
-        curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($created_project));
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($curl, CURLOPT_HTTPHEADER, array(
-            'Content-Type: application/json',
-            'Authorization: Bearer ' . $token
-        ));
-
-        $response = curl_exec($curl);
-        $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-
-        curl_close($curl);
-
-
         if ($httpCode === 200) {
-            // Successful response
-            if ($decoded_result && isset($decoded_result['success'])) {
-                $_SESSION['success_message'] = 'Group project created successfully.';
-                ?>
-                <script>
-                    window.location.href = '<?php echo esc_url(add_query_arg('success', 'true')); ?>';
-                </script>
-                <?php
+            $result = json_decode($response);
+
+            if ($result && isset($result->success)) {
+                $_SESSION['success_message'] = 'Individual project created successfully.';
+                header("Location: http://localhost/easy-manage/individual-projects/");
                 exit;
-            }
-        } elseif($httpCode === 405) {
-            if ($decoded_result && isset($decoded_result['success'])) {
-                $_SESSION['success_message'] = 'This project already exists..';
-                ?>
-                <script>
-                    window.location.href = '<?php echo esc_url(add_query_arg('success', 'true')); ?>';
-                </script>
-                <?php
-                exit;
+            } else {
+                echo "Failed to create individual project";
             }
         }
-        else {
-            echo 'error';
-        }
+        
     }
 }
 
 ob_end_flush();
 ?>
+
 
 
 <div style="width:100vw;height:90vh;display:flex;flex-direction:row;margin-top:-2.45rem">
@@ -129,7 +94,7 @@ ob_end_flush();
         </div>
 
         <section style="height:88vh;">
-            <div class="container py-1 h-auto">
+            <div class="container py-5 h-auto">
                 <div class="row d-flex justify-content-center align-items-center h-auto">
                     <div class="col col-xl-10" style="width:40vw;">
                         <div class="card" style="border-radius: 1rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);">
