@@ -110,7 +110,8 @@ if (isset($_POST['soft_delete'])) {
                                     <form method="POST">
                                     <input type="hidden" name="user_id" value="<?php echo $user['ID']; ?>">
                                         <button type="submit" name="soft_delete" class="btn-soft-delete"
-                                            style="padding:6px;border:none;margin-left:1rem">
+                                            style="padding:6px;border:none;margin-left:1rem" 
+                                            data-bs-toggle="tooltip" data-bs-placement="top" title="deactivate Button">
                                             <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/pause-2.png"
                                                 style="width:25px;" alt="">
                                         </button>
@@ -131,3 +132,8 @@ if (isset($_POST['soft_delete'])) {
 </div>
 
 <?php get_footer(); ?>
+<script>
+    $(function () {
+        $('[data-bs-toggle="tooltip"]').tooltip();
+    });
+</script>
