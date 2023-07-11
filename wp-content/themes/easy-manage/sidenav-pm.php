@@ -9,27 +9,24 @@ $response = wp_remote_get('http://localhost/easy-manage/wp-json/wp/v2/users/me',
     )
 ));
 
-$user_data = null; // Initialize the user data variable
-$roles = array(); // Initialize the roles array
+$user_data = null; 
+$roles = array(); 
 
 if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 200) {
     $user_data = json_decode(wp_remote_retrieve_body($response));
 
-    // Fetch the user's role separately
     $roles_response = wp_remote_get('http://localhost/easy-manage/wp-json/wp/v2/users/' . $user_data->id . '/roles', array(
         'headers' => array(
             'Authorization' => 'Bearer ' . $token
         )
     ));
 
-    // Check if the roles request was successful
+
     if (!is_wp_error($roles_response) && wp_remote_retrieve_response_code($roles_response) === 200) {
-        // Get the roles data from the response body
         $roles_data = json_decode(wp_remote_retrieve_body($roles_response));
 
-        // Access the user's role(s)
         foreach ($roles_data as $role) {
-            $roles[] = $role->name; // Access the role name property
+            $roles[] = $role->name; 
         }
     }
 }
@@ -55,6 +52,11 @@ if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 2
                 <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/teacher.png" style="width:2.5rem;height:2.5rem;" /> Create Trainer
             </a>
         </div>
+        <div class="side-menu <?php echo (strpos($_SERVER['REQUEST_URI'], 'pm-trainers-list') !== false) ? 'active' : ''; ?>">
+            <a href="http://localhost/easy-manage/pm-trainers-list"  style="display:block;padding:16px;text-decoration:none;color:#FAFAFA;">
+                <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/customer.png" style="width:2.5rem;height:2.5rem;" /> Trainers
+            </a>
+        </div>
         <div class="side-menu <?php echo (strpos($_SERVER['REQUEST_URI'], 'create-cohort') !== false) ? 'active' : ''; ?>">
             <a href="http://localhost/easy-manage/create-cohort"  style="display:block;padding:16px;text-decoration:none;color:#FAFAFA;">
                 <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/create.png" style="width:2.5rem;height:2.5rem;" /> Create Cohort
@@ -65,11 +67,7 @@ if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 2
                 <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/create.png" style="width:2.5rem;height:2.5rem;" /> Cohorts
             </a>
         </div>
-        <div class="side-menu <?php echo (strpos($_SERVER['REQUEST_URI'], 'pm-trainers-list') !== false) ? 'active' : ''; ?>">
-            <a href="http://localhost/easy-manage/pm-trainers-list"  style="display:block;padding:16px;text-decoration:none;color:#FAFAFA;">
-                <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/customer.png" style="width:2.5rem;height:2.5rem;" /> Trainers
-            </a>
-        </div>
+       
     </div>
 </div>
 
