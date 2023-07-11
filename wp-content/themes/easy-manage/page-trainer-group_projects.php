@@ -47,10 +47,19 @@ if (isset($_POST['soft_delete'])) {
 
     <div style="padding:1rem;width:80vw;margin-left:0rem">
         <div style="padding:1rem;">
-            <div style="display: flex; align-items: center; justify-content: end; margin-bottom: 1rem;">
-              
+        
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+            <div style="display: flex; align-items: center; justify-content: start; margin-bottom: 1rem;">
+                <a href="http://localhost/easy-manage/trainer-group-projects/"
+                    style="text-decoration:none;padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+                    Creat Group Project
+                </a>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: end;">
                 <?php echo do_shortcode('[search_bar]'); ?>
             </div>
+            </div>
+
 
             <table class="table align-middle mb-0 bg-white table-hover"
                 style="width:90%;margin-left:5%;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;margin-top:3%;">
