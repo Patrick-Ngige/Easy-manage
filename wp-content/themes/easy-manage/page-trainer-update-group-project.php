@@ -65,8 +65,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'project_id' => $project_id,
         );
 
-         var_dump('assigned_members');
-
         $args = array(
             'method' => 'PATCH',
             'body' => json_encode($update_group_project),

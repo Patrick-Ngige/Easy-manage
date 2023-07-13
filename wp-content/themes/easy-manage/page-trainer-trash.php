@@ -117,7 +117,7 @@ curl_close($ch);
                                     </td>
                                     <td>
                                         <p class="fw-normal mb-1">
-                                            <?php echo ($trainee['user_status'] == 0 ? 'Active' : 'Inactive') ?>
+                                            <?php echo ($trainee['user_status'] == 0 ? 'Active' : '<span style="color:#d11a2a">inactive</span>') ?>
                                         </p>
                                     </td>
                                     <td>
