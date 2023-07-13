@@ -61,9 +61,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'project_task' => $project_task,
             'assignee' => $assignee,
             'due_date' => $due_date,
+            'project_id' => $project_id,
         );
-
-
 
         $endpoint = 'http://localhost/easy-manage/wp-json/em/v1/projects/individual';
         $ch = curl_init($endpoint);
@@ -78,6 +77,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $response = curl_exec($ch);
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+        var_dump($response);
 
         if ($httpCode === 200) {
             $result = json_decode($response);

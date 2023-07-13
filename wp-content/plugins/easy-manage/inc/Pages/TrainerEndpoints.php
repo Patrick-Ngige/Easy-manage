@@ -279,9 +279,9 @@ class TrainerEndpoints
     {
         global $wpdb;
         $table_name = $wpdb->prefix . 'individual_projects';
-        $project_id = $request['project_id'];
+        $project_id = $request->get_param('project_id');
 
-        $data = $request->get_json_params();
+        // $datas = $request->get_json_params();
 
         $project_name = $request->get_param('project_name');
         $project_task = $request->get_param('project_task');
@@ -303,7 +303,6 @@ class TrainerEndpoints
             $response = array(
                 'success' => true,
                 'message' => 'Individual project updated successfully',
-                'project_id' => $updated,
             );
             return rest_ensure_response($response);
         }
