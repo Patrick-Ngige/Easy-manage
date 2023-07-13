@@ -110,7 +110,7 @@ curl_close($ch);
                                     </td>
                                     <td>
                                         <form method="POST">
-                                            <input type="hidden" name="user_id" value="<?php echo $user['ID']; ?>">
+                                            <input type="hidden" name="user_id" value="<?php echo $project['ID']; ?>">
                                             <button type="submit" name="soft_delete" class="btn-soft-delete"
                                                 style="padding: 6px; border: none;">
                                                 <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/reuse.png"

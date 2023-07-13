@@ -61,7 +61,7 @@ if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 2
                     style="width:90%;margin-left:5%;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;margin-top:3%;">
                     <thead class="bg-light">
                         <tr style="font-size:large;color:#315B87;padding-left:2rem">
-                            <th>Project</th>
+                            <th>Trainee</th>
                             <th>Project</th>
                             <th>Status</th>
                             <th>Mark Complete</th>
