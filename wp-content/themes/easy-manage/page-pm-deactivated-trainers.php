@@ -35,7 +35,6 @@ if (isset($_POST['restore'])) {
         );
     }
 } else {
-    // Fetch the initial user data
     $response = wp_remote_get(
         'http://localhost/easy-manage/wp-json/em/v1/trainer',
         array(
@@ -86,7 +85,7 @@ if (is_wp_error($response)) {
                 <tbody>
                     <?php
 
-                    if (empty($user)) {
+                    if (!empty($user)) {
                         foreach ($user as $User) { ?>
                             <tr>
                                 <td>
@@ -111,8 +110,8 @@ if (is_wp_error($response)) {
                                         <input type="hidden" name="user_id" value="<?php echo $User['ID']; ?>">
                                         <button type="submit" name="restore" class="btn-soft-delete"
                                             style="padding:6px;border:none;">
-                                            <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/pause-2.png"
-                                                style="width:25px;" alt="">
+                                            <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/reuse.png"
+                                            style="width:3vw;" alt="">
                                         </button>
 
                                     </form>
