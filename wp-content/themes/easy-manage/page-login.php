@@ -10,6 +10,7 @@ if (!isset($_SESSION['login_attempts'])) {
 }
 
 $error_message = '';
+$remaining_time = '';
 $show_attempts = false;
 
 $remaining_attempts = 3 - (int) $_SESSION['login_attempts'];
@@ -39,10 +40,9 @@ if ($login_attempts >= count($wait_times)) {
             $error_message = 'Please enter both email and password.';
             $show_attempts = true;
         } else {
-            // Check if the user has user_status = 1
             $user = get_user_by('email', $email);
             if ($user && $user->user_status === '1') {
-                $error_message = 'You are not allowed to log in.';
+                $error_message = '<span style="color:#d11a2a">You are not allowed to log in. Please contact the Administrator.</span>';
                 $show_attempts = true;
             } else {
                 $user = wp_authenticate($email, $password);
@@ -292,7 +292,9 @@ if ($login_attempts >= count($wait_times)) {
                 </div>
                 <?php if ($show_attempts): ?>
                     <div class="attempts">
-                        <?php if ($remaining_time > 0): ?>
+                        <?php 
+                        
+                        if ($remaining_time > 0): ?>
                             Please wait
                             <span id="countdown">
                                 <?php echo $remaining_time; ?>
