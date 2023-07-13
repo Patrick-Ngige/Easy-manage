@@ -115,7 +115,7 @@ if (isset($_POST['soft_delete'])) {
                                             <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/pause-2.png"
                                                 style="width:25px;" alt="">
                                         </button>
-                                    <a href="http://localhost/easy-manage/admin-update-form/?id=<?php echo $project['group_id'] ?>"
+                                    <a href="http://localhost/easy-manage/update-group-project/?id=<?php echo $project['group_id'] ?>"
                                         style="padding:6px"><img
                                             src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png"
                                             style="width:25px;" alt=""></a> &nbsp;&nbsp;
