@@ -22,19 +22,35 @@ if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 2
     $username = $user_data->name;
 
     $projects_url = "http://localhost/easy-manage/wp-json/em/v1/individual/completed/user_project_ids?username=" . $username;
+    $project_response = wp_remote_get($projects_url);
+
+    $projects_url = "http://localhost/easy-manage/wp-json/em/v1/group/completed/user_project_ids?username=" . $username;
     $projects_response = wp_remote_get($projects_url);
 
     if (!is_wp_error($projects_response) && wp_remote_retrieve_response_code($projects_response) === 200) {
-        $project_ids = json_decode(wp_remote_retrieve_body($projects_response));
+        $projects_ids = json_decode(wp_remote_retrieve_body($projects_response));
         $projects = array();
-
-        foreach ($project_ids as $project_id) {
+       
+        foreach ($projects_ids as $project_id ) {
             $project_url = "http://localhost/easy-manage/wp-json/em/v1/project/completed/" . $project_id;
             $project_response = wp_remote_get($project_url);
-
-            if (!is_wp_error($project_response) && wp_remote_retrieve_response_code($project_response) === 200) {
-                $group_project = json_decode(wp_remote_retrieve_body($project_response));
-                $projects[] = $group_project;
+            if (!is_wp_error($project_response) ) {
+                $project = json_decode(wp_remote_retrieve_body($project_response));
+                $projects[] = $project; 
+                
+            }
+        }
+    }else if(!is_wp_error($project_response) && wp_remote_retrieve_response_code($project_response) === 200){
+        $project_ids = json_decode(wp_remote_retrieve_body($project_response));
+        $project = array();
+       var_dump($project);
+        foreach ($project_ids as $project_id ) {
+            $project_url = "http://localhost/easy-manage/wp-json/em/v1/project/completed/" . $project_id;
+            $projects_response = wp_remote_get($project_url);
+            if (!is_wp_error($project_response) ) {
+                $projects = json_decode(wp_remote_retrieve_body($projects_response));
+                $project[] = $projects; 
+                
             }
         }
     }
@@ -98,8 +114,54 @@ if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 2
                     ?>
                 </tbody>
             </table>
+
+            <table class="table align-middle mb-0 bg-white table-hover"
+                style="width:90%;margin-left:5%;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;margin-top:3%;">
+                <thead class="bg-light">
+                    <tr style="font-size:large;color:#315B87;padding-left:2rem">
+                        <th>Project</th>
+                        <th>Type</th>
+                        <th>Due Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    if (!empty($project)) {
+                        foreach ($project as $completed) { ?>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div class="ms-3">
+                                            <p class="mb-1">
+                                                <?php echo $completed[0]->project_name ?>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <p class="fw-normal mb-1">
+                                        <?php echo  'Individual' ?>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p class="fw-normal mb-1">
+                                        <?php echo $completed->due_date ?>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p class="fw-normal mb-1" style="color:#146830"> Completed</p>
+                                </td>
+                            </tr>
+                        <?php }
+                    } else {
+                        echo '<tr><td colspan="4" style="text-align: center;">No completed projects available</td></tr>';
+                    }
+                    ?>
+                </tbody>
+            </table>
         </div>
     </div>
-</div>
+
 
 <?php get_footer(); ?>
