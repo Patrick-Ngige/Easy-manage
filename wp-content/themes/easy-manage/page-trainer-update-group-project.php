@@ -55,14 +55,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $group_due_date = $_POST['due_date'];
         $group_members = json_decode(stripslashes($assigned_members));
 
+        var_dump($group_members);
+
         $update_group_project = array(
             'assigned_members' =>  $group_members,
             'group_project' => $group_project,
             'project_task' => $project_task,
             'due_date' => $group_due_date,
+            'project_id' => $project_id,
         );
 
-       
+         var_dump('assigned_members');
 
         $args = array(
             'method' => 'PATCH',

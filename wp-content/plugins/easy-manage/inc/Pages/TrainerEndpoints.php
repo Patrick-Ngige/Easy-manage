@@ -398,13 +398,15 @@ class TrainerEndpoints
 
     public function update_group_project($request)
     {
-        $group_id = $request['group_id'];
+        $group_id = $request->get_param('project_id');
 
         global $wpdb;
         $table_name = $wpdb->prefix . 'group_projects';
 
+        $assigned_members = $request->get_param('assigned_members');
+
         $data = array(
-            'assigned_members' => $request->get_param('assigned_members'),
+            'assigned_members' => implode(', ', $assigned_members),
             'project_name' => $request->get_param('group_project'),
             'project_task' => $request->get_param('project_task'),
             'due_date' => $request->get_param('due_date'),
@@ -418,7 +420,6 @@ class TrainerEndpoints
             $response = array(
                 'success' => true,
                 'message' => 'Group project updated successfully',
-                'project_id' => $group_id,
             );
             return rest_ensure_response($response);
         }
