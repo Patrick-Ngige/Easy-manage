@@ -10,11 +10,13 @@ require_once(ABSPATH . 'wp-load.php');
 
 $token = $_COOKIE['token'];
 
-$response = wp_remote_get('http://localhost/easy-manage/wp-json/wp/v2/users/me', array(
-    'headers' => array(
-        'Authorization' => 'Bearer ' . $token
+$response = wp_remote_get(
+    'http://localhost/easy-manage/wp-json/wp/v2/users/me',
+    array(
+        'headers' => array(
+            'Authorization' => 'Bearer ' . $token
+        )
     )
-)
 );
 
 if (isset($_POST['soft_delete'])) {
@@ -25,9 +27,12 @@ if (isset($_POST['soft_delete'])) {
     curl_setopt($curl, CURLOPT_URL, $endpoint_url);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'DELETE');
-    curl_setopt($curl, CURLOPT_HTTPHEADER, array(
-        'Authorization: Bearer ' . $token
-    )
+    curl_setopt(
+        $curl,
+        CURLOPT_HTTPHEADER,
+        array(
+            'Authorization: Bearer ' . $token
+        )
     );
     $response = curl_exec($curl);
 
@@ -47,21 +52,21 @@ if (isset($_POST['soft_delete'])) {
 
     <div style="padding:1rem;width:80vw;margin-left:0rem">
         <div style="padding:1rem;">
-        
+
             <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
-            <div style="display: flex; align-items: center; justify-content: start; margin-bottom: 1rem;">
-                <a href="http://localhost/easy-manage/trainer-group-projects/"
-                    style="text-decoration:none;padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
-                    Creat Group Project
-                </a>
-                <a href="http://localhost/easy-manage/deactivated-projects" class="floating-btn"
-                    style="text-decoration:none; padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
-                    Deactivated projects
-                </a>
-            </div>
-            <div style="display: flex; align-items: center; justify-content: end;">
-                <?php echo do_shortcode('[search_bar]'); ?>
-            </div>
+                <div style="display: flex; align-items: center; gap:5vw; margin-bottom: 1rem;">
+                    <a href="http://localhost/easy-manage/trainer-group-projects/"
+                        style="text-decoration:none;padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+                        Creat Group Project
+                    </a>
+                    <a href="http://localhost/easy-manage/deactivated-projects" class="floating-btn"
+                        style="text-decoration:none; padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+                        Deactivated projects
+                    </a>
+                </div>
+                <div style="display: flex; align-items: center; justify-content: end;">
+                    <?php echo do_shortcode('[search_bar]'); ?>
+                </div>
             </div>
 
 
@@ -113,18 +118,17 @@ if (isset($_POST['soft_delete'])) {
                             </td>
                             <td>
                                 <form method="POST">
-                                <input type="hidden" name="group_id" value="<?php echo $project['group_id']; ?>">
-                                        <button type="submit" name="soft_delete" class="btn-soft-delete" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"
-                                            style="padding:6px;border:none">
-                                            <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/pause-2.png"
-                                                style="width:25px;" alt="">
-                                        </button>
+                                    <input type="hidden" name="group_id" value="<?php echo $project['group_id']; ?>">
+                                    <button type="submit" name="soft_delete" class="btn-soft-delete" data-bs-toggle="tooltip"
+                                        data-bs-placement="top" title="Delete" style="padding:6px;border:none">
+                                        <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/pause-2.png"
+                                            style="width:25px;" alt="">
+                                    </button>
                                     <a href="http://localhost/easy-manage/update-group-project/?id=<?php echo $project['group_id'] ?>"
-                                        style="padding:6px" data-bs-toggle="tooltip" data-bs-placement="top"
-                                            title="Edit"><img
+                                        style="padding:6px" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit"><img
                                             src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png"
                                             style="width:25px;" alt=""></a> &nbsp;&nbsp;
-                                    
+
                                 </form>
                             </td>
                             </tr>
