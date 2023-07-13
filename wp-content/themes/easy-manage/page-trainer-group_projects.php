@@ -54,6 +54,10 @@ if (isset($_POST['soft_delete'])) {
                     style="text-decoration:none;padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
                     Creat Group Project
                 </a>
+                <a href="http://localhost/easy-manage/deactivated-projects" class="floating-btn"
+                    style="text-decoration:none; padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+                    Deactivated projects
+                </a>
             </div>
             <div style="display: flex; align-items: center; justify-content: end;">
                 <?php echo do_shortcode('[search_bar]'); ?>

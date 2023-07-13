@@ -45,14 +45,19 @@ if (isset($_POST['soft_delete'])) {
         <div style="padding:1rem;">
             <!-- Add buttons and search bar here -->
             <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
-                <a href="http://localhost/easy-manage/admin-trainers-table/" class="floating-btn"
-                    style="text-decoration:none; padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
-                    View Trainers
-                </a>
                 <a href="http://localhost/easy-manage/admin-trainees-table/" class="floating-btn"
                     style="text-decoration:none; padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
                     View Trainees
                 </a>
+                <a href="http://localhost/easy-manage/create-trainee/" class="floating-btn"
+                    style="text-decoration:none; padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+                    Create Trainee
+                </a>
+                <a href="http://localhost/easy-manage/trash/" class="floating-btn"
+                    style="text-decoration:none; padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+                    Deactivated Trainees
+                </a>
+                
                 <?php echo do_shortcode('[search_bar]'); ?>
             </div>
 

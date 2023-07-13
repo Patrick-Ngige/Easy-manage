@@ -62,20 +62,15 @@ get_header();
                     style="text-decoration:none; padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
                     Group projects
                 </a>
+                <a href="http://localhost/easy-manage/deactivated-projects" class="floating-btn"
+                    style="text-decoration:none; padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+                    Deactivated projects
+                </a>
                 <a href="http://localhost/easy-manage/create-project/" class="floating-btn"
                     style="text-decoration:none; padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
                     Create Project
                 </a>
-                <a href="http://localhost/easy-manage/create-trainee/" class="floating-btn"
-                    style="text-decoration:none; padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
-                    Create Trainee
-                </a>
-
-                <a href="http://localhost/easy-manage/trainees-list/" class="floating-btn"
-                    style="text-decoration:none; padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
-                    View Trainees
-                </a>
-
+               
               
 
                 <?php echo do_shortcode('[search_bar]'); ?>
