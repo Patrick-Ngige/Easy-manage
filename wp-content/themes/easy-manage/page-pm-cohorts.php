@@ -98,7 +98,7 @@ get_header();
                                     <form method="POST">
                                         <a href="http://localhost/easy-manage/single-page/?id=<?php echo $Cohort['cohort_id'] ?>"
                                             style="padding:6px" data-bs-toggle="tooltip" data-bs-placement="top"
-                                            title="View Cohort"><img
+                                            title="More"><img
                                                 src="http://localhost/easy-manage/wp-content/uploads/2023/06/arrow-right.png"
                                                 style="width:25px;" alt=""></a> &nbsp;&nbsp;
                                         <input type="hidden" name="" value="">
