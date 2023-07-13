@@ -24,7 +24,6 @@ if (isset($_POST['restore'])) {
     if (is_wp_error($restore_response)) {
         echo 'Error restoring user: ' . $restore_response->get_error_message();
     } else {
-        // Fetch the updated user data after restoration
         $response = wp_remote_get(
             'http://localhost/easy-manage/wp-json/em/v1/trainer',
             array(
