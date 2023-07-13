@@ -25,8 +25,6 @@ if (is_wp_error($response)) {
     $trainee = json_decode(wp_remote_retrieve_body($response), true);
 }
 
-var_dump($trainee);
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $errors = array();
 

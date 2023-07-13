@@ -91,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $_SESSION['success_message'] = 'Group project created successfully.';
                     ?>
                     <script>
-                        window.location.href = '<?php echo esc_url(add_query_arg('success', 'true')); ?>';
+                        window.location.href = '<?php echo esc_url("http://localhost/easy-manage/group-projects/"); ?>';
                     </script>
                     <?php
                     exit;
