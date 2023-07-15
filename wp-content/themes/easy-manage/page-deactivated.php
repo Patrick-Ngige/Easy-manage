@@ -17,16 +17,14 @@ $response = wp_remote_get(
     )
 );
 
-
-
 if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 200) {
     $users = json_decode(wp_remote_retrieve_body($response), true);
 }
+
 $endpoint_url = '';
 if (isset($_POST['restore_user'])) {
     $user_id = $_POST['user_id'];
     $endpoint_url = 'http://localhost/easy-manage/wp-json/em/v1/restore_user/' . $user_id;
-
 }
 
 $ch = curl_init($endpoint_url);
@@ -58,8 +56,8 @@ if ($http_status === 200) {
 }
 
 curl_close($ch);
-
 ?>
+
 <div style="width:100vw;height:90vh;display:flex;flex-direction:row;margin-top:-2.45rem">
     <div class="page-trainee-dashboard" style="margin-top:-1.99rem;width:20vw">
         <?php get_template_part('sidenav-admin'); ?>
@@ -68,7 +66,6 @@ curl_close($ch);
     <div style="padding:1rem;width:80vw;margin-left:0rem">
         <div style="padding:1rem;">
             <div style="display: flex; align-items: center; justify-content: end; margin-bottom: 1rem;">
-
                 <?php echo do_shortcode('[search_bar]'); ?>
             </div>
 
@@ -109,8 +106,8 @@ curl_close($ch);
                                     <form method="POST">
                                         <input type="hidden" name="user_id" value="<?php echo $user['ID']; ?>">
                                         <button type="submit" name="restore_user"
-                                            style="border: none; background: none; cursor: pointer;" 
-                                            data-bs-toggle="tooltip" data-bs-placement="top" title="activate Button">
+                                            style="border: none; background: none; cursor: pointer;"
+                                            data-bs-toggle="tooltip" data-bs-placement="top" title="Activate Button">
                                             <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/reuse.png"
                                                 style="width:3vw;" alt="">
                                         </button>
@@ -127,10 +124,8 @@ curl_close($ch);
         </div>
     </div>
 </div>
-<?php
 
-get_footer();
-?>
+<?php get_footer(); ?>
 <script>
     $(function () {
         $('[data-bs-toggle="tooltip"]').tooltip();
