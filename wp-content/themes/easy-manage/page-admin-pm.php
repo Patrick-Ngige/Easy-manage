@@ -107,10 +107,10 @@ if (isset($_POST['soft_delete'])) {
                                 <td>
                                     <form method="POST">
                                         <input type="hidden" name="user_id" value="<?php echo $user['ID']; ?>">
-                                        <button type="submit" name="soft_delete" class="btn-soft-delete" style="padding:6px"
+                                        <button type="submit" name="soft_delete" class="btn-soft-delete" style="padding:6px;border:none"
                                             data-bs-toggle="tooltip" data-bs-placement="top" title="Deactivate Button">
-                                            <img src="http://localhost/easy-manage/wp-content/uploads/2023/07/off-button.png"
-                                                style="width:25px;" alt="">
+                                            <img src="https://cdn-icons-png.flaticon.com/128/2550/2550435.png"
+                                                style="width:25px;border:none" alt="">
                                         </button>
                                         <a href="http://localhost/easy-manage/admin-update-form/?id=<?php echo $user['ID']; ?>"
                                             style="padding:6px" data-bs-toggle="tooltip" data-bs-placement="top"
