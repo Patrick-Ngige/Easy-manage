@@ -1,9 +1,8 @@
-<?php get_header();
-
+<?php
+get_header();
 /**
  * Template Name: Admin PM List
  */
-
 require_once(ABSPATH . 'wp-load.php');
 
 $token = $_COOKIE['token'];
@@ -19,10 +18,7 @@ $response = wp_remote_get(
 
 if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 200) {
     $user_data = json_decode(wp_remote_retrieve_body($response));
-
-
 }
-
 
 if (isset($_POST['soft_delete'])) {
     $user_id = $_POST['user_id'];
@@ -42,16 +38,11 @@ if (isset($_POST['soft_delete'])) {
         echo 'Error: ' . curl_error($curl);
     }
 
-
     curl_close($curl);
-
-
 }
-
 ?>
 
 <div style="width:100vw;height:90vh;display:flex;flex-direction:row;margin-top:-2.45rem">
-
     <div class="page-trainee-dashboard" style="margin-top:-1.99rem;width:20vw">
         <?php get_template_part('sidenav-admin'); ?>
     </div>
@@ -68,7 +59,6 @@ if (isset($_POST['soft_delete'])) {
                 </a>
                 <?php echo do_shortcode('[search_bar]'); ?>
             </div>
-
             <table class="table align-middle mb-0 bg-white table-hover"
                 style="width:90%;margin-left:5%;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;margin-top:3%;">
                 <thead class="bg-light">
@@ -95,9 +85,7 @@ if (isset($_POST['soft_delete'])) {
 
                     if (!empty($users)) {
                         foreach ($users as $user) {
-
                             ?>
-
                             <tr>
                                 <td>
                                     <div class="d-flex align-items-center">
@@ -120,18 +108,16 @@ if (isset($_POST['soft_delete'])) {
                                     <form method="POST">
                                         <input type="hidden" name="user_id" value="<?php echo $user['ID']; ?>">
                                         <button type="submit" name="soft_delete" class="btn-soft-delete" style="padding:6px"
-                                            data-bs-toggle="tooltip" data-bs-placement="top" title="deactivate Button">
+                                            data-bs-toggle="tooltip" data-bs-placement="top" title="Deactivate Button">
                                             <img src="http://localhost/easy-manage/wp-content/uploads/2023/07/off-button.png"
                                                 style="width:25px;" alt="">
                                         </button>
-
                                         <a href="http://localhost/easy-manage/admin-update-form/?id=<?php echo $user['ID']; ?>"
                                             style="padding:6px" data-bs-toggle="tooltip" data-bs-placement="top"
                                             title="Edit Button">
                                             <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png"
                                                 style="width:25px;" alt="">
                                         </a>
-
                                     </form>
                                 </td>
                             </tr>
@@ -140,7 +126,6 @@ if (isset($_POST['soft_delete'])) {
                         echo '<tr><td colspan="4" style="text-align: center;">No program manager available</td></tr>';
                     }
                     ?>
-
                 </tbody>
             </table>
         </div>
