@@ -11,8 +11,7 @@ $response = wp_remote_get('http://localhost/easy-manage/wp-json/wp/v2/users/me',
     'headers' => array(
         'Authorization' => 'Bearer ' . $token
     )
-)
-);
+));
 
 if (isset($_POST['soft_delete'])) {
     $user_id = $_POST['user_id'];
@@ -31,21 +30,14 @@ if (isset($_POST['soft_delete'])) {
         echo 'Error: ' . curl_error($curl);
     }
 
-
     curl_close($curl);
-
-    
 }
-
 ?>
 
 <div style="width:100vw;height:90vh;display:flex;flex-direction:row;margin-top:-2.45rem">
-
     <div class="page-trainee-dashboard" style="margin-top:-1.99rem;width:20vw">
         <?php get_template_part('sidenav-admin'); ?>
     </div>
-
-
     <div style="padding:1rem;width:80vw;margin-left:0rem">
         <div style="padding:1rem;">
             <!-- Add buttons and search bar here -->
@@ -86,8 +78,8 @@ if (isset($_POST['soft_delete'])) {
                     $users = json_decode($users, true);
 
                     if (!empty($users)) {
-                        foreach ($users as $user) { ?>
-
+                        foreach ($users as $user) {
+                            ?>
                             <tr>
                                 <td>
                                     <div class="d-flex align-items-center">
@@ -104,17 +96,18 @@ if (isset($_POST['soft_delete'])) {
                                     </p>
                                 </td>
                                 <td>
-                                    <p class="fw-normal mb-1"> Trainee</p>
+                                    <p class="fw-normal mb-1">Trainee</p>
                                 </td>
                                 <td>
                                     <form method="POST">
-                                    <input type="hidden" name="user_id" value="<?php echo $user['ID']; ?>">
+                                        <input type="hidden" name="user_id" value="<?php echo $user['ID']; ?>">
                                         <button type="submit" name="soft_delete" class="btn-soft-delete"
-                                            style="padding:6px;border:none;margin-left:2rem"   data-bs-toggle="tooltip" data-bs-placement="top" title="deactivate Button">
+                                            style="padding:6px;border:none;margin-left:2rem"
+                                            data-bs-toggle="tooltip" data-bs-placement="top"
+                                            title="Deactivate Button">
                                             <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/pause-2.png"
                                                 style="width:25px;" alt="">
                                         </button>
-                                       
                                     </form>
                                 </td>
                             </tr>
