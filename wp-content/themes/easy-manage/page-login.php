@@ -5,6 +5,7 @@ Template Name: Login Page
 
 session_start();
 
+
 if (!isset($_SESSION['login_attempts'])) {
     $_SESSION['login_attempts'] = 0;
 }
@@ -13,7 +14,7 @@ $error_message = '';
 $remaining_time = '';
 $show_attempts = false;
 
-$remaining_attempts = 3 - (int) $_SESSION['login_attempts'];
+$remaining_attempts = 3 - (int)$_SESSION['login_attempts'];
 
 $login_attempts = $_SESSION['login_attempts'];
 
@@ -25,7 +26,7 @@ if ($login_attempts >= count($wait_times)) {
     $remaining_time = $wait_time - (time() - $last_attempt_time);
 
     if ($remaining_time > 0) {
-        $error_message = 'You have exceeded the maximum number of login attempts. Please try again later.';
+        $error_message = '<span style="color:#d11a2a">You have exceeded the maximum number of login attempts. Please try again later.</span>';
         $show_attempts = true;
     } else {
         unset($_SESSION['login_attempts']);
@@ -37,7 +38,7 @@ if ($login_attempts >= count($wait_times)) {
         $password = $_POST['password'];
 
         if (empty($email) || empty($password)) {
-            $error_message = 'Please enter both email and password.';
+            $error_message = '<span style="color:#d11a2a">Please enter both email and password.</span>';
             $show_attempts = true;
         } else {
             $user = get_user_by('email', $email);
@@ -54,11 +55,11 @@ if ($login_attempts >= count($wait_times)) {
 
                     if ($login_attempts < count($wait_times)) {
                         $remaining_time = $wait_times[$login_attempts];
-                        $error_message = 'Invalid email or password. Please try again.';
+                        $error_message = '<span style="color:#d11a2a">Invalid email or password. Please try again.</span>';
                         $show_attempts = true;
                     } else {
                         $remaining_time = $wait_times[$login_attempts];
-                        $error_message = 'You have exceeded the maximum number of login attempts. Please try again later.';
+                        $error_message = '<span style="color:#d11a2a">You have exceeded the maximum number of login attempts. Please try again later.</span>';
                         $show_attempts = true;
                     }
                 } else {
@@ -114,144 +115,7 @@ if ($login_attempts >= count($wait_times)) {
 }
 ?>
 
-<style>
-    .form-container.login {
-        height: 97vh;
-        background-color: #E3E3EE;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 0 1rem;
-        overflow-y: hidden;
-    }
-
-    .form-container.login > div:nth-child(1) {
-        z-index: 1;
-        width: 24vw;
-        position: fixed;
-        height: 13rem;
-        background-color: #315B87;
-        display: flex;
-        align-self: flex-end;
-        top: 0;
-        right: 0;
-    }
-
-    .form-container.login > div:nth-child(2) {
-        z-index: 1;
-        width: 24vw;
-        position: fixed;
-        height: 13rem;
-        background-color: #315B87;
-        display: flex;
-        align-self: flex-start;
-        bottom: 0;
-        left: 0;
-    }
-
-    .login-card {
-        z-index: 9999;
-        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 75%;
-        border-radius: 20px;
-    }
-
-    .login-card > div:nth-child(1) {
-        width: 30%;
-        height: 70vh;
-        background-color: #315B87;
-        color: #FAFAFA;
-        font-size: large;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-bottom-left-radius: 10px;
-        border-top-left-radius: 10px;
-    }
-
-    .login-card > div:nth-child(1) h2 {
-        color: #315B87;
-        font-weight: 600;
-        font-size: 2rem;
-        text-align: center;
-        margin-bottom: 5%;
-        margin-left: -10%;
-    }
-
-    .login-card > div:nth-child(1) .error-message {
-        color: #ff5252;
-        opacity: 1;
-        text-align: center;
-    }
-
-    .login-card > div:nth-child(2) {
-        width: 70%;
-        display: flex;
-        flex-direction: column;
-        background-color: #FAFAFA;
-        border-radius: 10px;
-        height: 70vh;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .login-card > div:nth-child(2) form {
-        width: 70%;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .login-card > div:nth-child(2) form h2 {
-        color: #315B87;
-        font-weight: 600;
-        font-size: 2rem;
-        text-align: center;
-        margin-bottom: 5%;
-        margin-left: -10%;
-    }
-
-    .login-card > div:nth-child(2) form .attempts {
-        text-align: center;
-        color: #ff5252;
-        margin-bottom: 1rem;
-    }
-
-    .login-card > div:nth-child(2) form .attempts #countdown {
-        font-weight: bold;
-    }
-
-    .login-card > div:nth-child(2) form input[type="email"],
-    .login-card >div:nth-child(2) form input[type="password"] {
-        width: 90%;
-        margin-bottom: 1rem;
-        padding: 0.5rem;
-        border-radius: 10px;
-        border: 2px solid #315B87;
-    }
-
-    .login-card > div:nth-child(2) form .attempts {
-        text-align: center;
-        color: #ff5252;
-        margin-bottom: 1rem;
-    }
-
-    .login-card > div:nth-child(2) form .attempts #countdown {
-        font-weight: bold;
-    }
-
-    .login-card > div:nth-child(2) form button[type="submit"] {
-        width: 90%;
-        padding: 0.5rem;
-        background-color: #315B87;
-        color: #FAFAFA;
-        border-radius: 10px;
-        border: none;
-        font-weight: 600;
-    }
-</style>
+<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri() ?>/custom/styles.css">
 
 <div class="form-container login">
     <div></div>
@@ -261,7 +125,7 @@ if ($login_attempts >= count($wait_times)) {
             <?php
             date_default_timezone_set('Africa/Nairobi');
             $currentTime = date('H:i:s');
-            $hour = (int) date('H');
+            $hour = (int)date('H');
             $message = "Welcome to Easy-Manage!";
 
             if ($hour < 12) {
@@ -279,7 +143,7 @@ if ($login_attempts >= count($wait_times)) {
         <div>
             <form action="" method="POST">
                 <h2>Login</h2>
-                <?php if ($error_message): ?>
+                <?php if ($error_message) : ?>
                     <div class="error-message">
                         <?php echo $error_message; ?>
                     </div>
@@ -290,17 +154,16 @@ if ($login_attempts >= count($wait_times)) {
                 <div>
                     <input type="password" placeholder="Enter password" name="password">
                 </div>
-                <?php if ($show_attempts): ?>
+                <?php if ($show_attempts) : ?>
                     <div class="attempts">
-                        <?php 
-                        
-                        if ($remaining_time > 0): ?>
+                        <?php
+                        if ($remaining_time > 0) : ?>
                             Please wait
                             <span id="countdown">
                                 <?php echo $remaining_time; ?>
                             </span>
                             seconds before trying again.
-                        <?php else: ?>
+                        <?php else : ?>
                             You have
                             <?php echo $remaining_attempts; ?> attempt(s) remaining.
                         <?php endif; ?>
