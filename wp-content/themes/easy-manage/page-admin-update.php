@@ -1,4 +1,5 @@
-<?php get_header();
+<?php
+get_header();
 
 /**
  * Template Name: PM update pm
@@ -6,10 +7,10 @@
  * 
  */
 $user_id = $_GET['id'];
- $token = $_COOKIE['token'];
+$token = $_COOKIE['token'];
 
- $response = wp_remote_get(
-    'http://localhost/easy-manage/wp-json/em/v1/users/program_manager/'. $user_id,
+$response = wp_remote_get(
+    'http://localhost/easy-manage/wp-json/em/v1/users/program_manager/' . $user_id,
     array(
         'headers' => array(
             'Authorization' => 'Bearer ' . $token
@@ -35,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($_POST['pm_email'])) {
         $errors[] = 'Email is required';
     }
- 
+
     if (isset($_POST['updatebtn'])) {
         $pm_name = $_POST['pm_name'];
         $pm_email = $_POST['pm_email'];
@@ -58,7 +59,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             )
         );
 
-
         if (is_wp_error($responses)) {
             wp_die('Error: ' . $responses->get_error_message());
         } else {
@@ -67,8 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $result = json_decode(wp_remote_retrieve_body($responses));
 
                 if ($result && isset($result->success)) {
-                    $_SESSION['success_message'] = 'pm
-                     updated successfully.';
+                    $_SESSION['success_message'] = 'pm updated successfully.';
                     ?>
                     <script>
                         window.location.href = '<?php echo esc_url(add_query_arg('success', 'true')); ?>';
@@ -77,12 +76,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     exit;
                 }
             } else {
-                wp_die('Error updating pm
-                . HTTP response code: ' . $response_code);
+                wp_die('Error updating pm. HTTP response code: ' . $response_code);
             }
         }
-
-
     }
 }
 ?>
@@ -93,7 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php get_template_part('sidenav-admin'); ?>
     </div>
     <div style="height: 80vh; margin-left: 15rem;">
-        <div class="container py-4">
+        <div class="container py-5">
             <div class="row d-flex justify-content-center align-items-center">
                 <div class="col col-xl-10" style="width: 40vw;">
                     <div class="card" style="border-radius: 1rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);">
@@ -109,13 +105,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                                             <h2 class="fw-bold d-flex align-items-end d-flex justify-content-center align-items-center"
                                                 style="color: #315B87;margin-top:-2rem">
-                                               Update pm
-
+                                                Update pm
                                             </h2>
 
                                             <?php if (isset($_GET['success']) && $_GET['success'] === 'true'): ?>
                                                 <div class="alert alert-success" role="alert">
-                                                    pm created successfully.
+                                                    pm updated successfully.
                                                 </div>
                                             <?php endif; ?>
 
@@ -125,8 +120,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                 <input type="text" id="form2Example27"
                                                     class="form-control form-control-md"
                                                     placeholder="Enter pm name" name="pm_name"
-                                                    value="<?php echo $pm
-                                                    ['user_name'] ?>" />
+                                                    value="<?php echo $pm['user_name'] ?>" />
                                                 <?php if (isset($errors) && in_array('pm name is required', $errors)) {
                                                     echo '<p class="text-danger">pm name is required</p>';
                                                 } ?>
@@ -138,20 +132,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                 <input type="email" id="form2Example27"
                                                     class="form-control form-control-md"
                                                     placeholder="Enter pm email" name="pm_email"
-                                                    value="<?php echo $pm
-                                                    ['user_email'] ?>" />
+                                                    value="<?php echo $pm['user_email'] ?>" />
                                                 <?php if (isset($errors) && in_array('Email is required', $errors)) {
                                                     echo '<p class="text-danger">Email is required</p>';
                                                 } ?>
                                             </div>
 
-                            
-
                                             <div
                                                 class="pt-1 mt-3 w-100 d-flex justify-content-center align-items-center">
                                                 <button class="btn btn-lg btn-block w-50"
-                                                    style="background-color: #315B87; color: #FAFAFA;margin-bottom:-2rem" type="submit"
-                                                    name="updatebtn">Update</button>
+                                                    style="background-color: #315B87; color: #FAFAFA;margin-bottom:-2rem"
+                                                    type="submit" name="updatebtn">Update</button>
                                             </div>
                                         </form>
                                     </div>
