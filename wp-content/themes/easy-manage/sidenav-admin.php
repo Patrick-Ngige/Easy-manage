@@ -53,6 +53,10 @@
         margin-right: 0.5rem;
     }
 
+    .sidenav-nav > div:last-child .side-menu a.active {
+        background-color: #1E3A5F;
+    }
+
     /* Responsive styles */
     @media screen and (max-width: 768px) {
         .sidenav-nav {
