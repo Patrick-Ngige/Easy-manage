@@ -6,61 +6,48 @@
 session_start();
 
 ob_start();
-
 get_header();
 
 $errors = array();
 $success_message = '';
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($_POST['project_name'])) {
         $errors[] = 'Project name is required.';
     }
-
     if (empty($_POST['project_task'])) {
         $errors[] = 'Project task is required.';
     }
-
     if (empty($_POST['assignee'])) {
         $errors[] = 'Assignee is required.';
     }
-
     if (empty($_POST['due_date'])) {
         $errors[] = 'Due date is required.';
     }
-
     if (isset($_POST['createbtn'])) {
         $project_name = $_POST['project_name'];
         $project_task = $_POST['project_task'];
         $assignee = $_POST['assignee'];
         $due_date = $_POST['due_date'];
-
         $created_project = array(
             'project_name' => $project_name,
             'project_task' => $project_task,
             'assignee' => $assignee,
             'due_date' => $due_date,
         );
-
         $token = $_COOKIE['token'];
-
         $endpoint = 'http://localhost/easy-manage/wp-json/em/v1/projects/individual';
         $ch = curl_init($endpoint);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(
             'Authorization: Bearer ' . $token,
             'Content-Type: application/json'
         ));
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($created_project));
-
         $response = curl_exec($ch);
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-
         if ($httpCode === 200) {
             $result = json_decode($response);
-
             if ($result && isset($result->success)) {
                 $_SESSION['success_message'] = 'Individual project created successfully.';
                 header("Location: http://localhost/easy-manage/individual-projects/");
@@ -68,21 +55,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             } else {
                 echo "Failed to create individual project";
             }
-        }
-        
+        }    
     }
 }
-
 ob_end_flush();
 ?>
-
-
-
 <div style="width:100vw;height:90vh;display:flex;flex-direction:row;margin-top:-2.45rem">
     <div class="page-trainee-dashboard" style="margin-top:-1.99rem;width:20vw">
         <?php get_template_part('sidenav-trainer'); ?>
     </div>
-
     <div style="padding:1rem ;height:88vh;margin-left:10%;display:flex;flex-direction:row ">
         <div style="padding:1rem;">
             <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
@@ -92,7 +73,6 @@ ob_end_flush();
                 </a>
             </div>
         </div>
-
         <section style="height:88vh;">
             <div class="container py-5 h-auto">
                 <div class="row d-flex justify-content-center align-items-center h-auto">
@@ -115,8 +95,6 @@ ob_end_flush();
                                                         Project created successfully.
                                                     </div>
                                                 <?php endif; ?>
-
-
                                                 <div class="form-outline mb-2">
                                                     <label class="form-label" for="project_name"
                                                         style="font-weight:600;">Project Name:</label>
@@ -140,7 +118,6 @@ ob_end_flush();
                                                         <p class="text-danger">Project task is required.</p>
                                                     <?php } ?>
                                                 </div>
-
                                                 <div class="form-outline mb-2">
                                                     <label class="form-label" for="assignee"
                                                         style="font-weight: 600;">Assignee:</label>
@@ -150,10 +127,8 @@ ob_end_flush();
                                                         <?php
                                                         $endpoint_url = 'http://localhost/easy-manage/wp-json/em/v1/trainees/dropdown';
                                                         $response = wp_remote_get($endpoint_url);
-
                                                         if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 200) {
                                                             $trainees = json_decode(wp_remote_retrieve_body($response));
-
                                                             foreach ($trainees as $trainee) {
                                                                 $selected = (isset($_POST['assignee']) && $_POST['assignee'] == $trainee->username) ? 'selected' : '';
                                                                 ?>
@@ -167,8 +142,6 @@ ob_end_flush();
                                                         <p class="text-danger">Assignee is required.</p>
                                                     <?php } ?>
                                                 </div>
-
-
                                                 <div class="form-outline mb-2">
                                                     <label class="form-label" for="due_date"
                                                         style="font-weight:600;">Due Date:</label>
@@ -180,7 +153,6 @@ ob_end_flush();
                                                         <p class="text-danger">Due date is required.</p>
                                                     <?php } ?>
                                                 </div>
-
                                                 <div class="pt-1 mb-2 w-100 d-flex justify-content-center align-items-center"
                                                     style="padding-top:0;">
                                                     <button class="btn btn-lg btn-block w-50"

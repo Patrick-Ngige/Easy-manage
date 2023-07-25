@@ -6,9 +6,7 @@ get_header();
  */
 
 require_once(ABSPATH . 'wp-load.php');
-
 $token = $_COOKIE['token'];
-
 $response = wp_remote_get(
   'http://localhost/easy-manage/wp-json/wp/v2/users/me',
   array(
@@ -21,11 +19,9 @@ $response = wp_remote_get(
 if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 200) {
   $user_data = json_decode(wp_remote_retrieve_body($response));
   $username = $user_data->name;
-
   $endpoint_url = 'http://localhost/easy-manage/wp-json/em/v1/projects/cohort/' . $username;
   $response = wp_remote_get($endpoint_url);
   $cohort = wp_remote_retrieve_body($response);
-
   preg_match('/\d+/', $cohort, $matches);
   if (!empty($matches)) {
     $cohort_id = intval($matches[0]);
@@ -41,16 +37,12 @@ if (is_wp_error($cohort_id)) {
   $cohort_data = wp_remote_retrieve_body($cohort_response);
   $cohort_data = json_decode($cohort_data);
 }
-
 if (isset($_POST['cohortId'])) {
   $cohortId = $_POST['cohortId'];
-
   var_dump($cohort_id);
   print_r($cohort_id);
   $endpoint = 'http://localhost/easy-manage/wp-json/em/v1/cohort/mark_complete/' . $cohortId;
-
   $data = json_encode(array());
-
   $ch = curl_init($endpoint);
   curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PATCH');
   curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
@@ -64,30 +56,22 @@ if (isset($_POST['cohortId'])) {
     )
   );
 
-
   $response = curl_exec($ch);
-
   if ($response) {
     wp_send_json_success('Cohort marked as complete');
   } else {
     echo 'Failed to mark completed.';
   }
-
   curl_close($ch);
 }
-
 ?>
 
 <div style="width:100vw;height:90vh;display:flex;flex-direction:row;margin-top:-2.45rem">
-
   <div class="page-trainee-dashboard" style="margin-top:-1.99rem;width:20vw">
     <?php get_template_part('sidenav-trainer'); ?>
   </div>
-
   <?php
-
   if (!empty($cohort_data)) {
-
     ?>
     <div style="margin: auto;height: 100vh;margin-top: 6rem;">
       <div
@@ -96,7 +80,6 @@ if (isset($_POST['cohortId'])) {
         <div style="display: flex; justify-content: center;">
           <div
             style="width:35vw; background-color: #FAFAFA; border-radius: 10px; padding: 1rem; box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);">
-  
             <h4 style="color: #315B87; margin-bottom: 1rem; text-align: center;">
               <?php echo $cohort_data->cohort_info; ?>
             </h4>
@@ -118,7 +101,6 @@ if (isset($_POST['cohortId'])) {
                   Complete</button>
               </form>
             </div>
-  
           </div>
         </div>
       </div>
@@ -126,11 +108,9 @@ if (isset($_POST['cohortId'])) {
     echo "No assigned cohort";
   } ?>
   </div>
-
   <script>
     function markComplete(event) {
       event.preventDefault();
-
       var xhr = new XMLHttpRequest();
       xhr.open('POST', '<?php echo esc_url(admin_url('admin-post.php')); ?>');
       xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -145,7 +125,6 @@ if (isset($_POST['cohortId'])) {
         }
       };
       xhr.send(new FormData(event.target));
-
       return false;
     }
   </script>

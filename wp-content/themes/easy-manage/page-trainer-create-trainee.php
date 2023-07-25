@@ -7,40 +7,30 @@
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $errors = array();
-
-
     if (empty($_POST['trainee_name'])) {
         $errors[] = 'Trainee name is required';
     }
-
     if (empty($_POST['trainee_email'])) {
         $errors[] = 'Email is required';
     }
-
     if (empty($_POST['trainee_role'])) {
         $errors[] = 'Role is required';
     }
-
     if (empty($_POST['trainee_password'])) {
         $errors[] = 'Password is required';
     }
-
-
     if (isset($_POST['createbtn'])) {
         $pm_name = $_POST['trainee_name'];
         $pm_email = $_POST['trainee_email'];
         $pm_role = $_POST['trainee_role'];
         $pm_password = $_POST['trainee_password'];
-
         $created_trainee = array(
             'trainee_name' => $pm_name,
             'trainee_email' => $pm_email,
             'trainee_role' => $pm_role,
             'trainee_password' => $pm_password
         );
-
         $token = $_COOKIE['token'];
-
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, 'http://localhost/easy-manage/wp-json/em/v1/trainee');
         curl_setopt($curl, CURLOPT_POST, true);
@@ -50,15 +40,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'Content-Type: application/json',
             'Authorization: Bearer ' . $token
         ));
-
         $response = curl_exec($curl);
         $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-
         curl_close($curl);
-
         if ($httpCode === 200) {
             $result = json_decode($response);
-
             if ($result && isset($result->success)) {
                 $_SESSION['success_message'] = 'Trainer created successfully.';
                 ?>
@@ -74,11 +60,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
 <div style="width: 100vw; height: 90vh; display: flex; flex-direction: row; margin-top: -2.45rem;">
-
     <div class="page-trainee-dashboard" style="margin-top: -1.99rem; width: 20vw;">
         <?php get_template_part('sidenav-trainer'); ?>
     </div>
-
     <div style="height: 80vh; margin-left: 15rem;">
         <div class="container py-5">
             <div class="row d-flex justify-content-center align-items-center">
@@ -91,20 +75,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <div class="col-md-6 col-lg-7 d-flex justify-content-center align-items-center  ms-8"
                                     style="height: fit-content; width: 40vw;">
                                     <div class="card-body p-4 p-lg-5 text-black">
-
                                         <form action="" method="POST" style="font-size: 16px">
-
                                             <h2 class="fw-bold d-flex align-items-end d-flex justify-content-center align-items-center"
                                                 style="color: #315B87;margin-top:-2rem">
                                                 Create trainee
                                             </h2>
-
                                             <?php if (isset($_GET['success']) && $_GET['success'] === 'true'): ?>
                                                 <div class="alert alert-success" role="alert">
                                                     Trainer created successfully.
                                                 </div>
                                             <?php endif; ?>
-
                                             <div class="form-outline mb-3">
                                                 <label class="form-label" for="form2Example27"
                                                     style="font-weight: 600;">Trainee:</label>
@@ -116,7 +96,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                     echo '<p class="text-danger">Trainee name is required</p>';
                                                 } ?>
                                             </div>
-
                                             <div class="form-outline mb-3">
                                                 <label class="form-label" for="form2Example27"
                                                     style="font-weight: 600;">Email:</label>
@@ -128,7 +107,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                     echo '<p class="text-danger">Email is required</p>';
                                                 } ?>
                                             </div>
-
                                             <div class="form-outline mb-3">
                                                 <label class="form-label" for="form2Example27"
                                                     style="font-weight: 600;">Role:</label>
@@ -140,7 +118,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                     echo '<p class="text-danger">Role is required</p>';
                                                 } ?>
                                             </div>
-
                                             <div class="form-outline mb-3">
                                                 <label class="form-label" for="form2Example27"
                                                     style="font-weight: 600;">Password:</label>
@@ -152,7 +129,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                     echo '<p class="text-danger">Passsword is required</p>';
                                                 } ?>
                                             </div>
-
                                             <div
                                                 class="pt-1 mt-3 w-100 d-flex justify-content-center align-items-center">
                                                 <button class="btn btn-lg btn-block w-50"
@@ -160,7 +136,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                     name="createbtn">Create</button>
                                             </div>
                                         </form>
-
                                     </div>
                                 </div>
                             </div>

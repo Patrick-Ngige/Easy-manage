@@ -16,17 +16,14 @@ $response = wp_remote_get(
         )
     )
 );
-
 if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 200) {
     $users = json_decode(wp_remote_retrieve_body($response), true);
 }
-
 $endpoint = '';
 if (isset($_POST['restore_user'])) {
     $user_id = $_POST['user_id'];
     $endpoint = 'http://localhost/easy-manage/wp-json/em/v1/restore_user/' . $user_id;
 }
-
 $ch = curl_init($endpoint);
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -37,24 +34,18 @@ curl_setopt(
         'Authorization: Bearer ' . $token
     )
 );
-
 $result = curl_exec($ch);
 $http_status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-
 if ($http_status === 200) {
     $response = json_decode($result, true);
-} else {
-
 }
 
 curl_close($ch);
-
 ?>
 <div style="width:100vw;height:90vh;display:flex;flex-direction:row;margin-top:-2.45rem">
     <div class="page-trainee-dashboard" style="margin-top:-1.99rem;width:20vw">
         <?php get_template_part('sidenav-trainer'); ?>
     </div>
-
     <div style="padding:1rem;width:80vw;margin-left:0rem">
         <div style="padding:1rem;">
             <!-- Add buttons and search bar here -->
@@ -78,10 +69,8 @@ curl_close($ch);
                         $response = wp_remote_get($request_url);
                         $projects = wp_remote_retrieve_body($response);
                         $projects = json_decode($projects, true);
-
                         if (is_array($projects)) {
                             foreach ($projects as $project) { ?>
-
                                 <tr>
                                     <td>
                                         <div class="d-flex align-items-center">
@@ -141,20 +130,16 @@ get_footer();
         background-color: #fff;
         z-index: 1;
     }
-    
     .scrollable-container {
         height: 400px;
         overflow: auto;
     }
-
     .scrollable-container::-webkit-scrollbar {
         width: 0.5rem;
     }
-
     .scrollable-container::-webkit-scrollbar-thumb {
         background-color: transparent;
     }
-
     .scrollable-container::-webkit-scrollbar-track {
         background-color: transparent;
     }
