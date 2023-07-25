@@ -5,9 +5,7 @@ get_header();
  * Template Name: Admin PM List
  */
 require_once(ABSPATH . 'wp-load.php');
-
 $token = $_COOKIE['token'];
-
 $response = wp_remote_get(
     'http://localhost/easy-manage/wp-json/wp/v2/users/me',
     array(
@@ -20,20 +18,14 @@ $response = wp_remote_get(
 if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 200) {
     $user_data = json_decode(wp_remote_retrieve_body($response));
     $username = strtolower($user_data->name);
-
-
     $projects_url = "http://localhost/easy-manage/wp-json/em/v1/group/user_project_ids?username=" . $username;
     $projects_response = wp_remote_get($projects_url);
-
     if (!is_wp_error($projects_response) && wp_remote_retrieve_response_code($projects_response) === 200) {
         $project_ids = json_decode(wp_remote_retrieve_body($projects_response));
         $group_projects = array();
-
         foreach ($project_ids as $project_id) {
             $project_url = "http://localhost/easy-manage/wp-json/em/v1/group_project/" . $project_id;
             $project_response = wp_remote_get($project_url);
-
-
             if (!is_wp_error($project_response) && wp_remote_retrieve_response_code($project_response) === 200) {
                 $project = json_decode(wp_remote_retrieve_body($project_response));
                 $group_projects[] = $project;
@@ -52,9 +44,6 @@ if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 2
             <div style="display: flex; align-items: center; justify-content: end; margin-bottom: 1rem;">
                 <?php echo do_shortcode('[search_bar]'); ?>
             </div>
-            <?php
-
-            ?>
             <table class="table align-middle mb-0 bg-white table-hover"
                 style="width:90%;margin-left:5%;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;margin-top:3%;">
                 <thead class="bg-light">
@@ -116,30 +105,20 @@ if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 2
 
 if (isset($_POST['mark_complete'])) {
     $group_id = $_POST['group_id'];
-
     $api_endpoint = 'http://localhost/easy-manage/wp-json/em/v1/group/mark_complete/' . $group_id;
-
-
     $curl = curl_init();
-
     curl_setopt_array($curl, [
         CURLOPT_URL => $api_endpoint,
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_CUSTOMREQUEST => 'PATCH',
     ]);
-
     $response = curl_exec($curl);
-
     if (curl_errno($curl)) {
         $error_message = curl_error($curl);
     }
-
     curl_close($curl);
-
     if ($response === false) {
-
     } else {
-
         $response_data = json_decode($response, true);
         if ($response_data['success']) {
             echo 'group project marked as complete';
@@ -148,6 +127,4 @@ if (isset($_POST['mark_complete'])) {
         }
     }
 }
-?>
-
-<?php get_footer(); ?>
+ get_footer(); ?>

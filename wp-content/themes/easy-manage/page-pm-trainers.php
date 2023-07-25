@@ -6,7 +6,6 @@ get_header();
  */
 
 $token = $_COOKIE['token'];
-
 $response = wp_remote_get(
     'http://localhost/easy-manage/wp-json/wp/v2/users/me',
     array(
@@ -22,7 +21,6 @@ $response = wp_remote_get(
 if (isset($_POST['soft_delete'])) {
     $user_id = $_POST['user_id'];
     $endpoint_url = 'http://localhost/easy-manage/wp-json/em/v1/soft_delete/' . $user_id;
-
     $curl = curl_init();
     curl_setopt($curl, CURLOPT_URL, $endpoint_url);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -31,25 +29,16 @@ if (isset($_POST['soft_delete'])) {
         'Authorization: Bearer ' . $token
     ));
     $response = curl_exec($curl);
-
     if ($response === false) {
         echo 'Error: ' . curl_error($curl);
     }
-
-
-    curl_close($curl);
-
-    
+    curl_close($curl);  
 }
 ?>
-
 <div style="width:100vw;height:90vh;display:flex;flex-direction:row;margin-top:-2.45rem">
-
     <div class="page-trainee-dashboard" style="margin-top:-1.99rem;width:20vw">
         <?php get_template_part('sidenav-pm'); ?>
     </div>
-
-
     <div style="padding:1rem;width:80vw;margin-left:0rem">
         <div style="padding:1rem;">
             <div style="display: flex; align-items: center; justify-content:space-between; margin-bottom: 1rem;">
@@ -59,7 +48,6 @@ if (isset($_POST['soft_delete'])) {
                 </a>
                 <?php echo do_shortcode('[search_bar]'); ?>
             </div>
-
             <table class="table align-middle mb-0 bg-white table-hover"
                 style="width:90%;margin-left:5%;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;margin-top:3%;">
                 <thead class="bg-light">
@@ -82,14 +70,11 @@ if (isset($_POST['soft_delete'])) {
                       )
                   );
                   $users = wp_remote_retrieve_body($response);
-                  $users = json_decode($users, true);
-                  
+                  $users = json_decode($users, true);                  
                     $users = wp_remote_retrieve_body($response);
                     $users = json_decode($users, true);
-
                     if (is_array($users)) {
                         foreach ($users as $user) { ?>
-
                             <tr>
                                 <td>
                                     <div class="d-flex align-items-center">
@@ -121,8 +106,7 @@ if (isset($_POST['soft_delete'])) {
                                             style="padding:6px" data-bs-toggle="tooltip" data-bs-placement="top"
                                             title="Edit"><img
                                                 src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png"
-                                                style="width:25px;" alt=""></a> &nbsp;&nbsp;
-                                        
+                                                style="width:25px;" alt=""></a> &nbsp;&nbsp;       
                                     </form>
                                 </td>
                             </tr>
@@ -136,7 +120,6 @@ if (isset($_POST['soft_delete'])) {
         </div>
     </div>
 </div>
-
 <?php get_footer(); ?>
 
 <script>

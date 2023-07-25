@@ -9,50 +9,33 @@ get_header();
  function get_total_individual_projects($project_status = null) {
     global $wpdb;
     $table_name = $wpdb->prefix . 'individual_projects';
-
     $query = "SELECT COUNT(*) as total FROM $table_name";
-    
     if ($project_status !== null) {
         $query .= " WHERE project_status = $project_status";
     }
-    
     $result = $wpdb->get_row($query);
-
     return $result->total;
 }
 
 function get_total_group_projects($group_status = null) {
     global $wpdb;
     $table_name = $wpdb->prefix . 'group_projects';
-
     $query = "SELECT COUNT(*) as total FROM $table_name";
-    
     if ($group_status !== null) {
         $query .= " WHERE group_status = $group_status";
-    }
-    
+    }   
     $result = $wpdb->get_row($query);
-
     return $result->total;
 }
-
-
-
 function get_ongoing_projects() {
     $total_individual_projects = get_total_individual_projects();
     $total_group_projects = get_total_group_projects();
-
     $ongoing_individual_projects = get_total_individual_projects(0);
-
     $ongoing_group_projects = get_total_group_projects(0);
-
-
     $ongoing_projects = $ongoing_individual_projects + $ongoing_group_projects;
 
     return $ongoing_projects;
 }
-
-
 
 function get_completed_projects() {
     global $wpdb;
@@ -69,9 +52,6 @@ function get_completed_projects() {
 
     return $completed_projects;
 }
-
-
-
 
 function get_total_trainees() {
     global $wpdb;
@@ -96,9 +76,7 @@ function get_recent_individual_projects() {
     $query = "SELECT * FROM $table_name ORDER BY project_id DESC LIMIT 1";
     $results = $wpdb->get_results($query);
     
-
     return $results;
-
 }
 
 function get_recent_group_projects() {

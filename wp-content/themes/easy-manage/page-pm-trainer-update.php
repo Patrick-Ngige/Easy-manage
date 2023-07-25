@@ -37,20 +37,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($_POST['trainer_role'])) {
         $errors[] = 'Role is required';
     }
- 
     if (isset($_POST['updatebtn'])) {
         $trainer_name = $_POST['trainer_name'];
         $trainer_email = $_POST['trainer_email'];
         $trainer_role = $_POST['trainer_role'];
-
         $updated_trainer = array(
             'trainer_id' => $user_id,
             'trainer_name' => $trainer_name,
             'trainer_email' => $trainer_email,
             'trainer_role' => $trainer_role,
         );
-
-
         $responses = wp_remote_post(
             'http://localhost/easy-manage/wp-json/em/v1/trainee',
             array(
@@ -62,15 +58,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'body' => json_encode($updated_trainer),
             )
         );
-
-
         if (is_wp_error($response)) {
             wp_die('Error: ' . $response->get_error_message());
         } else {
             $response_code = wp_remote_retrieve_response_code($response);
             if ($response_code === 200) {
                 $result = json_decode(wp_remote_retrieve_body($response));
-
                 if ($result && isset($result->success)) {
                     $_SESSION['success_message'] = 'trainer updated successfully.';
                     ?>
@@ -84,14 +77,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 wp_die('Error updating trainer. HTTP response code: ' . $response_code);
             }
         }
-
-
     }
 }
 ?>
 
 <div style="width: 100vw; height: 90vh; display: flex; flex-direction: row; margin-top: -2.45rem;">
-
     <div class="page-trainee-dashboard" style="margin-top: -1.99rem; width: 20vw;">
         <?php get_template_part('sidenav-pm'); ?>
     </div>
@@ -107,20 +97,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <div class="col-md-6 col-lg-7 d-flex justify-content-center align-items-center  ms-8"
                                     style="height:auto ; width: 40vw;">
                                     <div class="card-body p-4 p-lg-5 text-black">
-
                                         <form action="" method="POST" style="font-size: 16px">
-
                                             <h2 class="fw-bold d-flex align-items-end d-flex justify-content-center align-items-center"
                                                 style="color: #315B87;margin-top:-2rem">
                                                Update Trainer
                                             </h2>
-
                                             <?php if (isset($_GET['success']) && $_GET['success'] === 'true'): ?>
                                                 <div class="alert alert-success" role="alert">
                                                     Trainer created successfully.
                                                 </div>
                                             <?php endif; ?>
-
                                             <div class="form-outline mb-3">
                                                 <label class="form-label" for="form2Example27"
                                                     style="font-weight: 600;">Trainer:</label>
@@ -132,7 +118,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                     echo '<p class="text-danger">Trainer name is required</p>';
                                                 } ?>
                                             </div>
-
                                             <div class="form-outline mb-3">
                                                 <label class="form-label" for="form2Example27"
                                                     style="font-weight: 600;">Email:</label>
@@ -144,7 +129,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                     echo '<p class="text-danger">Email is required</p>';
                                                 } ?>
                                             </div>
-
                                             <div class="form-outline mb-3">
                                                 <label class="form-label" for="form2Example27"
                                                     style="font-weight: 600;">Role:</label>
@@ -156,7 +140,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                     echo '<p class="text-danger">Role is required</p>';
                                                 } ?>
                                             </div>
-
                                             <div
                                                 class="pt-1 mt-3 w-100 d-flex justify-content-center align-items-center">
                                                 <button class="btn btn-lg btn-block w-50"
