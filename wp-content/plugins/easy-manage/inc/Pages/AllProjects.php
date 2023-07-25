@@ -213,6 +213,43 @@ class AllProjects
     }
 
 
+    public function retrieve_completed_projects($request)
+    {
+        $project_id = $request->get_param('id');
+
+        global $wpdb;
+        $individual_projects_table = $wpdb->prefix . 'individual_projects';
+        $group_projects_table = $wpdb->prefix . 'group_projects';
+
+        $individual_project = $wpdb->get_row(
+            $wpdb->prepare(
+                "SELECT * FROM $individual_projects_table WHERE project_id = %d AND project_status = 1",
+                $project_id
+            ),
+            ARRAY_A
+        );
+
+        $group_project = $wpdb->get_row(
+            $wpdb->prepare(
+                "SELECT * FROM $group_projects_table WHERE group_id = %d AND group_status = 1",
+                $project_id
+            ),
+            ARRAY_A
+        );
+
+        if (empty($individual_project) && empty($group_project)) {
+            return new WP_Error('project_not_found', 'Project not found.', array('status' => 404));
+        }
+
+        if (!empty($individual_project)) {
+            return $individual_project;
+        } else {
+            return $group_project;
+        }
+    }
+
+
+
     public function retrieve_cohorts_callbacks($request)
     {
         global $wpdb;
@@ -238,7 +275,6 @@ class AllProjects
     function get_cohort_id_by_trainer($request)
     {
         $username = $request->get_param('username');
-
         global $wpdb;
         $table_name = $wpdb->prefix . 'cohorts';
 
