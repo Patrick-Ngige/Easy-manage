@@ -132,8 +132,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     .container {
         margin-top: 3rem;
         width: 50vw;
+        margin-left: auto;
+        margin-right: auto;
         height: fit-content;
-        /* padding: .5rem 1rem */
+        padding: .5rem 1rem
     }
 
     .card {
@@ -143,10 +145,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
     .div-7 {
-        width: 50vw;
+        width: 40vw;
         padding: 1rem;
         color: black;
-        background-color: yellow;
+        /* background-color: yellow; */
+        height: fit-content;
     }
 
     form {
