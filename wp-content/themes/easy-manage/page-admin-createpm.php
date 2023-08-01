@@ -131,11 +131,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     .container {
         margin-top: 3rem;
-        width: 50vw;
+        width: 46vw;
         margin-left: auto;
         margin-right: auto;
-        height: fit-content;
-        padding: .5rem 1rem
+        /* height: 30vh; */
+        padding: 2rem;
     }
 
     .card {
@@ -146,7 +146,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     .div-7 {
         width: 40vw;
-        padding: 1rem;
+        padding: 1rem 3rem;
         color: black;
         /* background-color: yellow; */
         height: fit-content;
@@ -158,7 +158,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     form h2 {
         color: #315B87;
-        margin-top: -2rem;
+        /* margin-top: -2rem; */
         font-weight: bold;
         display: flex;
         align-items: end;
@@ -183,7 +183,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     .btn {
         background-color: #315B87;
         color: #FAFAFA;
-        margin-bottom: -2rem;
+        /* margin-bottom: -2rem; */
         padding: .5rem 1.5rem;
         font-size: large;
     }
