@@ -66,17 +66,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="page-trainee-dashboard" >
         <?php get_template_part('sidenav-admin'); ?>
     </div>
-    <div class="div-1" >
-        <div class="container" >
+    <div class="div-1">
+        <div class="container">
             <div class="div-2 ">
-                <div class="div-3 " >
-                    <div class="card" >
-                        <div class="div-4 ">
-                            <div class=" div-5 ">
-                                <div class="div-6 col-md-6 col-lg-7 d-flex justify-content-center align-items-center  ms-8" >
-                                    <div class="div-7 card-body p-4 p-lg-5 text-black;">
+                <div class="div-3 ">
+                    <div class="card">
+                        <div class="div-4">
+                            <div class=" div-5">
+                                <div class="div-6">
+                                    <div class="div-7 card-body">
                                         <form action="" method="POST">
-                                            <h2 class="fw-bold d-flex align-items-end d-flex justify-content-center align-items-center">
+                                            <h2>
                                                 Create PM
                                             </h2>
                                             <?php if (isset($_GET['success']) && $_GET['success'] === 'true'): ?>
@@ -147,7 +147,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             margin-top:-1.99rem;width:20vw
         }
         .div-1{
-            height:88vh;margin-left:15rem
+            height:88vh;margin-left:auto;margin-right: auto;
         }
         .div-2{
             display: flex; flex-direction: row;justify-content: center;align-items: center; width:40vw;
@@ -161,6 +161,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         .div-5{
             display: flex; flex-direction: row;justify-content: center;align-items: center; width:100%;
         }
+        .div-6{
+            display: flex; flex-direction: row;justify-content: center;align-items: center;  margin-left: 5vw;
+        }
+        .div-7{
+             padding:4rem; color:black;
+        }
         .container{
             margin-top:5rem
         }
@@ -172,7 +178,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             font-size:16px;
         }
         form h2{
-            color:#315B87;margin-top:-2rem
+            color:#315B87;margin-top:-2rem;font-weight: bold;display: flex;align-items: end;justify-content:center;
         }
         
     </style>
