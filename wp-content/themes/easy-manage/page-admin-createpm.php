@@ -67,20 +67,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php get_template_part('sidenav-admin'); ?>
     </div>
     <div class="div-1" >
-        <div class="container" style="margin-top:5rem">
-            <div class="row d-flex justify-content-center align-items-center">
-                <div class="col col-xl-10" style="width:40vw;">
-                    <div class="card" style="border-radius: 1rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);">
-                        <div class="row g-0 w-100 d-flex justify-content-center align-items-center w-50"
-                            style="width:40vw;">
-                            <div class="row g-0 w-100 d-flex justify-content-center align-items-center w-50"
-                                style="width:40vw;">
-                                <div class="col-md-6 col-lg-7 d-flex justify-content-center align-items-center  ms-8"
-                                    style="height:fit-content; width:40vw;">
-                                    <div class="card-body p-4 p-lg-5 text-black;">
-                                        <form action="" method="POST" style="font-size:16px;">
-                                            <h2 class="fw-bold d-flex align-items-end d-flex justify-content-center align-items-center"
-                                                style="color:#315B87;margin-top:-2rem">
+        <div class="container" >
+            <div class="div-2 ">
+                <div class="div-3 " >
+                    <div class="card" >
+                        <div class="div-4 ">
+                            <div class=" div-5 ">
+                                <div class="div-6 col-md-6 col-lg-7 d-flex justify-content-center align-items-center  ms-8" >
+                                    <div class="div-7 card-body p-4 p-lg-5 text-black;">
+                                        <form action="" method="POST">
+                                            <h2 class="fw-bold d-flex align-items-end d-flex justify-content-center align-items-center">
                                                 Create PM
                                             </h2>
                                             <?php if (isset($_GET['success']) && $_GET['success'] === 'true'): ?>
@@ -153,6 +149,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         .div-1{
             height:88vh;margin-left:15rem
         }
+        .div-2{
+            display: flex; flex-direction: row;justify-content: center;align-items: center; width:40vw;
+        }
+        .div-3{
+            display: flex;flex-direction: column;width:40vw;
+        }
+        .div-4{
+            display: flex; flex-direction: row;justify-content: center;align-items: center; width:100%;
+        }
+        .div-5{
+            display: flex; flex-direction: row;justify-content: center;align-items: center; width:100%;
+        }
+        .container{
+            margin-top:5rem
+        }
+        .card{
+            border-radius: 1rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        form{
+            font-size:16px;
+        }
+        form h2{
+            color:#315B87;margin-top:-2rem
+        }
+        
     </style>
     <?php get_footer(); ?>
 </div>
