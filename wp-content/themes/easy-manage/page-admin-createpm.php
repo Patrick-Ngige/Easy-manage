@@ -63,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 <div class="main-div">
-    <div class="page-trainee-dashboard" >
+    <div class="page-admin-dashboard">
         <?php get_template_part('sidenav-admin'); ?>
     </div>
     <div class="div-1">
@@ -84,33 +84,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                     Program manager created successfully.
                                                 </div>
                                             <?php endif; ?>
-                                            <div class="form-outline mb-3">
-                                                <label class="form-label" for="form2Example27"
-                                                    style="font-weight:600;">Username:</label>
+                                            <div class="form-outline">
+                                                <label class="form-label" for="form2Example27">Username:</label>
                                                 <input type="text" id="form2Example27"
-                                                    class="form-control form-control-md"
+                                                    class="form-control"
                                                     placeholder="Enter project task" name="pm_name"
                                                     value="<?php echo isset($_GET['pm_name']) ? $_GET['pm_name'] : ''; ?>" />
                                                 <?php if (isset($errors) && in_array('Username is required', $errors)) {
                                                     echo '<p class="text-danger">Username is required</p>';
                                                 } ?>
                                             </div>
-                                            <div class="form-outline mb-3">
-                                                <label class="form-label" for="form2Example27"
-                                                    style="font-weight:600;">Email:</label>
+                                            <div class="form-outline ">
+                                                <label class="form-label" for="form2Example27">Email:</label>
                                                 <input type="email" id="form2Example27"
-                                                    class="form-control form-control-md"
+                                                    class="form-control"
                                                     placeholder="Enter project task" name="pm_email"
                                                     value="<?php echo isset($_GET['pm_email']) ? $_GET['pm_email'] : ''; ?>" />
                                                 <?php if (isset($errors) && in_array('Email is required', $errors)) {
                                                     echo '<p class="text-danger">Email is required</p>';
                                                 } ?>
                                             </div>
-                                            <div class="form-outline mb-3">
-                                                <label class="form-label" for="form2Example27"
-                                                    style="font-weight:600;">Password:</label>
+                                            <div class="form-outline">
+                                                <label class="form-label" for="form2Example27">Password:</label>
                                                 <input type="password" id="form2Example27"
-                                                    class="form-control form-control-md" placeholder="********"
+                                                    class="form-control" placeholder="********"
                                                     name="pm_password"
                                                     value="<?php echo isset($_GET['pm_password']) ? $_GET['pm_password'] : ''; ?>" />
                                                 <?php if (isset($errors) && in_array('Password is required', $errors)) {
@@ -118,9 +115,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                 } ?>
                                             </div>
                                             <div
-                                                class="pt-1 w-100 mt-3 d-flex justify-content-center align-items-center">
-                                                <button class="btn btn-lg btn-block w-50"
-                                                    style="background-color:#315B87 ;color:#FAFAFA;margin-bottom:-2rem"
+                                                class="div-button">
+                                                <button class="btn "
                                                     type="submit" name="createbtn">Create</button>
                                             </div>
                                         </form>
@@ -143,44 +139,93 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             flex-direction: row;
             margin-top: -2.45rem
         }
-        .page-trainee-dashboard{
-            margin-top:-1.99rem;width:20vw
-        }
-        .div-1{
-            height:88vh;margin-left:auto;margin-right: auto;
-        }
-        .div-2{
-            display: flex; flex-direction: row;justify-content: center;align-items: center; width:40vw;
-        }
-        .div-3{
-            display: flex;flex-direction: column;width:40vw;
-        }
-        .div-4{
-            display: flex; flex-direction: row;justify-content: center;align-items: center; width:100%;
-        }
-        .div-5{
-            display: flex; flex-direction: row;justify-content: center;align-items: center; width:100%;
-        }
-        .div-6{
-            display: flex; flex-direction: row;justify-content: center;align-items: center;  margin-left: 5vw;
-        }
-        .div-7{
-             padding:4rem; color:black;
-        }
-        .container{
-            margin-top:5rem
-        }
-        .card{
-            border-radius: 1rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+        .page-admin-dashboard {
+            margin-top: -1.99rem;
+            width: 20vw
         }
 
-        form{
-            font-size:16px;
+        .div-1 {
+            height: 88vh;
+            margin-left: auto;
+            margin-right: auto;
         }
-        form h2{
-            color:#315B87;margin-top:-2rem;font-weight: bold;display: flex;align-items: end;justify-content:center;
+        .container {
+            margin-top: 3rem; padding: .5rem 1rem
         }
-        
+
+        .div-2 {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            width: 40vw;
+        }
+
+        .div-3 {
+            display: flex;
+            flex-direction: column;
+            width: 60vw;
+        }
+
+        .div-4 {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .div-5 {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .div-6 {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            margin-left: 5vw;
+        }
+
+        .div-7 {
+            padding: 4rem;
+            color: black;
+        }
+        .form-outline{
+            margin-bottom: 1rem;
+        }
+        .form-label{
+            font-weight:600;
+        }
+        .div-button{
+            padding-top: 1rem; display: flex;justify-content: center;align-items:center
+        }
+        .btn{
+            background-color:#315B87 ;color:#FAFAFA;margin-bottom:-2rem;padding: .5rem 1.5rem;font-size: large;
+        }
+      
+
+        .card {
+            border-radius: 1rem;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        form {
+            font-size: 16px;
+        }
+
+        form h2 {
+            color: #315B87;
+            margin-top: -2rem;
+            font-weight: bold;
+            display: flex;
+            align-items: end;
+            justify-content: center;
+        }
     </style>
     <?php get_footer(); ?>
 </div>
