@@ -66,166 +66,124 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="page-admin-dashboard">
         <?php get_template_part('sidenav-admin'); ?>
     </div>
-    <div class="div-1">
-        <div class="container">
-            <div class="div-2 ">
-                <div class="div-3 ">
-                    <div class="card">
-                        <div class="div-4">
-                            <div class=" div-5">
-                                <div class="div-6">
-                                    <div class="div-7 card-body">
-                                        <form action="" method="POST">
-                                            <h2>
-                                                Create PM
-                                            </h2>
-                                            <?php if (isset($_GET['success']) && $_GET['success'] === 'true'): ?>
-                                                <div class="alert alert-success" role="alert">
-                                                    Program manager created successfully.
-                                                </div>
-                                            <?php endif; ?>
-                                            <div class="form-outline">
-                                                <label class="form-label" for="form2Example27">Username:</label>
-                                                <input type="text" id="form2Example27"
-                                                    class="form-control"
-                                                    placeholder="Enter project task" name="pm_name"
-                                                    value="<?php echo isset($_GET['pm_name']) ? $_GET['pm_name'] : ''; ?>" />
-                                                <?php if (isset($errors) && in_array('Username is required', $errors)) {
-                                                    echo '<p class="text-danger">Username is required</p>';
-                                                } ?>
-                                            </div>
-                                            <div class="form-outline ">
-                                                <label class="form-label" for="form2Example27">Email:</label>
-                                                <input type="email" id="form2Example27"
-                                                    class="form-control"
-                                                    placeholder="Enter project task" name="pm_email"
-                                                    value="<?php echo isset($_GET['pm_email']) ? $_GET['pm_email'] : ''; ?>" />
-                                                <?php if (isset($errors) && in_array('Email is required', $errors)) {
-                                                    echo '<p class="text-danger">Email is required</p>';
-                                                } ?>
-                                            </div>
-                                            <div class="form-outline">
-                                                <label class="form-label" for="form2Example27">Password:</label>
-                                                <input type="password" id="form2Example27"
-                                                    class="form-control" placeholder="********"
-                                                    name="pm_password"
-                                                    value="<?php echo isset($_GET['pm_password']) ? $_GET['pm_password'] : ''; ?>" />
-                                                <?php if (isset($errors) && in_array('Password is required', $errors)) {
-                                                    echo '<p class="text-danger">Password is required</p>';
-                                                } ?>
-                                            </div>
-                                            <div
-                                                class="div-button">
-                                                <button class="btn "
-                                                    type="submit" name="createbtn">Create</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
+    <div class="container">
+        <div class="card">
+            <div class="div-7 card-body">
+                <form action="" method="POST">
+                    <h2>
+                        Create PM
+                    </h2>
+                    <?php if (isset($_GET['success']) && $_GET['success'] === 'true'): ?>
+                        <div class="alert alert-success" role="alert">
+                            Program manager created successfully.
                         </div>
+                    <?php endif; ?>
+                    <div class="form-outline">
+                        <label class="form-label" for="form2Example27">Username:</label>
+                        <input type="text" id="form2Example27" class="form-control" placeholder="Enter project task"
+                            name="pm_name" value="<?php echo isset($_GET['pm_name']) ? $_GET['pm_name'] : ''; ?>" />
+                        <?php if (isset($errors) && in_array('Username is required', $errors)) {
+                            echo '<p class="text-danger">Username is required</p>';
+                        } ?>
                     </div>
-                </div>
+                    <div class="form-outline ">
+                        <label class="form-label" for="form2Example27">Email:</label>
+                        <input type="email" id="form2Example27" class="form-control" placeholder="Enter project task"
+                            name="pm_email" value="<?php echo isset($_GET['pm_email']) ? $_GET['pm_email'] : ''; ?>" />
+                        <?php if (isset($errors) && in_array('Email is required', $errors)) {
+                            echo '<p class="text-danger">Email is required</p>';
+                        } ?>
+                    </div>
+                    <div class="form-outline">
+                        <label class="form-label" for="form2Example27">Password:</label>
+                        <input type="password" id="form2Example27" class="form-control" placeholder="********"
+                            name="pm_password"
+                            value="<?php echo isset($_GET['pm_password']) ? $_GET['pm_password'] : ''; ?>" />
+                        <?php if (isset($errors) && in_array('Password is required', $errors)) {
+                            echo '<p class="text-danger">Password is required</p>';
+                        } ?>
+                    </div>
+                    <div class="div-button">
+                        <button class="btn " type="submit" name="createbtn">Create</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
+</div>
 
 
-    <style>
-        .main-div {
-            width: 100vw;
-            height: 90vh;
-            display: flex;
-            flex-direction: row;
-            margin-top: -2.45rem
-        }
 
-        .page-admin-dashboard {
-            margin-top: -1.99rem;
-            width: 20vw
-        }
+<style>
+    .main-div {
+        width: 100vw;
+        height: 90vh;
+        display: flex;
+        flex-direction: row;
+        margin-top: -2.45rem;;
+       
+    }
 
-        .div-1 {
-            height: 88vh;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .container {
-            margin-top: 3rem; padding: .5rem 1rem
-        }
+    .page-admin-dashboard {
+        margin-top: -1.99rem;
+        width: 20vw
+    }
 
-        .div-2 {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            width: 40vw;
-        }
+    .container {
+        margin-top: 3rem;
+        width: 50vw;
+        height: fit-content;
+        /* padding: .5rem 1rem */
+    }
 
-        .div-3 {
-            display: flex;
-            flex-direction: column;
-            width: 60vw;
-        }
+    .card {
+        border-radius: 1rem;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    }
 
-        .div-4 {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-        }
 
-        .div-5 {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-        }
+    .div-7 {
+        width: 50vw;
+        padding: 1rem;
+        color: black;
+        background-color: yellow;
+    }
 
-        .div-6 {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            margin-left: 5vw;
-        }
+    form {
+        font-size: 16px;
+    }
 
-        .div-7 {
-            padding: 4rem;
-            color: black;
-        }
-        .form-outline{
-            margin-bottom: 1rem;
-        }
-        .form-label{
-            font-weight:600;
-        }
-        .div-button{
-            padding-top: 1rem; display: flex;justify-content: center;align-items:center
-        }
-        .btn{
-            background-color:#315B87 ;color:#FAFAFA;margin-bottom:-2rem;padding: .5rem 1.5rem;font-size: large;
-        }
-      
+    form h2 {
+        color: #315B87;
+        margin-top: -2rem;
+        font-weight: bold;
+        display: flex;
+        align-items: end;
+        justify-content: center;
+    }
 
-        .card {
-            border-radius: 1rem;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        }
+    .form-outline {
+        margin-bottom: 1rem;
+    }
 
-        form {
-            font-size: 16px;
-        }
+    .form-label {
+        font-weight: 600;
+    }
 
-        form h2 {
-            color: #315B87;
-            margin-top: -2rem;
-            font-weight: bold;
-            display: flex;
-            align-items: end;
-            justify-content: center;
-        }
-    </style>
-    <?php get_footer(); ?>
+    .div-button {
+        padding-top: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center
+    }
+
+    .btn {
+        background-color: #315B87;
+        color: #FAFAFA;
+        margin-bottom: -2rem;
+        padding: .5rem 1.5rem;
+        font-size: large;
+    }
+</style>
+<?php get_footer(); ?>
 </div>
