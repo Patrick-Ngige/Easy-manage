@@ -62,21 +62,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
-<div style="width:100vw;height:90vh;display:flex;flex-direction:row;margin-top:-2.45rem">
-    <div class="page-trainee-dashboard" style="margin-top:-1.99rem;width:20vw">
+<div class="main-div">
+    <div class="page-trainee-dashboard" >
         <?php get_template_part('sidenav-admin'); ?>
     </div>
-    <div style="height:88vh;margin-left:15rem">
+    <div class="div-1" >
         <div class="container" style="margin-top:5rem">
             <div class="row d-flex justify-content-center align-items-center">
                 <div class="col col-xl-10" style="width:40vw;">
                     <div class="card" style="border-radius: 1rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);">
-                        <div class="row g-0 w-100 d-flex justify-content-center align-items-center w-50" style="width:40vw;">
-                            <div class="row g-0 w-100 d-flex justify-content-center align-items-center w-50" style="width:40vw;">
-                                <div class="col-md-6 col-lg-7 d-flex justify-content-center align-items-center  ms-8" style="height:fit-content; width:40vw;">
+                        <div class="row g-0 w-100 d-flex justify-content-center align-items-center w-50"
+                            style="width:40vw;">
+                            <div class="row g-0 w-100 d-flex justify-content-center align-items-center w-50"
+                                style="width:40vw;">
+                                <div class="col-md-6 col-lg-7 d-flex justify-content-center align-items-center  ms-8"
+                                    style="height:fit-content; width:40vw;">
                                     <div class="card-body p-4 p-lg-5 text-black;">
                                         <form action="" method="POST" style="font-size:16px;">
-                                            <h2 class="fw-bold d-flex align-items-end d-flex justify-content-center align-items-center" style="color:#315B87;margin-top:-2rem">
+                                            <h2 class="fw-bold d-flex align-items-end d-flex justify-content-center align-items-center"
+                                                style="color:#315B87;margin-top:-2rem">
                                                 Create PM
                                             </h2>
                                             <?php if (isset($_GET['success']) && $_GET['success'] === 'true'): ?>
@@ -85,28 +89,43 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                 </div>
                                             <?php endif; ?>
                                             <div class="form-outline mb-3">
-                                                <label class="form-label" for="form2Example27" style="font-weight:600;">Username:</label>
-                                                <input type="text" id="form2Example27" class="form-control form-control-md" placeholder="Enter project task" name="pm_name" value="<?php echo isset($_GET['pm_name']) ? $_GET['pm_name'] : ''; ?>" />
+                                                <label class="form-label" for="form2Example27"
+                                                    style="font-weight:600;">Username:</label>
+                                                <input type="text" id="form2Example27"
+                                                    class="form-control form-control-md"
+                                                    placeholder="Enter project task" name="pm_name"
+                                                    value="<?php echo isset($_GET['pm_name']) ? $_GET['pm_name'] : ''; ?>" />
                                                 <?php if (isset($errors) && in_array('Username is required', $errors)) {
                                                     echo '<p class="text-danger">Username is required</p>';
                                                 } ?>
                                             </div>
                                             <div class="form-outline mb-3">
-                                                <label class="form-label" for="form2Example27" style="font-weight:600;">Email:</label>
-                                                <input type="email" id="form2Example27" class="form-control form-control-md" placeholder="Enter project task" name="pm_email" value="<?php echo isset($_GET['pm_email']) ? $_GET['pm_email'] : ''; ?>" />
+                                                <label class="form-label" for="form2Example27"
+                                                    style="font-weight:600;">Email:</label>
+                                                <input type="email" id="form2Example27"
+                                                    class="form-control form-control-md"
+                                                    placeholder="Enter project task" name="pm_email"
+                                                    value="<?php echo isset($_GET['pm_email']) ? $_GET['pm_email'] : ''; ?>" />
                                                 <?php if (isset($errors) && in_array('Email is required', $errors)) {
                                                     echo '<p class="text-danger">Email is required</p>';
                                                 } ?>
                                             </div>
                                             <div class="form-outline mb-3">
-                                                <label class="form-label" for="form2Example27" style="font-weight:600;">Password:</label>
-                                                <input type="password" id="form2Example27" class="form-control form-control-md" placeholder="********" name="pm_password" value="<?php echo isset($_GET['pm_password']) ? $_GET['pm_password'] : ''; ?>" />
+                                                <label class="form-label" for="form2Example27"
+                                                    style="font-weight:600;">Password:</label>
+                                                <input type="password" id="form2Example27"
+                                                    class="form-control form-control-md" placeholder="********"
+                                                    name="pm_password"
+                                                    value="<?php echo isset($_GET['pm_password']) ? $_GET['pm_password'] : ''; ?>" />
                                                 <?php if (isset($errors) && in_array('Password is required', $errors)) {
                                                     echo '<p class="text-danger">Password is required</p>';
                                                 } ?>
                                             </div>
-                                            <div class="pt-1 w-100 mt-3 d-flex justify-content-center align-items-center">
-                                                <button class="btn btn-lg btn-block w-50" style="background-color:#315B87 ;color:#FAFAFA;margin-bottom:-2rem" type="submit" name="createbtn">Create</button>
+                                            <div
+                                                class="pt-1 w-100 mt-3 d-flex justify-content-center align-items-center">
+                                                <button class="btn btn-lg btn-block w-50"
+                                                    style="background-color:#315B87 ;color:#FAFAFA;margin-bottom:-2rem"
+                                                    type="submit" name="createbtn">Create</button>
                                             </div>
                                         </form>
                                     </div>
@@ -118,5 +137,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
         </div>
     </div>
+
+
+    <style>
+        .main-div {
+            width: 100vw;
+            height: 90vh;
+            display: flex;
+            flex-direction: row;
+            margin-top: -2.45rem
+        }
+        .page-trainee-dashboard{
+            margin-top:-1.99rem;width:20vw
+        }
+        .div-1{
+            height:88vh;margin-left:15rem
+        }
+    </style>
     <?php get_footer(); ?>
 </div>
