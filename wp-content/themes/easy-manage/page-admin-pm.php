@@ -48,7 +48,7 @@ if (isset($_POST['soft_delete'])) {
     </div>
     <div class="pm-div-1">
         <div class="pm-div-2">
-            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+            <div class="pm-div-3">
                 <a href="http://localhost/easy-manage/admin-trainers-table/" class="floating-btn"
                     style="text-decoration:none; padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
                     View Trainers
@@ -144,6 +144,9 @@ if (isset($_POST['soft_delete'])) {
     }
     .pm-div-2{
         padding:1rem;
+    }
+    .pm-div-3{
+        display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;
     }
 </style>
 
