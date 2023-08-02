@@ -85,8 +85,8 @@ if (isset($_POST['soft_delete'])) {
                             ?>
                             <tr>
                                 <td>
-                                    <div class="d-flex align-items-center">
-                                        <div class="ms-3">
+                                    <div class="td-div-1">
+                                        <div class="td-div-2">
                                             <p class="mb-1">
                                                 <?php echo $user['user_login'] ?>
                                             </p>
@@ -153,6 +153,12 @@ if (isset($_POST['soft_delete'])) {
     }
     .table-tr{
         font-size:large;color:#315B87;padding-left:2rem
+    }
+    .td-div-1{
+        display: flex; align-items:center;
+    }
+    .td-div-2{
+        margin-left: 1rem;
     }
 </style>
 
