@@ -108,7 +108,7 @@ if (isset($_POST['soft_delete'])) {
                                     <form method="POST">
                                         <input type="hidden" name="user_id" value="<?php echo $user['ID']; ?>">
                                         <button type="submit" name="soft_delete" class="btn-soft-delete"
-                                            style="padding:6px;border:none" data-bs-toggle="tooltip" data-bs-placement="top"
+                                             data-bs-toggle="tooltip" data-bs-placement="top"
                                             title="Deactivate Button">
                                             <img src="https://cdn-icons-png.flaticon.com/128/2550/2550435.png"
                                                 style="width:25px;border:none" alt="">
@@ -207,6 +207,9 @@ if (isset($_POST['soft_delete'])) {
     .td-3 {
         font-weight: normal;
         margin-bottom: 1rem;
+    }
+    .btn-soft-delete{
+        padding:6px;border:none
     }
 </style>
 
