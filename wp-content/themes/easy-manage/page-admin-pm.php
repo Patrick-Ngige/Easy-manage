@@ -49,12 +49,10 @@ if (isset($_POST['soft_delete'])) {
     <div class="pm-div-1">
         <div class="pm-div-2">
             <div class="pm-div-3">
-                <a href="http://localhost/easy-manage/admin-trainers-table/" class="floating-btn"
-                    style="text-decoration:none; padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+                <a href="http://localhost/easy-manage/admin-trainers-table/" class="pm-floating-btn">
                     View Trainers
                 </a>
-                <a href="http://localhost/easy-manage/admin-trainees-table/" class="floating-btn"
-                    style="text-decoration:none; padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+                <a href="http://localhost/easy-manage/admin-trainees-table/" class="pm-floating-btn">
                     View Trainees
                 </a>
                 <?php echo do_shortcode('[search_bar]'); ?>
@@ -147,6 +145,9 @@ if (isset($_POST['soft_delete'])) {
     }
     .pm-div-3{
         display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;
+    }
+    .pm-floating-btn{
+        text-decoration:none; padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 </style>
 
