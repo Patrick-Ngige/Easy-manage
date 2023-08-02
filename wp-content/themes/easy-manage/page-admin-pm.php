@@ -87,7 +87,7 @@ if (isset($_POST['soft_delete'])) {
                                 <td>
                                     <div class="td-div-1">
                                         <div class="td-div-2">
-                                            <p class="mb-1">
+                                            <p >
                                                 <?php echo $user['user_login'] ?>
                                             </p>
                                         </div>
@@ -159,6 +159,9 @@ if (isset($_POST['soft_delete'])) {
     }
     .td-div-2{
         margin-left: 1rem;
+    }
+    .td-div-2 p{
+        margin-bottom: 1rem;
     }
 </style>
 
