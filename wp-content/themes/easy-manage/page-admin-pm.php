@@ -94,12 +94,12 @@ if (isset($_POST['soft_delete'])) {
                                     </div>
                                 </td>
                                 <td>
-                                    <p class="fw-normal mb-1">
+                                    <p class="td-2">
                                         <?php echo $user['user_email'] ?>
                                     </p>
                                 </td>
                                 <td>
-                                    <p class="fw-normal mb-1">Program Manager</p>
+                                    <p class="td-3">Program Manager</p>
                                 </td>
                                 <td>
                                     <form method="POST">
@@ -161,6 +161,10 @@ if (isset($_POST['soft_delete'])) {
         margin-left: 1rem;
     }
     .td-div-2 p{
+        margin-bottom: 1rem;
+    }
+    .td-2, .td-3 {
+        font-weight: normal;
         margin-bottom: 1rem;
     }
 </style>
