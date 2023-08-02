@@ -111,13 +111,13 @@ if (isset($_POST['soft_delete'])) {
                                              data-bs-toggle="tooltip" data-bs-placement="top"
                                             title="Deactivate Button">
                                             <img src="https://cdn-icons-png.flaticon.com/128/2550/2550435.png"
-                                                 alt="">
+                                                 alt="soft-delete">
                                         </button>
                                         <a href="http://localhost/easy-manage/admin-update-form/?id=<?php echo $user['ID']; ?>"
                                             style="padding:6px" data-bs-toggle="tooltip" data-bs-placement="top"
-                                            title="Edit Button">
+                                            title="Edit Button" class=""edit-btn>
                                             <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png"
-                                                style="width:25px;" alt="">
+                                             alt="edit">
                                         </a>
                                     </form>
                                 </td>
@@ -213,6 +213,9 @@ if (isset($_POST['soft_delete'])) {
     }
     .btn-soft-delete img{
         width:25px;border:none
+    }
+    .edit-btn img {
+        width:25px;
     }
 </style>
 
