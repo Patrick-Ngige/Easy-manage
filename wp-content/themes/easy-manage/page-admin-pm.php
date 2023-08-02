@@ -42,12 +42,12 @@ if (isset($_POST['soft_delete'])) {
 }
 ?>
 
-<div style="width:100vw;height:90vh;display:flex;flex-direction:row;margin-top:-2.45rem">
-    <div class="page-trainee-dashboard" style="margin-top:-1.99rem;width:20vw">
+<div class="pm-main-div">
+    <div class="page-trainee-dashboard">
         <?php get_template_part('sidenav-admin'); ?>
     </div>
-    <div style="padding:1rem;width:80vw;margin-left:0rem">
-        <div style="padding:1rem;">
+    <div class="pm-div-1">
+        <div class="pm-div-2">
             <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
                 <a href="http://localhost/easy-manage/admin-trainers-table/" class="floating-btn"
                     style="text-decoration:none; padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
@@ -131,6 +131,21 @@ if (isset($_POST['soft_delete'])) {
         </div>
     </div>
 </div>
+
+<style>
+    .pm-main-div{
+        width:100vw;height:90vh;display:flex;flex-direction:row;margin-top:-2.45rem
+    }
+    .page-trainee-dashboard{
+        margin-top:-1.99rem;width:20vw
+    }
+    .pm-div-1{
+        padding:1rem;width:80vw;margin-left:0rem
+    }
+    .pm-div-2{
+        padding:1rem;
+    }
+</style>
 
 <?php get_footer(); ?>
 
