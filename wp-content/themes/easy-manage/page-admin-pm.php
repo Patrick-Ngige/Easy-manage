@@ -108,16 +108,15 @@ if (isset($_POST['soft_delete'])) {
                                     <form method="POST">
                                         <input type="hidden" name="user_id" value="<?php echo $user['ID']; ?>">
                                         <button type="submit" name="soft_delete" class="btn-soft-delete"
-                                             data-bs-toggle="tooltip" data-bs-placement="top"
-                                            title="Deactivate Button">
+                                            data-bs-toggle="tooltip" data-bs-placement="top" title="Deactivate Button">
                                             <img src="https://cdn-icons-png.flaticon.com/128/2550/2550435.png"
-                                                 alt="soft-delete">
+                                                alt="soft-delete">
                                         </button>
                                         <a href="http://localhost/easy-manage/admin-update-form/?id=<?php echo $user['ID']; ?>"
                                             style="padding:6px" data-bs-toggle="tooltip" data-bs-placement="top"
-                                            title="Edit Button" class=""edit-btn>
+                                            title="Edit Button" class="" edit-btn>
                                             <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png"
-                                             alt="edit">
+                                                alt="edit">
                                         </a>
                                     </form>
                                 </td>
@@ -208,14 +207,19 @@ if (isset($_POST['soft_delete'])) {
         font-weight: normal;
         margin-bottom: 1rem;
     }
-    .btn-soft-delete{
-        padding:6px;border:none
+
+    .btn-soft-delete {
+        padding: 6px;
+        border: none
     }
-    .btn-soft-delete img{
-        width:25px;border:none
+
+    .btn-soft-delete img {
+        width: 25px;
+        border: none
     }
+
     .edit-btn img {
-        width:25px;
+        width: 25px;
     }
 </style>
 
