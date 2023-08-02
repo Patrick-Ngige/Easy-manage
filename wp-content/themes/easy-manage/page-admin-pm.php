@@ -57,8 +57,7 @@ if (isset($_POST['soft_delete'])) {
                 </a>
                 <?php echo do_shortcode('[search_bar]'); ?>
             </div>
-            <table class="table align-middle mb-0 bg-white table-hover"
-                style="width:90%;margin-left:5%;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;margin-top:3%;background-color:#FAFAFA">
+            <table class="table align-middle  table-hover">
                 <thead class="bg-light">
                     <tr style="font-size:large;color:#315B87;padding-left:2rem">
                         <th>Username</th>
@@ -148,6 +147,9 @@ if (isset($_POST['soft_delete'])) {
     }
     .pm-floating-btn{
         text-decoration:none; padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .table{
+        width:90%;margin-left:5%;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;margin-top:3%;background-color:#FAFAFA;margin-bottom: 0;
     }
 </style>
 
