@@ -111,7 +111,7 @@ if (isset($_POST['soft_delete'])) {
                                              data-bs-toggle="tooltip" data-bs-placement="top"
                                             title="Deactivate Button">
                                             <img src="https://cdn-icons-png.flaticon.com/128/2550/2550435.png"
-                                                style="width:25px;border:none" alt="">
+                                                 alt="">
                                         </button>
                                         <a href="http://localhost/easy-manage/admin-update-form/?id=<?php echo $user['ID']; ?>"
                                             style="padding:6px" data-bs-toggle="tooltip" data-bs-placement="top"
@@ -210,6 +210,9 @@ if (isset($_POST['soft_delete'])) {
     }
     .btn-soft-delete{
         padding:6px;border:none
+    }
+    .btn-soft-delete img{
+        width:25px;border:none
     }
 </style>
 
