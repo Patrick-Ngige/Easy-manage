@@ -28,9 +28,12 @@ if (isset($_POST['soft_delete'])) {
     curl_setopt($curl, CURLOPT_URL, $endpoint_url);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'DELETE');
-    curl_setopt($curl, CURLOPT_HTTPHEADER, array(
-        'Authorization: Bearer ' . $token
-    )
+    curl_setopt(
+        $curl,
+        CURLOPT_HTTPHEADER,
+        array(
+            'Authorization: Bearer ' . $token
+        )
     );
     $response = curl_exec($curl);
 
@@ -87,7 +90,7 @@ if (isset($_POST['soft_delete'])) {
                                 <td>
                                     <div class="td-div-1">
                                         <div class="td-div-2">
-                                            <p >
+                                            <p>
                                                 <?php echo $user['user_login'] ?>
                                             </p>
                                         </div>
@@ -104,8 +107,9 @@ if (isset($_POST['soft_delete'])) {
                                 <td>
                                     <form method="POST">
                                         <input type="hidden" name="user_id" value="<?php echo $user['ID']; ?>">
-                                        <button type="submit" name="soft_delete" class="btn-soft-delete" style="padding:6px;border:none"
-                                            data-bs-toggle="tooltip" data-bs-placement="top" title="Deactivate Button">
+                                        <button type="submit" name="soft_delete" class="btn-soft-delete"
+                                            style="padding:6px;border:none" data-bs-toggle="tooltip" data-bs-placement="top"
+                                            title="Deactivate Button">
                                             <img src="https://cdn-icons-png.flaticon.com/128/2550/2550435.png"
                                                 style="width:25px;border:none" alt="">
                                         </button>
@@ -130,40 +134,77 @@ if (isset($_POST['soft_delete'])) {
 </div>
 
 <style>
-    .pm-main-div{
-        width:100vw;height:90vh;display:flex;flex-direction:row;margin-top:-2.45rem
+    .pm-main-div {
+        width: 100vw;
+        height: 90vh;
+        display: flex;
+        flex-direction: row;
+        margin-top: -2.45rem
     }
-    .page-trainee-dashboard{
-        margin-top:-1.99rem;width:20vw
+
+    .page-trainee-dashboard {
+        margin-top: -1.99rem;
+        width: 20vw
     }
-    .pm-div-1{
-        padding:1rem;width:80vw;margin-left:0rem
+
+    .pm-div-1 {
+        padding: 1rem;
+        width: 80vw;
+        margin-left: 0rem
     }
-    .pm-div-2{
-        padding:1rem;
+
+    .pm-div-2 {
+        padding: 1rem;
     }
-    .pm-div-3{
-        display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;
-    }
-    .pm-floating-btn{
-        text-decoration:none; padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-    .table{
-        width:90%;margin-left:5%;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;margin-top:3%;background-color:#FAFAFA;margin-bottom: 0;
-    }
-    .table-tr{
-        font-size:large;color:#315B87;padding-left:2rem
-    }
-    .td-div-1{
-        display: flex; align-items:center;
-    }
-    .td-div-2{
-        margin-left: 1rem;
-    }
-    .td-div-2 p{
+
+    .pm-div-3 {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         margin-bottom: 1rem;
     }
-    .td-2, .td-3 {
+
+    .pm-floating-btn {
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        border-radius: 10px;
+        background-color: #FAFAFA;
+        border: none;
+        color: #315B87;
+        font-size: 1rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .table {
+        width: 90%;
+        margin-left: 5%;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        margin-top: 3%;
+        background-color: #FAFAFA;
+        margin-bottom: 0;
+    }
+
+    .table-tr {
+        font-size: large;
+        color: #315B87;
+        padding-left: 2rem
+    }
+
+    .td-div-1 {
+        display: flex;
+        align-items: center;
+    }
+
+    .td-div-2 {
+        margin-left: 1rem;
+    }
+
+    .td-div-2 p {
+        margin-bottom: 1rem;
+    }
+
+    .td-2,
+    .td-3 {
         font-weight: normal;
         margin-bottom: 1rem;
     }
