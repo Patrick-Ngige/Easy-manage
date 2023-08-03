@@ -11,7 +11,8 @@ $response = wp_remote_get('http://localhost/easy-manage/wp-json/wp/v2/users/me',
     'headers' => array(
         'Authorization' => 'Bearer ' . $token
     )
-));
+)
+);
 
 if (isset($_POST['soft_delete'])) {
     $user_id = $_POST['user_id'];
@@ -23,7 +24,8 @@ if (isset($_POST['soft_delete'])) {
     curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'DELETE');
     curl_setopt($curl, CURLOPT_HTTPHEADER, array(
         'Authorization: Bearer ' . $token
-    ));
+    )
+    );
     $response = curl_exec($curl);
 
     if ($response === false) {
@@ -35,10 +37,10 @@ if (isset($_POST['soft_delete'])) {
 ?>
 
 <div class="trainees-main-div ">
-    <div class="page-admin-dashboard" >
+    <div class="page-admin-dashboard">
         <?php get_template_part('sidenav-admin'); ?>
     </div>
-    <div style="padding:1rem;width:80vw;margin-left:0rem">
+    <div class="trainees-div-1">
         <div class="trainees-div-2">
             <!-- Add buttons and search bar here -->
             <div class="trainees-div-3">
@@ -79,31 +81,29 @@ if (isset($_POST['soft_delete'])) {
                             ?>
                             <tr>
                                 <td>
-                                    <div class="d-flex align-items-center">
-                                        <div class="ms-3">
-                                            <p class="mb-1">
+                                    <div class="td-div-1">
+                                        <div class="td-div-2">
+                                            <p>
                                                 <?php echo $user['user_login'] ?>
                                             </p>
                                         </div>
                                     </div>
                                 </td>
-                                <td>
-                                    <p class="fw-normal mb-1">
+                                <td class="td-2">
+                                    <p>
                                         <?php echo $user['user_email'] ?>
                                     </p>
                                 </td>
-                                <td>
-                                    <p class="fw-normal mb-1">Trainee</p>
+                                <td class="td-3">
+                                    <p>Trainee</p>
                                 </td>
                                 <td>
                                     <form method="POST">
                                         <input type="hidden" name="user_id" value="<?php echo $user['ID']; ?>">
                                         <button type="submit" name="soft_delete" class="btn-soft-delete"
-                                            style="padding:6px;border:none;margin-left:2rem"
-                                            data-bs-toggle="tooltip" data-bs-placement="top"
-                                            title="Deactivate Button">
+                                            data-bs-toggle="tooltip" data-bs-placement="top" title="deactivate trainee">
                                             <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/pause-2.png"
-                                                style="width:25px;" alt="">
+                                                alt="soft delete button">
                                         </button>
                                     </form>
                                 </td>
@@ -131,6 +131,12 @@ if (isset($_POST['soft_delete'])) {
     .page-admin-dashboard {
         margin-top: -1.99rem;
         width: 20vw;
+    }
+
+    .trainees-div-1 {
+        padding: 1rem;
+        width: 80vw;
+        margin-left: 0rem
     }
 
     .trainees-div-2 {
