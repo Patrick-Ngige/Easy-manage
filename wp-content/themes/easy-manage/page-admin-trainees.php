@@ -34,20 +34,18 @@ if (isset($_POST['soft_delete'])) {
 }
 ?>
 
-<div style="width:100vw;height:90vh;display:flex;flex-direction:row;margin-top:-2.45rem">
-    <div class="page-trainee-dashboard" style="margin-top:-1.99rem;width:20vw">
+<div class="trainees-main-div ">
+    <div class="page-admin-dashboard" >
         <?php get_template_part('sidenav-admin'); ?>
     </div>
     <div style="padding:1rem;width:80vw;margin-left:0rem">
-        <div style="padding:1rem;">
+        <div class="trainees-div-2">
             <!-- Add buttons and search bar here -->
-            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
-                <a href="http://localhost/easy-manage/admin-trainers-table/" class="floating-btn"
-                    style="text-decoration:none; padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+            <div class="trainees-div-3">
+                <a href="http://localhost/easy-manage/admin-trainers-table/" class="trainees-floating-btn">
                     View Trainers
                 </a>
-                <a href="http://localhost/easy-manage/admin-trainees-table/" class="floating-btn"
-                    style="text-decoration:none; padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+                <a href="http://localhost/easy-manage/admin-trainees-table/" class="trainees-floating-btn">
                     View Trainees
                 </a>
                 <?php echo do_shortcode('[search_bar]'); ?>
@@ -121,6 +119,93 @@ if (isset($_POST['soft_delete'])) {
         </div>
     </div>
 </div>
+
+<style>
+    .trainees-main-div {
+        width: 100vw;
+        height: 90vh;
+        display: flex;
+        flex-direction: row;
+        margin-top: -2.45rem;
+    }
+
+    .page-admin-dashboard {
+        margin-top: -1.99rem;
+        width: 20vw;
+    }
+
+    .trainees-div-2 {
+        margin-top: 1rem;
+        padding: 1rem;
+    }
+
+    .trainees-div-3 {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+        padding-left: 1rem;
+    }
+
+    .trainees-floating-btn {
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        border-radius: 10px;
+        background-color: #FAFAFA;
+        border: none;
+        color: #315B87;
+        font-size: 1rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .table {
+        width: 90%;
+        margin-left: 5%;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        margin-top: 3%;
+        background-color: #FAFAFA;
+        margin-bottom: 0;
+    }
+
+    .table-tr {
+        font-size: large;
+        color: #315B87;
+        padding-left: 2rem
+    }
+
+    .td-div-1 {
+        display: flex;
+        align-items: center;
+    }
+
+    .td-div-2 {
+        margin-left: 1rem;
+    }
+
+    .td-div-2 p {
+        margin-bottom: 1rem;
+    }
+
+    .td-2,
+    .td-3 {
+        font-weight: normal;
+        margin-bottom: 1rem;
+    }
+
+    .btn-soft-delete {
+        padding: 6px;
+        border: none
+    }
+
+    .btn-soft-delete img {
+        width: 25px;
+        border: none
+    }
+
+    .edit-btn img {
+        width: 25px;
+    }
+</style>
 
 <?php get_footer(); ?>
 
