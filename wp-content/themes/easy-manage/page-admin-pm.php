@@ -49,7 +49,6 @@ if (isset($_POST['soft_delete'])) {
     <div class="page-trainee-dashboard">
         <?php get_template_part('sidenav-admin'); ?>
     </div>
-    <div class="pm-div-1">
         <div class="pm-div-2">
             <div class="pm-div-3">
                 <a href="http://localhost/easy-manage/admin-trainers-table/" class="pm-floating-btn">
@@ -108,13 +107,13 @@ if (isset($_POST['soft_delete'])) {
                                     <form method="POST">
                                         <input type="hidden" name="user_id" value="<?php echo $user['ID']; ?>">
                                         <button type="submit" name="soft_delete" class="btn-soft-delete"
-                                            data-bs-toggle="tooltip" data-bs-placement="top" title="Deactivate Button">
-                                            <img src="https://cdn-icons-png.flaticon.com/128/2550/2550435.png"
+                                            data-bs-toggle="tooltip" data-bs-placement="top" title="Deactivate Project Manager">
+                                            <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/pause-2.png"
                                                 alt="soft-delete button">
                                         </button>
                                         <a href="http://localhost/easy-manage/admin-update-form/?id=<?php echo $user['ID']; ?>"
                                             style="padding:6px" data-bs-toggle="tooltip" data-bs-placement="top"
-                                            title="Edit Button" class="" edit-btn>
+                                            title="Edit Project Manager" class="edit-btn" >
                                             <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png"
                                                 alt="edit button">
                                         </a>
@@ -138,21 +137,16 @@ if (isset($_POST['soft_delete'])) {
         height: 90vh;
         display: flex;
         flex-direction: row;
-        margin-top: -2.45rem
+        margin-top: -2.45rem;
     }
 
     .page-trainee-dashboard {
         margin-top: -1.99rem;
-        width: 20vw
-    }
-
-    .pm-div-1 {
-        padding: 1rem;
-        width: 80vw;
-        margin-left: 0rem
+        width: 20vw;
     }
 
     .pm-div-2 {
+        margin-top: 1rem;
         padding: 1rem;
     }
 
@@ -161,6 +155,7 @@ if (isset($_POST['soft_delete'])) {
         align-items: center;
         justify-content: space-between;
         margin-bottom: 1rem;
+        padding-left: 1rem;
     }
 
     .pm-floating-btn {
