@@ -35,28 +35,25 @@ if (isset($_POST['soft_delete'])) {
 ?>
 
 <div class="trainers-main-div">
-    <div class="page-trainers-dashboard" >
+    <div class="page-admin-dashboard" >
         <?php get_template_part('sidenav-admin'); ?>
     </div>
     <div class="trainers-div-1">
         <div class="trainers-div-2">
             <!-- Add buttons and search bar here -->
-            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
-                <a href="http://localhost/easy-manage/admin-trainers-table/" class="floating-btn"
-                    style="text-decoration:none; padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+            <div class="trainers-div-3"">
+                <a href="http://localhost/easy-manage/admin-trainers-table/" class="trainers-floating-btn">
                     View Trainers
                 </a>
-                <a href="http://localhost/easy-manage/admin-trainees-table/" class="floating-btn"
-                    style="text-decoration:none; padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+                <a href="http://localhost/easy-manage/admin-trainees-table/" class="trainers-floating-btn">
                     View Trainees
                 </a>
                 <?php echo do_shortcode('[search_bar]'); ?>
             </div>
 
-            <table class="table align-middle mb-0 bg-white table-hover"
-                style="width:90%;margin-left:5%;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;margin-top:3%;">
+            <table class="table align-middle table-hover">
                 <thead class="bg-light">
-                    <tr style="font-size:large;color:#315B87;padding-left:2rem">
+                    <tr class="table-tr">
                         <th>Username</th>
                         <th>Email</th>
                         <th>Role</th>
@@ -82,30 +79,28 @@ if (isset($_POST['soft_delete'])) {
 
                             <tr>
                                 <td>
-                                    <div class="d-flex align-items-center">
-                                        <div class="ms-3">
-                                            <p class="mb-1">
+                                    <div class="td-div-1">
+                                        <div class="td-div-2">
+                                            <p>
                                                 <?php echo $user['user_login'] ?>
                                             </p>
                                         </div>
                                     </div>
                                 </td>
-                                <td>
-                                    <p class="fw-normal mb-1">
+                                <td class="td-2">
+                                    <p>
                                         <?php echo $user['user_email'] ?>
                                     </p>
                                 </td>
-                                <td>
-                                    <p class="fw-normal mb-1">Trainer</p>
+                                <td class="td-3">
+                                    <p>Trainer</p>
                                 </td>
                                 <td>
                                     <form method="POST">
                                         <input type="hidden" name="user_id" value="<?php echo $user['ID']; ?>">
                                         <button type="submit" name="soft_delete" class="btn-soft-delete"
-                                            style="padding:6px;border:none;margin-left:1rem" 
-                                            data-bs-toggle="tooltip" data-bs-placement="top" title="Deactivate Button">
-                                            <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/pause-2.png"
-                                                style="width:25px;" alt="Deactivate">
+                                            data-bs-toggle="tooltip" data-bs-placement="top" title="deactivate trainer">
+                                            <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/pause-2.png" alt="Deactivate">
                                         </button>
                                     </form>
                                 </td>
