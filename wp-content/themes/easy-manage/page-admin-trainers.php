@@ -35,11 +35,11 @@ if (isset($_POST['soft_delete'])) {
 ?>
 
 <div class="trainers-main-div">
-    <div class="page-trainee-dashboard" style="margin-top:-1.99rem;width:20vw">
+    <div class="page-trainers-dashboard" >
         <?php get_template_part('sidenav-admin'); ?>
     </div>
-    <div style="padding:1rem;width:80vw;margin-left:0rem">
-        <div style="padding:1rem;">
+    <div class="trainers-div-1">
+        <div class="trainers-div-2">
             <!-- Add buttons and search bar here -->
             <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
                 <a href="http://localhost/easy-manage/admin-trainers-table/" class="floating-btn"
