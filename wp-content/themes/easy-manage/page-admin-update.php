@@ -83,22 +83,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-<div style="width: 100vw; height: 90vh; display: flex; flex-direction: row; margin-top: -2.45rem;">
+<div class="main-div">
 
-    <div class="page-trainee-dashboard" style="margin-top: -1.99rem; width: 20vw;">
+    <div class="page-admin-dashboard" >
         <?php get_template_part('sidenav-admin'); ?>
     </div>
-    <div style="height: 80vh; margin-left: 15rem;">
-        <div class="container py-5">
-            <div class="row d-flex justify-content-center align-items-center">
-                <div class="col col-xl-10" style="width: 40vw;">
-                    <div class="card" style="border-radius: 1rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);">
-                        <div class="row g-0 w-100 d-flex justify-content-center align-items-center w-50"
-                            style="width: 40vw;">
-                            <div class="row g-0 w-100 d-flex justify-content-center align-items-center w-50"
-                                style="width: 40vw;">
-                                <div class="col-md-6 col-lg-7 d-flex justify-content-center align-items-center  ms-8"
-                                    style="height:auto ; width: 40vw;">
+        <div class="container">
+                    <div class="card" >
                                     <div class="card-body p-4 p-lg-5 text-black">
 
                                         <form action="" method="POST" style="font-size: 16px">
@@ -155,5 +146,80 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </div>
 </div>
+
+<style>
+    .main-div {
+        width: 100vw;
+        height: 90vh;
+        display: flex;
+        flex-direction: row;
+        margin-top: -2.45rem;;
+       
+    }
+
+    .page-admin-dashboard {
+        margin-top: -1.99rem;
+        width: 20vw
+    }
+
+    .container {
+        margin-top: 3rem;
+        width: 46vw;
+        margin-left: auto;
+        margin-right: auto;
+        /* height: 30vh; */
+        padding: 2rem;
+    }
+
+    .card {
+        border-radius: 1rem;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    }
+
+
+    .div-7 {
+        width: 40vw;
+        padding: 1rem 3rem;
+        color: black;
+        /* background-color: yellow; */
+        height: fit-content;
+    }
+
+    form {
+        font-size: 16px;
+    }
+
+    form h2 {
+        color: #315B87;
+        /* margin-top: -2rem; */
+        font-weight: bold;
+        display: flex;
+        align-items: end;
+        justify-content: center;
+    }
+
+    .form-outline {
+        margin-bottom: 1rem;
+    }
+
+    .form-label {
+        font-weight: 600;
+    }
+
+    .div-button {
+        padding-top: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center
+    }
+
+    .btn {
+        background-color: #315B87;
+        color: #FAFAFA;
+        /* margin-bottom: -2rem; */
+        padding: .5rem 1.5rem;
+        font-size: large;
+    }
+</style>
 
 <?php get_footer(); ?>
