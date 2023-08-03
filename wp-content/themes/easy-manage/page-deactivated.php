@@ -59,7 +59,7 @@ curl_close($ch);
 ?>
 
 <div class="deactivated-main-div">
-    <div class="page-admin-dashboard" >
+    <div class="page-admin-dashboard">
         <?php get_template_part('sidenav-admin'); ?>
     </div>
 
@@ -69,8 +69,7 @@ curl_close($ch);
                 <?php echo do_shortcode('[search_bar]'); ?>
             </div>
 
-            <table class="table align-middle table-hover"
-                >
+            <table class="table align-middle table-hover">
                 <thead class="bg-light">
                     <tr class="table-tr">
                         <th>Username</th>
@@ -105,15 +104,15 @@ curl_close($ch);
                                 <td>
                                     <form method="POST">
                                         <input type="hidden" name="user_id" value="<?php echo $user['ID']; ?>">
-                                        <button type="submit" name="restore_user" class="activate-user" 
-                                            data-bs-toggle="tooltip" data-bs-placement="top" title="activate user">
+                                        <button type="submit" name="restore_user" class="activate-user" data-bs-toggle="tooltip"
+                                            data-bs-placement="top" title="activate user">
                                             <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/reuse.png"
-                                                 alt="activate user button">
+                                                alt="activate user button">
                                         </button>
                                     </form>
                                 </td>
                             </tr>
-                            <?php }
+                        <?php }
                     } else {
                         echo '<tr><td colspan="4" style="text-align: center;">No deactivated users available</td></tr>';
                     }
@@ -200,8 +199,9 @@ curl_close($ch);
         font-weight: normal;
         margin-bottom: 1rem;
     }
-    .td-3 p{
-        color:red;
+
+    .td-3 p {
+        color: red;
     }
 
     .activate-user {
