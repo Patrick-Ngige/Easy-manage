@@ -42,7 +42,6 @@ if (isset($_POST['soft_delete'])) {
     </div>
     <div class="trainees-div-1">
         <div class="trainees-div-2">
-            <!-- Add buttons and search bar here -->
             <div class="trainees-div-3">
                 <a href="http://localhost/easy-manage/admin-trainers-table/" class="trainees-floating-btn">
                     View Trainers

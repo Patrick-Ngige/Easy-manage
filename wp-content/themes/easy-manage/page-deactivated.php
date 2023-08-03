@@ -59,20 +59,20 @@ curl_close($ch);
 ?>
 
 <div class="deactivated-main-div">
-    <div class="page-trainee-dashboard" style="margin-top:-1.99rem;width:20vw">
+    <div class="page-admin-dashboard" >
         <?php get_template_part('sidenav-admin'); ?>
     </div>
 
-    <div style="padding:1rem;width:80vw;margin-left:0rem">
-        <div style="padding:1rem;">
-            <div style="display: flex; align-items: center; justify-content: end; margin-bottom: 1rem;">
+    <div class="deactivated-div-1">
+        <div class="deactivated-div-2">
+            <div class="deactivated-div-3">
                 <?php echo do_shortcode('[search_bar]'); ?>
             </div>
 
-            <table class="table align-middle mb-0 bg-white table-hover"
-                style="width:90%;margin-left:5%;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;margin-top:3%;">
+            <table class="table align-middle table-hover"
+                >
                 <thead class="bg-light">
-                    <tr style="font-size:large;color:#315B87;padding-left:2rem">
+                    <tr class="table-tr">
                         <th>Username</th>
                         <th>Email</th>
                         <th>Status</th>
@@ -86,30 +86,29 @@ curl_close($ch);
                             ?>
                             <tr>
                                 <td>
-                                    <div class="d-flex align-items-center">
-                                        <div class="ms-3">
-                                            <p class="mb-1">
+                                    <div class="td-div-1">
+                                        <div class="td-div-2">
+                                            <p>
                                                 <?php echo $user['user_login'] ?>
                                             </p>
                                         </div>
                                     </div>
                                 </td>
-                                <td>
-                                    <p class="fw-normal mb-1">
+                                <td class="td-2">
+                                    <p>
                                         <?php echo $user['user_email'] ?>
                                     </p>
                                 </td>
-                                <td>
-                                    <p class="fw-normal mb-1" style="color:red"> Deactivated</p>
+                                <td class="td-3">
+                                    <p> Deactivated</p>
                                 </td>
                                 <td>
                                     <form method="POST">
                                         <input type="hidden" name="user_id" value="<?php echo $user['ID']; ?>">
-                                        <button type="submit" name="restore_user"
-                                            style="border: none; background: none; cursor: pointer;"
-                                            data-bs-toggle="tooltip" data-bs-placement="top" title="Activate Button">
+                                        <button type="submit" name="restore_user" class="activate-user" 
+                                            data-bs-toggle="tooltip" data-bs-placement="top" title="activate user">
                                             <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/reuse.png"
-                                                style="width:3vw;" alt="">
+                                                 alt="activate user button">
                                         </button>
                                     </form>
                                 </td>
@@ -153,9 +152,8 @@ curl_close($ch);
     .deactivated-div-3 {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: end;
         margin-bottom: 1rem;
-        padding-left: 1rem;
     }
 
     .deactivated-floating-btn {
@@ -202,13 +200,16 @@ curl_close($ch);
         font-weight: normal;
         margin-bottom: 1rem;
     }
+    .td-3 p{
+        color:red;
+    }
 
-    .btn-soft-delete {
+    .activate-user {
         padding: 6px;
         border: none
     }
 
-    .btn-soft-delete img {
+    .activate-user img {
         width: 25px;
         border: none
     }
