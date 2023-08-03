@@ -49,6 +49,7 @@ if (isset($_POST['soft_delete'])) {
     <div class="page-trainee-dashboard">
         <?php get_template_part('sidenav-admin'); ?>
     </div>
+    <div class="pm-div-1">
         <div class="pm-div-2">
             <div class="pm-div-3">
                 <a href="http://localhost/easy-manage/admin-trainers-table/" class="pm-floating-btn">
@@ -113,7 +114,7 @@ if (isset($_POST['soft_delete'])) {
                                         </button>
                                         <a href="http://localhost/easy-manage/admin-update-form/?id=<?php echo $user['ID']; ?>"
                                             style="padding:6px" data-bs-toggle="tooltip" data-bs-placement="top"
-                                            title="Edit Project Manager" class="edit-btn" >
+                                            title="Edit Project Manager" class="edit-btn">
                                             <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png"
                                                 alt="edit button">
                                         </a>
@@ -143,6 +144,12 @@ if (isset($_POST['soft_delete'])) {
     .page-trainee-dashboard {
         margin-top: -1.99rem;
         width: 20vw;
+    }
+
+    .pm-div-1 {
+        padding: 1rem;
+        width: 80vw;
+        margin-left: 0rem
     }
 
     .pm-div-2 {
