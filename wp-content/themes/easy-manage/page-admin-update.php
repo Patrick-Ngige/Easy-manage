@@ -85,66 +85,56 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <div class="main-div">
 
-    <div class="page-admin-dashboard" >
+    <div class="page-admin-dashboard">
         <?php get_template_part('sidenav-admin'); ?>
     </div>
-        <div class="container">
-                    <div class="card" >
-                                    <div class="card-body p-4 p-lg-5 text-black">
+    <div class="container">
+        <div class="card">
+            <div class="div-7 card-body ">
 
-                                        <form action="" method="POST" style="font-size: 16px">
+                <form action="" method="POST">
 
-                                            <h2 class="fw-bold d-flex align-items-end d-flex justify-content-center align-items-center"
-                                                style="color: #315B87;margin-top:-2rem">
-                                                Update pm
-                                            </h2>
+                    <h2 class="fw-bold d-flex align-items-end d-flex justify-content-center align-items-center">
+                        Update pm
+                    </h2>
 
-                                            <?php if (isset($_GET['success']) && $_GET['success'] === 'true'): ?>
-                                                <div class="alert alert-success" role="alert">
-                                                    pm updated successfully.
-                                                </div>
-                                            <?php endif; ?>
-
-                                            <div class="form-outline mb-3">
-                                                <label class="form-label" for="form2Example27"
-                                                    style="font-weight: 600;">Name :</label>
-                                                <input type="text" id="form2Example27"
-                                                    class="form-control form-control-md"
-                                                    placeholder="Enter pm name" name="pm_name"
-                                                    value="<?php echo $pm['user_name'] ?>" />
-                                                <?php if (isset($errors) && in_array('pm name is required', $errors)) {
-                                                    echo '<p class="text-danger">pm name is required</p>';
-                                                } ?>
-                                            </div>
-
-                                            <div class="form-outline mb-3">
-                                                <label class="form-label" for="form2Example27"
-                                                    style="font-weight: 600;">Email:</label>
-                                                <input type="email" id="form2Example27"
-                                                    class="form-control form-control-md"
-                                                    placeholder="Enter pm email" name="pm_email"
-                                                    value="<?php echo $pm['user_email'] ?>" />
-                                                <?php if (isset($errors) && in_array('Email is required', $errors)) {
-                                                    echo '<p class="text-danger">Email is required</p>';
-                                                } ?>
-                                            </div>
-
-                                            <div
-                                                class="pt-1 mt-3 w-100 d-flex justify-content-center align-items-center">
-                                                <button class="btn btn-lg btn-block w-50"
-                                                    style="background-color: #315B87; color: #FAFAFA;margin-bottom:-2rem"
-                                                    type="submit" name="updatebtn">Update</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
+                    <?php if (isset($_GET['success']) && $_GET['success'] === 'true'): ?>
+                        <div class="alert alert-success" role="alert">
+                            pm updated successfully.
                         </div>
+                    <?php endif; ?>
+
+                    <div class="form-outline mb-3">
+                        <label class="form-label" for="form2Example27">Name :</label>
+                        <input type="text" id="form2Example27" class="form-control" placeholder="Enter pm name"
+                            name="pm_name" value="<?php echo $pm['user_name'] ?>" />
+                        <?php if (isset($errors) && in_array('pm name is required', $errors)) {
+                            echo '<p class="text-danger">pm name is required</p>';
+                        } ?>
                     </div>
-                </div>
+
+                    <div class="form-outline mb-3">
+                        <label class="form-label" for="form2Example27">Email:</label>
+                        <input type="email" id="form2Example27" class="form-control " placeholder="Enter pm email"
+                            name="pm_email" value="<?php echo $pm['user_email'] ?>" />
+                        <?php if (isset($errors) && in_array('Email is required', $errors)) {
+                            echo '<p class="text-danger">Email is required</p>';
+                        } ?>
+                    </div>
+
+                    <div class="div-button">
+                        <button class="btn" type="submit" name="updatebtn">Update</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 
 <style>
@@ -153,8 +143,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         height: 90vh;
         display: flex;
         flex-direction: row;
-        margin-top: -2.45rem;;
-       
+        margin-top: -2.45rem;
+        ;
+
     }
 
     .page-admin-dashboard {
