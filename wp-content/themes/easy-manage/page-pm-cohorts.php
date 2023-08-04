@@ -54,8 +54,7 @@ get_header();
                 <?php echo do_shortcode('[search_bar]'); ?>
             </div>
 
-            <table class="table align-middle mb-0 bg-white table-hover"
-                style="width:90%;margin-left:5%;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;margin-top:3%;">
+            <table class="table align-middle table-hover">
                 <thead class="bg-light">
                     <tr style="font-size:large;color:#315B87;padding-left:2rem">
                         <th>Cohort</th>
