@@ -41,15 +41,15 @@ get_header();
 
 <div class="pm-cohorts-main-div">
 
-    <div class="page-trainee-dashboard" style="margin-top:-1.99rem;width:20vw">
+    <div class="page-pm-dashboard">
         <?php get_template_part('sidenav-pm'); ?>
     </div>
 
 
-    <div style="padding:1rem;width:80vw;margin-left:0rem">
-        <div style="padding:1rem;">
+    <div class="pm-cohorts-div-1">
+        <div class="pm-cohorts-div-2">
             <!-- Add buttons and search bar here -->
-            <div style="display: flex; align-items: center; justify-content:end; margin-bottom: 1rem;">
+            <div class="pm-cohorts-div-3">
                 
                 <?php echo do_shortcode('[search_bar]'); ?>
             </div>
@@ -125,7 +125,7 @@ get_header();
         margin-top: -2.45rem;
     }
 
-    .page-admin-dashboard {
+    .page-pm-dashboard {
         margin-top: -1.99rem;
         width: 20vw;
     }
