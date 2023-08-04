@@ -77,14 +77,14 @@ get_header();
                                 <td>
                                     <div class="tr-div-1">
                                         <div class="tr-div-2">
-                                            <p class="mb-1">
+                                            <p>
                                                 <?php echo $Cohort['cohort'] ?>
                                             </p>
                                         </div>
                                     </div>
                                 </td>
                                 <td>
-                                    <p class="fw-normal mb-1">
+                                    <p>
                                         <?php echo $Cohort['trainer'] ?>
                                     </p>
                                 </td>
