@@ -196,7 +196,7 @@ get_header();
         color: red;
     }
 
-    .activate-user {
+    .more {
         padding: 6px;
         border: none
     }
