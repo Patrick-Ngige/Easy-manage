@@ -75,7 +75,7 @@ get_header();
 
                             <tr>
                                 <td>
-                                    <div class="d-flex align-items-center">
+                                    <div class="tr-div-1">
                                         <div class="ms-3">
                                             <p class="mb-1">
                                                 <?php echo $Cohort['cohort'] ?>
