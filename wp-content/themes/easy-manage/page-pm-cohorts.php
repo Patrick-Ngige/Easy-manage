@@ -39,7 +39,7 @@ get_header();
 
 ?>
 
-<div style="width:100vw;height:90vh;display:flex;flex-direction:row;margin-top:-2.45rem">
+<div class="pm-cohorts-main-div">
 
     <div class="page-trainee-dashboard" style="margin-top:-1.99rem;width:20vw">
         <?php get_template_part('sidenav-pm'); ?>
@@ -115,6 +115,103 @@ get_header();
         </div>
     </div>
 </div>
+
+<style>
+    .pm-cohorts-main-div {
+        width: 100vw;
+        height: 90vh;
+        display: flex;
+        flex-direction: row;
+        margin-top: -2.45rem;
+    }
+
+    .page-admin-dashboard {
+        margin-top: -1.99rem;
+        width: 20vw;
+    }
+
+    .pm-cohorts-div-1 {
+        padding: 1rem;
+        width: 80vw;
+        margin-left: 0rem
+    }
+
+    .pm-cohorts-div-2 {
+        margin-top: 1rem;
+        padding: 1rem;
+    }
+
+    .pm-cohorts-div-3 {
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        margin-bottom: 1rem;
+    }
+
+    .pm-cohorts-floating-btn {
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        border-radius: 10px;
+        background-color: #FAFAFA;
+        border: none;
+        color: #315B87;
+        font-size: 1rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .table {
+        width: 90%;
+        margin-left: 5%;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        margin-top: 3%;
+        background-color: #FAFAFA;
+        margin-bottom: 0;
+    }
+
+    .table-tr {
+        font-size: large;
+        color: #315B87;
+        padding-left: 2rem
+    }
+
+    .td-div-1 {
+        display: flex;
+        align-items: center;
+    }
+
+    .td-div-2 {
+        margin-left: 1rem;
+    }
+
+    .td-div-2 p {
+        margin-bottom: 1rem;
+    }
+
+    .td-2,
+    .td-3 {
+        font-weight: normal;
+        margin-bottom: 1rem;
+    }
+
+    .td-3 p {
+        color: red;
+    }
+
+    .activate-user {
+        padding: 6px;
+        border: none
+    }
+
+    .activate-user img {
+        width: 25px;
+        border: none
+    }
+
+    .edit-btn img {
+        width: 25px;
+    }
+</style>
+
 
 <?php get_footer(); ?>
 <script>

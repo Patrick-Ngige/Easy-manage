@@ -169,10 +169,16 @@ if ($login_attempts >= count($wait_times)) {
                         <?php endif; ?>
                     </div>
                 <?php endif; ?>
-                <div>
-                    <button type="submit" name="login">Login</button>
+                <div >
+                    <button id="login-btn" type="submit" name="login">Login</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
+
+<style>
+    #login-btn{
+    cursor: pointer;
+}
+</style>
