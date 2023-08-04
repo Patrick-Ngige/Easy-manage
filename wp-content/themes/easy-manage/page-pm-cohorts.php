@@ -56,7 +56,7 @@ get_header();
 
             <table class="table align-middle table-hover">
                 <thead class="bg-light">
-                    <tr style="font-size:large;color:#315B87;padding-left:2rem">
+                    <tr class="table-tr">
                         <th>Cohort</th>
                         <th>Trainer</th>
                         <th>Ending date</th>
