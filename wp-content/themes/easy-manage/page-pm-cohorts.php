@@ -201,7 +201,7 @@ get_header();
         border: none
     }
 
-    .activate-user img {
+    .more img {
         width: 25px;
         border: none
     }
