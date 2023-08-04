@@ -205,10 +205,6 @@ get_header();
         width: 25px;
         border: none
     }
-
-    .edit-btn img {
-        width: 25px;
-    }
 </style>
 
 
