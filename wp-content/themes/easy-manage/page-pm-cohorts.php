@@ -2,7 +2,7 @@
 get_header();
 
 /**
- * Template Name: Admin PM List
+ * Template Name: PM Cohorts
  */
 
  $token = $_COOKIE['token'];
