@@ -76,7 +76,7 @@ get_header();
                             <tr>
                                 <td>
                                     <div class="tr-div-1">
-                                        <div class="ms-3">
+                                        <div class="tr-div-2">
                                             <p class="mb-1">
                                                 <?php echo $Cohort['cohort'] ?>
                                             </p>
