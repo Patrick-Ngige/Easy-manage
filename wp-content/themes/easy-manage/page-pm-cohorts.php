@@ -83,13 +83,13 @@ get_header();
                                         </div>
                                     </div>
                                 </td>
-                                <td>
+                                <td class="td-2">
                                     <p>
                                         <?php echo $Cohort['trainer'] ?>
                                     </p>
                                 </td>
-                                <td>
-                                    <p class="fw-normal mb-1">
+                                <td class="td-3">
+                                    <p>
                                         <?php echo $Cohort['ending_date'] ?>
                                     </p>
                                 </td>
