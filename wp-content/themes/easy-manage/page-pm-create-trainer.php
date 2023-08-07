@@ -152,14 +152,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     .page-pm-sidenav{
         margin-top: -1.99rem; width: 20vw;
     }
-    .card{
-        border-radius: 1rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-
-    }
-
    .card-body{
     padding: 2rem;color:black;
-    background-color: aqua;
+    border-radius: 1rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 
    }
    form{
