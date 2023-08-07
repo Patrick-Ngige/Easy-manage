@@ -96,7 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <div class="div-5">
                                 <div class="div-6">
                                     <div class="card-body">
-                                        <form action="" method="POST" style="font-size:16px">
+                                        <form action="" method="POST">
                                             <h2>
                                                 style="color:#315B87;margin-top:-2rem">
                                                 Create Cohort</h2>
@@ -225,6 +225,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     .card-body{
         padding:1rem; color:black;
+    }
+    form {
+        font-size:16px
     }
     form h2{
         font-weight:bold ;display:flex; flex-direction: row; justify-content: center;
