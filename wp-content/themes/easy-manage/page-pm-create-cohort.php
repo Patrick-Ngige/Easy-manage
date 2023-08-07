@@ -81,13 +81,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 ?>
 
-<div style="width:100vw;height:90vh;display:flex;flex-direction:row;margin-top:-2.45rem">
+<div class="main-container">
 
-    <div class="page-trainee-dashboard" style="margin-top:-1.99rem;width:20vw">
+    <div class="page-pm-sidenav">
         <?php get_template_part('sidenav-pm'); ?>
     </div>
 
-    <div style="height:75vh;margin-left:15rem ">
+    <div class="div-1">
         <div class="container py-4 ">
             <div class="row d-flex justify-content-center align-items-center ">
                 <div class="col col-xl-10" style="width:40vw;">
@@ -196,4 +196,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </div>
 </div>
+
+<style>
+    .main-container{
+        width:100vw;height:90vh;display:flex;flex-direction:row;margin-top:-2.45rem
+    }
+    .page-pm-sidenav{
+        margin-top:-1.99rem;width:20vw
+    }
+    .div-1{
+        height:75vh;margin-left:15rem 
+    }
+</style>
 <?php get_footer(); ?>
