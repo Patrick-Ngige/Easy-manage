@@ -157,11 +157,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         background-color: orange;
 
     }
-    .div-4, .div-5{
-     display:flex; justify-content:center; align-items:center; width: 40vw;
-     background-color: gray;
 
-    }
    .div-6{
      display:flex; justify-content:center; align-items:center;  margin-left:1rem;height: 60vh; width: 40vw;
      background-color: brown;
