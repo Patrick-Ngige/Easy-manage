@@ -86,99 +86,78 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="page-pm-sidenav">
         <?php get_template_part('sidenav-pm'); ?>
     </div>
-
-    <div class="div-1">
-        <div class="container">
-            <div class="div-2">
-                <div class="div-3">
-                    <div class="card">
-                                    <div class="card-body">
-                                        <form action="" method="POST">
-                                            <h2>Create Cohort</h2>
-                                            <?php if (isset($_GET['success']) && $_GET['success'] === 'true'): ?>
-                                                <div class="alert alert-success" role="alert">
-                                                    Cohort created successfully.
-                                                </div>
-                                            <?php endif; ?>
-
-                                            <div class="form-outline mb-1">
-                                                <label class="form-label" for="form2Example27">Cohort:</label>
-                                                <input type="text" id="form2Example27"
-                                                    class="form-control form-control-md" placeholder="Enter Cohort name"
-                                                    name="cohort"
-                                                    value="<?php echo isset($_GET['cohort']) ? $_GET['cohort'] : ''; ?>" />
-                                                <?php if (isset($errors) && in_array('Cohort name is required', $errors)) {
-                                                    echo '<p class="text-danger">Cohort name is required</p>';
-                                                } ?>
-                                            </div>
-
-                                            <div class="form-outline mb-1">
-                                                <label class="form-label" for="form2Example27">Cohort info:</label>
-                                                <input type="text" id="form2Example27"
-                                                    class="form-control form-control-md"
-                                                    placeholder="Enter Cohort information" name="cohort_info"
-                                                    value="<?php echo isset($_GET['cohort_info']) ? $_GET['cohort_info'] : ''; ?>" />
-                                                <?php if (isset($errors) && in_array('cohort information is required', $errors)) {
-                                                    echo '<p class="text-danger">Cohort information is required</p>';
-                                                } ?>
-                                            </div>
-
-                                            <div>
-                                                <label class="form-label" for="form2Example27">Trainer:</label>
-                                                <select class="form-select" aria-label="Default select example"
-                                                    name="trainer"
-                                                    value="<?php echo isset($_GET['trainer']) ? $_GET['trainer'] : ''; ?>">
-                                                    <option value="">Select a trainer</option>
-                                                    <?php
-                                                    $trainers = get_users(array('role' => 'trainer'));
-                                                    foreach ($trainers as $trainer) {
-                                                        $trainer_name = $trainer->display_name;
-                                                        $selected = isset($_GET['trainer']) && $_GET['trainer'] === $trainer_name ? 'selected' : '';
-                                                        echo '<option value="' . $trainer_name . '" ' . $selected . '>' . $trainer_name . '</option>';
-                                                    }
-                                                    ?>
-                                                </select>
-                                            </div>
-
-                                            <div class="form-outline mb-1">
-                                                <label class="form-label" for="form2Example27"
-                                                    style="font-weight:600;">Starting Date:</label>
-                                                <input type="date" id="form2Example27"
-                                                    class="form-control form-control-md" name="starting_date" required
-                                                    min="<?php echo date('Y-m-d'); ?>"
-                                                    value="<?php echo isset($_GET['starting_date']) ? $_GET['starting_date'] : ''; ?>" />
-                                                <?php if (isset($errors) && in_array('starting_date is required', $errors)) {
-                                                    echo '<p class="text-danger">Starting date is required</p>';
-                                                } ?>
-                                            </div>
-
-                                            <div class="form-outline mb-1">
-                                                <label class="form-label" for="form2Example27"
-                                                    style="font-weight:600;">Ending Date:</label>
-                                                <input type="date" id="form2Example27"
-                                                    class="form-control form-control-md" name="ending_date" required
-                                                    min="<?php echo date('Y-m-d'); ?>"
-                                                    value="<?php echo isset($_GET['ending_date']) ? $_GET['ending_date'] : ''; ?>" />
-                                                <?php if (isset($errors) && in_array('ending_date is required', $errors)) {
-                                                    echo '<p class="text-danger">Ending date is required</p>';
-                                                } ?>
-                                            </div>
-
-                                            <div class="button">
-                                                <button class="create-btn " type="submit"
-                                                    name="createbtn">Create</button>
-                                            </div>
-                                        </form>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    <div class="card">
+        <form action="" method="POST">
+            <h2>Create Cohort</h2>
+            <?php if (isset($_GET['success']) && $_GET['success'] === 'true'): ?>
+                <div class="alert alert-success" role="alert">
+                    Cohort created successfully.
                 </div>
+            <?php endif; ?>
+
+            <div class="form-outline mb-1">
+                <label class="form-label" for="form2Example27">Cohort:</label>
+                <input type="text" id="form2Example27" class="form-control form-control-md"
+                    placeholder="Enter Cohort name" name="cohort"
+                    value="<?php echo isset($_GET['cohort']) ? $_GET['cohort'] : ''; ?>" />
+                <?php if (isset($errors) && in_array('Cohort name is required', $errors)) {
+                    echo '<p class="text-danger">Cohort name is required</p>';
+                } ?>
             </div>
-        </div>
+
+            <div class="form-outline mb-1">
+                <label class="form-label" for="form2Example27">Cohort info:</label>
+                <input type="text" id="form2Example27" class="form-control form-control-md"
+                    placeholder="Enter Cohort information" name="cohort_info"
+                    value="<?php echo isset($_GET['cohort_info']) ? $_GET['cohort_info'] : ''; ?>" />
+                <?php if (isset($errors) && in_array('cohort information is required', $errors)) {
+                    echo '<p class="text-danger">Cohort information is required</p>';
+                } ?>
+            </div>
+
+            <div>
+                <label class="form-label" for="form2Example27">Trainer:</label>
+                <select class="form-select" aria-label="Default select example" name="trainer"
+                    value="<?php echo isset($_GET['trainer']) ? $_GET['trainer'] : ''; ?>">
+                    <option value="">Select a trainer</option>
+                    <?php
+                    $trainers = get_users(array('role' => 'trainer'));
+                    foreach ($trainers as $trainer) {
+                        $trainer_name = $trainer->display_name;
+                        $selected = isset($_GET['trainer']) && $_GET['trainer'] === $trainer_name ? 'selected' : '';
+                        echo '<option value="' . $trainer_name . '" ' . $selected . '>' . $trainer_name . '</option>';
+                    }
+                    ?>
+                </select>
+            </div>
+
+            <div class="form-outline mb-1">
+                <label class="form-label" for="form2Example27" style="font-weight:600;">Starting Date:</label>
+                <input type="date" id="form2Example27" class="form-control form-control-md" name="starting_date"
+                    required min="<?php echo date('Y-m-d'); ?>"
+                    value="<?php echo isset($_GET['starting_date']) ? $_GET['starting_date'] : ''; ?>" />
+                <?php if (isset($errors) && in_array('starting_date is required', $errors)) {
+                    echo '<p class="text-danger">Starting date is required</p>';
+                } ?>
+            </div>
+
+            <div class="form-outline mb-1">
+                <label class="form-label" for="form2Example27" style="font-weight:600;">Ending Date:</label>
+                <input type="date" id="form2Example27" class="form-control form-control-md" name="ending_date" required
+                    min="<?php echo date('Y-m-d'); ?>"
+                    value="<?php echo isset($_GET['ending_date']) ? $_GET['ending_date'] : ''; ?>" />
+                <?php if (isset($errors) && in_array('ending_date is required', $errors)) {
+                    echo '<p class="text-danger">Ending date is required</p>';
+                } ?>
+            </div>
+
+            <div class="button">
+                <button class="create-btn " type="submit" name="createbtn">Create</button>
+            </div>
+        </form>
+
     </div>
+
 </div>
 
 <style>
@@ -195,13 +174,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         width: 20vw
     }
 
-    .card-body {
-        padding: 1rem;
-        color: black;
-        width: 40vw;
+    .card {
+        height: 80vh;
+        margin-top: 2rem;
         margin-left: auto;
         margin-right: auto;
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        padding: 2rem;
+        color: black;
+        width: 40vw;
     }
 
     form {
