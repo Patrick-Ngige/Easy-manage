@@ -154,27 +154,42 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     .div-1{
         height: 80vh; margin-left: 15rem;
+        background-color: red;
     }
     .container{
-        margin-top:5rem
+        margin-top:5rem;
+        background-color: green;
+
     }
     .div-2{
         display:flex; justify-content:center; align-items:center;
+        background-color: blue;
+
     }
     .div-3{
-        width: 40vw
+        width: 40vw;
+        background-color: yellow;
+
     }
     .card{
         border-radius: 1rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        background-color: orange;
+
     }
     .div-4, .div-5{
      display:flex; justify-content:center; align-items:center; width: 40vw;
+     background-color: gray;
+
     }
    .div-6{
      display:flex; justify-content:center; align-items:center;  margin-left:1rem;height: 60vh; width: 40vw;
+     background-color: brown;
+
    }
    .card-body{
     padding: 2rem;color:black;
+    background-color: aqua;
+
    }
    form{
     font-size: 16px
