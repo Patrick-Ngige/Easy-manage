@@ -97,9 +97,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <div class="div-6">
                                     <div class="card-body">
                                         <form action="" method="POST">
-                                            <h2>
-                                                style="color:#315B87;margin-top:-2rem">
-                                                Create Cohort</h2>
+                                            <h2>Create Cohort</h2>
 
                                             <?php if (isset($_GET['success']) && $_GET['success'] === 'true'): ?>
                                                 <div class="alert alert-success" role="alert">
@@ -221,7 +219,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         display:flex; flex-direction: row; justify-content: center;width: 40vw;
     }
     .div-6{
-        display:flex; flex-direction: row; justify-content: center; margin-left: 2vw;height:fit-content; width:40vw;
+        display:flex; flex-direction: row; justify-content: center; margin-left: 2vw; height:80vh; width:40vw;
     }
     .card-body{
         padding:1rem; color:black;
@@ -230,7 +228,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         font-size:16px
     }
     form h2{
-        font-weight:bold ;display:flex; flex-direction: row; justify-content: center;
+        font-weight:bold ;display:flex; flex-direction: row; justify-content: center;color:#315B87;
     }
 </style>
 <?php get_footer(); ?>
