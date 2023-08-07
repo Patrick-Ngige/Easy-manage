@@ -98,7 +98,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     <div class="card-body">
                                         <form action="" method="POST">
                                             <h2>Create Cohort</h2>
-
                                             <?php if (isset($_GET['success']) && $_GET['success'] === 'true'): ?>
                                                 <div class="alert alert-success" role="alert">
                                                     Cohort created successfully.
@@ -107,7 +106,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                                             <div class="form-outline mb-1">
                                                 <label class="form-label" for="form2Example27"
-                                                    style="font-weight:600;">Cohort:</label>
+                                                    >Cohort:</label>
                                                 <input type="text" id="form2Example27"
                                                     class="form-control form-control-md" placeholder="Enter Cohort name"
                                                     name="cohort"
@@ -119,7 +118,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                                             <div class="form-outline mb-1">
                                                 <label class="form-label" for="form2Example27"
-                                                    style="font-weight:600;">Cohort info:</label>
+                                                    >Cohort info:</label>
                                                 <input type="text" id="form2Example27"
                                                     class="form-control form-control-md"
                                                     placeholder="Enter Cohort information" name="cohort_info"
@@ -131,9 +130,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                                             <div>
                                                 <label class="form-label" for="form2Example27"
-                                                    style="font-weight:600;">Trainer</label>
+                                                    >Trainer:</label>
                                                 <select class="form-select" aria-label="Default select example"
-                                                    name="trainer" style="font-weight:600;"
+                                                    name="trainer" 
                                                     value="<?php echo isset($_GET['trainer']) ? $_GET['trainer'] : ''; ?>">
                                                     <option value="">Select a trainer</option>
                                                     <?php
@@ -229,6 +228,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     form h2{
         font-weight:bold ;display:flex; flex-direction: row; justify-content: center;color:#315B87;
+    }
+    form label, select {
+        font-weight:600;
     }
 </style>
 <?php get_footer(); ?>
