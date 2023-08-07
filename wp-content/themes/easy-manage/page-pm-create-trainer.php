@@ -152,10 +152,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     .page-pm-sidenav{
         margin-top: -1.99rem; width: 20vw;
     }
-    .div-1{
-        height: 80vh; margin-left: 15rem;
-        background-color: red;
-    }
+
     .container{
         margin-top:5rem;
         background-color: green;
