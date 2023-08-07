@@ -146,11 +146,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     .card {
+        width:40vw;
+        height:60vh;
         padding: 2rem;
         color: black;
         border-radius: 1rem;
         margin-left:auto;
         margin-right:auto;
+
+        margin-top: 2rem;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     }
 
