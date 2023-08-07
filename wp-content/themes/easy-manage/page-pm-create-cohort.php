@@ -94,13 +94,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <div class="card">
                         <div class="div-4">
                             <div class="div-5">
-                                <div class="div-6"
-                                    style="height:fit-content; width:40vw; ">
-                                    <div class="card-body p-2 p-lg-5 text-black">
-
+                                <div class="div-6">
+                                    <div class="card-body">
                                         <form action="" method="POST" style="font-size:16px">
-
-                                            <h2 class="fw-bold d-flex align-items-end d-flex justify-content-center align-items-center"
+                                            <h2>
                                                 style="color:#315B87;margin-top:-2rem">
                                                 Create Cohort</h2>
 
@@ -224,7 +221,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         display:flex; flex-direction: row; justify-content: center;width: 40vw;
     }
     .div-6{
-        display:flex; flex-direction: row; justify-content: center; margin-left: 2vw;
+        display:flex; flex-direction: row; justify-content: center; margin-left: 2vw;height:fit-content; width:40vw;
+    }
+    .card-body{
+        padding:1rem; color:black;
+    }
+    form h2{
+        font-weight:bold ;display:flex; flex-direction: row; justify-content: center;
     }
 </style>
 <?php get_footer(); ?>
