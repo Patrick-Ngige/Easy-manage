@@ -172,8 +172,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                                             <div
                                                 class="button">
-                                                <button class="btn btn-lg btn-block w-50 "
-                                                    style="background-color:#315B87 ;color:#FAFAFA;margin-bottom:-2rem" type="submit"
+                                                <button class="create-btn "
+                                                     type="submit"
                                                     name="createbtn">Create</button>
                                             </div>
                                         </form>
@@ -233,7 +233,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         font-weight:600;
     }
     .button{
-        padding-top:1rem; margin-top: 1rem; display:flex; justify-content: center;
+        display:flex; justify-content: center;
+    }
+    .create-btn{
+        background-color:#315B87 ;color:#FAFAFA;width:10vw; padding:.5rem;border: none;border-radius: 5px;margin-top: 1rem; 
     }
 </style>
 <?php get_footer(); ?>
