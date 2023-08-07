@@ -40,10 +40,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         curl_setopt($curl, CURLOPT_POST, true);
         curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($created_trainer));
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($curl, CURLOPT_HTTPHEADER, array(
-            'Content-Type: application/json',
-            'Authorization: Bearer ' . $token
-        )
+        curl_setopt(
+            $curl,
+            CURLOPT_HTTPHEADER,
+            array(
+                'Content-Type: application/json',
+                'Authorization: Bearer ' . $token
+            )
         );
 
         $response = curl_exec($curl);
@@ -76,67 +79,55 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="page-pm-sidenav">
         <?php get_template_part('sidenav-pm'); ?>
     </div>
- 
-                    <div class="card">
-  
-                                        <form action="" method="POST">
-                                            <h2>
-                                                Create Trainer
-                                            </h2>
-                                            <?php if (isset($_GET['success']) && $_GET['success'] === 'true'): ?>
-                                                <div class="alert alert-success" role="alert">
-                                                    Trainer created successfully.
-                                                </div>
-                                            <?php endif; ?>
 
-                                            <div class="form-outline">
-                                                <label class="form-label" for="form2Example27">Trainer:</label>
-                                                <input type="text" id="form2Example27"
-                                                    class="form-control form-control-md"
-                                                    placeholder="Enter trainer name" name="trainer_name"
-                                                    value="<?php echo isset($_POST['trainer_name']) ? $_POST['trainer_name'] : ''; ?>" />
-                                                <?php if (isset($errors) && in_array('Trainer name is required', $errors)) {
-                                                    echo '<p class="text-danger">Trainer name is required</p>';
-                                                } ?>
-                                            </div>
+    <div class="card">
 
-                                            <div class="form-outline">
-                                                <label class="form-label" for="form2Example27">Email:</label>
-                                                <input type="email" id="form2Example27"
-                                                    class="form-control form-control-md"
-                                                    placeholder="Enter trainer email" name="trainer_email"
-                                                    value="<?php echo isset($_POST['trainer_email']) ? $_POST['trainer_email'] : ''; ?>" />
-                                                <?php if (isset($errors) && in_array('Email is required', $errors)) {
-                                                    echo '<p class="text-danger">Email is required</p>';
-                                                } ?>
-                                            </div>
-
-                                            <div class="form-outline">
-                                                <label class="form-label" for="form2Example27">Password:</label>
-                                                <input type="password" id="form2Example27"
-                                                    class="form-control form-control-md" placeholder="********"
-                                                    name="trainer_password"
-                                                    value="<?php echo isset($_POST['trainer_password']) ? $_POST['trainer_password'] : ''; ?>" />
-                                                <?php if (isset($errors) && in_array('Password is required', $errors)) {
-                                                    echo '<p class="text-danger">Password is required</p>';
-                                                } ?>
-                                            </div>
-
-                                            <div
-                                                class="pt-1 mt-3 w-100 d-flex justify-content-center align-items-center">
-                                                <button class="btn btn-lg btn-block w-50"
-                                                    style="background-color: #315B87; color: #FAFAFA;margin-bottom:-2rem"
-                                                    type="submit" name="createbtn">Create</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        <form action="" method="POST">
+            <h2>
+                Create Trainer
+            </h2>
+            <?php if (isset($_GET['success']) && $_GET['success'] === 'true'): ?>
+                <div class="alert alert-success" role="alert">
+                    Trainer created successfully.
                 </div>
+            <?php endif; ?>
+
+            <div class="form-outline">
+                <label class="form-label" for="form2Example27">Trainer:</label>
+                <input type="text" id="form2Example27" class="form-control form-control-md"
+                    placeholder="Enter trainer name" name="trainer_name"
+                    value="<?php echo isset($_POST['trainer_name']) ? $_POST['trainer_name'] : ''; ?>" />
+                <?php if (isset($errors) && in_array('Trainer name is required', $errors)) {
+                    echo '<p class="text-danger">Trainer name is required</p>';
+                } ?>
             </div>
-        </div>
+
+            <div class="form-outline">
+                <label class="form-label" for="form2Example27">Email:</label>
+                <input type="email" id="form2Example27" class="form-control form-control-md"
+                    placeholder="Enter trainer email" name="trainer_email"
+                    value="<?php echo isset($_POST['trainer_email']) ? $_POST['trainer_email'] : ''; ?>" />
+                <?php if (isset($errors) && in_array('Email is required', $errors)) {
+                    echo '<p class="text-danger">Email is required</p>';
+                } ?>
+            </div>
+
+            <div class="form-outline">
+                <label class="form-label" for="form2Example27">Password:</label>
+                <input type="password" id="form2Example27" class="form-control form-control-md" placeholder="********"
+                    name="trainer_password"
+                    value="<?php echo isset($_POST['trainer_password']) ? $_POST['trainer_password'] : ''; ?>" />
+                <?php if (isset($errors) && in_array('Password is required', $errors)) {
+                    echo '<p class="text-danger">Password is required</p>';
+                } ?>
+            </div>
+
+            <div class="pt-1 mt-3 w-100 d-flex justify-content-center align-items-center">
+                <button class="btn btn-lg btn-block w-50"
+                    style="background-color: #315B87; color: #FAFAFA;margin-bottom:-2rem" type="submit"
+                    name="createbtn">Create</button>
+            </div>
+        </form>
     </div>
 </div>
 
