@@ -92,9 +92,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="div-2">
                 <div class="div-3">
                     <div class="card">
-                        <div class="div-4">
-                            <div class="div-5">
-                                <div class="div-6">
                                     <div class="card-body">
                                         <form action="" method="POST">
                                             <h2>Create Cohort</h2>
