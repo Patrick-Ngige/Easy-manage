@@ -70,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-<div style="width: 100vw; height: 90vh; display: flex; flex-direction: row; margin-top: -2.45rem;">
+<div class="main-div">
 
     <div class="page-trainee-dashboard" style="margin-top: -1.99rem; width: 20vw;">
         <?php get_template_part('sidenav-pm'); ?>
@@ -154,5 +154,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </div>
 </div>
+
+<style>
+    .main-div{
+        width: 100vw; height: 90vh; display: flex; flex-direction: row; margin-top: -2.45rem;
+    }
+</style>
 
 <?php get_footer(); ?>
