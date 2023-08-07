@@ -5,7 +5,7 @@
  * 
  */
 
- $token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2Vhc3ktbWFuYWdlIiwiaWF0IjoxNjg3MzQxODU1LCJuYmYiOjE2ODczNDE4NTUsImV4cCI6MTY4Nzk0NjY1NSwiZGF0YSI6eyJ1c2VyIjp7ImlkIjoiMiJ9fX0.4hkelWCIK1ZT2u4mtMWRuWnHAi9MpFY3_VeczfCJQ6U';
+$token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2Vhc3ktbWFuYWdlIiwiaWF0IjoxNjg3MzQxODU1LCJuYmYiOjE2ODczNDE4NTUsImV4cCI6MTY4Nzk0NjY1NSwiZGF0YSI6eyJ1c2VyIjp7ImlkIjoiMiJ9fX0.4hkelWCIK1ZT2u4mtMWRuWnHAi9MpFY3_VeczfCJQ6U';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $errors = array();
@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($_POST['trainer_password'])) {
         $errors[] = 'Password is required';
     }
- 
+
     if (isset($_POST['createbtn'])) {
         $trainer_name = $_POST['trainer_name'];
         $trainer_email = $_POST['trainer_email'];
@@ -43,7 +43,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         curl_setopt($curl, CURLOPT_HTTPHEADER, array(
             'Content-Type: application/json',
             'Authorization: Bearer ' . $token
-        ));
+        )
+        );
 
         $response = curl_exec($curl);
         $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
@@ -60,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     window.location.href = '<?php echo esc_url("http://localhost/easy-manage/pm-trainers-list/"); ?>';
                 </script>
                 <?php
-            }else{
+            } else {
                 echo "failed to create trainer";
             }
         }
@@ -72,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <div class="main-div">
 
-    <div class="page-pm-sidenav" >
+    <div class="page-pm-sidenav">
         <?php get_template_part('sidenav-pm'); ?>
     </div>
     <div class="div-1">
@@ -119,8 +120,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                             <div class="form-outline">
                                                 <label class="form-label" for="form2Example27">Password:</label>
                                                 <input type="password" id="form2Example27"
-                                                    class="form-control form-control-md"
-                                                    placeholder="********" name="trainer_password"
+                                                    class="form-control form-control-md" placeholder="********"
+                                                    name="trainer_password"
                                                     value="<?php echo isset($_POST['trainer_password']) ? $_POST['trainer_password'] : ''; ?>" />
                                                 <?php if (isset($errors) && in_array('Password is required', $errors)) {
                                                     echo '<p class="text-danger">Password is required</p>';
@@ -130,8 +131,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                             <div
                                                 class="pt-1 mt-3 w-100 d-flex justify-content-center align-items-center">
                                                 <button class="btn btn-lg btn-block w-50"
-                                                    style="background-color: #315B87; color: #FAFAFA;margin-bottom:-2rem" type="submit"
-                                                    name="createbtn">Create</button>
+                                                    style="background-color: #315B87; color: #FAFAFA;margin-bottom:-2rem"
+                                                    type="submit" name="createbtn">Create</button>
                                             </div>
                                         </form>
                                     </div>
@@ -146,29 +147,49 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </div>
 
 <style>
-    .main-div{
-        width: 100vw; height: 90vh; display: flex; flex-direction: row; margin-top: -2.45rem;
+    .main-div {
+        width: 100vw;
+        height: 90vh;
+        display: flex;
+        flex-direction: row;
+        margin-top: -2.45rem;
     }
-    .page-pm-sidenav{
-        margin-top: -1.99rem; width: 20vw;
-    }
-   .card-body{
-    padding: 2rem;color:black;
-    border-radius: 1rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 
-   }
-   form{
-    font-size: 16px
-   }
-   form h2{
-    color: #315B87;margin-top:-2rem;font-weight:bold; display:flex; align-items:end; display:flex; justify-content:center; align-items:center
-   }
-   .form-label{
-    font-weight: 600;
-   }
-   .form-outline{
-    margin-bottom: 1rem;
-   }
+    .page-pm-sidenav {
+        margin-top: -1.99rem;
+        width: 20vw;
+    }
+
+    .card-body {
+        padding: 2rem;
+        color: black;
+        border-radius: 1rem;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+    }
+
+    form {
+        font-size: 16px
+    }
+
+    form h2 {
+        color: #315B87;
+        margin-top: -2rem;
+        font-weight: bold;
+        display: flex;
+        align-items: end;
+        display: flex;
+        justify-content: center;
+        align-items: center
+    }
+
+    .form-label {
+        font-weight: 600;
+    }
+
+    .form-outline {
+        margin-bottom: 1rem;
+    }
 </style>
 
 <?php get_footer(); ?>
