@@ -153,11 +153,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         margin-top: -1.99rem; width: 20vw;
     }
 
-    .container{
-        margin-top:5rem;
-        background-color: green;
-
-    }
     .div-2{
         display:flex; justify-content:center; align-items:center;
         background-color: blue;
