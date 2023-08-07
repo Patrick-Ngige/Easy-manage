@@ -88,8 +88,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 
     <div class="div-1">
-        <div class="container py-4 ">
-            <div class="row d-flex justify-content-center align-items-center ">
+        <div class="container">
+            <div class="div-2">
                 <div class="col col-xl-10" style="width:40vw;">
                     <div class="card" style="border-radius: 1rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);">
                         <div class="row g-0 w-100 d-flex justify-content-center align-items-center w-50 "
@@ -206,6 +206,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     .div-1{
         height:75vh;margin-left:15rem 
+    }
+    .container{
+        padding-top: 2rem;
+    }
+    .div-2{
+        display:flex; flex-direction: row; justify-content: center;
     }
 </style>
 <?php get_footer(); ?>
