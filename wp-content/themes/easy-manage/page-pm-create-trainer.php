@@ -85,10 +85,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <div class="div-6">
                                     <div class="card-body">
 
-                                        <form action="" method="POST" style="font-size: 16px">
+                                        <form action="" method="POST">
 
-                                            <h2 class="fw-bold d-flex align-items-end d-flex justify-content-center align-items-center"
-                                                style="color: #315B87;margin-top:-2rem">
+                                            <h2>
                                                 Create Trainer
                                             </h2>
 
@@ -178,10 +177,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
      display:flex; justify-content:center; align-items:center; width: 40vw;
     }
    .div-6{
-     display:flex; justify-content:center; align-items:center;  margin-left:1rem;height: max-height; width: 40vw;
+     display:flex; justify-content:center; align-items:center;  margin-left:1rem;height: 60vh; width: 40vw;
    }
    .card-body{
     padding: 2rem;color:black;
+   }
+   form{
+    font-size: 16px
+   }
+   form h2{
+    color: #315B87;margin-top:-2rem;font-weight:bold; display:flex; align-items:end; display:flex; justify-content:center; align-items:center
    }
 </style>
 
