@@ -149,8 +149,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         padding: 2rem;
         color: black;
         border-radius: 1rem;
+        margin-left:auto;
+        margin-right:auto;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-
     }
 
     form {
