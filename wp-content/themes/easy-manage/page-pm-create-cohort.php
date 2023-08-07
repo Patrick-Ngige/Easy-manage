@@ -42,43 +42,43 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'starting_date' => $starting_date,
             'ending_date' => $ending_date
         );
-    
+
         $token = $_COOKIE['token'];
 
-            $curl = curl_init();
-            curl_setopt($curl, CURLOPT_URL, 'http://localhost/easy-manage/wp-json/em/v1/cohorts');
-            curl_setopt($curl, CURLOPT_POST, true);
-            curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($created_cohort));
-            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt(
-                $curl,
-                CURLOPT_HTTPHEADER,
-                array(
-                    'Content-Type: application/json',
-                    'Authorization: Bearer ' . $token
-                )
-            );
-    
-            $response = curl_exec($curl);
-            $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-    
-            curl_close($curl);
-    
-            if ($httpCode === 200) {
-                $result = json_decode($response);
-    
-                if ($result && isset($result->success)) {
-                    $_SESSION['success_message'] = 'Cohort created successfully.';
-                    ?>
-                    <script>
-                        window.location.href = '<?php echo esc_url("http://localhost/easy-manage/cohorts/"); ?>';
-                    </script>
-                    <?php
-                    exit;
-                }
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL, 'http://localhost/easy-manage/wp-json/em/v1/cohorts');
+        curl_setopt($curl, CURLOPT_POST, true);
+        curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($created_cohort));
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt(
+            $curl,
+            CURLOPT_HTTPHEADER,
+            array(
+                'Content-Type: application/json',
+                'Authorization: Bearer ' . $token
+            )
+        );
+
+        $response = curl_exec($curl);
+        $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+
+        curl_close($curl);
+
+        if ($httpCode === 200) {
+            $result = json_decode($response);
+
+            if ($result && isset($result->success)) {
+                $_SESSION['success_message'] = 'Cohort created successfully.';
+                ?>
+                <script>
+                    window.location.href = '<?php echo esc_url("http://localhost/easy-manage/cohorts/"); ?>';
+                </script>
+                <?php
+                exit;
             }
         }
     }
+}
 ?>
 
 <div class="main-container">
@@ -105,8 +105,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                             <?php endif; ?>
 
                                             <div class="form-outline mb-1">
-                                                <label class="form-label" for="form2Example27"
-                                                    >Cohort:</label>
+                                                <label class="form-label" for="form2Example27">Cohort:</label>
                                                 <input type="text" id="form2Example27"
                                                     class="form-control form-control-md" placeholder="Enter Cohort name"
                                                     name="cohort"
@@ -117,8 +116,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                             </div>
 
                                             <div class="form-outline mb-1">
-                                                <label class="form-label" for="form2Example27"
-                                                    >Cohort info:</label>
+                                                <label class="form-label" for="form2Example27">Cohort info:</label>
                                                 <input type="text" id="form2Example27"
                                                     class="form-control form-control-md"
                                                     placeholder="Enter Cohort information" name="cohort_info"
@@ -129,10 +127,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                             </div>
 
                                             <div>
-                                                <label class="form-label" for="form2Example27"
-                                                    >Trainer:</label>
+                                                <label class="form-label" for="form2Example27">Trainer:</label>
                                                 <select class="form-select" aria-label="Default select example"
-                                                    name="trainer" 
+                                                    name="trainer"
                                                     value="<?php echo isset($_GET['trainer']) ? $_GET['trainer'] : ''; ?>">
                                                     <option value="">Select a trainer</option>
                                                     <?php
@@ -170,10 +167,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                 } ?>
                                             </div>
 
-                                            <div
-                                                class="button">
-                                                <button class="create-btn "
-                                                     type="submit"
+                                            <div class="button">
+                                                <button class="create-btn " type="submit"
                                                     name="createbtn">Create</button>
                                             </div>
                                         </form>
@@ -190,53 +185,58 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </div>
 
 <style>
-    .main-container{
-        width:100vw;height:90vh;display:flex;flex-direction:row;margin-top:-2.45rem
+    .main-container {
+        width: 100vw;
+        height: 90vh;
+        display: flex;
+        flex-direction: row;
+        margin-top: -2.45rem
     }
-    .page-pm-sidenav{
-        margin-top:-1.99rem;width:20vw
+
+    .page-pm-sidenav {
+        margin-top: -1.99rem;
+        width: 20vw
     }
-    .div-1{
-        height:75vh;margin-left:15rem 
+
+    .card-body {
+        padding: 1rem;
+        color: black;
+        width: 40vw;
+        margin-left: auto;
+        margin-right: auto;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     }
-    .container{
-        padding-top: 2rem;
-    }
-    .div-2{
-        display:flex; flex-direction: row; justify-content: center;
-    }
-    .div-3{
-        width:40vw;
-    }
-    .card{
-        border-radius: 1rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    }
-    .div-4{
-        display:flex; flex-direction: row; justify-content: center;width: 40vw;
-    }
-    .div-5{
-        display:flex; flex-direction: row; justify-content: center;width: 40vw;
-    }
-    .div-6{
-        display:flex; flex-direction: row; justify-content: center; margin-left: 2vw; height:80vh; width:40vw;
-    }
-    .card-body{
-        padding:1rem; color:black;
-    }
+
     form {
-        font-size:16px
+        font-size: 16px
     }
-    form h2{
-        font-weight:bold ;display:flex; flex-direction: row; justify-content: center;color:#315B87;
+
+    form h2 {
+        font-weight: bold;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        color: #315B87;
     }
-    form label, select {
-        font-weight:600;
+
+    form label,
+    select {
+        font-weight: 600;
     }
-    .button{
-        display:flex; justify-content: center;
+
+    .button {
+        display: flex;
+        justify-content: center;
     }
-    .create-btn{
-        background-color:#315B87 ;color:#FAFAFA;width:10vw; padding:.5rem;border: none;border-radius: 5px;margin-top: 1rem; 
+
+    .create-btn {
+        background-color: #315B87;
+        color: #FAFAFA;
+        width: 10vw;
+        padding: .5rem;
+        border: none;
+        border-radius: 5px;
+        margin-top: 1rem;
     }
 </style>
 <?php get_footer(); ?>
