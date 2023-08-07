@@ -81,7 +81,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 
     <div class="card">
-
         <form action="" method="POST">
             <h2>
                 Create Trainer
@@ -123,9 +122,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
 
             <div class="button">
-                <button class="create-btn"
-                    type="submit"
-                    name="createbtn">Create</button>
+                <button class="create-btn" type="submit" name="createbtn">Create</button>
             </div>
         </form>
     </div>
@@ -146,15 +143,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     .card {
-        width:40vw;
-        height:60vh;
-        padding: 2rem;
+        width: 40vw;
+        height: 55vh;
+        padding: 0rem;
         color: black;
         border-radius: 1rem;
-        margin-left:auto;
-        margin-right:auto;
-
-        margin-top: 2rem;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 3rem;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     }
 
@@ -182,14 +178,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     .button {
-       
+
         margin-top: 1rem;
         display: flex;
         justify-content: center;
         align-items: center
     }
-    .create-btn{
-        background-color: #315B87; color: #FAFAFA;margin-bottom:-2rem;width: 10vw;border:none;border-radius:5px; padding: .5rem;font-weight: 600;
+
+    .create-btn {
+        background-color: #315B87;
+        color: #FAFAFA;
+        margin-bottom: -2rem;
+        width: 10vw;
+        border: none;
+        border-radius: 5px;
+        padding: .5rem;
+        font-weight: 600;
     }
 </style>
 
