@@ -175,8 +175,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     .form-outline {
         margin-bottom: 1rem;
     }
-    .button{
-        padding:.5rem; margin-top:1rem; display:flex; justify-content:center; align-items:center
+
+    .button {
+        padding: .5rem;
+        margin-top: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center
     }
 </style>
 
