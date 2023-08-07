@@ -76,13 +76,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="page-pm-sidenav">
         <?php get_template_part('sidenav-pm'); ?>
     </div>
-    <div class="div-1">
-        <div class="container">
-            <div class="div-2">
-                <div class="div-3">
+ 
                     <div class="card">
   
-                                    <div class="card-body">
                                         <form action="" method="POST">
                                             <h2>
                                                 Create Trainer
@@ -158,7 +154,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         width: 20vw;
     }
 
-    .card-body {
+    .card {
         padding: 2rem;
         color: black;
         border-radius: 1rem;
