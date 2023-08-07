@@ -171,7 +171,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                             </div>
 
                                             <div
-                                                class="pt-1 mt-2 w-100 d-flex justify-content-center align-items-center">
+                                                class="button">
                                                 <button class="btn btn-lg btn-block w-50 "
                                                     style="background-color:#315B87 ;color:#FAFAFA;margin-bottom:-2rem" type="submit"
                                                     name="createbtn">Create</button>
@@ -231,6 +231,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     form label, select {
         font-weight:600;
+    }
+    .button{
+        padding-top:1rem; margin-top: 1rem; display:flex; justify-content: center;
     }
 </style>
 <?php get_footer(); ?>
