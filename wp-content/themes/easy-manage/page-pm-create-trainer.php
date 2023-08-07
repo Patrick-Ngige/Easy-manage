@@ -152,12 +152,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     .page-pm-sidenav{
         margin-top: -1.99rem; width: 20vw;
     }
-
-    .div-3{
-        width: 40vw;
-        background-color: yellow;
-
-    }
     .card{
         border-radius: 1rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
         background-color: orange;
