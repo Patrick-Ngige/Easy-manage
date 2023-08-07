@@ -144,8 +144,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     .card {
         width: 40vw;
-        height: 55vh;
-        padding: 0rem;
+        height: 60vh;
+        padding: 2rem;
         color: black;
         border-radius: 1rem;
         margin-left: auto;
@@ -160,7 +160,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     form h2 {
         color: #315B87;
-        margin-top: -2rem;
         font-weight: bold;
         display: flex;
         align-items: end;
@@ -194,6 +193,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         border-radius: 5px;
         padding: .5rem;
         font-weight: 600;
+        font-size: large;
     }
 </style>
 
