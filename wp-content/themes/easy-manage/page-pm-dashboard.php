@@ -146,8 +146,11 @@ function get_recent_group_projects()
             .projects-container h2, .users-container h2{
                 font-size: 20px; margin-bottom: 1rem;color:#315B87
             }
-            .individual-projects-container{
+            .recently-assigned-container{
                 width:67vw;display:flex; flex-direction:row;gap:10px
+            }
+            .table{
+                width:32.5vw;margin-top: 20px; background-color: #FAFAFA; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; border-radius: 5px; padding: 10px;
             }
             .stat-item {
                 display: flex;
@@ -227,9 +230,8 @@ function get_recent_group_projects()
                 </div>
             </div>
         </div>
-        <div class="individual-projects-container">
-            <div class="table"
-                style="width:32.5vw;margin-top: 20px; background-color: #FAFAFA; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; border-radius: 5px; padding: 10px;">
+        <div class="recently-assigned-container">
+            <div class="table">
                 <h2 style="  font-size: 20px; margin-bottom: 10px;color:#315B87">Recently Assigned Individual Projects
                 </h2>
                 <table style="width: 100%; border-collapse: collapse;">
