@@ -119,13 +119,16 @@ function get_recent_group_projects()
 }
 ?>
 
-<div style="width:100vw;height:90vh;display:flex;flex-direction:row;margin-top:-2.45rem">
-    <div class="page-trainee-dashboard" style="margin-top:-1.99rem;width:20vw;">
+<div class="main-div">
+    <div class="page-pm-sidenav" style="margin-top:-1.99rem;width:20vw;">
         <?php get_template_part('sidenav-pm'); ?>
     </div>
     <div
         style="padding:1rem;width:70vw;margin-left:5rem;overflow-y:auto;z-index:100;height:fit-content;margin-top:1rem">
         <style>
+            .main-div{
+                width:100vw;height:90vh;display:flex;flex-direction:row;margin-top:-2.45rem;
+            }
             .stat-item {
                 display: flex;
                 justify-content: space-between;
