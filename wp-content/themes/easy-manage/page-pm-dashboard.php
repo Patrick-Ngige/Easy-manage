@@ -134,6 +134,9 @@ function get_recent_group_projects()
             .div-1{
                 padding:1rem;width:70vw;margin-left:5rem;overflow-y:auto;z-index:100;height:fit-content;margin-top:1rem
             }
+            .search-bar{
+                display:flex;justify-content:end;margin-bottom:2rem
+            }
             .stat-item {
                 display: flex;
                 justify-content: space-between;
@@ -152,7 +155,7 @@ function get_recent_group_projects()
             }
         </style>
 
-        <div style="display:flex;justify-content:end;margin-bottom:2rem">
+        <div class="search-bar">
             <?php echo do_shortcode('[search_bar]'); ?>
         </div>
         <div style=" display: flex; justify-content: space-between; align-items: flex-start;">
