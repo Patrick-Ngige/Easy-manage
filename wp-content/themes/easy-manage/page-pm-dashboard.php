@@ -123,14 +123,16 @@ function get_recent_group_projects()
     <div class="page-pm-sidenav" >
         <?php get_template_part('sidenav-pm'); ?>
     </div>
-    <div
-        style="padding:1rem;width:70vw;margin-left:5rem;overflow-y:auto;z-index:100;height:fit-content;margin-top:1rem">
+    <div class="div-1">
         <style>
             .main-div{
                 width:100vw;height:90vh;display:flex;flex-direction:row;margin-top:-2.45rem;
             }
             .page-pm-sidenav{
                 margin-top:-1.99rem;width:20vw;
+            }
+            .div-1{
+                padding:1rem;width:70vw;margin-left:5rem;overflow-y:auto;z-index:100;height:fit-content;margin-top:1rem
             }
             .stat-item {
                 display: flex;
