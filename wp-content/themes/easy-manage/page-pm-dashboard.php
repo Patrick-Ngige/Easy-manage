@@ -263,7 +263,7 @@ function get_recent_group_projects()
                 </table>
             </div>
             <div class="table">
-                <h2 style="  font-size: 20px; margin-bottom: 10px;color:#315B87">Recently Assigned Group Projects</h2>
+                <h2>Recently Assigned Group Projects</h2>
                 <table style="width: 100%; border-collapse: collapse;">
                     <thead>
                         <tr>
