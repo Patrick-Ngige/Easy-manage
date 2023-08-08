@@ -120,44 +120,90 @@ function get_recent_group_projects()
 ?>
 
 <div class="main-div">
-    <div class="page-pm-sidenav" >
+    <div class="page-pm-sidenav">
         <?php get_template_part('sidenav-pm'); ?>
     </div>
     <div class="div-1">
         <style>
-            .main-div{
-                width:100vw;height:90vh;display:flex;flex-direction:row;margin-top:-2.45rem;
+            .main-div {
+                width: 100vw;
+                height: 90vh;
+                display: flex;
+                flex-direction: row;
+                margin-top: -2.45rem;
             }
-            .page-pm-sidenav{
-                margin-top:-1.99rem;width:20vw;
+
+            .page-pm-sidenav {
+                margin-top: -1.99rem;
+                width: 20vw;
             }
-            .div-1{
-                padding:1rem;width:70vw;margin-left:5rem;overflow-y:auto;z-index:100;height:fit-content;margin-top:1rem
+
+            .div-1 {
+                padding: 1rem;
+                width: 70vw;
+                margin-left: 5rem;
+                overflow-y: auto;
+                z-index: 100;
+                height: fit-content;
+                margin-top: 1rem
             }
-            .search-bar{
-                display:flex;justify-content:end;margin-bottom:2rem
+
+            .search-bar {
+                display: flex;
+                justify-content: end;
+                margin-bottom: 2rem
             }
-            .projects-users-container{
-                display: flex; justify-content: space-between; align-items: flex-start;
+
+            .projects-users-container {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
             }
-            .projects-container, .users-container{
-                flex: 1;margin-right: 20px; padding: 10px; background-color: #FAFAFA; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; border-radius: 5px;
+
+            .projects-container,
+            .users-container {
+                flex: 1;
+                margin-right: 20px;
+                padding: 10px;
+                background-color: #FAFAFA;
+                box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                border-radius: 5px;
             }
-            .projects-container h2, .users-container h2{
-                font-size: 20px; margin-bottom: 1rem;color:#315B87
+
+            .projects-container h2,
+            .users-container h2 {
+                font-size: 20px;
+                margin-bottom: 1rem;
+                color: #315B87
             }
-            .recently-assigned-container{
-                width:67vw;display:flex; flex-direction:row;gap:10px
+
+            .recently-assigned-container {
+                width: 67vw;
+                display: flex;
+                flex-direction: row;
+                gap: 10px
             }
-            .table{
-                width:32.5vw;margin-top: 20px; background-color: #FAFAFA; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; border-radius: 5px; padding: 10px;
+
+            .table {
+                width: 32.5vw;
+                margin-top: 20px;
+                background-color: #FAFAFA;
+                box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                border-radius: 5px;
+                padding: 10px;
             }
-            .table h2{
-                font-size: 20px; margin-bottom: 10px;color:#315B87
+
+            .table h2 {
+                font-size: 20px;
+                margin-bottom: 10px;
+                color: #315B87
             }
-            #table{
-                width: 100%; border-collapse: collapse;
+
+            #table {
+                width: 100%;
+                border-collapse: collapse;
             }
+
             .stat-item {
                 display: flex;
                 justify-content: space-between;
@@ -238,7 +284,7 @@ function get_recent_group_projects()
         </div>
         <div class="recently-assigned-container">
             <div class="table">
-                <h2 >Recently Assigned Individual Projects
+                <h2>Recently Assigned Individual Projects
                 </h2>
                 <table id="table">
                     <thead>
