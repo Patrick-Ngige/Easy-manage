@@ -120,7 +120,7 @@ function get_recent_group_projects()
 ?>
 
 <div class="main-div">
-    <div class="page-pm-sidenav" style="margin-top:-1.99rem;width:20vw;">
+    <div class="page-pm-sidenav" >
         <?php get_template_part('sidenav-pm'); ?>
     </div>
     <div
@@ -128,6 +128,9 @@ function get_recent_group_projects()
         <style>
             .main-div{
                 width:100vw;height:90vh;display:flex;flex-direction:row;margin-top:-2.45rem;
+            }
+            .page-pm-sidenav{
+                margin-top:-1.99rem;width:20vw;
             }
             .stat-item {
                 display: flex;
