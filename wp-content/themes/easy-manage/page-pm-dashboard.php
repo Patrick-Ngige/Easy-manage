@@ -140,15 +140,13 @@ function get_recent_group_projects()
             .projects-users-container{
                 display: flex; justify-content: space-between; align-items: flex-start;
             }
-            .projects-container{
+            .projects-container, .users-container{
                 flex: 1;margin-right: 20px; padding: 10px; background-color: #FAFAFA; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; border-radius: 5px;
             }
             .projects-container h2{
                 font-size: 20px; margin-bottom: 1rem;color:#315B87
             }
-            .users-container{
-                flex: 1;margin-right: 10px; padding: 10px; background-color: #FAFAFA; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; border-radius: 5px;
-            }
+
             .stat-item {
                 display: flex;
                 justify-content: space-between;
