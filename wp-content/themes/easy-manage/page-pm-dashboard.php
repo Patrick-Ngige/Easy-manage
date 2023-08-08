@@ -143,6 +143,9 @@ function get_recent_group_projects()
             .projects-container{
                 flex: 1;margin-right: 20px; padding: 10px; background-color: #FAFAFA; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; border-radius: 5px;
             }
+            .projects-container h2{
+                font-size: 20px; margin-bottom: 1rem;color:#315B87
+            }
             .stat-item {
                 display: flex;
                 justify-content: space-between;
@@ -166,7 +169,7 @@ function get_recent_group_projects()
         </div>
         <div class="projects-users-container">
             <div class="projects-container">
-                <h2 style=" font-size: 20px; margin-bottom: 1rem;color:#315B87">Projects</h2>
+                <h2>Projects</h2>
                 <div class="stat-item">
                     <p>Total Individual Projects</p>
                     <p>
