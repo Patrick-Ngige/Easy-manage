@@ -146,6 +146,9 @@ function get_recent_group_projects()
             .projects-container h2{
                 font-size: 20px; margin-bottom: 1rem;color:#315B87
             }
+            .users-container{
+                flex: 1;margin-right: 10px; padding: 10px; background-color: #FAFAFA; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; border-radius: 5px;
+            }
             .stat-item {
                 display: flex;
                 justify-content: space-between;
@@ -196,8 +199,7 @@ function get_recent_group_projects()
                 </div>
             </div>
 
-            <div
-                style="flex: 1;margin-right: 10px; padding: 10px; background-color: #FAFAFA; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; border-radius: 5px;">
+            <div class="users-container">
                 <h2 style=" font-size: 20px; margin-bottom: 1rem;color:#315B87">Trainers and Trainees</h2>
                 <div class="stat-item">
                     <p>Total Trainers</p>
