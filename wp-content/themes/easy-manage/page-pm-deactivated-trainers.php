@@ -66,7 +66,7 @@ if (is_wp_error($response)) {
             </div>
             <table class="table align-middle table-hover">
                 <thead class="bg-light">
-                    <tr style="font-size:large;color:#315B87;padding-left:2rem">
+                    <tr class="table-tr">
                         <th>Username</th>
                         <th>Email</th>
                         <th>Status</th>
@@ -138,7 +138,9 @@ if (is_wp_error($response)) {
 .table{
     background-color:#FAFAFA;width:90%;margin-left:5%;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;margin-top:3%;
 }
-
+.table-tr{
+    font-size:large;color:#315B87;padding-left:2rem;
+}
 
 </style>
 
