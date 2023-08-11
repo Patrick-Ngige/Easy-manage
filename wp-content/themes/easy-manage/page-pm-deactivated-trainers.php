@@ -56,7 +56,7 @@ if (is_wp_error($response)) {
 ?>
 
 <div class="main-div">
-    <div class="page-trainee-dashboard" style="margin-top:-1.99rem;width:20vw">
+    <div class="page-deactivated-trainers" >
         <?php get_template_part('sidenav-pm'); ?>
     </div>
     <div style="padding:1rem;width:80vw;margin-left:0rem">
@@ -123,6 +123,9 @@ if (is_wp_error($response)) {
 <style>
 .main-div{
     width:100vw;height:90vh;display:flex;flex-direction:row;margin-top:-2.45rem
+}
+.page-deactivated-trainers{
+    margin-top:-1.99rem;width:20vw
 }
 
 
