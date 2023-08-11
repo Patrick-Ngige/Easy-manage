@@ -61,7 +61,7 @@ if (is_wp_error($response)) {
     </div>
     <div class="div-1">
         <div class="div-2">
-            <div style="display: flex; align-items: center; justify-content: end; margin-bottom: 1rem;">
+            <div class="search-bar">
                 <?php echo do_shortcode('[search_bar]'); ?>
             </div>
             <table class="table align-middle mb-0 bg-white table-hover"
@@ -132,6 +132,9 @@ if (is_wp_error($response)) {
 }
 .div-2{
     padding:1rem;
+}
+.search-bar{
+    display: flex; align-items: center; justify-content: end; margin-bottom: 1rem;
 }
 
 
