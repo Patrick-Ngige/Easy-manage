@@ -60,7 +60,7 @@ if (is_wp_error($response)) {
         <?php get_template_part('sidenav-pm'); ?>
     </div>
     <div class="div-1">
-        <div style="padding:1rem;">
+        <div class="div-2">
             <div style="display: flex; align-items: center; justify-content: end; margin-bottom: 1rem;">
                 <?php echo do_shortcode('[search_bar]'); ?>
             </div>
@@ -129,6 +129,9 @@ if (is_wp_error($response)) {
 }
 .div-1{
     padding:1rem;width:80vw;margin-left:0rem
+}
+.div-2{
+    padding:1rem;
 }
 
 
