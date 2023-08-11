@@ -80,7 +80,7 @@ if (is_wp_error($response)) {
                         foreach ($user as $User) { ?>
                             <tr>
                                 <td>
-                                    <div class="d-flex align-items-center">
+                                    <div class="td-div-1">
                                         <div class="ms-3">
                                             <p class="mb-1">
                                                 <?php echo $User['user_login'] ?>
@@ -140,6 +140,9 @@ if (is_wp_error($response)) {
 }
 .table-tr{
     font-size:large;color:#315B87;padding-left:2rem;
+}
+.td-div-1{
+    display:flex; align-items:center;
 }
 
 </style>
