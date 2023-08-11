@@ -64,8 +64,7 @@ if (is_wp_error($response)) {
             <div class="search-bar">
                 <?php echo do_shortcode('[search_bar]'); ?>
             </div>
-            <table class="table align-middle mb-0 bg-white table-hover"
-                style="width:90%;margin-left:5%;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;margin-top:3%;">
+            <table class="table align-middle table-hover">
                 <thead class="bg-light">
                     <tr style="font-size:large;color:#315B87;padding-left:2rem">
                         <th>Username</th>
@@ -135,6 +134,9 @@ if (is_wp_error($response)) {
 }
 .search-bar{
     display: flex; align-items: center; justify-content: end; margin-bottom: 1rem;
+}
+.table{
+    background-color:#FAFAFA;width:90%;margin-left:5%;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;margin-top:3%;
 }
 
 
