@@ -99,7 +99,8 @@ if (is_wp_error($response)) {
                                 <td>
                                     <form method="POST">
                                         <input type="hidden" name="user_id" value="<?php echo $User['ID']; ?>">
-                                        <button type="submit" name="restore" class="btn-soft-delete">
+                                        <button type="submit" name="restore" class="btn-soft-delete" class="more" data-bs-toggle="tooltip" data-bs-placement="top"
+                                            title="soft-delete">
                                             <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/reuse.png"
                                                  alt="soft-delete">
                                         </button>
