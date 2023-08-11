@@ -99,8 +99,8 @@ if (is_wp_error($response)) {
                                 <td>
                                     <form method="POST">
                                         <input type="hidden" name="user_id" value="<?php echo $User['ID']; ?>">
-                                        <button type="submit" name="restore" class="btn-soft-delete" class="more" data-bs-toggle="tooltip" data-bs-placement="top"
-                                            title="soft-delete">
+                                        <button type="submit" name="restore" class="btn-restore" class="more" data-bs-toggle="tooltip" data-bs-placement="top"
+                                            title="restore">
                                             <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/reuse.png"
                                                  alt="soft-delete">
                                         </button>
@@ -156,12 +156,18 @@ if (is_wp_error($response)) {
 .td-3{
     font-weight:normal; margin-bottom: .8rem;color:red;
 }
-.btn-soft-delete{
+.btn-restore{
     padding:2px;border:none;
 }
 button img{
     width:2.5vw;
 }
 </style>
+
+<script>
+    $(function () {
+        $('[data-bs-toggle="tooltip"]').tooltip();
+    });
+</script>
 
 <?php get_footer(); ?>
