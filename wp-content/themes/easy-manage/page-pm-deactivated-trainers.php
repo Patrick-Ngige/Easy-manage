@@ -81,7 +81,7 @@ if (is_wp_error($response)) {
                             <tr>
                                 <td>
                                     <div class="td-div-1">
-                                        <div class="ms-3">
+                                        <div class="td-div-2">
                                             <p class="mb-1">
                                                 <?php echo $User['user_login'] ?>
                                             </p>
@@ -143,6 +143,9 @@ if (is_wp_error($response)) {
 }
 .td-div-1{
     display:flex; align-items:center;
+}
+.td-div-2{
+    margin-left: 1rem;
 }
 
 </style>
