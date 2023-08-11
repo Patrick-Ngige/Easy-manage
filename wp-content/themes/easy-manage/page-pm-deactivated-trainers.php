@@ -56,7 +56,7 @@ if (is_wp_error($response)) {
 ?>
 
 <div class="main-div">
-    <div class="page-pm-sidenav" >
+    <div class="page-pm-sidenav">
         <?php get_template_part('sidenav-pm'); ?>
     </div>
     <div class="div-1">
@@ -99,10 +99,10 @@ if (is_wp_error($response)) {
                                 <td>
                                     <form method="POST">
                                         <input type="hidden" name="user_id" value="<?php echo $User['ID']; ?>">
-                                        <button type="submit" name="restore" class="btn-restore" class="more" data-bs-toggle="tooltip" data-bs-placement="top"
-                                            title="restore">
+                                        <button type="submit" name="restore" class="btn-restore" class="more"
+                                            data-bs-toggle="tooltip" data-bs-placement="top" title="restore">
                                             <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/reuse.png"
-                                                 alt="soft-delete">
+                                                alt="soft-delete">
                                         </button>
 
                                     </form>
@@ -120,48 +120,82 @@ if (is_wp_error($response)) {
 </div>
 
 <style>
-.main-div{
-    width:100vw;height:90vh;display:flex;flex-direction:row;margin-top:-2.45rem
-}
-.page-pm-sidenav{
-    margin-top:-1.99rem;width:20vw
-}
-.div-1{
-    padding:1rem;width:80vw;margin-left:0rem
-}
-.div-2{
-    padding:1rem;
-}
-.search-bar{
-    display: flex; align-items: center; justify-content: end; margin-bottom: 1rem;
-}
-.table{
-    background-color:#FAFAFA;width:90%;margin-left:5%;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;margin-top:3%;
-}
-.table-tr{
-    font-size:large;color:#315B87;padding-left:2rem;
-}
-.td-div-1{
-    display:flex; align-items:center;
-}
-.td-div-2{
-    margin-left: 1rem;
-}
-.td-div-3{
-    margin-bottom: .8rem;
-}
-.td-2{
-    font-weight:normal; margin-bottom: .8rem;
-}
-.td-3{
-    font-weight:normal; margin-bottom: .8rem;color:red;
-}
-.btn-restore{
-    padding:2px;border:none;
-}
-button img{
-    width:2.5vw;
-}
+    .main-div {
+        width: 100vw;
+        height: 90vh;
+        display: flex;
+        flex-direction: row;
+        margin-top: -2.45rem
+    }
+
+    .page-pm-sidenav {
+        margin-top: -1.99rem;
+        width: 20vw
+    }
+
+    .div-1 {
+        padding: 1rem;
+        width: 80vw;
+        margin-left: 0rem
+    }
+
+    .div-2 {
+        padding: 1rem;
+    }
+
+    .search-bar {
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        margin-bottom: 1rem;
+    }
+
+    .table {
+        background-color: #FAFAFA;
+        width: 90%;
+        margin-left: 5%;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        margin-top: 3%;
+    }
+
+    .table-tr {
+        font-size: large;
+        color: #315B87;
+        padding-left: 2rem;
+    }
+
+    .td-div-1 {
+        display: flex;
+        align-items: center;
+    }
+
+    .td-div-2 {
+        margin-left: 1rem;
+    }
+
+    .td-div-3 {
+        margin-bottom: .8rem;
+    }
+
+    .td-2 {
+        font-weight: normal;
+        margin-bottom: .8rem;
+    }
+
+    .td-3 {
+        font-weight: normal;
+        margin-bottom: .8rem;
+        color: red;
+    }
+
+    .btn-restore {
+        padding: 2px;
+        border: none;
+    }
+
+    button img {
+        width: 2.5vw;
+    }
 </style>
 
 <script>
