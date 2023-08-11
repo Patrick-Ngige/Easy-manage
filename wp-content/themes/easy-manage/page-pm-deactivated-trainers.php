@@ -101,7 +101,7 @@ if (is_wp_error($response)) {
                                         <input type="hidden" name="user_id" value="<?php echo $User['ID']; ?>">
                                         <button type="submit" name="restore" class="btn-soft-delete">
                                             <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/reuse.png"
-                                                 alt="">
+                                                 alt="soft-delete">
                                         </button>
 
                                     </form>
