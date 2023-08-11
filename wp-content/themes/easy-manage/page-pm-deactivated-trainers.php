@@ -82,7 +82,7 @@ if (is_wp_error($response)) {
                                 <td>
                                     <div class="td-div-1">
                                         <div class="td-div-2">
-                                            <p class="mb-1">
+                                            <p class="td-div-3">
                                                 <?php echo $User['user_login'] ?>
                                             </p>
                                         </div>
@@ -147,7 +147,9 @@ if (is_wp_error($response)) {
 .td-div-2{
     margin-left: 1rem;
 }
-
+.td-div-3{
+    margin-bottom: .8rem;
+}
 </style>
 
 <?php get_footer(); ?>
