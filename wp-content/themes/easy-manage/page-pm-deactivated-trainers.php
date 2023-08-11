@@ -159,7 +159,7 @@ if (is_wp_error($response)) {
     padding:2px;border:none;
 }
 button img{
-    width:2.5vw;top:0;
+    width:2.5vw;
 }
 </style>
 
