@@ -64,7 +64,7 @@ if (!is_wp_error($response) && wp_remote_retrieve_response_code($response) === 2
         </div>
         <div class="side-menu <?php echo (strpos($_SERVER['REQUEST_URI'], 'cohorts') !== false) ? 'active' : ''; ?>">
             <a href="http://localhost/easy-manage/cohorts"  style="display:block;padding:16px;text-decoration:none;color:#FAFAFA;">
-                <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/create.png" style="width:2.5rem;height:2.5rem;" /> Cohorts
+                <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/complete1.png" style="width:2.5rem;height:2.5rem;" /> Cohorts
             </a>
         </div>
        
