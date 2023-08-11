@@ -88,8 +88,8 @@ if (is_wp_error($response)) {
                                         </div>
                                     </div>
                                 </td>
-                                <td>
-                                    <p class="fw-normal mb-1">
+                                <td class="td-2">
+                                    <p>
                                         <?php echo $User['user_email'] ?>
                                     </p>
                                 </td>
@@ -149,6 +149,9 @@ if (is_wp_error($response)) {
 }
 .td-div-3{
     margin-bottom: .8rem;
+}
+.td-2{
+    font-weight:normal; margin-bottom: .8rem;
 }
 </style>
 
