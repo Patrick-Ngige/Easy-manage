@@ -93,8 +93,8 @@ if (is_wp_error($response)) {
                                         <?php echo $User['user_email'] ?>
                                     </p>
                                 </td>
-                                <td>
-                                    <p class="fw-normal mb-1" style="color:red"> Deleted</p>
+                                <td class="td-3">
+                                    <p> Deleted</p>
                                 </td>
                                 <td>
                                     <form method="POST">
@@ -152,6 +152,9 @@ if (is_wp_error($response)) {
 }
 .td-2{
     font-weight:normal; margin-bottom: .8rem;
+}
+.td-3{
+    font-weight:normal; margin-bottom: .8rem;color:red;
 }
 </style>
 
