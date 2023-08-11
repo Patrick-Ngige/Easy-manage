@@ -120,4 +120,12 @@ if (is_wp_error($response)) {
     </div>
 </div>
 
+<style>
+
+
+
+</style>
+
+
+
 <?php get_footer(); ?>
