@@ -103,7 +103,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                     Trainer created successfully.
                                                 </div>
                                             <?php endif; ?>
-                                            <div class="form-outline mb-3">
+                                            <div class="form-outline">
                                                 <label class="form-label" for="form2Example27">Trainer:</label>
                                                 <input type="text" id="form2Example27"
                                                     class="form-control form-control-md"
@@ -113,7 +113,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                     echo '<p class="text-danger">Trainer name is required</p>';
                                                 } ?>
                                             </div>
-                                            <div class="form-outline mb-3">
+                                            <div class="form-outline">
                                                 <label class="form-label" for="form2Example27">Email:</label>
                                                 <input type="email" id="form2Example27"
                                                     class="form-control form-control-md"
@@ -123,7 +123,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                     echo '<p class="text-danger">Email is required</p>';
                                                 } ?>
                                             </div>
-                                            <div class="form-outline mb-3">
+                                            <div class="form-outline">
                                                 <label class="form-label" for="form2Example27">Role:</label>
                                                 <input type="text" id="form2Example27"
                                                     class="form-control form-control-md"
@@ -188,9 +188,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     form h2{
         font-weight:bold; display:flex; align-items:center; justify-content:center;color: #315B87; 
     }
+    .form-outline{
+        margin-bottom:1rem
+    }
     .form-label{
         font-weight: 600;
     }
+    
 </style>
 
 <?php get_footer(); ?>
