@@ -85,28 +85,28 @@ if (isset($_POST['soft_delete'])) {
                                         </div>
                                     </div>
                                 </td>
-                                <td>
-                                    <p class="fw-normal mb-1">
+                                <td class="td-2">
+                                    <p>
                                         <?php echo $user['user_email'] ?>
                                     </p>
                                 </td>
-                                <td>
-                                    <p class="fw-normal mb-1"> Trainer</p>
+                                <td class="td-3">
+                                    <p> Trainer</p>
                                 </td>
                                 <td>
                                     <form method="POST">
                                     <input type="hidden" name="user_id" value="<?php echo $user['ID']; ?>">
                                         <button type="submit" name="soft_delete" class="btn-soft-delete"
                                         data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"
-                                            style="padding:6px;border:none;">
+                                            >
                                             <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/pause-2.png"
-                                                style="width:25px;" alt="">
+                                                alt="">
                                         </button>
                                         <a href="http://localhost/easy-manage/update-form/?id=<?php echo $user['ID'] ?>"
-                                            style="padding:6px" data-bs-toggle="tooltip" data-bs-placement="top"
-                                            title="Edit"><img
+                                            data-bs-toggle="tooltip" data-bs-placement="top"
+                                            title="Edit" class="edit-btn"><img
                                                 src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png"
-                                                style="width:25px;" alt=""></a> &nbsp;&nbsp;       
+                                                 alt=""></a> &nbsp;&nbsp;       
                                     </form>
                                 </td>
                             </tr>
