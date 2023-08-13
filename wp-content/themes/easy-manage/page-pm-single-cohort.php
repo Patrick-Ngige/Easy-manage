@@ -37,7 +37,7 @@ if (is_wp_error($response)) {
                     <h5 class="card-title"><?php echo $cohort['cohort'] ?></h5>
                     <p class="card-text"><?php echo $cohort['cohort_info'] ?></p>
                     <div class="card-info">
-                    <p><span style="color: #315B87;font-weight:500">Starting Date:</span> <?php echo $cohort['starting_date'] ?></p>
+                    <p><span>Starting Date:</span> <?php echo $cohort['starting_date'] ?></p>
                     <p><span style="color: #315B87;font-weight:500">Ending Date: </span><?php echo $cohort['ending_date'] ?></p>
                     </div>
                     <a href="http://localhost/easy-manage/cohorts/" class="floating-btn"
@@ -73,6 +73,9 @@ if (is_wp_error($response)) {
     }
     .card-info{
         display:flex;justify-content:space-between
+    }
+    .span{
+        color: #315B87;font-weight:500
     }
 </style>
 
