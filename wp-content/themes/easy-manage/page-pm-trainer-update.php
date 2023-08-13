@@ -201,7 +201,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         margin-bottom: -2rem;
         border: none;
         border-radius: 5px;
-        padding: .5rem 1.5rem;
+        padding: .5rem 4rem;
+        font-weight:600;
     }
 </style>
 
