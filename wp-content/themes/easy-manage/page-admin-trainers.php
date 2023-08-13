@@ -42,8 +42,8 @@ if (isset($_POST['soft_delete'])) {
         <div class="trainers-div-2">
             <!-- Add buttons and search bar here -->
             <div class="trainers-div-3"">
-                <a href="http://localhost/easy-manage/admin-trainers-table/" class="trainers-floating-btn">
-                    View Trainers
+                <a href="http://localhost/easy-manage/admin-pm-list/" class="trainers-floating-btn">
+                    View PM
                 </a>
                 <a href="http://localhost/easy-manage/admin-trainees-table/" class="trainers-floating-btn">
                     View Trainees
@@ -158,6 +158,10 @@ if (isset($_POST['soft_delete'])) {
         color: #315B87;
         font-size: 1rem;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .trainers-floating-btn:hover{
+        background-color: #315B87;
+        color: #FAFAFA;
     }
 
     .table {
