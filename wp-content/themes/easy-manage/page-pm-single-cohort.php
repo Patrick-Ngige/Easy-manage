@@ -31,7 +31,7 @@ if (is_wp_error($response)) {
         <div class="div-1">
             <div class="card">
                 <div class="card-header">
-                    <h4 style="color:#FAFAFA;margin-left:auto;margin-right:auto">Cohort</h4>
+                    <h4><?php echo $cohort['cohort'] ?> Cohort</h4>
                 </div>
                 <div class="card-body">
                     <h5 class="card-title" style="color: #315B87;"><?php echo $cohort['cohort'] ?></h5>
@@ -64,6 +64,9 @@ if (is_wp_error($response)) {
     }
     .card-header{
         display:flex;justify-content:space-between;background-color:#315B87;border-radius:5px
+    }
+    .card-header h4{
+        color:#FAFAFA;margin-left:auto;margin-right:auto
     }
 </style>
 
