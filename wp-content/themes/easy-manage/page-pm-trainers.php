@@ -100,13 +100,13 @@ if (isset($_POST['soft_delete'])) {
                                         data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"
                                             >
                                             <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/pause-2.png"
-                                                alt="">
+                                                alt="soft delete the trainer">
                                         </button>
                                         <a href="http://localhost/easy-manage/update-form/?id=<?php echo $user['ID'] ?>"
                                             data-bs-toggle="tooltip" data-bs-placement="top"
                                             title="Edit" class="edit-btn"><img
                                                 src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png"
-                                                 alt=""></a> &nbsp;&nbsp;       
+                                                 alt="edit the trainer details"></a> &nbsp;&nbsp;       
                                     </form>
                                 </td>
                             </tr>
