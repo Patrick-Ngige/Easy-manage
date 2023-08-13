@@ -163,7 +163,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     .card-body {
         padding: 3rem;
         color: black;
-        width: 30vw;
+        width: 40vw;
         border-radius: 10px;
     }
 
