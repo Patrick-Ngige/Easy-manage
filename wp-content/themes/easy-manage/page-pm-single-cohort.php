@@ -28,7 +28,7 @@ if (is_wp_error($response)) {
         <?php get_template_part('sidenav-pm'); ?>
     </div>
     <div>
-        <div style="margin-left:50%;width:40vw;margin-top:30vh;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;border-radius:5px">
+        <div class="div-1">
             <div class="card " style="height: fit-content;display:flex;">
                 <div class="card-header h5" style="display:flex;justify-content:space-between;background-color:#315B87;border-radius:5px">
                     <h4 style="color:#FAFAFA;margin-left:auto;margin-right:auto">Cohort</h4>
@@ -55,6 +55,9 @@ if (is_wp_error($response)) {
     }
     .page-pm-sidenav{
         margin-top: -1.99rem; width: 20vw;
+    }
+    .div-1{
+        margin-left:50%;width:40vw;margin-top:30vh;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;border-radius:5px
     }
 </style>
 
