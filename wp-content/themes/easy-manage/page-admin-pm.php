@@ -175,6 +175,10 @@ if (isset($_POST['soft_delete'])) {
         font-size: 1rem;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
+    .pm-floating-btn:hover{
+        background-color: #315B87;
+        color: #FAFAFA;
+    }
 
     .table {
         width: 90%;
