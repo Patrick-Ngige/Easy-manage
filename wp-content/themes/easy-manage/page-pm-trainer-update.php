@@ -104,8 +104,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                 </div>
                                             <?php endif; ?>
                                             <div class="form-outline mb-3">
-                                                <label class="form-label" for="form2Example27"
-                                                    style="font-weight: 600;">Trainer:</label>
+                                                <label class="form-label" for="form2Example27">Trainer:</label>
                                                 <input type="text" id="form2Example27"
                                                     class="form-control form-control-md"
                                                     placeholder="Enter trainer name" name="trainer_name"
@@ -115,8 +114,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                 } ?>
                                             </div>
                                             <div class="form-outline mb-3">
-                                                <label class="form-label" for="form2Example27"
-                                                    style="font-weight: 600;">Email:</label>
+                                                <label class="form-label" for="form2Example27">Email:</label>
                                                 <input type="email" id="form2Example27"
                                                     class="form-control form-control-md"
                                                     placeholder="Enter trainer email" name="trainer_email"
@@ -126,8 +124,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                 } ?>
                                             </div>
                                             <div class="form-outline mb-3">
-                                                <label class="form-label" for="form2Example27"
-                                                    style="font-weight: 600;">Role:</label>
+                                                <label class="form-label" for="form2Example27">Role:</label>
                                                 <input type="text" id="form2Example27"
                                                     class="form-control form-control-md"
                                                     placeholder="Enter trainer role" name="trainer_role"
@@ -190,6 +187,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     form h2{
         font-weight:bold; display:flex; align-items:center; justify-content:center;color: #315B87; 
+    }
+    .form-label{
+        font-weight: 600;
     }
 </style>
 
