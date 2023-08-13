@@ -30,7 +30,7 @@ if (is_wp_error($response)) {
     <div>
         <div class="div-1">
             <div class="card">
-                <div class="card-header h5" style="display:flex;justify-content:space-between;background-color:#315B87;border-radius:5px">
+                <div class="card-header">
                     <h4 style="color:#FAFAFA;margin-left:auto;margin-right:auto">Cohort</h4>
                 </div>
                 <div class="card-body">
@@ -61,6 +61,9 @@ if (is_wp_error($response)) {
     }
     .card{
         height: fit-content;display:flex;
+    }
+    .card-header{
+        display:flex;justify-content:space-between;background-color:#315B87;border-radius:5px
     }
 </style>
 
