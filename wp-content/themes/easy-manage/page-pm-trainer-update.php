@@ -86,7 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php get_template_part('sidenav-pm'); ?>
     </div>
     <div class="div-1">
-        <div class="container py-4">
+        <div class="container">
             <div class="row d-flex justify-content-center align-items-center">
                 <div class="col col-xl-10" style="width: 40vw;">
                     <div class="card" style="border-radius: 1rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);">
@@ -166,7 +166,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         margin-top: -1.99rem; width: 20vw;
     }
     .div-1{
-        height: 80vh; margin-left: 15rem;
+        height: 80vh; margin:auto
+    }
+    .container{
+        padding: 3rem 0rem;
     }
 </style>
 
