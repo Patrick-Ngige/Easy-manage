@@ -40,8 +40,7 @@ if (is_wp_error($response)) {
                     <p><span>Starting Date:</span> <?php echo $cohort['starting_date'] ?></p>
                     <p><span>Ending Date: </span><?php echo $cohort['ending_date'] ?></p>
                     </div>
-                    <a href="http://localhost/easy-manage/cohorts/" class="floating-btn"
-                        style="text-decoration:none; padding: 0.5rem 1rem; border-radius: 8px; background-color: #315B87; border: none; color: #FAFAFA; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);margin-left:auto;margin-right:auto;">
+                    <a href="http://localhost/easy-manage/cohorts/" class="floating-btn">
                         back to cohort
                     </a>
                 </div>
@@ -76,6 +75,9 @@ if (is_wp_error($response)) {
     }
     .span{
         color: #315B87;font-weight:500
+    }
+    .floating-btn{
+        text-decoration:none; padding: 0.5rem 1rem; border-radius: 8px; background-color: #315B87; border: none; color: #FAFAFA; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);margin-left:auto;margin-right:auto;
     }
 </style>
 
