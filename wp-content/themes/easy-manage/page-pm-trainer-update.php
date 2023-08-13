@@ -158,28 +158,41 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         margin-top: -1.99rem; width: 20vw;
     }
     .div-1{
-        height: 80vh; margin:auto
+        margin:auto;
     }
-    .container{
+    /* .container{
         padding: 3rem 0rem;
-    }
-    .div-2{
-        display:flex; justify-content:center; align-items:center; flex-direction: row
-    }
-    .div-3{
+        background-color: blue;
+    } */
+    /* .div-2{
+        display:flex; justify-content:center; align-items:center; flex-direction: row;
+        background-color: green;
+    } */
+    /* .div-3{
         width: 40vw;
-    }
+        background-color: purple;
+
+    } */
     .card{
         border-radius: 1rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        
     }
-    .div-4, .div-5{
+    /* .div-4, .div-5{
         flex-direction:row; gap:0; display:flex; justify-content:center; align-items:center;width: 40vw;
-    }
-    .div-6{
+    } */
+    /* .div-4{
+        background-color: purple;
+    } */
+    /* .div-5{
+        background-color: chocolate;
+    } */
+    /* .div-6{
         display:flex; justify-content:center; align-items:center;  margin:auto;height:auto ; width: 40vw;
-    }
+        background-color: brown;
+    } */
     .card-body{
-        padding:3rem; color:black
+        padding:3rem; color:black;
+        width:30vw;border-radius: 10px;
     }
     form{
         font-size: 16px
