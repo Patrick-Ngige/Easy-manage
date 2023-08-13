@@ -188,7 +188,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     .button {
-        padding-top: .8rem;
+        padding: .8rem 0rem;
         margin-top: 1rem;
         display: flex;
         justify-content: center;
