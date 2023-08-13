@@ -36,7 +36,7 @@ if (is_wp_error($response)) {
                 <div class="card-body">
                     <h5 class="card-title"><?php echo $cohort['cohort'] ?></h5>
                     <p class="card-text"><?php echo $cohort['cohort_info'] ?></p>
-                    <div style="display:flex;justify-content:space-between">
+                    <div class="card-info">
                     <p><span style="color: #315B87;font-weight:500">Starting Date:</span> <?php echo $cohort['starting_date'] ?></p>
                     <p><span style="color: #315B87;font-weight:500">Ending Date: </span><?php echo $cohort['ending_date'] ?></p>
                     </div>
@@ -70,6 +70,9 @@ if (is_wp_error($response)) {
     }
     .card-title{
         color: #315B87;
+    }
+    .card-info{
+        display:flex;justify-content:space-between
     }
 </style>
 
