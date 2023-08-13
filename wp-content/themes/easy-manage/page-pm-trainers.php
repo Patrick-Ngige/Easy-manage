@@ -77,9 +77,9 @@ if (isset($_POST['soft_delete'])) {
                         foreach ($users as $user) { ?>
                             <tr>
                                 <td>
-                                    <div class="d-flex align-items-center">
-                                        <div class="ms-3">
-                                            <p class="mb-1">
+                                    <div class="td-div-1">
+                                        <div class="td-div-2">
+                                            <p>
                                                 <?php echo $user['user_login'] ?>
                                             </p>
                                         </div>
