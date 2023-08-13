@@ -92,8 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <div class="card">
                         <div class="div-4">
                             <div class="div-5">
-                                <div class="div-6"
-                                    style="height:auto ; width: 40vw;">
+                                <div class="div-6">
                                     <div class="card-body p-4 p-lg-5 text-black">
                                         <form action="" method="POST" style="font-size: 16px">
                                             <h2 class="fw-bold d-flex align-items-end d-flex justify-content-center align-items-center"
@@ -182,7 +181,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         flex-direction:row; gap:0; display:flex; justify-content:center; align-items:center;width: 40vw;
     }
     .div-6{
-        display:flex; justify-content:center; align-items:center;  margin:auto;
+        display:flex; justify-content:center; align-items:center;  margin:auto;height:auto ; width: 40vw;
     }
 </style>
 
