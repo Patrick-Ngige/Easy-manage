@@ -5,10 +5,10 @@
  * 
  */
 $user_id = $_GET['id'];
- $token = $_COOKIE['token'];
+$token = $_COOKIE['token'];
 
- $response = wp_remote_get(
-    'http://localhost/easy-manage/wp-json/em/v1/users/trainer/'. $user_id,
+$response = wp_remote_get(
+    'http://localhost/easy-manage/wp-json/em/v1/users/trainer/' . $user_id,
     array(
         'headers' => array(
             'Authorization' => 'Bearer ' . $token
@@ -86,107 +86,122 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php get_template_part('sidenav-pm'); ?>
     </div>
     <div class="div-1">
-        <div class="container">
-            <div class="div-2">
-                <div class="div-3">
-                    <div class="card">
-                        <div class="div-4">
-                            <div class="div-5">
-                                <div class="div-6">
-                                    <div class="card-body">
-                                        <form action="" method="POST" >
-                                            <h2>
-                                               Update Trainer
-                                            </h2>
-                                            <?php if (isset($_GET['success']) && $_GET['success'] === 'true'): ?>
-                                                <div class="alert alert-success" role="alert">
-                                                    Trainer created successfully.
-                                                </div>
-                                            <?php endif; ?>
-                                            <div class="form-outline">
-                                                <label class="form-label" for="form2Example27">Trainer:</label>
-                                                <input type="text" id="form2Example27"
-                                                    class="form-control form-control-md"
-                                                    placeholder="Enter trainer name" name="trainer_name"
-                                                    value="<?php echo $trainer['user_name'] ?>" />
-                                                <?php if (isset($errors) && in_array('Trainer name is required', $errors)) {
-                                                    echo '<p class="text-danger">Trainer name is required</p>';
-                                                } ?>
-                                            </div>
-                                            <div class="form-outline">
-                                                <label class="form-label" for="form2Example27">Email:</label>
-                                                <input type="email" id="form2Example27"
-                                                    class="form-control form-control-md"
-                                                    placeholder="Enter trainer email" name="trainer_email"
-                                                    value="<?php echo $trainer['user_email'] ?>" />
-                                                <?php if (isset($errors) && in_array('Email is required', $errors)) {
-                                                    echo '<p class="text-danger">Email is required</p>';
-                                                } ?>
-                                            </div>
-                                            <div class="form-outline">
-                                                <label class="form-label" for="form2Example27">Role:</label>
-                                                <input type="text" id="form2Example27"
-                                                    class="form-control form-control-md"
-                                                    placeholder="Enter trainer role" name="trainer_role"
-                                                    value="<?php echo $trainer['user_role'] ?>" />
-                                                <?php if (isset($errors) && in_array('Role is required', $errors)) {
-                                                    echo '<p class="text-danger">Role is required</p>';
-                                                } ?>
-                                            </div>
-                                            <div
-                                                class="button">
-                                                <button class="update-btn" type="submit"
-                                                    name="updatebtn">Update</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
+
+        <div class="card">
+
+            <div class="card-body">
+                <form action="" method="POST">
+                    <h2>
+                        Update Trainer
+                    </h2>
+                    <?php if (isset($_GET['success']) && $_GET['success'] === 'true'): ?>
+                        <div class="alert alert-success" role="alert">
+                            Trainer created successfully.
                         </div>
+                    <?php endif; ?>
+                    <div class="form-outline">
+                        <label class="form-label" for="form2Example27">Trainer:</label>
+                        <input type="text" id="form2Example27" class="form-control form-control-md"
+                            placeholder="Enter trainer name" name="trainer_name"
+                            value="<?php echo $trainer['user_name'] ?>" />
+                        <?php if (isset($errors) && in_array('Trainer name is required', $errors)) {
+                            echo '<p class="text-danger">Trainer name is required</p>';
+                        } ?>
                     </div>
-                </div>
+                    <div class="form-outline">
+                        <label class="form-label" for="form2Example27">Email:</label>
+                        <input type="email" id="form2Example27" class="form-control form-control-md"
+                            placeholder="Enter trainer email" name="trainer_email"
+                            value="<?php echo $trainer['user_email'] ?>" />
+                        <?php if (isset($errors) && in_array('Email is required', $errors)) {
+                            echo '<p class="text-danger">Email is required</p>';
+                        } ?>
+                    </div>
+                    <div class="form-outline">
+                        <label class="form-label" for="form2Example27">Role:</label>
+                        <input type="text" id="form2Example27" class="form-control form-control-md"
+                            placeholder="Enter trainer role" name="trainer_role"
+                            value="<?php echo $trainer['user_role'] ?>" />
+                        <?php if (isset($errors) && in_array('Role is required', $errors)) {
+                            echo '<p class="text-danger">Role is required</p>';
+                        } ?>
+                    </div>
+                    <div class="button">
+                        <button class="update-btn" type="submit" name="updatebtn">Update</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 </div>
 
+
 <style>
-    .main-div{
-        width: 100vw; height: 90vh; display: flex; flex-direction: row; margin-top: -2.45rem;
-    }
-    .page-pm-sidenav{
-        margin-top: -1.99rem; width: 20vw;
-    }
-    .div-1{
-        margin:auto;
+    .main-div {
+        width: 100vw;
+        height: 90vh;
+        display: flex;
+        flex-direction: row;
+        margin-top: -2.45rem;
     }
 
-    .card{
-        border-radius: 1rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        
+    .page-pm-sidenav {
+        margin-top: -1.99rem;
+        width: 20vw;
     }
 
-    .card-body{
-        padding:3rem; color:black;
-        width:30vw;border-radius: 10px;
+    .div-1 {
+        margin: auto;
     }
-    form{
+
+    .card {
+        border-radius: 1rem;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+    }
+
+    .card-body {
+        padding: 3rem;
+        color: black;
+        width: 30vw;
+        border-radius: 10px;
+    }
+
+    form {
         font-size: 16px
     }
-    form h2{
-        font-weight:bold; display:flex; align-items:center; justify-content:center;color: #315B87; 
+
+    form h2 {
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #315B87;
     }
-    .form-outline{
-        margin-bottom:1rem
+
+    .form-outline {
+        margin-bottom: 1rem
     }
-    .form-label{
+
+    .form-label {
         font-weight: 600;
     }
-    .button{
-        padding-top:.8rem; margin-top:1rem; display:flex; justify-content:center; align-items:center
+
+    .button {
+        padding-top: .8rem;
+        margin-top: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center
     }
-    .update-btn{
-        background-color: #315B87; color: #FAFAFA;margin-bottom:-2rem;border:none; border-radius:5px; padding:.5rem 1.5rem;
+
+    .update-btn {
+        background-color: #315B87;
+        color: #FAFAFA;
+        margin-bottom: -2rem;
+        border: none;
+        border-radius: 5px;
+        padding: .5rem 1.5rem;
     }
 </style>
 
