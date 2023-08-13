@@ -135,8 +135,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                             </div>
                                             <div
                                                 class="button">
-                                                <button class="btn btn-lg btn-block w-50"
-                                                    style="background-color: #315B87; color: #FAFAFA;margin-bottom:-2rem" type="submit"
+                                                <button class="update-btn" type="submit"
                                                     name="updatebtn">Update</button>
                                             </div>
                                         </form>
@@ -196,6 +195,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     .button{
         padding-top:.8rem; margin-top:1rem; display:flex; justify-content:center; align-items:center
+    }
+    .update-btn{
+        background-color: #315B87; color: #FAFAFA;margin-bottom:-2rem;border:none; border-radius:5px; padding:.5rem 1.5rem;
     }
 </style>
 
