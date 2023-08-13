@@ -43,11 +43,11 @@ if (isset($_POST['soft_delete'])) {
     <div class="trainees-div-1">
         <div class="trainees-div-2">
             <div class="trainees-div-3">
+                <a href="http://localhost/easy-manage/admin-pm-list/" class="trainees-floating-btn">
+                    View PMs
+                </a>
                 <a href="http://localhost/easy-manage/admin-trainers-table/" class="trainees-floating-btn">
                     View Trainers
-                </a>
-                <a href="http://localhost/easy-manage/admin-trainees-table/" class="trainees-floating-btn">
-                    View Trainees
                 </a>
                 <?php echo do_shortcode('[search_bar]'); ?>
             </div>
@@ -160,6 +160,10 @@ if (isset($_POST['soft_delete'])) {
         color: #315B87;
         font-size: 1rem;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .trainees-floating-btn:hover{
+        background-color: #315B87;
+        color: #FAFAFA;
     }
 
     .table {
