@@ -92,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <div class="card">
                         <div class="div-4">
                             <div class="div-5">
-                                <div class="col-md-6 col-lg-7 d-flex justify-content-center align-items-center  ms-8"
+                                <div class="div-6"
                                     style="height:auto ; width: 40vw;">
                                     <div class="card-body p-4 p-lg-5 text-black">
                                         <form action="" method="POST" style="font-size: 16px">
@@ -181,7 +181,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     .div-4, .div-5{
         flex-direction:row; gap:0; display:flex; justify-content:center; align-items:center;width: 40vw;
     }
-    
+    .div-6{
+        display:flex; justify-content:center; align-items:center;  margin:auto;
+    }
 </style>
 
 <?php get_footer(); ?>
