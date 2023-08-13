@@ -88,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="div-1">
         <div class="container">
             <div class="div-2">
-                <div class="col col-xl-10" style="width: 40vw;">
+                <div class="div-3">
                     <div class="card" style="border-radius: 1rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);">
                         <div class="row g-0 w-100 d-flex justify-content-center align-items-center w-50"
                             style="width: 40vw;">
@@ -173,6 +173,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     .div-2{
         display:flex; justify-content:center; align-items:center; flex-direction: row
+    }
+    .div-3{
+        width: 40vw;
     }
 </style>
 
