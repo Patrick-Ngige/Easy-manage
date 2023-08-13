@@ -95,8 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <div class="div-6">
                                     <div class="card-body">
                                         <form action="" method="POST" >
-                                            <h2 class="fw-bold d-flex align-items-end d-flex justify-content-center align-items-center"
-                                                style="color: #315B87;margin-top:-2rem">
+                                            <h2>
                                                Update Trainer
                                             </h2>
                                             <?php if (isset($_GET['success']) && $_GET['success'] === 'true'): ?>
@@ -186,8 +185,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     .card-body{
         padding:3rem; color:black
     }
-    .form{
+    form{
         font-size: 16px
+    }
+    form h2{
+        font-weight:bold; display:flex; align-items:center; justify-content:center;color: #315B87; 
     }
 </style>
 
