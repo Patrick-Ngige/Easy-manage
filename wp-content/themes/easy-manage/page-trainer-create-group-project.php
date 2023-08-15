@@ -102,7 +102,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <div class="div-1">
 
                         <div class="card">
-
+ 
                                         <div class="card-body">
                                             <form action="" method="POST">
                                                 <h2>
@@ -286,7 +286,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     .card-body {
-        padding: 0rem 2rem 1rem 2rem;
+        padding: 0rem 3rem 1rem 3rem;
         color: black;
     }
 
