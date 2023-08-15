@@ -67,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
-<div style="width:100vw;height:90vh;display:flex;flex-direction:row;margin-top:-2.45rem">
+<div class="main-div">
     <div class="page-trainee-dashboard" style="margin-top:-1.99rem;width:20vw">
         <?php get_template_part('sidenav-trainer'); ?>
     </div>
@@ -219,3 +219,9 @@ function selectMembers() {
     createBtn.disabled = (selectedMembers.length === 0);
 }
 </script>
+
+<style>
+    .main-div{
+        width:100vw;height:90vh;display:flex;flex-direction:row;margin-top:-2.45rem
+    }
+</style>
