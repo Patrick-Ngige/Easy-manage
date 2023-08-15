@@ -105,8 +105,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <div class="card">
                             <div class="div-3">
                                 <div class="div-4">
-                                    <div class="col-md-6 col-lg-7 d-flex justify-content-center align-items-center  ms-8"
-                                        style="height:fit-content; width:40vw; ">
+                                    <div class="div-5">
                                         <div class="card-body p-4 p-lg-5 text-black">
                                             <form action="" method="POST" style="font-size:16px">
                                                 <h2 class="fw-bold d-flex align-items-end d-flex justify-content-center align-items-center"
@@ -254,5 +253,8 @@ function selectMembers() {
     }
     .div-3, .div-4{
         flex-direction: row; gap:0; display:flex; justify-content:center; align-items:center;width:40vw;
+    }
+    .div-5{
+         display:flex; justify-content:center; align-items:center;  margin-left:auto;margin-right:auto;height:fit-content; width:40vw;
     }
 </style>
