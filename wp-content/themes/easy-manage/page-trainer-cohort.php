@@ -94,7 +94,7 @@ if (isset($_POST['cohortId'])) {
               <form method="PATCH" onsubmit="markComplete(event)">
                 <input type="hidden" name="action" value="mark_complete">
                 <input type="hidden" name="cohortId" value="<?php echo $cohort_data->id; ?>">
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn">
                   Mark Complete</button>
               </form>
             </div>
@@ -148,14 +148,14 @@ if (isset($_POST['cohortId'])) {
 
     .div-2 {
       width: 40vw;
-      background-color: #F7F7F7;
+      background-color: #315B87;
       border-radius: 10px;
       box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
       padding: 2rem;
     }
 
     .div-2 h2 {
-      color: #315B87;
+      color: #F7F7F7;
       margin-bottom: 1rem;
     }
 
@@ -193,7 +193,7 @@ if (isset($_POST['cohortId'])) {
       margin-top: 1rem;
     }
 
-    button {
+    .btn {
       background-color: #315B87;
       color: #FAFAFA;
       border: none;
