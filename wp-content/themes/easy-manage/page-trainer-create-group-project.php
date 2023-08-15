@@ -98,7 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     onclick="selectMembers()" name="selectbtn">Select</button>
             </div>
         </div>
-        <div style="height:88vh;margin-left:1rem;padding:1rem ">
+        <div class="create-group">
             <div class="container py-3 h-auto">
                 <div class="row d-flex justify-content-center align-items-center h-auto">
                     <div class="col col-xl-10" style="width:40vw;">
@@ -238,5 +238,8 @@ function selectMembers() {
     }
     #select-btn{
         background-color:#315B87;color:#FAFAFA;border-radius:5px;border:none;padding:5px;width: 80%;
+    }
+    .create-group{
+        height:88vh;margin-left:1rem;padding:1rem 
     }
 </style>
