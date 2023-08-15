@@ -78,7 +78,7 @@ if (isset($_POST['cohortId'])) {
         <h2>Assigned Cohort</h2>
         <div class="div-3">
           <div
-            style="width:35vw; background-color: #FAFAFA; border-radius: 10px; padding: 1rem; box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);">
+            class="div-4">
             <h4 style="color: #315B87; margin-bottom: 1rem; text-align: center;">
               <?php echo $cohort_data->cohort_info; ?>
             </h4>
@@ -146,6 +146,9 @@ if (isset($_POST['cohortId'])) {
     }
     .div-3{
       display: flex; justify-content: center;
+    }
+    .div-4{
+      width:35vw; background-color: #FAFAFA; border-radius: 10px; padding: 1rem; box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
     }
   </style>
 
