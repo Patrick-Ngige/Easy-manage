@@ -242,18 +242,10 @@ function selectMembers() {
     .div-1{
         flex-direction: row; display:flex; justify-content:center; align-items:center; height:auto
     }
-    .div-2{
-        width:40vw;
-    }
     .card{
         border-radius: 1rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     }
-    .div-3, .div-4{
-        flex-direction: row; gap:0; display:flex; justify-content:center; align-items:center;width:40vw;
-    }
-    .div-5{
-         display:flex; justify-content:center; align-items:center;  margin-left:auto;margin-right:auto;height:30rem; width:40vw;
-    }
+
     .card-body{
         padding:0rem 1rem 1rem 1rem; color:black;
     }
