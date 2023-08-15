@@ -116,9 +116,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                         Group Project created successfully.
                                                     </div>
                                                 <?php endif; ?>
-                                                <div class="form-outline mb-3">
+                                                <div class="form-outline">
                                                     <label class="form-label" for="form2Example27"
-                                                        style="font-weight:600;">
+                                                        >
                                                         Assigned Members:
                                                     </label>
                                                     <input type="text" id="form2Example27" readonly
@@ -128,9 +128,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                         <p class="text-danger">Assigned members are required.</p>
                                                     <?php } ?>
                                                 </div>
-                                                <div class="form-outline mb-3">
+                                                <div class="form-outline">
                                                     <label class="form-label" for="form2Example27"
-                                                        style="font-weight:600;">
+                                                        >
                                                         Project Name:
                                                     </label>
                                                     <input type="text" id="form2Example27"
@@ -141,9 +141,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                         <p class="text-danger">Project is required.</p>
                                                     <?php } ?>
                                                 </div>
-                                                <div class="form-outline mb-3">
+                                                <div class="form-outline">
                                                     <label class="form-label" for="form2Example27"
-                                                        style="font-weight:600;">
+                                                        >
                                                         Project Task:
                                                     </label>
                                                     <input type="text" id="form2Example27"
@@ -155,8 +155,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                     <?php } ?>
                                                 </div>
                                                 <div>
-                                                    <label class="form-label mb-3" for="form2Example27"
-                                                        style="font-weight:600;">
+                                                    <label class="form-label" for="form2Example27"
+                                                        >
                                                         Due Date:
                                                     </label>
                                                     <input type="date" id="form2Example27"
@@ -264,5 +264,8 @@ function selectMembers() {
     }
     form h2{
         font-weight:bold; display:flex; justify-content:center; align-items:center;color:#315B87;
+    }
+    .form-outline{
+        margin-bottom:1rem;font-weight:600;
     }
 </style>
