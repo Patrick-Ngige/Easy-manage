@@ -77,8 +77,7 @@ if (isset($_POST['cohortId'])) {
       <div class="div-2">
         <h2>Assigned Cohort</h2>
         <div class="div-3">
-          <div
-            class="div-4">
+          <div class="div-4">
             <h4>
               <?php echo $cohort_data->cohort_info; ?>
             </h4>
@@ -128,41 +127,77 @@ if (isset($_POST['cohortId'])) {
   </script>
 
   <style>
-    .main-div{
-      width:100vw;height:90vh;display:flex;flex-direction:row;margin-top:-2.45rem
+    .main-div {
+      width: 100vw;
+      height: 90vh;
+      display: flex;
+      flex-direction: row;
+      margin-top: -2.45rem
     }
-    .page-trainer-sidenav{
-      margin-top:-1.99rem;width:20vw
+
+    .page-trainer-sidenav {
+      margin-top: -1.99rem;
+      width: 20vw
     }
-    .div-1{
-      margin: auto;height: 100vh;margin-top: 6rem;
+
+    .div-1 {
+      margin: auto;
+      height: 100vh;
+      margin-top: 6rem;
     }
-    .div-2{
-      width: 40vw; background-color: #F7F7F7; border-radius: 10px; box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2); padding: 2rem;
+
+    .div-2 {
+      width: 40vw;
+      background-color: #F7F7F7;
+      border-radius: 10px;
+      box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+      padding: 2rem;
     }
-    .div-2 h2{
-      color: #315B87; margin-bottom: 1rem;
+
+    .div-2 h2 {
+      color: #315B87;
+      margin-bottom: 1rem;
     }
-    .div-3{
-      display: flex; justify-content: center;
+
+    .div-3 {
+      display: flex;
+      justify-content: center;
     }
-    .div-4{
-      width:35vw; background-color: #FAFAFA; border-radius: 10px; padding: 1rem; box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+
+    .div-4 {
+      width: 35vw;
+      background-color: #FAFAFA;
+      border-radius: 10px;
+      padding: 1rem;
+      box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
     }
-    .div-4 h4{
-      color: #315B87; margin-bottom: 1rem; text-align: center;
+
+    .div-4 h4 {
+      color: #315B87;
+      margin-bottom: 1rem;
+      text-align: center;
     }
-    .div-4 span{
-      color: #315B87; font-weight: bold;
+
+    .div-4 span {
+      color: #315B87;
+      font-weight: bold;
     }
-    .cohort-info{
+
+    .cohort-info {
       margin-top: 1rem;
     }
-    .div-form{
-      display: flex; justify-content: center; margin-top: 1rem;
+
+    .div-form {
+      display: flex;
+      justify-content: center;
+      margin-top: 1rem;
     }
-    button{
-      background-color: #315B87; color: #FAFAFA; border: none; font-weight: bold;
+
+    button {
+      background-color: #315B87;
+      color: #FAFAFA;
+      border: none;
+      font-weight: bold;
     }
   </style>
 
