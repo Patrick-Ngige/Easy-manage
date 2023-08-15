@@ -73,7 +73,7 @@ if (isset($_POST['cohortId'])) {
   <?php
   if (!empty($cohort_data)) {
     ?>
-    <div style="margin: auto;height: 100vh;margin-top: 6rem;">
+    <div class="div-1">
       <div
         style="width: 40vw; background-color: #F7F7F7; border-radius: 10px; box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2); padding: 2rem; ">
         <h2 style="color: #315B87; margin-bottom: 1rem;">Assigned Cohort</h2>
@@ -135,6 +135,9 @@ if (isset($_POST['cohortId'])) {
     }
     .page-trainer-sidenav{
       margin-top:-1.99rem;width:20vw
+    }
+    .div-1{
+      margin: auto;height: 100vh;margin-top: 6rem;
     }
   </style>
 
