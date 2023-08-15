@@ -88,7 +88,7 @@ if (isset($_POST['cohortId'])) {
             <p><span>Ending Date:</span>
               <?php echo $cohort_data->ending_date ?>
             </p>
-            <p style="margin-top: 1rem;">
+            <p id="cohort-info">
               <?php echo $cohort_data->cohort_info; ?>
             </p>
             <div style="display: flex; justify-content: center; margin-top: 1rem;">
@@ -155,6 +155,9 @@ if (isset($_POST['cohortId'])) {
     }
     .div-4 span{
       color: #315B87; font-weight: bold;
+    }
+    .cohort-info{
+      margin-top: 1rem;
     }
   </style>
 
