@@ -103,8 +103,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <div class="div-1">
                     <div class="div-2">
                         <div class="card">
-                            <div class="row g-0 w-100 d-flex justify-content-center align-items-center w-50 "
-                                style="width:40vw;">
+                            <div class="div-3">
                                 <div class="row g-0 w-100 d-flex justify-content-center align-items-center w-50 "
                                     style="width:40vw;">
                                     <div class="col-md-6 col-lg-7 d-flex justify-content-center align-items-center  ms-8"
@@ -253,5 +252,8 @@ function selectMembers() {
     }
     .card{
         border-radius: 1rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    }
+    .div-3{
+        flex-direction: row; gap:0; display:flex; justify-content:center; align-items:center;width:40vw;
     }
 </style>
