@@ -95,7 +95,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ?>
             <div class="select-btn">
                 <button id="select-btn"
-                    style="background-color:#315B87;color:#FAFAFA;border-radius:5px;border:none;padding:5px;width: 80%;"
                     onclick="selectMembers()" name="selectbtn">Select</button>
             </div>
         </div>
@@ -236,5 +235,8 @@ function selectMembers() {
     }
     .select-btn{
         position: absolute; bottom: 1rem; left: 25%;right:20%;
+    }
+    #select-btn{
+        background-color:#315B87;color:#FAFAFA;border-radius:5px;border:none;padding:5px;width: 80%;
     }
 </style>
