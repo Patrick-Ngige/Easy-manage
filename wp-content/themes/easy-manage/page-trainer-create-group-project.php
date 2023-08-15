@@ -71,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="page-trainer-sidenav">
         <?php get_template_part('sidenav-trainer'); ?>
     </div>
-    <div style="display:flex;flex-direction:row">
+    <div class="main-div-2">
         <div
             style="background-color:#FAFAFA;width:20vw;height:15rem;overflow-y:auto;overflow-x:hidden; border-radius: .5rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);padding:2rem;margin:2rem 0 0rem 2rem; position: relative;">
             <h6 style="color:#315B87;position:fixed;background-color:#FAFAFA;margin-top:-2rem;padding:5px">Select Group
@@ -226,5 +226,8 @@ function selectMembers() {
     }
     .page-trainer-sidenav{
         margin-top:-1.99rem;width:20vw
+    }
+    .main-div-2{
+        display:flex;flex-direction:row
     }
 </style>
