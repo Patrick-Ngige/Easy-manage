@@ -107,9 +107,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <div class="div-4">
                                     <div class="div-5">
                                         <div class="card-body">
-                                            <form action="" method="POST" style="font-size:16px">
-                                                <h2 class="fw-bold d-flex align-items-end d-flex justify-content-center align-items-center"
-                                                    style="color:#315B87;margin-top:-2rem">
+                                            <form action="" method="POST">
+                                                <h2>
                                                     Create Group Project
                                                 </h2>
                                                 <?php if (isset($_GET['success']) && $_GET['success'] === 'true'): ?>
@@ -259,5 +258,11 @@ function selectMembers() {
     }
     .card-body{
         padding:1rem; color:black;
+    }
+    form{
+        font-size:16px
+    }
+    form h2{
+        font-weight:bold; display:flex; justify-content:center; align-items:center;color:#315B87;
     }
 </style>
