@@ -285,7 +285,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     form {
-        font-size: 16px
+        font-size: 16px;
+        padding-top:1rem;
     }
 
     form h2 {
