@@ -23,13 +23,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errors[] = 'Due date is required';
     }
     if (isset($_POST['creategrp'])) {
-        $assigned_members = $_POST['assigned_members']; 
+        $assigned_members = $_POST['assigned_members'];
         $group_project = $_POST['group_project'];
         $project_task = $_POST['project_task'];
         $group_due_date = $_POST['due_date'];
         $group_members = json_decode(stripslashes($assigned_members));
         $created_group_project = array(
-            'assigned_members' =>  $group_members,
+            'assigned_members' => $group_members,
             'group_project' => $group_project,
             'project_task' => $project_task,
             'due_date' => $group_due_date,
@@ -42,8 +42,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'Content-Type' => 'application/json',
                 'Authorization' => 'Bearer ' . $token
             )
-        ); 
-        $response = wp_remote_post('http://localhost/easy-manage/wp-json/em/v1/projects/group', $args);      
+        );
+        $response = wp_remote_post('http://localhost/easy-manage/wp-json/em/v1/projects/group', $args);
         if (is_wp_error($response)) {
             echo 'Error: ' . $response->get_error_message();
         } else {
@@ -63,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             } else {
                 echo 'Error: ' . $response_body;
             }
-        }    
+        }
     }
 }
 ?>
@@ -94,18 +94,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
             ?>
             <div class="select-btn">
-                <button id="select-btn"
-                    onclick="selectMembers()" name="selectbtn">Select</button>
+                <button id="select-btn" onclick="selectMembers()" name="selectbtn">Select</button>
             </div>
         </div>
         <div class="create-group">
             <div class="container">
                 <div class="div-1">
-                    <div class="div-2">
+
                         <div class="card">
-                            <div class="div-3">
-                                <div class="div-4">
-                                    <div class="div-5">
+
                                         <div class="card-body">
                                             <form action="" method="POST">
                                                 <h2>
@@ -117,8 +114,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                     </div>
                                                 <?php endif; ?>
                                                 <div class="form-outline">
-                                                    <label class="form-label" for="form2Example27"
-                                                        >
+                                                    <label class="form-label" for="form2Example27">
                                                         Assigned Members:
                                                     </label>
                                                     <input type="text" id="form2Example27" readonly
@@ -129,8 +125,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                     <?php } ?>
                                                 </div>
                                                 <div class="form-outline">
-                                                    <label class="form-label" for="form2Example27"
-                                                        >
+                                                    <label class="form-label" for="form2Example27">
                                                         Project Name:
                                                     </label>
                                                     <input type="text" id="form2Example27"
@@ -142,8 +137,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                     <?php } ?>
                                                 </div>
                                                 <div class="form-outline">
-                                                    <label class="form-label" for="form2Example27"
-                                                        >
+                                                    <label class="form-label" for="form2Example27">
                                                         Project Task:
                                                     </label>
                                                     <input type="text" id="form2Example27"
@@ -155,8 +149,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                     <?php } ?>
                                                 </div>
                                                 <div>
-                                                    <label class="form-label" for="form2Example27"
-                                                        >
+                                                    <label class="form-label" for="form2Example27">
                                                         Due Date:
                                                     </label>
                                                     <input type="date" id="form2Example27"
@@ -168,8 +161,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                     <?php } ?>
                                                 </div>
                                                 <div class="button">
-                                                    <button id="btn"
-                                                        type="submit" name="creategrp">Create</button>
+                                                    <button id="btn" type="submit" name="creategrp">Create</button>
                                                 </div>
                                             </form>
                                         </div>
@@ -185,86 +177,147 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </div>
 
 <script>
-function selectMembers() {
-    var checkboxes = document.querySelectorAll('.form-check-input');
-    var assignedMembersInput = document.querySelector('input[name="assigned_members"]');
-    var selectedMembers = [];
-    checkboxes.forEach(function (checkbox) {
-        if (checkbox.checked) {
-            selectedMembers.push(checkbox.value);
-        }
-    });
-    if (selectedMembers.length > 3) {
+    function selectMembers() {
+        var checkboxes = document.querySelectorAll('.form-check-input');
+        var assignedMembersInput = document.querySelector('input[name="assigned_members"]');
+        var selectedMembers = [];
         checkboxes.forEach(function (checkbox) {
-            if (!checkbox.checked) {
-                checkbox.disabled = true;
+            if (checkbox.checked) {
+                selectedMembers.push(checkbox.value);
             }
         });
-    } else {
-        assignedMembersInput.value = JSON.stringify(selectedMembers); 
-        checkboxes.forEach(function (checkbox) {
-            checkbox.disabled = false;
-        });
+        if (selectedMembers.length > 3) {
+            checkboxes.forEach(function (checkbox) {
+                if (!checkbox.checked) {
+                    checkbox.disabled = true;
+                }
+            });
+        } else {
+            assignedMembersInput.value = JSON.stringify(selectedMembers);
+            checkboxes.forEach(function (checkbox) {
+                checkbox.disabled = false;
+            });
+        }
+        var createBtn = document.querySelector('button[name="creategrp"]');
+        createBtn.disabled = (selectedMembers.length === 0);
     }
-    var createBtn = document.querySelector('button[name="creategrp"]');
-    createBtn.disabled = (selectedMembers.length === 0);
-}
 </script>
 
 <style>
-    .main-div{
-        width:100vw;height:90vh;display:flex;flex-direction:row;margin-top:-2.45rem
-    }
-    .page-trainer-sidenav{
-        margin-top:-1.99rem;width:20vw
-    }
-    .main-div-2{
-        display:flex;flex-direction:row
-    }
-    .members-available{
-        background-color:#FAFAFA;width:20vw;height:15rem;overflow-y:auto;overflow-x:hidden; border-radius: .5rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);padding:2rem;margin:2rem 0 0rem 2rem; position: relative;
-    }
-    .members-available h6{
-        color:#315B87;position:fixed;background-color:#FAFAFA;margin-top:-2rem;padding:5px
-    }
-    .select-btn{
-        position: absolute; bottom: 1rem; left: 25%;right:20%;
-    }
-    #select-btn{
-        background-color:#315B87;color:#FAFAFA;border-radius:5px;border:none;padding:5px;width: 80%;
-    }
-    .create-group{
-        height:88vh;margin-left:auto;margin-right:auto;padding:1rem 
-    }
-    .container{
-        padding:.8rem 0rem; height:auto
-    }
-    .div-1{
-        flex-direction: row; display:flex; justify-content:center; align-items:center; height:auto;
-    }
-    .card{
-        border-radius: 1rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);width: 40vw;
+    .main-div {
+        width: 100vw;
+        height: 90vh;
+        display: flex;
+        flex-direction: row;
+        margin-top: -2.45rem
     }
 
-    .card-body{
-        padding:0rem 2rem 1rem 2rem; color:black;
+    .page-trainer-sidenav {
+        margin-top: -1.99rem;
+        width: 20vw
     }
-    form{
-        font-size:16px
+
+    .main-div-2 {
+        display: flex;
+        flex-direction: row
     }
-    form h2{
-        font-weight:bold; display:flex; justify-content:center; align-items:center;color:#315B87;
+
+    .members-available {
+        background-color: #FAFAFA;
+        width: 20vw;
+        height: 15rem;
+        overflow-y: auto;
+        overflow-x: hidden;
+        border-radius: .5rem;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        padding: 2rem;
+        margin: 2rem 0 0rem 2rem;
+        position: relative;
     }
-    .form-outline{
-        margin-bottom:1rem;font-weight:600;
+
+    .members-available h6 {
+        color: #315B87;
+        position: fixed;
+        background-color: #FAFAFA;
+        margin-top: -2rem;
+        padding: 5px
     }
-    .button{
-        display:flex; justify-content:center; align-items:center;margin-top:1rem
+
+    .select-btn {
+        position: absolute;
+        bottom: 1rem;
+        left: 25%;
+        right: 20%;
     }
-    #btn{
+
+    #select-btn {
         background-color: #315B87;
         color: #FAFAFA;
-        width:20vw;
+        border-radius: 5px;
+        border: none;
+        padding: 5px;
+        width: 80%;
+    }
+
+    .create-group {
+        height: 88vh;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 1rem
+    }
+
+    .container {
+        padding: .8rem 0rem;
+        height: auto
+    }
+
+    .div-1 {
+        flex-direction: row;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+    }
+
+    .card {
+        border-radius: 1rem;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        width: 40vw;
+    }
+
+    .card-body {
+        padding: 0rem 2rem 1rem 2rem;
+        color: black;
+    }
+
+    form {
+        font-size: 16px
+    }
+
+    form h2 {
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #315B87;
+    }
+
+    .form-outline {
+        margin-bottom: 1rem;
+        font-weight: 600;
+    }
+
+    .button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 1rem
+    }
+
+    #btn {
+        background-color: #315B87;
+        color: #FAFAFA;
+        width: 20vw;
         padding: .5rem 1.5rem;
         font-size: 18px;
         border: none;
