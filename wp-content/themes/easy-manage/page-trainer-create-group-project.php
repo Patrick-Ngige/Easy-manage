@@ -240,14 +240,14 @@ function selectMembers() {
         padding:.8rem 0rem; height:auto
     }
     .div-1{
-        flex-direction: row; display:flex; justify-content:center; align-items:center; height:auto
+        flex-direction: row; display:flex; justify-content:center; align-items:center; height:auto;
     }
     .card{
-        border-radius: 1rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        border-radius: 1rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);width: 40vw;
     }
 
     .card-body{
-        padding:0rem 1rem 1rem 1rem; color:black;
+        padding:0rem 2rem 1rem 2rem; color:black;
     }
     form{
         font-size:16px
