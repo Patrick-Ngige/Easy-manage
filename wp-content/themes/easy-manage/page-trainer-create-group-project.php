@@ -93,8 +93,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 }
             }
             ?>
-            <div style="position: absolute; bottom: 1rem; left: 25%;right:20%;">
-                <button class="selectbtn"
+            <div class="select-btn">
+                <button id="select-btn"
                     style="background-color:#315B87;color:#FAFAFA;border-radius:5px;border:none;padding:5px;width: 80%;"
                     onclick="selectMembers()" name="selectbtn">Select</button>
             </div>
@@ -233,5 +233,8 @@ function selectMembers() {
     }
     .members-available h6{
         color:#315B87;position:fixed;background-color:#FAFAFA;margin-top:-2rem;padding:5px
+    }
+    .selectbtn{
+        position: absolute; bottom: 1rem; left: 25%;right:20%;
     }
 </style>
