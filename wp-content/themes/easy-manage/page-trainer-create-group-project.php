@@ -234,7 +234,7 @@ function selectMembers() {
     .members-available h6{
         color:#315B87;position:fixed;background-color:#FAFAFA;margin-top:-2rem;padding:5px
     }
-    .selectbtn{
+    .select-btn{
         position: absolute; bottom: 1rem; left: 25%;right:20%;
     }
 </style>
