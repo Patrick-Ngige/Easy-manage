@@ -167,8 +167,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                         <p class="text-danger">Due date is required.</p>
                                                     <?php } ?>
                                                 </div>
-                                                <div
-                                                    class="pt-1 mt-3 w-100 d-flex justify-content-center align-items-center">
+                                                <div class="button">
                                                     <button class="btn btn-lg btn-block w-50 "
                                                         style="background-color:#315B87 ;color:#FAFAFA;margin-bottom:-2rem"
                                                         type="submit" name="creategrp">Create</button>
@@ -267,5 +266,8 @@ function selectMembers() {
     }
     .form-outline{
         margin-bottom:1rem;font-weight:600;
+    }
+    .button{
+        display:flex; justify-content:center; align-items:center;margin-top:1rem
     }
 </style>
