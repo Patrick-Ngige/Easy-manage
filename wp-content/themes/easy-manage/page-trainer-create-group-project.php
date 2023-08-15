@@ -168,8 +168,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                     <?php } ?>
                                                 </div>
                                                 <div class="button">
-                                                    <button class="btn btn-lg btn-block w-50 "
-                                                        style="background-color:#315B87 ;color:#FAFAFA;margin-bottom:-2rem"
+                                                    <button id="btn"
                                                         type="submit" name="creategrp">Create</button>
                                                 </div>
                                             </form>
@@ -269,5 +268,14 @@ function selectMembers() {
     }
     .button{
         display:flex; justify-content:center; align-items:center;margin-top:1rem
+    }
+    #btn{
+        background-color: #315B87;
+        color: #FAFAFA;
+        width:20vw;
+        padding: .5rem 1.5rem;
+        font-size: 18px;
+        border: none;
+        border-radius: 5px;
     }
 </style>
