@@ -257,7 +257,7 @@ function selectMembers() {
          display:flex; justify-content:center; align-items:center;  margin-left:auto;margin-right:auto;height:30rem; width:40vw;
     }
     .card-body{
-        padding:1rem; color:black;
+        padding:0rem 1rem 1rem 1rem; color:black;
     }
     form{
         font-size:16px
