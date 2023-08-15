@@ -73,8 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
     <div class="main-div-2">
         <div class="members-available">
-            <h6 style="color:#315B87;position:fixed;background-color:#FAFAFA;margin-top:-2rem;padding:5px">Select Group
-                Members</h6>
+            <h6>Select Group Members</h6>
             <?php
             $endpoint_url = 'http://localhost/easy-manage/wp-json/em/v1/trainees/dropdown';
             $response = wp_remote_get($endpoint_url);
@@ -231,5 +230,8 @@ function selectMembers() {
     }
     .members-available{
         background-color:#FAFAFA;width:20vw;height:15rem;overflow-y:auto;overflow-x:hidden; border-radius: .5rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);padding:2rem;margin:2rem 0 0rem 2rem; position: relative;
+    }
+    .members-available h6{
+        color:#315B87;position:fixed;background-color:#FAFAFA;margin-top:-2rem;padding:5px
     }
 </style>
