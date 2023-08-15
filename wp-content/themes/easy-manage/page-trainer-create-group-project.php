@@ -99,7 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
         </div>
         <div class="create-group">
-            <div class="container py-3 h-auto">
+            <div class="container">
                 <div class="row d-flex justify-content-center align-items-center h-auto">
                     <div class="col col-xl-10" style="width:40vw;">
                         <div class="card" style="border-radius: 1rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);">
@@ -240,6 +240,9 @@ function selectMembers() {
         background-color:#315B87;color:#FAFAFA;border-radius:5px;border:none;padding:5px;width: 80%;
     }
     .create-group{
-        height:88vh;margin-left:1rem;padding:1rem 
+        height:88vh;margin-left:auto;margin-right:auto;padding:1rem 
+    }
+    .container{
+        padding:.8rem 0rem; height:auto
     }
 </style>
