@@ -149,9 +149,9 @@ ob_end_flush();
                                                     <?php } ?>
                                                 </div>
                                                 <div class="button"
-                                                    style="padding-top:0;">
-                                                    <button class="btn btn-lg btn-block w-50"
-                                                        style="background-color:#315B87 ;color:#FAFAFA;margin-bottom:-2rem"
+                                            >
+                                                    <button class="create-btn"
+                                                       
                                                         type="submit" name="createbtn">Create</button>
                                                 </div>
                                             </form>
@@ -227,7 +227,10 @@ ob_end_flush();
         font-weight:600;
     }
     .button{
-        padding-top:1rem; margin-bottom:1rem; display:flex; justify-content:center; align-items:center;
+        padding-top:1rem; margin-bottom:1rem; display:flex; justify-content:center; align-items:center;padding-top:0;
+    }
+    .create-btn{
+        background-color:#315B87 ;color:#FAFAFA;margin-bottom:-2rem;width: 20vw;border: none;border-radius: 5px;padding:.5rem 2rem;font-size: larger;
     }
 </style>
 
