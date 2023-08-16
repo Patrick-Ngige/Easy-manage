@@ -126,9 +126,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                 } ?>
                                             </div>
                                             <div
-                                                class="pt-1 mt-3 w-100 d-flex justify-content-center align-items-center">
-                                                <button class="btn btn-lg btn-block w-50"
-                                                    style="background-color: #315B87;margin-bottom:-2rem; color: #FAFAFA" type="submit"
+                                                class="button">
+                                                <button class="create-btn"
+                                                   type="submit"
                                                     name="createbtn">Create</button>
                                             </div>
                                         </form>
@@ -184,6 +184,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     .form-label{
         font-weight: 600;
+    }
+    .button{
+        padding-top:1rem; margin-top: 1 rem; display:flex; justify-content:center; align-items:center;
+    }
+    .create-btn {
+        background-color: #315B87;
+        color: #FAFAFA;
+        margin-bottom: -2rem;
+        border: none;
+        border-radius: 5px;
+        padding: .4rem 3.5rem;
+        font-size: large;
     }
 </style>
 
