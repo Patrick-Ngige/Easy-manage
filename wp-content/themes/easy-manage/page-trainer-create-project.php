@@ -75,7 +75,7 @@ ob_end_flush();
         <section class="form-section">
             <div class="container">
                 <div class="div-1">
-                    <div class="col col-xl-10" style="width:40vw;">
+                    <div class="div-2">
                         <div class="card" style="border-radius: 1rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);">
                             <div class="row g-0 w-100 d-flex justify-content-center align-items-center w-50"
                                 style="width:40vw;">
@@ -202,6 +202,9 @@ ob_end_flush();
     }
     .div-1{
         flex-direction: row; display:flex; justify-content:center; align-items:center; height:auto;
+    }
+    .div-2{
+        flex-direction: column; width:40vw;
     }
 </style>
 
