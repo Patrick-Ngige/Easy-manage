@@ -64,7 +64,7 @@ ob_end_flush();
     <div class="page-trainer-sidenav">
         <?php get_template_part('sidenav-trainer'); ?>
     </div>
-    <div style="padding:1rem ;height:88vh;margin-left:10%;display:flex;flex-direction:row ">
+    <div class="main-div-2">
         <div style="padding:1rem;">
             <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
                 <a href="http://localhost/easy-manage/trainer-group-projects/"
@@ -178,6 +178,9 @@ ob_end_flush();
     }
     .page-trainer-sidenav{
         margin-top:-1.99rem;width:20vw
+    }
+    .main-div-2{
+        padding:1rem ;height:88vh;margin-left:10%;display:flex;flex-direction:row 
     }
 </style>
 
