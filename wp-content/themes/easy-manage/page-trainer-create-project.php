@@ -175,7 +175,7 @@ ob_end_flush();
         margin-top:-1.99rem;width:20vw
     }
     .main-div-2{
-        padding:1rem ;height:88vh;margin-left:10%;display:flex;flex-direction:row 
+        padding-top:2rem ;height:88vh;margin-left:10%;display:flex;flex-direction:row 
     }
     .floating-div{
         padding:1rem;
