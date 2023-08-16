@@ -90,9 +90,9 @@ ob_end_flush();
                                                         Project created successfully.
                                                     </div>
                                                 <?php endif; ?>
-                                                <div class="form-outline mb-2">
+                                                <div class="form-outline ">
                                                     <label class="form-label" for="project_name"
-                                                        style="font-weight:600;">Project Name:</label>
+                                                    >Project Name:</label>
                                                     <input type="text" id="project_name"
                                                         class="form-control form-control-md"
                                                         placeholder="Enter project name" name="project_name"
@@ -102,9 +102,9 @@ ob_end_flush();
                                                     <?php } ?>
                                                 </div>
 
-                                                <div class="form-outline mb-2">
+                                                <div class="form-outline ">
                                                     <label class="form-label" for="project_task"
-                                                        style="font-weight:600;">Project Task:</label>
+                                                    >Project Task:</label>
                                                     <input type="text" id="project_task"
                                                         class="form-control form-control-md"
                                                         placeholder="Enter project task" name="project_task"
@@ -113,7 +113,7 @@ ob_end_flush();
                                                         <p class="text-danger">Project task is required.</p>
                                                     <?php } ?>
                                                 </div>
-                                                <div class="form-outline mb-2">
+                                                <div class="form-outline ">
                                                     <label class="form-label" for="assignee"
                                                         style="font-weight: 600;">Assignee:</label>
                                                     <select id="assignee" class="form-control form-control-md"
@@ -137,9 +137,9 @@ ob_end_flush();
                                                         <p class="text-danger">Assignee is required.</p>
                                                     <?php } ?>
                                                 </div>
-                                                <div class="form-outline mb-2">
+                                                <div class="form-outline ">
                                                     <label class="form-label" for="due_date"
-                                                        style="font-weight:600;">Due Date:</label>
+                                                    >Due Date:</label>
                                                     <input type="date" id="due_date"
                                                         class="form-control form-control-md" placeholder="Due date"
                                                         name="due_date" min="<?php echo date('Y-m-d'); ?>"
@@ -219,6 +219,12 @@ ob_end_flush();
     }
     form h2{
         font-weight:bold; display:flex; justify-content:center; align-items:center;color:#315B87;margin-top:-2rem
+    }
+    .form-outline{
+        margin-bottom:1rem;
+    }
+    .form-label{
+        font-weight:600;
     }
 </style>
 
