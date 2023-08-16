@@ -72,9 +72,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <div class="div-4">
                                 <div class="div-5">
                                     <div class="card-body">
-                                        <form action="" method="POST" style="font-size: 16px">
-                                            <h2 class="fw-bold d-flex align-items-end d-flex justify-content-center align-items-center"
-                                                style="color: #315B87;margin-top:-2rem">
+                                        <form action="" method="POST">
+                                            <h2>
                                                 Create trainee
                                             </h2>
                                             <?php if (isset($_GET['success']) && $_GET['success'] === 'true'): ?>
@@ -82,9 +81,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                     Trainer created successfully.
                                                 </div>
                                             <?php endif; ?>
-                                            <div class="form-outline mb-3">
+                                            <div class="form-outline ">
                                                 <label class="form-label" for="form2Example27"
-                                                    style="font-weight: 600;">Trainee:</label>
+                                                    >Trainee:</label>
                                                 <input type="text" id="form2Example27"
                                                     class="form-control form-control-md"
                                                     placeholder="Enter trainee name" name="trainee_name"
@@ -93,9 +92,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                     echo '<p class="text-danger">Trainee name is required</p>';
                                                 } ?>
                                             </div>
-                                            <div class="form-outline mb-3">
+                                            <div class="form-outline ">
                                                 <label class="form-label" for="form2Example27"
-                                                    style="font-weight: 600;">Email:</label>
+                                                    >Email:</label>
                                                 <input type="email" id="form2Example27"
                                                     class="form-control form-control-md"
                                                     placeholder="Enter trainee email" name="trainee_email"
@@ -104,9 +103,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                     echo '<p class="text-danger">Email is required</p>';
                                                 } ?>
                                             </div>
-                                            <div class="form-outline mb-3">
+                                            <div class="form-outline ">
                                                 <label class="form-label" for="form2Example27"
-                                                    style="font-weight: 600;">Role:</label>
+                                                    >Role:</label>
                                                 <input type="text" id="form2Example27"
                                                     class="form-control form-control-md"
                                                     placeholder="Enter trainee role" name="trainee_role"
@@ -115,9 +114,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                     echo '<p class="text-danger">Role is required</p>';
                                                 } ?>
                                             </div>
-                                            <div class="form-outline mb-3">
+                                            <div class="form-outline">
                                                 <label class="form-label" for="form2Example27"
-                                                    style="font-weight: 600;">Password:</label>
+                                                    >Password:</label>
                                                 <input type="password" id="form2Example27"
                                                     class="form-control form-control-md"
                                                     placeholder="Enter trainee role" name="trainee_password"
@@ -173,6 +172,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     .card-body{
         padding:2rem; color:black
+    }
+    form{
+        font-size: 16px
+    }
+    form h2{
+        font-weight:bold; display:flex; justify-content:center; align-items:center;color: #315B87;margin-top:-2rem;
+    }
+    .form-outline{
+        margin-bottom:1rem;
+    }
+    .form-label{
+        font-weight: 600;
     }
 </style>
 
