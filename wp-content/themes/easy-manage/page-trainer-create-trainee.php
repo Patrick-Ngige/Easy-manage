@@ -139,7 +139,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     .div-1 {
         height: 80vh;
-        margin-left: 15rem;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .card {
