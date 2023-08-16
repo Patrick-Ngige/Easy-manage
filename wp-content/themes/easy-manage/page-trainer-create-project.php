@@ -72,7 +72,7 @@ ob_end_flush();
                 </a>
             </div>
         </div>
-        <section style="height:88vh;">
+        <section class="form-section">
             <div class="container py-5 h-auto">
                 <div class="row d-flex justify-content-center align-items-center h-auto">
                     <div class="col col-xl-10" style="width:40vw;">
@@ -193,6 +193,9 @@ ob_end_flush();
     .floating-btn a:hover{
         background-color: #315B87;
         color:#FAFAFA;
+    }
+    .form-section{
+        height:88vh;
     }
     
 </style>
