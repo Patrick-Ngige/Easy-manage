@@ -190,6 +190,7 @@ ob_end_flush();
     }
     .floating-btn:hover{
         background-color: #315B87;
+        color:#FAFAFA;
     }
 </style>
 
