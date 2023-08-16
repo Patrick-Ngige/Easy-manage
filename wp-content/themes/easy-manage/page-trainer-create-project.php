@@ -79,7 +79,7 @@ ob_end_flush();
                         <div class="card">
                             <div class="div-4">
                                 <div class="div-4">
-                                    <div class="col-md-6 col-lg-7 d-flex justify-content-center align-items-center  ms-8"
+                                    <div class="div-5"
                                         style="height:fit-content; width:40vw;">
                                         <div class="card-body p-2 p-lg-5 text-black">
                                             <form action="" method="POST" style="font-size:16px">
@@ -209,6 +209,9 @@ ob_end_flush();
     }
     .div-4{
         flex-direction: row; gap:0; display:flex; justify-content:center; align-items:center; width:40vw;
+    }
+    .div-5{
+        display:flex; justify-content:center; align-items:center;  margin-left:.8rem;
     }
 </style>
 
