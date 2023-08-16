@@ -77,8 +77,8 @@ ob_end_flush();
                 <div class="div-1">
                     <div class="div-2">
                         <div class="card">
-                            <div class="div-4">
-                                <div class="div-4">
+                            <!-- <div class="div-4">
+                                <div class="div-4"> -->
                                     <div class="div-5">
                                         <div class="card-body">
                                             <form action="" method="POST">
@@ -196,23 +196,14 @@ ob_end_flush();
     .container{
         padding:1rem 0rem; height:auto
     }
-    .div-1{
-        flex-direction: row; display:flex; justify-content:center; align-items:center; height:auto;
-    }
-    .div-2{
-        flex-direction: column; width:40vw;
-    }
+
+
     .card{
-        border-radius: 1rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        border-radius: 1rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);display:flex; justify-content:center; align-items:center;  margin-left:.8rem;height:70vh; width:40vw;
     }
-    .div-4{
-        flex-direction: row; gap:0; display:flex; justify-content:center; align-items:center; width:40vw;
-    }
-    .div-5{
-        display:flex; justify-content:center; align-items:center;  margin-left:.8rem;height:70vh; width:40vw;
-    }
+
     .card-body{
-        padding:1rem; color:black
+        padding:1rem; color:black;width: 35vw;
     }
     form{
         font-size:16px
@@ -230,7 +221,7 @@ ob_end_flush();
         padding-top:1rem; margin-bottom:1rem; display:flex; justify-content:center; align-items:center;padding-top:0;
     }
     .create-btn{
-        background-color:#315B87 ;color:#FAFAFA;margin-bottom:-2rem;width: 20vw;border: none;border-radius: 5px;padding:.5rem 2rem;font-size: larger;
+        background-color:#315B87 ;color:#FAFAFA;margin-bottom:-2rem;border: none;border-radius: 5px;padding:.3rem 4rem;font-size: larger;
     }
 </style>
 
