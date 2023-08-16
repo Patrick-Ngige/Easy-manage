@@ -68,13 +68,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="div-2">
                 <div class="div-3">
                     <div class="card">
-                        <div class="row g-0 w-100 d-flex justify-content-center align-items-center w-50"
-                            style="width: 40vw;">
-                            <div class="row g-0 w-100 d-flex justify-content-center align-items-center w-50"
-                                style="width: 40vw;">
-                                <div class="col-md-6 col-lg-7 d-flex justify-content-center align-items-center  ms-8"
-                                    style="height: fit-content; width: 40vw;">
-                                    <div class="card-body p-4 p-lg-5 text-black">
+                        <div class="div-4">
+                            <div class="div-4">
+                                <div class="div-5">
+                                    <div class="card-body">
                                         <form action="" method="POST" style="font-size: 16px">
                                             <h2 class="fw-bold d-flex align-items-end d-flex justify-content-center align-items-center"
                                                 style="color: #315B87;margin-top:-2rem">
@@ -167,6 +164,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     .card{
         border-radius: 1rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    }
+    .div-4{
+        flex-direction:row; gap:0; display:flex; justify-content:center; align-items:center; width: 40vw;
+    }
+    .div-5{
+        display:flex; justify-content:center; align-items:center; height: 75vh; width: 40vw;
+    }
+    .card-body{
+        padding:2rem; color:black
     }
 </style>
 
