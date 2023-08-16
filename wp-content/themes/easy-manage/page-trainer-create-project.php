@@ -79,9 +79,8 @@ ob_end_flush();
                         <div class="card">
                             <div class="div-4">
                                 <div class="div-4">
-                                    <div class="div-5"
-                                        style="height:fit-content; width:40vw;">
-                                        <div class="card-body p-2 p-lg-5 text-black">
+                                    <div class="div-5">
+                                        <div class="card-body">
                                             <form action="" method="POST" style="font-size:16px">
                                                 <h2 class="fw-bold d-flex align-items-end d-flex justify-content-center align-items-center"
                                                     style="color:#315B87;margin-top:-2rem">
@@ -211,7 +210,7 @@ ob_end_flush();
         flex-direction: row; gap:0; display:flex; justify-content:center; align-items:center; width:40vw;
     }
     .div-5{
-        display:flex; justify-content:center; align-items:center;  margin-left:.8rem;
+        display:flex; justify-content:center; align-items:center;  margin-left:.8rem;height:fit-content; width:40vw;
     }
 </style>
 
