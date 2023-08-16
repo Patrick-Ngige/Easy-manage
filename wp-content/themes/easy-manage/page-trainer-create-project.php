@@ -185,7 +185,7 @@ ob_end_flush();
         padding:1rem;
     }
     .floating-btn{
-        text-decoration:none;padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+       padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
     .floating-btn a{
         text-decoration: none;color:#315B87
