@@ -74,7 +74,7 @@ ob_end_flush();
         </div>
         <section class="form-section">
             <div class="container">
-                <div class="row d-flex justify-content-center align-items-center h-auto">
+                <div class="div-1">
                     <div class="col col-xl-10" style="width:40vw;">
                         <div class="card" style="border-radius: 1rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);">
                             <div class="row g-0 w-100 d-flex justify-content-center align-items-center w-50"
@@ -200,7 +200,9 @@ ob_end_flush();
     .container{
         padding:1rem 0rem; height:auto
     }
-    
+    .div-1{
+        flex-direction: row; display:flex; justify-content:center; align-items:center; height:auto;
+    }
 </style>
 
 <?php get_footer(); ?>
