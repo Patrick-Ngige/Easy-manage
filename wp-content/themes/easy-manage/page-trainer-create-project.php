@@ -65,7 +65,7 @@ ob_end_flush();
         <?php get_template_part('sidenav-trainer'); ?>
     </div>
     <div class="main-div-2">
-        <div style="padding:1rem;">
+        <div class="floating-div">
             <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
                 <a href="http://localhost/easy-manage/trainer-group-projects/"
                     style="text-decoration:none;padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
@@ -181,6 +181,9 @@ ob_end_flush();
     }
     .main-div-2{
         padding:1rem ;height:88vh;margin-left:10%;display:flex;flex-direction:row 
+    }
+    .floating-div{
+        padding:1rem;
     }
 </style>
 
