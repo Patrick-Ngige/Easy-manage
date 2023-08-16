@@ -77,10 +77,8 @@ ob_end_flush();
                 <div class="div-1">
                     <div class="div-2">
                         <div class="card">
-                            <div class="row g-0 w-100 d-flex justify-content-center align-items-center w-50"
-                                style="width:40vw;">
-                                <div class="row g-0 w-100 d-flex justify-content-center align-items-center w-50"
-                                    style="width:40vw;">
+                            <div class="div-4">
+                                <div class="div-4">
                                     <div class="col-md-6 col-lg-7 d-flex justify-content-center align-items-center  ms-8"
                                         style="height:fit-content; width:40vw;">
                                         <div class="card-body p-2 p-lg-5 text-black">
@@ -208,6 +206,9 @@ ob_end_flush();
     }
     .card{
         border-radius: 1rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    }
+    .div-4{
+        flex-direction: row; gap:0; display:flex; justify-content:center; align-items:center; width:40vw;
     }
 </style>
 
