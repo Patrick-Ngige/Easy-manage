@@ -67,8 +67,7 @@ ob_end_flush();
     <div class="main-div-2">
         <div class="floating-div">
             <div class="floating-btn">
-                <a href="http://localhost/easy-manage/trainer-group-projects/"
-                    style="text-decoration:none;padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+                <a href="http://localhost/easy-manage/trainer-group-projects/">
                     Group Project
                 </a>
             </div>
@@ -186,12 +185,16 @@ ob_end_flush();
         padding:1rem;
     }
     .floating-btn{
-        display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;
+        text-decoration:none;padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
-    .floating-btn:hover{
+    .floating-btn a{
+        text-decoration: none;color:#315B87
+    }
+    .floating-btn a:hover{
         background-color: #315B87;
         color:#FAFAFA;
     }
+    
 </style>
 
 <?php get_footer(); ?>
