@@ -73,7 +73,7 @@ ob_end_flush();
             </div>
         </div>
         <section class="form-section">
-            <div class="container py-5 h-auto">
+            <div class="container">
                 <div class="row d-flex justify-content-center align-items-center h-auto">
                     <div class="col col-xl-10" style="width:40vw;">
                         <div class="card" style="border-radius: 1rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);">
@@ -196,6 +196,9 @@ ob_end_flush();
     }
     .form-section{
         height:88vh;
+    }
+    .container{
+        padding:1rem 0rem; height:auto
     }
     
 </style>
