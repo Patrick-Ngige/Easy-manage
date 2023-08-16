@@ -148,7 +148,7 @@ ob_end_flush();
                                                         <p class="text-danger">Due date is required.</p>
                                                     <?php } ?>
                                                 </div>
-                                                <div class="pt-1 mb-2 w-100 d-flex justify-content-center align-items-center"
+                                                <div class="button"
                                                     style="padding-top:0;">
                                                     <button class="btn btn-lg btn-block w-50"
                                                         style="background-color:#315B87 ;color:#FAFAFA;margin-bottom:-2rem"
@@ -225,6 +225,9 @@ ob_end_flush();
     }
     .form-label{
         font-weight:600;
+    }
+    .button{
+        padding-top:1rem; margin-bottom:1rem; display:flex; justify-content:center; align-items:center;
     }
 </style>
 
