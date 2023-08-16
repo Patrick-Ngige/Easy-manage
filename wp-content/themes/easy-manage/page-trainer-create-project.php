@@ -74,12 +74,10 @@ ob_end_flush();
         </div>
         <section class="form-section">
             <div class="container">
-                <div class="div-1">
+
                     <div class="div-2">
                         <div class="card">
-                            <!-- <div class="div-4">
-                                <div class="div-4"> -->
-                                    <div class="div-5">
+      
                                         <div class="card-body">
                                             <form action="" method="POST">
                                                 <h2>
@@ -199,7 +197,7 @@ ob_end_flush();
 
 
     .card{
-        border-radius: 1rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);display:flex; justify-content:center; align-items:center;  margin-left:.8rem;height:70vh; width:40vw;
+        border-radius: 1rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);display:flex; justify-content:center; align-items:center;  margin-left:.8rem;height:72vh; width:40vw;
     }
 
     .card-body{
@@ -209,7 +207,7 @@ ob_end_flush();
         font-size:16px
     }
     form h2{
-        font-weight:bold; display:flex; justify-content:center; align-items:center;color:#315B87;margin-top:-2rem
+        font-weight:bold; display:flex; justify-content:center; align-items:center;color:#315B87;
     }
     .form-outline{
         margin-bottom:1rem;
