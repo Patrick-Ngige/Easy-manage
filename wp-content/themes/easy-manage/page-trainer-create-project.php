@@ -210,7 +210,10 @@ ob_end_flush();
         flex-direction: row; gap:0; display:flex; justify-content:center; align-items:center; width:40vw;
     }
     .div-5{
-        display:flex; justify-content:center; align-items:center;  margin-left:.8rem;height:fit-content; width:40vw;
+        display:flex; justify-content:center; align-items:center;  margin-left:.8rem;height:70vh; width:40vw;
+    }
+    .card-body{
+        padding:1rem; color:black
     }
 </style>
 
