@@ -86,8 +86,8 @@ curl_close($ch);
                                             </div>
                                         </div>
                                     </td>
-                                    <td>
-                                        <p class="fw-normal mb-1">
+                                    <td class="td-2">
+                                        <p>
                                             <?php echo $project['project_task'] ?>
                                         </p>
                                     </td>
@@ -150,7 +150,9 @@ get_footer();
     .td-div-1{
         font-size: large; color: #315B87; padding-left: 2rem;
     }
-
+    .td-2{
+        margin-bottom: .4rem
+    }
    .fixed-thead {
         position: sticky;
         top: 0;
