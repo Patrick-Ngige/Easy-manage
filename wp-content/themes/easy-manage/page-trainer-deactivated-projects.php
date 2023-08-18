@@ -42,8 +42,8 @@ if ($http_status === 200) {
 
 curl_close($ch);
 ?>
-<div style="width:100vw;height:90vh;display:flex;flex-direction:row;margin-top:-2.45rem">
-    <div class="page-trainee-dashboard" style="margin-top:-1.99rem;width:20vw">
+<div class="main-div">
+    <div class="page-trainer-sidenav">
         <?php get_template_part('sidenav-trainer'); ?>
     </div>
     <div style="padding:1rem;width:80vw;margin-left:0rem">
@@ -124,6 +124,12 @@ curl_close($ch);
 get_footer();
 ?>
 <style>
+    .main-div{
+        width:100vw;height:90vh;display:flex;flex-direction:row;margin-top:-2.45rem
+    }
+    .page-trainer-sidenav{
+        margin-top:-1.99rem;width:20vw
+    }
    .fixed-thead {
         position: sticky;
         top: 0;
