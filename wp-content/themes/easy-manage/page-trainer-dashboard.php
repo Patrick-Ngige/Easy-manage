@@ -5,7 +5,8 @@ get_header();
  * Template Name: Analytics Dashboard
  */
 
- function get_total_individual_projects($project_status = null) {
+function get_total_individual_projects($project_status = null)
+{
     global $wpdb;
     $table_name = $wpdb->prefix . 'individual_projects';
     $query = "SELECT COUNT(*) as total FROM $table_name";
@@ -16,17 +17,19 @@ get_header();
     return $result->total;
 }
 
-function get_total_group_projects($group_status = null) {
+function get_total_group_projects($group_status = null)
+{
     global $wpdb;
     $table_name = $wpdb->prefix . 'group_projects';
     $query = "SELECT COUNT(*) as total FROM $table_name";
     if ($group_status !== null) {
         $query .= " WHERE group_status = $group_status";
-    }   
+    }
     $result = $wpdb->get_row($query);
     return $result->total;
 }
-function get_ongoing_projects() {
+function get_ongoing_projects()
+{
     $total_individual_projects = get_total_individual_projects();
     $total_group_projects = get_total_group_projects();
     $ongoing_individual_projects = get_total_individual_projects(0);
@@ -35,7 +38,8 @@ function get_ongoing_projects() {
     return $ongoing_projects;
 }
 
-function get_completed_projects() {
+function get_completed_projects()
+{
     global $wpdb;
     $individual_projects_table = $wpdb->prefix . 'individual_projects';
     $group_projects_table = $wpdb->prefix . 'group_projects';
@@ -48,7 +52,8 @@ function get_completed_projects() {
     return $completed_projects;
 }
 
-function get_total_trainees() {
+function get_total_trainees()
+{
     global $wpdb;
     $user_table = $wpdb->prefix . 'users';
     $usermeta_table = $wpdb->prefix . 'usermeta';
@@ -61,7 +66,8 @@ function get_total_trainees() {
     return $total_trainees;
 }
 
-function get_recent_individual_projects() {
+function get_recent_individual_projects()
+{
     global $wpdb;
     $table_name = $wpdb->prefix . 'individual_projects';
     $query = "SELECT * FROM $table_name ORDER BY project_id DESC LIMIT 1";
@@ -69,7 +75,8 @@ function get_recent_individual_projects() {
     return $results;
 }
 
-function get_recent_group_projects() {
+function get_recent_group_projects()
+{
     global $wpdb;
     $table_name = $wpdb->prefix . 'group_projects';
     $query = "SELECT * FROM $table_name ORDER BY group_id DESC LIMIT 1";
@@ -78,61 +85,61 @@ function get_recent_group_projects() {
 }
 ?>
 
-<div style="width:100vw;height:90vh;display:flex;flex-direction:row;margin-top:-2.45rem">
-    <div class="page-trainee-dashboard" style="margin-top:-1.99rem;width:20vw">
+<div class="main-div">
+    <div class="page-trainer-sidenav">
         <?php get_template_part('sidenav-trainer'); ?>
     </div>
-    <div style="padding:1rem;width:70vw;margin-left:5rem;overflow-y:auto;z-index:100;height:fit-content;margin-top:1rem;">
-        <style>
-            .stat-item {
-                display: flex;
-                justify-content: space-between;
-                margin-bottom: 10px;
-            }
-            .stat-item p {
-                font-size: 16px;
-            }
-            .table th,
-            .table td {
-                padding: 8px;
-                text-align: left;
-                border-bottom: 1px solid #ddd;
-            }
-        </style>
- <div style="display:flex;justify-content:end;margin-bottom: 2rem">
-        <?php echo do_shortcode('[search_bar]'); ?>
+    <div
+        style="padding:1rem;width:70vw;margin-left:5rem;overflow-y:auto;z-index:100;height:fit-content;margin-top:1rem;">
+
+        <div style="display:flex;justify-content:end;margin-bottom: 2rem">
+            <?php echo do_shortcode('[search_bar]'); ?>
         </div>
         <div style=" display: flex; justify-content: space-between; align-items: flex-start;">
-            <div style="flex: 1;margin-right: 20px; padding: 10px; background-color: #FAFAFA; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; border-radius: 5px;">
+            <div
+                style="flex: 1;margin-right: 20px; padding: 10px; background-color: #FAFAFA; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; border-radius: 5px;">
                 <h2 style=" font-size: 20px; margin-bottom: 1rem;color:#315B87">Projects</h2>
                 <div class="stat-item">
                     <p>Total Individual Projects</p>
-                    <p><?php echo get_total_individual_projects(); ?></p>
+                    <p>
+                        <?php echo get_total_individual_projects(); ?>
+                    </p>
                 </div>
                 <div class="stat-item">
                     <p>Total Group Projects</p>
-                    <p><?php echo get_total_group_projects(); ?></p>
+                    <p>
+                        <?php echo get_total_group_projects(); ?>
+                    </p>
                 </div>
                 <div class="stat-item">
                     <p>Ongoing Projects</p>
-                    <p><?php echo get_ongoing_projects(); ?></p>
+                    <p>
+                        <?php echo get_ongoing_projects(); ?>
+                    </p>
                 </div>
                 <div class="stat-item">
                     <p>Completed Projects</p>
-                    <p><?php echo get_completed_projects(); ?></p>
+                    <p>
+                        <?php echo get_completed_projects(); ?>
+                    </p>
                 </div>
             </div>
-            <div style="flex: 1;margin-right: 10px; padding: 10px; background-color: #FAFAFA; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; border-radius: 5px;">
-                <h2 style=" font-size: 20px; margin-bottom: 1rem;color:#315B87">Trainees</h2>         
+            <div
+                style="flex: 1;margin-right: 10px; padding: 10px; background-color: #FAFAFA; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; border-radius: 5px;">
+                <h2 style=" font-size: 20px; margin-bottom: 1rem;color:#315B87">Trainees</h2>
                 <div class="stat-item">
                     <p>Total Trainees</p>
-                    <p><?php echo get_total_trainees(); ?></p>
+                    <p>
+                        <?php echo get_total_trainees(); ?>
+                    </p>
                 </div>
-            </div>   
+            </div>
         </div>
         <div style="width:67vw;display:flex; flex-direction:row;gap:10px">
-            <div class="table" style="width:32.5vw;margin-top: 20px; background-color: #FAFAFA; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; border-radius: 5px; padding: 10px;">
-                <h2 style="  font-size: 20px; margin-bottom: 10px;color:#315B87">Recently Assigned Individual Projects</h2>
+            <div class="table"
+                style="width:32.5vw;margin-top: 20px; background-color: #FAFAFA; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; border-radius: 5px; padding: 10px;">
+                <h2 style="  font-size: 20px; margin-bottom: 10px;color:#315B87">Recently Assigned Individual Projects
+                </h2>
                 <table style="width: 100%; border-collapse: collapse;">
                     <thead>
                         <tr>
@@ -155,7 +162,8 @@ function get_recent_group_projects() {
                     </tbody>
                 </table>
             </div>
-            <div class="table" style="width:32.5vw;margin-top: 20px; background-color: #FAFAFA; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; border-radius: 5px; padding: 10px;">
+            <div class="table"
+                style="width:32.5vw;margin-top: 20px; background-color: #FAFAFA; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; border-radius: 5px; padding: 10px;">
                 <h2 style="  font-size: 20px; margin-bottom: 10px;color:#315B87">Recently Assigned Group Projects</h2>
                 <table style="width: 100%; border-collapse: collapse;">
                     <thead>
@@ -182,3 +190,28 @@ function get_recent_group_projects() {
         </div>
     </div>
 </div>
+
+<style>
+    .main-div{
+        width:100vw;height:90vh;display:flex;flex-direction:row;margin-top:-2.45rem
+    }
+    .page-trainer-sidenav{
+        margin-top:-1.99rem;width:20vw
+    }
+    .stat-item {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+
+    .stat-item p {
+        font-size: 16px;
+    }
+
+    .table th,
+    .table td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+</style>
