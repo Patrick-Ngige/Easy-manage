@@ -53,10 +53,9 @@ curl_close($ch);
                 <?php echo do_shortcode('[search_bar]'); ?>
             </div>
             <div class="scrollable-container" >
-                <table class="table align-middle mb-0 bg-white table-hover"
-                    style="width: 90%; margin-left: 5%; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; margin-top: 3%;">
+                <table class="table align-middle bg-white table-hover">
                     <thead class="bg-light fixed-thead">
-                        <tr style="font-size: large; color: #315B87; padding-left: 2rem;">
+                        <tr class="tr-head">
                             <th>Trainee</th>
                             <th>Project</th>
                             <th>Status</th>
@@ -100,10 +99,10 @@ curl_close($ch);
                                     <td>
                                         <form method="POST">
                                             <input type="hidden" name="user_id" value="<?php echo $project['ID']; ?>">
-                                            <button type="submit" name="soft_delete" class="btn-soft-delete"
+                                            <button type="submit" name="restore_user" class="btn-restore"
                                                 style="padding: 6px; border: none;">
                                                 <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/reuse.png"
-                                                    style="width: 3vw;" alt="">
+                                                    style="width: 3vw;" alt="restore user">
                                             </button>
                                         </form>
                                     </td>
@@ -141,6 +140,12 @@ get_footer();
     }
     .scrollable-container{
         height: 400px; overflow: auto;
+    }
+    .table{
+        width: 90%; margin-left: 5%; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; margin-top: 3%;
+    }
+    .tr-head{
+        font-size: large; color: #315B87; padding-left: 2rem;
     }
    .fixed-thead {
         position: sticky;
