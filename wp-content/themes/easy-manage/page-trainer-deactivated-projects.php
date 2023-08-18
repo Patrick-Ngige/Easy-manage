@@ -72,9 +72,9 @@ curl_close($ch);
                             foreach ($projects as $project) { ?>
                                 <tr>
                                     <td>
-                                        <div class="d-flex align-items-center">
-                                            <div class="ms-1">
-                                                <p class="mb-1">
+                                        <div class="td-div-1">
+                                            <div class="td-div-2">
+                                                <p>
                                                     <?php
                                                     if ($project['project_type'] === 'individual') {
                                                         echo $project['assignee'];
@@ -147,6 +147,10 @@ get_footer();
     .tr-head{
         font-size: large; color: #315B87; padding-left: 2rem;
     }
+    .td-div-1{
+        font-size: large; color: #315B87; padding-left: 2rem;
+    }
+
    .fixed-thead {
         position: sticky;
         top: 0;
