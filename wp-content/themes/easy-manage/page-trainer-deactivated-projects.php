@@ -91,18 +91,17 @@ curl_close($ch);
                                             <?php echo $project['project_task'] ?>
                                         </p>
                                     </td>
-                                    <td>
-                                        <p class="fw-normal mb-1" style="color: red;">
+                                    <td class="td-2">
+                                        <p style="color: red;">
                                             Deleted
                                         </p>
                                     </td>
                                     <td>
                                         <form method="POST">
-                                            <input type="hidden" name="user_id" value="<?php echo $project['ID']; ?>">
-                                            <button type="submit" name="restore_user" class="btn-restore"
-                                                style="padding: 6px; border: none;">
+                                        <input type="hidden" name="user_id" value="<?php echo ($project['project_type'] === 'individual') ? $project['project_id'] : $project['group_id']; ?>">
+                                            <button type="submit" name="restore_user" class="btn-restore">
                                                 <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/reuse.png"
-                                                    style="width: 3vw;" alt="restore user">
+                                                  alt="restore user">
                                             </button>
                                         </form>
                                     </td>
@@ -152,6 +151,12 @@ get_footer();
     }
     .td-2{
         margin-bottom: .4rem
+    }
+    .btn-restore{
+        padding: 6px; border: none;
+    }
+    .btn-restore img{
+        width: 3vw;
     }
    .fixed-thead {
         position: sticky;
