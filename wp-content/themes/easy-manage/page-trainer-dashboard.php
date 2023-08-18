@@ -97,8 +97,8 @@ function get_recent_group_projects()
         </div>
         <div class="main-container-1">
             <div
-                style="flex: 1;margin-right: 20px; padding: 10px; background-color: #FAFAFA; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; border-radius: 5px;">
-                <h2 style=" font-size: 20px; margin-bottom: 1rem;color:#315B87">Projects</h2>
+                class="projects-stats">
+                <h2>Projects</h2>
                 <div class="stat-item">
                     <p>Total Individual Projects</p>
                     <p>
@@ -125,8 +125,8 @@ function get_recent_group_projects()
                 </div>
             </div>
             <div
-                style="flex: 1;margin-right: 10px; padding: 10px; background-color: #FAFAFA; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; border-radius: 5px;">
-                <h2 style=" font-size: 20px; margin-bottom: 1rem;color:#315B87">Trainees</h2>
+                class="trainees-stats">
+                <h2>Trainees</h2>
                 <div class="stat-item">
                     <p>Total Trainees</p>
                     <p>
@@ -162,8 +162,7 @@ function get_recent_group_projects()
                     </tbody>
                 </table>
             </div>
-            <div class="table"
-                style="width:32.5vw;margin-top: 20px; background-color: #FAFAFA; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; border-radius: 5px; padding: 10px;">
+            <div class="table">
                 <h2 style="  font-size: 20px; margin-bottom: 10px;color:#315B87">Recently Assigned Group Projects</h2>
                 <table style="width: 100%; border-collapse: collapse;">
                     <thead>
@@ -207,6 +206,18 @@ function get_recent_group_projects()
     .main-container-1{
         display: flex; justify-content: space-between; align-items: flex-start;
     }
+    .projects-stats{
+        flex: 1;margin-right: 20px; padding: 10px; background-color: #FAFAFA; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; border-radius: 5px;
+    }
+    .projects-stats h2{
+        font-size: 20px; margin-bottom: 1rem;color:#315B87
+    }
+    .trainees-stats{
+        flex: 1;margin-right: 10px; padding: 10px; background-color: #FAFAFA; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; border-radius: 5px;
+    }
+    .trainees-stats h2{
+        font-size: 20px; margin-bottom: 1rem;color:#315B87
+    }
     .stat-item {
         display: flex;
         justify-content: space-between;
@@ -216,7 +227,9 @@ function get_recent_group_projects()
     .stat-item p {
         font-size: 16px;
     }
-
+    .table{
+        width:32.5vw;margin-top: 20px; background-color: #FAFAFA; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; border-radius: 5px; padding: 10px;
+    }
     .table th,
     .table td {
         padding: 8px;
