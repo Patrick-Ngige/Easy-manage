@@ -46,13 +46,13 @@ curl_close($ch);
     <div class="page-trainer-sidenav">
         <?php get_template_part('sidenav-trainer'); ?>
     </div>
-    <div style="padding:1rem;width:80vw;margin-left:0rem">
-        <div style="padding:1rem;">
+    <div class="main-container">
+        <div class="container-1">
             <!-- Add buttons and search bar here -->
-            <div style="display: flex; align-items: center; justify-content: end; margin-bottom: 1rem;">
+            <div class="search-bar">
                 <?php echo do_shortcode('[search_bar]'); ?>
             </div>
-            <div class="scrollable-container" style="height: 400px; overflow: auto;">
+            <div class="scrollable-container" >
                 <table class="table align-middle mb-0 bg-white table-hover"
                     style="width: 90%; margin-left: 5%; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; margin-top: 3%;">
                     <thead class="bg-light fixed-thead">
@@ -129,6 +129,18 @@ get_footer();
     }
     .page-trainer-sidenav{
         margin-top:-1.99rem;width:20vw
+    }
+    .main-container{
+        padding:1rem;width:80vw;margin-left:0rem
+    }
+    .container-1{
+        padding:1rem;
+    }
+    .search-bar{
+        display: flex; align-items: center; justify-content: end; margin-bottom: 1rem;
+    }
+    .scrollable-container{
+        height: 400px; overflow: auto;
     }
    .fixed-thead {
         position: sticky;
