@@ -46,7 +46,7 @@ if (isset($_POST['soft_delete'])) {
         <?php get_template_part('sidenav-trainer'); ?>
     </div>
     <div class="main-container">
-        <div style="padding:1rem;">
+        <div class="div-1">
             <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
                 <div style="display: flex; align-items: center; gap:5vw; margin-bottom: 1rem;">
                     <a href="http://localhost/easy-manage/trainer-group-projects/"
@@ -150,5 +150,8 @@ if (isset($_POST['soft_delete'])) {
     }
     .main-container{
         padding:1rem;width:80vw;margin-left:0rem
+    }
+    .div-1{
+        padding:1rem;
     }
 </style>
