@@ -41,7 +41,7 @@ if (isset($_POST['soft_delete'])) {
 }
 ?>
 
-<div style="width:100vw;height:90vh;display:flex;flex-direction:row;margin-top:-2.45rem">
+<div class="main-div">
     <div class="page-trainee-dashboard" style="margin-top:-1.99rem;width:20vw">
         <?php get_template_part('sidenav-trainer'); ?>
     </div>
@@ -140,3 +140,9 @@ if (isset($_POST['soft_delete'])) {
         $('[data-bs-toggle="tooltip"]').tooltip();
     });
 </script>
+
+<style>
+    .main-div{
+        width:100vw;height:90vh;display:flex;flex-direction:row;margin-top:-2.45rem
+    }
+</style>
