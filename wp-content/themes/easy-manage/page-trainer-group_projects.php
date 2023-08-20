@@ -50,7 +50,7 @@ if (isset($_POST['soft_delete'])) {
             <div class="floating-div">
                 <div class="floating-btns">
                     <a href="http://localhost/easy-manage/trainer-group-projects/"
-                        style="text-decoration:none;padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+                        id="float-btn">
                         Creat Group Project
                     </a>
                     <a href="http://localhost/easy-manage/deactivated-projects" class="floating-btn"
@@ -159,5 +159,12 @@ if (isset($_POST['soft_delete'])) {
     }
     .floating-btns{
         display: flex; align-items: center; gap:5vw; margin-bottom: 1rem;
+    }
+    #float-btn{
+        text-decoration:none;padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    #float-btn:hover{
+        color: #FAFAFA;
+        background-color: #315B87;
     }
 </style>
