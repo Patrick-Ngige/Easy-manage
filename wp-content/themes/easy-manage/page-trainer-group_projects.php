@@ -47,8 +47,8 @@ if (isset($_POST['soft_delete'])) {
     </div>
     <div class="main-container">
         <div class="div-1">
-            <div class="floating-btns">
-                <div style="display: flex; align-items: center; gap:5vw; margin-bottom: 1rem;">
+            <div class="floating-div">
+                <div class="float-btns">
                     <a href="http://localhost/easy-manage/trainer-group-projects/"
                         style="text-decoration:none;padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
                         Creat Group Project
@@ -154,7 +154,10 @@ if (isset($_POST['soft_delete'])) {
     .div-1{
         padding:1rem;
     }
-    .floating-btns{
+    .floating-div{
         display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;
+    }
+    .floating-btns{
+        display: flex; align-items: center; gap:5vw; margin-bottom: 1rem;
     }
 </style>
