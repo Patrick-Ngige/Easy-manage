@@ -42,7 +42,7 @@ if (isset($_POST['soft_delete'])) {
 ?>
 
 <div class="main-div">
-    <div class="page-trainee-dashboard" style="margin-top:-1.99rem;width:20vw">
+    <div class="page-trainer-sidenav">
         <?php get_template_part('sidenav-trainer'); ?>
     </div>
     <div style="padding:1rem;width:80vw;margin-left:0rem">
@@ -144,5 +144,8 @@ if (isset($_POST['soft_delete'])) {
 <style>
     .main-div{
         width:100vw;height:90vh;display:flex;flex-direction:row;margin-top:-2.45rem
+    }
+    .page-trainer-sidenav{
+        margin-top:-1.99rem;width:20vw
     }
 </style>
