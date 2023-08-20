@@ -58,7 +58,7 @@ if (isset($_POST['soft_delete'])) {
                         Deactivated projects
                     </a>
                 </div>
-                <div style="display: flex; align-items: center; justify-content: end;">
+                <div class="search-bar">
                     <?php echo do_shortcode('[search_bar]'); ?>
                 </div>
             </div>
@@ -166,5 +166,8 @@ if (isset($_POST['soft_delete'])) {
     #float-btn:hover{
         color: #FAFAFA;
         background-color: #315B87;
+    }
+    .search-bar{
+        display: flex; align-items: center; justify-content: end;
     }
 </style>
