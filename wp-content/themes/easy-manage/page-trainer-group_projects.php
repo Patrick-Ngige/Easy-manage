@@ -49,12 +49,10 @@ if (isset($_POST['soft_delete'])) {
         <div class="div-1">
             <div class="floating-div">
                 <div class="floating-btns">
-                    <a href="http://localhost/easy-manage/trainer-group-projects/"
-                        id="float-btn">
+                    <a href="http://localhost/easy-manage/trainer-group-projects/" id="float-btn">
                         Creat Group Project
                     </a>
-                    <a href="http://localhost/easy-manage/deactivated-projects" 
-                        id="float-btn">
+                    <a href="http://localhost/easy-manage/deactivated-projects" id="float-btn">
                         Deactivated projects
                     </a>
                 </div>
@@ -142,32 +140,62 @@ if (isset($_POST['soft_delete'])) {
 </script>
 
 <style>
-    .main-div{
-        width:100vw;height:90vh;display:flex;flex-direction:row;margin-top:-2.45rem
+    .main-div {
+        width: 100vw;
+        height: 90vh;
+        display: flex;
+        flex-direction: row;
+        margin-top: -2.45rem
     }
-    .page-trainer-sidenav{
-        margin-top:-1.99rem;width:20vw
+
+    .page-trainer-sidenav {
+        margin-top: -1.99rem;
+        width: 20vw
     }
-    .main-container{
-        padding:1rem;width:80vw;margin-left:0rem
+
+    .main-container {
+        padding: 1rem;
+        width: 80vw;
+        margin-left: 0rem
     }
-    .div-1{
-        padding:1rem;
+
+    .div-1 {
+        padding: 1rem;
     }
-    .floating-div{
-        display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;
+
+    .floating-div {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1rem;
     }
-    .floating-btns{
-        display: flex; align-items: center; gap:5vw; margin-bottom: 1rem;
+
+    .floating-btns {
+        display: flex;
+        align-items: center;
+        gap: 5vw;
+        margin-bottom: 1rem;
     }
-    #float-btn{
-        text-decoration:none;padding: 0.5rem 1rem; border-radius: 10px; background-color: #FAFAFA; border: none; color: #315B87; font-size: 1rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    #float-btn {
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        border-radius: 10px;
+        background-color: #FAFAFA;
+        border: none;
+        color: #315B87;
+        font-size: 1rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
-    #float-btn:hover{
+
+    #float-btn:hover {
         color: #FAFAFA;
         background-color: #315B87;
     }
-    .search-bar{
-        display: flex; align-items: center; justify-content: end;
+
+    .search-bar {
+        display: flex;
+        align-items: center;
+        justify-content: end;
     }
 </style>
