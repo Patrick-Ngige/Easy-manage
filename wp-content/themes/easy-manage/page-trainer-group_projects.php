@@ -92,7 +92,7 @@ if (isset($_POST['soft_delete'])) {
                                 </div>
                             </td>
                             <td>
-                                <p class="fw-normal mb-1">
+                                <p>
                                     <?php echo $project['project_name'] ?>
                                 </p>
                             </td>
