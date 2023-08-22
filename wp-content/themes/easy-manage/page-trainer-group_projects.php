@@ -213,10 +213,10 @@ if (isset($_POST['soft_delete'])) {
     td p{
         font-weight:normal; margin-bottom:1rem
     }
-    .btn-soft-delete{
+    .btn-soft-delete, .edit-btn{
         padding:6px;border:none
     }
-    .btn-soft-delete img{
+    .btn-soft-delete img, .edit-btn img{
         width:25px;
     }
 </style>
