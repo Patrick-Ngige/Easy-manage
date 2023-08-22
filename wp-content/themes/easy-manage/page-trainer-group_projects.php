@@ -102,7 +102,7 @@ if (isset($_POST['soft_delete'])) {
                                 </p>
                             </td>
                             <td>
-                                <p class="fw-normal mb-1">
+                                <p>
                                     <?php echo $project['due_date'] ?>
                                 </p>
                             </td>
