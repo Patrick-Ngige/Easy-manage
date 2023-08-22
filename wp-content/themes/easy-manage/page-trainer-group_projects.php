@@ -210,4 +210,7 @@ if (isset($_POST['soft_delete'])) {
     .td-div-2{
         margin-left: 1rem;
     }
+    td h2{
+        font-weight:normal; margin-bottom:1rem
+    }
 </style>
