@@ -204,4 +204,7 @@ if (isset($_POST['soft_delete'])) {
     .tr-table{
         font-size:large;color:#315B87;padding-left:2rem
     }
+    .td-div-1{
+        display:flex; align-items:center
+    }
 </style>
