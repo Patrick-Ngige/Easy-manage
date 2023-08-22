@@ -60,8 +60,7 @@ if (isset($_POST['soft_delete'])) {
                     <?php echo do_shortcode('[search_bar]'); ?>
                 </div>
             </div>
-            <table class="table align-middle table-hover"
-                >
+            <table class="table align-middle table-hover">
                 <thead class="bg-light">
                     <tr class="tr-head">
                         <th>Trainee</th>
@@ -112,12 +111,12 @@ if (isset($_POST['soft_delete'])) {
                                     <button type="submit" name="soft_delete" class="btn-soft-delete" data-bs-toggle="tooltip"
                                         data-bs-placement="top" title="Delete">
                                         <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/pause-2.png"
-                                             alt="delete button">
+                                            alt="delete button">
                                     </button>
                                     <a href="http://localhost/easy-manage/update-group-project/?id=<?php echo $project['group_id'] ?>"
-                                         data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" class="edit-btn"><img
+                                        data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" class="edit-btn"><img
                                             src="http://localhost/easy-manage/wp-content/uploads/2023/06/edit.png"
-                                             alt="edit button"></a> &nbsp;&nbsp;
+                                            alt="edit button"></a> &nbsp;&nbsp;
                                 </form>
                             </td>
                             </tr>
@@ -198,25 +197,42 @@ if (isset($_POST['soft_delete'])) {
         align-items: center;
         justify-content: end;
     }
-    .table{
-        width:90%;margin-left:5%;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;margin-top:3%;
+
+    .table {
+        width: 90%;
+        margin-left: 5%;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        margin-top: 3%;
     }
-    .tr-table{
-        font-size:large;color:#315B87;padding-left:2rem
+
+    .tr-table {
+        font-size: large;
+        color: #315B87;
+        padding-left: 2rem
     }
-    .td-div-1{
-        display:flex; align-items:center
+
+    .td-div-1 {
+        display: flex;
+        align-items: center
     }
-    .td-div-2{
+
+    .td-div-2 {
         margin-left: 1rem;
     }
-    td p{
-        font-weight:normal; margin-bottom:1rem
+
+    td p {
+        font-weight: normal;
+        margin-bottom: 1rem
     }
-    .btn-soft-delete, .edit-btn{
-        padding:6px;border:none
+
+    .btn-soft-delete,
+    .edit-btn {
+        padding: 6px;
+        border: none
     }
-    .btn-soft-delete img, .edit-btn img{
-        width:25px;
+
+    .btn-soft-delete img,
+    .edit-btn img {
+        width: 25px;
     }
 </style>
