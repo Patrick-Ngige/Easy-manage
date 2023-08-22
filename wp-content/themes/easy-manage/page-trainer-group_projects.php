@@ -216,4 +216,7 @@ if (isset($_POST['soft_delete'])) {
     .btn-soft-delete{
         padding:6px;border:none
     }
+    .btn-soft-delete img{
+        width:25px;
+    }
 </style>
