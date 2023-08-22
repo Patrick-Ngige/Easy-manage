@@ -207,4 +207,7 @@ if (isset($_POST['soft_delete'])) {
     .td-div-1{
         display:flex; align-items:center
     }
+    .td-div-2{
+        margin-left: 1rem;
+    }
 </style>
