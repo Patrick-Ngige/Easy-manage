@@ -110,7 +110,7 @@ if (isset($_POST['soft_delete'])) {
                                 <form method="POST">
                                     <input type="hidden" name="group_id" value="<?php echo $project['group_id']; ?>">
                                     <button type="submit" name="soft_delete" class="btn-soft-delete" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" title="Delete" style="padding:6px;border:none">
+                                        data-bs-placement="top" title="Delete">
                                         <img src="http://localhost/easy-manage/wp-content/uploads/2023/06/pause-2.png"
                                             style="width:25px;" alt="">
                                     </button>
