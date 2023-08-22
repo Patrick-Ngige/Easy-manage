@@ -213,4 +213,7 @@ if (isset($_POST['soft_delete'])) {
     td p{
         font-weight:normal; margin-bottom:1rem
     }
+    .btn-soft-delete{
+        padding:6px;border:none
+    }
 </style>
