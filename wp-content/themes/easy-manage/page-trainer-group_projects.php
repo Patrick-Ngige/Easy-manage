@@ -84,7 +84,7 @@ if (isset($_POST['soft_delete'])) {
                             <tr></tr>
                             <td>
                                 <div class="td-div-1">
-                                    <div class="ms-3">
+                                    <div class="td-div-2">
                                         <p class="mb-1">
                                             <?php echo $project['assigned_members'] ?>
                                         </p>
