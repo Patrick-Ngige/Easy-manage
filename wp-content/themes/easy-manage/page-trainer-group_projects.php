@@ -63,7 +63,7 @@ if (isset($_POST['soft_delete'])) {
             <table class="table align-middle table-hover"
                 >
                 <thead class="bg-light">
-                    <tr style="font-size:large;color:#315B87;padding-left:2rem">
+                    <tr class="tr-head">
                         <th>Trainee</th>
                         <th>Project</th>
                         <th>Status</th>
