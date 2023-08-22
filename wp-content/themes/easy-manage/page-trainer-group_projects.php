@@ -97,7 +97,7 @@ if (isset($_POST['soft_delete'])) {
                                 </p>
                             </td>
                             <td>
-                                <p class="fw-normal mb-1">
+                                <p>
                                     <?php echo ($project['group_status'] == 0 ? '<span style="color:green;">Ongoing</span>' : 'Completed') ?>
                                 </p>
                             </td>
