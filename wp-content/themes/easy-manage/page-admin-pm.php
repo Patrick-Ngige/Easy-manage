@@ -131,7 +131,6 @@ if (isset($_POST['soft_delete'])) {
         </div>
     </div>
 </div>
-
 <style>
     .pm-main-div {
         width: 100vw;
