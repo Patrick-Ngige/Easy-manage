@@ -236,4 +236,6 @@ if (isset($_POST['soft_delete'])) {
     $(function () {
         $('[data-bs-toggle="tooltip"]').tooltip();
     });
+     src="https://code.jquery.com/jquery-3.6.0.min.js"
+
 </script>

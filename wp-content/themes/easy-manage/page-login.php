@@ -55,7 +55,7 @@ if ($login_attempts >= count($wait_times)) {
 
                     if ($login_attempts < count($wait_times)) {
                         $remaining_time = $wait_times[$login_attempts];
-                        $error_message = '<span style="color:#d11a2a">Invalid email or password. Please try again.</span>';
+                        $error_message = '<span class="error-message" style="color:#d11a2a">Invalid email or password. Please try again.</span>';
                         $show_attempts = true;
                     } else {
                         $remaining_time = $wait_times[$login_attempts];
