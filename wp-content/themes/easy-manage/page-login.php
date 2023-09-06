@@ -177,8 +177,6 @@ if ($login_attempts >= count($wait_times)) {
     </div>
 </div>
 
-
-
 <style>
     #login-btn{
     cursor: pointer;
