@@ -237,4 +237,4 @@ if (isset($_POST['soft_delete'])) {
     });
      src="https://code.jquery.com/jquery-3.6.0.min.js"
 
-</script>
+</script> 
